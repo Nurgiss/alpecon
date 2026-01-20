@@ -1,0 +1,9 @@
+@import 'tailwindcss' source(none);
+@source '../**/*.{js,ts,jsx,tsx}';
+
+@import 'tw-animate-css';
+
+@theme {
+  --font-geologica: 'Geologica', sans-serif;
+  --font-geist: 'Geist', sans-serif;
+}
