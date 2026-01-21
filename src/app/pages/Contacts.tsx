@@ -1,225 +1,120 @@
-import { ImagePlaceholder } from '@/app/components/ImagePlaceholder';
 import { Button } from '@/app/components/Button';
+import { useLanguage } from '@/app/contexts/LanguageContext';
 
 export function Contacts() {
+  const { t } = useLanguage();
   return (
     <div>
       {/* Hero Section - Full Screen */}
-      <section className="relative h-screen flex items-center">
+      <section className="relative min-h-screen flex items-center">
         <div className="absolute inset-0">
-          <ImagePlaceholder height="h-full" label="Background Video/Image" className="rounded-none" />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/60"></div>
+          <img
+            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=2000"
+            alt={t('contacts.hero.title')}
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/70 to-black/85"></div>
         </div>
-        <div className="relative z-10 container mx-auto px-8 pt-32">
-          <h1 className="text-white text-7xl font-bold mb-6 uppercase">Контакты</h1>
-          <p className="text-white/90 text-2xl max-w-3xl">
-            Свяжитесь с нами удобным способом
-          </p>
+        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 lg:pt-32">
+          <div className="pl-4 sm:pl-8">
+            <h1 className="text-white text-4xl sm:text-5xl lg:text-7xl font-bold mb-6 uppercase tracking-tight leading-[1.1]">
+              {t('contacts.hero.title')}
+            </h1>
+            <p className="text-white/90 text-base sm:text-lg lg:text-2xl max-w-3xl leading-tight">
+              {t('contacts.hero.subtitle')}
+            </p>
+          </div>
         </div>
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-12 border-2 border-white/50 rounded-full flex items-start justify-center p-2">
-            <div className="w-1 h-4 bg-white rounded-full"></div>
+          <div className="w-6 h-12 border-2 border-white/50 flex items-start justify-center p-2 rounded-md">
+            <div className="w-1 h-4 bg-white rounded-md"></div>
           </div>
         </div>
       </section>
 
-      {/* Contact Information */}
-      <section className="py-32 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-3 gap-12 mb-20">
-            {[
-              {
-                icon: '📞',
-                title: 'Телефон',
-                line1: '+7 (495) 123-45-67',
-                line2: '+7 (495) 123-45-68',
-              },
-              {
-                icon: '✉️',
-                title: 'Email',
-                line1: 'info@plant.ru',
-                line2: 'sales@plant.ru',
-              },
-              {
-                icon: '🕐',
-                title: 'Режим работы',
-                line1: 'Пн-Пт: 9:00 - 18:00',
-                line2: 'Сб-Вс: выходной',
-              },
-            ].map((contact, idx) => (
-              <div key={idx} className="bg-white rounded-md shadow-xl p-10 text-center border border-gray-100 hover:shadow-2xl transition-all hover:-translate-y-2">
-                <div className="text-6xl mb-6">{contact.icon}</div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">{contact.title}</h3>
-                <p className="text-xl text-gray-700 mb-2">{contact.line1}</p>
-                <p className="text-xl text-gray-700">{contact.line2}</p>
-              </div>
-            ))}
-          </div>
+      {/* Contact Section */}
+      <section className="relative py-16 sm:py-24 lg:py-32 bg-[#0D0D0D] text-white overflow-hidden">
 
-          <div className="grid grid-cols-2 gap-16">
-            {/* Contact Form */}
-            <div>
-              <h2 className="text-4xl font-bold text-gray-900 mb-8">Напишите нам</h2>
-              <div className="bg-white rounded-md shadow-2xl p-10 border border-gray-200">
-                <div className="space-y-6">
-                  <div>
-                    <label className="block text-sm font-bold text-gray-700 mb-3">Ваше имя *</label>
-                    <input
-                      type="text"
-                      className="w-full px-6 py-4 border-2 border-gray-200 rounded focus:border-green-500 focus:outline-none transition-colors"
-                      placeholder="Иван Иванов"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-bold text-gray-700 mb-3">Email *</label>
-                    <input
-                      type="email"
-                      className="w-full px-6 py-4 border-2 border-gray-200 rounded focus:border-green-500 focus:outline-none transition-colors"
-                      placeholder="example@mail.ru"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-bold text-gray-700 mb-3">Телефон</label>
-                    <input
-                      type="tel"
-                      className="w-full px-6 py-4 border-2 border-gray-200 rounded focus:border-green-500 focus:outline-none transition-colors"
-                      placeholder="+7 (999) 123-45-67"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-bold text-gray-700 mb-3">Тема обращения</label>
-                    <select className="w-full px-6 py-4 border-2 border-gray-200 rounded focus:border-green-500 focus:outline-none transition-colors">
-                      <option>Общий вопрос</option>
-                      <option>Оптовые поставки</option>
-                      <option>Качество продукции</option>
-                      <option>Сотрудничество</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-bold text-gray-700 mb-3">Сообщение *</label>
-                    <textarea
-                      rows={6}
-                      className="w-full px-6 py-4 border-2 border-gray-200 rounded focus:border-green-500 focus:outline-none resize-none transition-colors"
-                      placeholder="Опишите ваш вопрос..."
-                    />
-                  </div>
-                  <Button size="lg" className="w-full">Отправить сообщение</Button>
-                </div>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            {/* Left - Main CTA */}
+            <div className="pl-4 sm:pl-8">
+              <div className="inline-block bg-white text-gray-900 px-6 py-2 text-xs font-bold mb-6 uppercase tracking-widest rounded-lg shadow-lg">
+                {t('contacts.section.badge')}
               </div>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 leading-tight uppercase tracking-tight">
+                {t('contacts.section.title')}
+              </h2>
+              <p className="text-base sm:text-lg text-white/90 mb-8 leading-relaxed">
+                {t('contacts.section.subtitle')}
+              </p>
             </div>
 
-            {/* Map & Address */}
-            <div>
-              <h2 className="text-4xl font-bold text-gray-900 mb-8">Как нас найти</h2>
-              <div className="relative mb-8">
-                <div className="absolute -inset-4 bg-gradient-to-r from-green-400 to-blue-500 rounded-md opacity-20 blur-2xl"></div>
-                <ImagePlaceholder height="h-96" label="Map" className="relative" />
+            {/* Right - Contact Cards */}
+            <div className="space-y-6">
+              <div className="bg-[#2A2A2A] p-6 rounded-lg hover:bg-[#333333] transition-all">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center text-2xl flex-shrink-0">
+                    📞
+                  </div>
+                  <div>
+                    <div className="text-sm text-white/70 mb-1 uppercase tracking-wider font-bold">
+                      {t('contacts.section.phone')}
+                    </div>
+                    <div className="text-lg font-bold">
+                      +7 (727) 123-45-67
+                    </div>
+                    <div className="text-sm text-white/80">
+                      Пн-Пт: 9:00 - 18:00
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className="bg-white rounded-md shadow-2xl p-8 border border-gray-200">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">Адрес предприятия</h3>
-                <div className="space-y-4 text-lg text-gray-700">
-                  <p className="flex items-start">
-                    <span className="mr-3 text-2xl">📍</span>
-                    <span>123456, Россия, Московская область,<br />г. Москва, ул. Промышленная, 15</span>
-                  </p>
-                  <p className="flex items-center">
-                    <span className="mr-3 text-2xl">🚗</span>
-                    <span>10 минут от МКАД</span>
-                  </p>
-                  <p className="flex items-center">
-                    <span className="mr-3 text-2xl">🚇</span>
-                    <span>Ст. метро "Промышленная", 15 мин пешком</span>
-                  </p>
+
+              <div className="bg-[#2A2A2A] p-6 rounded-lg hover:bg-[#333333] transition-all">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center text-2xl flex-shrink-0">
+                    ✉️
+                  </div>
+                  <div>
+                    <div className="text-sm text-white/70 mb-1 uppercase tracking-wider font-bold">
+                      {t('contacts.section.email')}
+                    </div>
+                    <div className="text-lg font-bold">
+                      info@alpecon.kz
+                    </div>
+                    <div className="text-sm text-white/80">
+                      Ответим в течение 24 часов
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-[#2A2A2A] p-6 rounded-lg hover:bg-[#333333] transition-all">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center text-2xl flex-shrink-0">
+                    📍
+                  </div>
+                  <div>
+                    <div className="text-sm text-white/70 mb-1 uppercase tracking-wider font-bold">
+                      {t('contacts.section.address')}
+                    </div>
+                    <div className="text-lg font-bold">
+                      г. Алматы
+                    </div>
+                    <div className="text-sm text-white/80">
+                      {t('contacts.section.addressText')}
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
 
-      {/* Departments */}
-      <section className="py-32 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <h2 className="text-5xl font-bold text-gray-900 mb-20 text-center">Отделы и службы</h2>
-          <div className="grid grid-cols-2 gap-10">
-            {[
-              {
-                title: 'Отдел продаж',
-                phone: '+7 (495) 123-45-67',
-                email: 'sales@plant.ru',
-                manager: 'Иванова Мария Петровна',
-              },
-              {
-                title: 'Отдел снабжения',
-                phone: '+7 (495) 123-45-68',
-                email: 'supply@plant.ru',
-                manager: 'Петров Сергей Иванович',
-              },
-              {
-                title: 'Отдел качества',
-                phone: '+7 (495) 123-45-69',
-                email: 'quality@plant.ru',
-                manager: 'Сидорова Елена Владимировна',
-              },
-              {
-                title: 'Бухгалтерия',
-                phone: '+7 (495) 123-45-70',
-                email: 'accounting@plant.ru',
-                manager: 'Кузнецова Ольга Николаевна',
-              },
-            ].map((dept, idx) => (
-              <div key={idx} className="bg-white rounded-md shadow-xl p-8 border border-gray-100 hover:shadow-2xl transition-shadow">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">{dept.title}</h3>
-                <div className="space-y-3 text-lg text-gray-700">
-                  <p className="flex justify-between">
-                    <span className="text-gray-600 font-medium">Телефон:</span>
-                    <span className="font-bold">{dept.phone}</span>
-                  </p>
-                  <p className="flex justify-between">
-                    <span className="text-gray-600 font-medium">Email:</span>
-                    <span className="font-bold text-green-600">{dept.email}</span>
-                  </p>
-                  <p className="flex justify-between">
-                    <span className="text-gray-600 font-medium">Руководитель:</span>
-                    <span className="font-bold">{dept.manager}</span>
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className="py-32 bg-white">
-        <div className="container mx-auto px-4">
-          <h2 className="text-5xl font-bold text-gray-900 mb-20 text-center">Часто задаваемые вопросы</h2>
-          <div className="max-w-4xl mx-auto space-y-6">
-            {[
-              {
-                q: 'Как оформить оптовый заказ?',
-                a: 'Свяжитесь с нашим отделом продаж по телефону +7 (495) 123-45-67 или отправьте запрос на sales@plant.ru',
-              },
-              {
-                q: 'Какие документы необходимы для сотрудничества?',
-                a: 'Для юридических лиц необходимы реквизиты компании и копия свидетельства о регистрации',
-              },
-              {
-                q: 'Возможна ли доставка продукции?',
-                a: 'Да, мы организуем доставку по всей России и странам СНГ',
-              },
-              {
-                q: 'Можно ли посетить производство?',
-                a: 'Да, мы проводим экскурсии для партнёров. Предварительная запись обязательна',
-              },
-            ].map((faq, idx) => (
-              <div key={idx} className="bg-white rounded-md shadow-xl p-8 border border-gray-100 hover:shadow-2xl transition-shadow">
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{faq.q}</h3>
-                <p className="text-lg text-gray-600">{faq.a}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+        {/* Decorative Elements */}
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
+        <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
       </section>
     </div>
   );

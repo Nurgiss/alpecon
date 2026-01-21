@@ -5,11 +5,10 @@ import { useLanguage } from '@/app/contexts/LanguageContext';
 import { useState, useEffect } from 'react';
 import { newsApi, type NewsItem } from '@/services/newsApi';
 import { Link } from 'react-router-dom';
+import imgHeroBackground from '@/assets/Hero.png';
+import imgDirector from '@/assets/ceo.png';
+
 const imgGeminiGeneratedImage = "https://images.unsplash.com/photo-1594737626072-90dc274bc2bc?w=800&auto=format&fit=crop";
-
-const imgHeroBackground = "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1920&auto=format&fit=crop";
-
-const imgDirector = "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&auto=format&fit=crop";
 
 export function Home() {
   const { t, language } = useLanguage();
@@ -61,56 +60,30 @@ export function Home() {
           <div className="absolute inset-0 bg-black/50"></div>
         </div>
 
-        {/* Content */}
+        {/* Content - Centered */}
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 lg:pt-32">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 items-center">
-            {/* Left side */}
-            <div className="space-y-8">
-              <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md px-6 py-2 rounded-md">
-                <span className="text-white/90 text-xs font-bold tracking-widest uppercase">
-                  {t('home.hero.badge')}
-                </span>
-              </div>
-
-              <h1 className="text-white font-bold mb-6 sm:mb-8 leading-[1.1] uppercase text-3xl sm:text-4xl lg:text-[48px] tracking-tight">
-                {t('home.hero.title')}
-              </h1>
-
-              <p className="text-white/70 text-base leading-relaxed max-w-xl">
-                {language === 'ru' ? 'Передовые технологии переработки сельхозпродукции. Полный производственный цикл от сырья до готовой продукции.' : language === 'kz' ? 'Ауыл шаруашылығы өнімдерін қайта өңдеудің озық технологиялары. Шикізаттан дайын өнімге дейінгі толық өндірістік цикл.' : 'Advanced agricultural processing technologies. Full production cycle from raw materials to finished products.'}
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                <Button size="md">
-                  {t('home.hero.products')}
-                </Button>
-                <Button size="md" variant="secondary">
-                  {t('home.hero.about')}
-                </Button>
-              </div>
+          <div className="max-w-5xl mx-auto text-center">
+            <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md px-6 py-2 rounded-md mb-8">
+              <span className="text-white/90 text-xs font-bold tracking-widest uppercase">
+                {t('home.hero.badge')}
+              </span>
             </div>
 
-            {/* Right side - Card */}
-            <div className="hidden lg:flex justify-end">
-              <div className="bg-black/60 backdrop-blur-xl p-8 border-2 border-white/20 max-w-md rounded-md">
-                <div className="relative bg-[#c4c4c4] h-[220px] overflow-hidden mb-6 rounded-md">
-                  <div className="absolute inset-0 overflow-hidden">
-                    <img
-                      alt="Казахстан"
-                      className="absolute h-full w-full object-cover"
-                      src={imgGeminiGeneratedImage}
-                    />
-                  </div>
-                </div>
-                <div className="pl-4">
-                  <h3 className="text-white text-2xl font-bold mb-4 uppercase leading-tight tracking-tight">
-                    {t('home.hero.cardTitle')}
-                  </h3>
-                  <p className="text-white/80 text-sm leading-relaxed">
-                    {t('home.hero.cardDescription')}
-                  </p>
-                </div>
-              </div>
+            <h1 className="text-white font-bold mb-8 sm:mb-10 leading-[1.1] uppercase text-4xl sm:text-5xl lg:text-7xl tracking-tight">
+              {t('home.hero.title')}
+            </h1>
+
+            <p className="text-white/80 text-base sm:text-lg leading-relaxed max-w-3xl mx-auto mb-12">
+              {language === 'ru' ? 'Передовые технологии переработки сельхозпродукции. Полный производственный цикл от сырья до готовой продукции.' : language === 'kz' ? 'Ауыл шаруашылығы өнімдерін қайта өңдеудің озық технологиялары. Шикізаттан дайын өнімге дейінгі толық өндірістік цикл.' : 'Advanced agricultural processing technologies. Full production cycle from raw materials to finished products.'}
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button size="md">
+                {t('home.hero.products')}
+              </Button>
+              <Button size="md" variant="secondary">
+                {t('home.hero.about')}
+              </Button>
             </div>
           </div>
         </div>
@@ -146,7 +119,7 @@ export function Home() {
 
               {/* Right - Quote */}
               <div className="space-y-6">
-                <div className="pl-6">
+                <div>
                   <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-[1.2] uppercase tracking-tight mb-4 sm:mb-6">
                     {t('home.director.title')}
                   </h2>
@@ -341,78 +314,38 @@ export function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {[
               {
-                title: t('home.directions.canning.title'),
-                desc: t('home.directions.canning.desc'),
-                capacity: t('home.directions.canning.capacity'),
-                products: t('home.directions.canning.products'),
-                image:
-                  "https://images.unsplash.com/photo-1644375386140-f22123ceeec4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjYW5uZWQlMjB2ZWdldGFibGVzfGVufDF8fHx8MTc2ODQ3MjQwMHww&ixlib=rb-4.1.0&q=80&w=1080",
-                icon: "🥫",
+                title: 'Современный яблоневый сад',
+                icon: '🌳',
               },
               {
-                title: t('home.directions.freezing.title'),
-                desc: t('home.directions.freezing.desc'),
-                capacity: t('home.directions.freezing.capacity'),
-                products: t('home.directions.freezing.products'),
-                image:
-                  "https://images.unsplash.com/photo-1622484964723-d1456419fcb0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmcm96ZW4lMjB2ZWdldGFibGVzfGVufDF8fHx8MTc2ODQwMzQ4Nnww&ixlib=rb-4.1.0&q=80&w=1080",
-                icon: "❄️",
+                title: 'Завод по производству фруктовых и овощных концентратов и пюре',
+                icon: '🏭',
               },
               {
-                title: t('home.directions.juice.title'),
-                desc: t('home.directions.juice.desc'),
-                capacity: t('home.directions.juice.capacity'),
-                products: t('home.directions.juice.products'),
-                image:
-                  "https://images.unsplash.com/photo-1734773432473-d1a7a13c3507?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmcmVzaCUyMGZydWl0JTIwanVpY2V8ZW58MXx8fHwxNzY4NDcyNDAwfDA&ixlib=rb-4.1.0&q=80&w=1080",
-                icon: "🧃",
+                title: 'Завод по производству пектина и пищевых волокон',
+                icon: '⚗️',
+              },
+              {
+                title: 'Пункты приемки фруктов и овощей',
+                icon: '📦',
+              },
+              {
+                title: 'Фруктохранилище',
+                icon: '🏢',
+              },
+              {
+                title: 'IT Платформа',
+                icon: '💻',
               },
             ].map((item, idx) => (
               <div
                 key={idx}
-                className="group relative bg-white overflow-hidden shadow-xl hover:shadow-2xl transition-all rounded-md"
+                className="bg-white shadow-md hover:shadow-xl p-8 sm:p-10 transition-all rounded-lg min-h-[200px] flex flex-col items-center justify-center text-center"
               >
-                {/* Image with Overlay */}
-                <div className="relative h-96 sm:h-[400px] lg:h-80 overflow-hidden">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-full object-cover transition-all duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent"></div>
-
-                  {/* Content on Image */}
-                  <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
-                    <div className="pl-2 sm:pl-4 mb-4 sm:mb-6">
-                      <h3 className="text-xl sm:text-2xl font-bold text-white uppercase mb-2 sm:mb-3 leading-tight tracking-tight">
-                        {item.title}
-                      </h3>
-                      <p className="text-xs sm:text-sm text-white/90 leading-relaxed">
-                        {item.desc}
-                      </p>
-                    </div>
-
-                    {/* Stats */}
-                    <div className="grid grid-cols-2 gap-3 sm:gap-4">
-                      <div className="bg-white/10 backdrop-blur-sm text-white p-3 sm:p-4 rounded-md">
-                        <div className="text-xl sm:text-2xl font-bold">
-                          {item.capacity}
-                        </div>
-                        <div className="text-[10px] sm:text-xs font-bold uppercase tracking-widest mt-1">
-                          {language === 'ru' ? 'Мощность' : language === 'kz' ? 'Қуаты' : 'Capacity'}
-                        </div>
-                      </div>
-                      <div className="bg-white/10 backdrop-blur-sm text-white p-3 sm:p-4 rounded-md">
-                        <div className="text-xl sm:text-2xl font-bold">
-                          {item.products}
-                        </div>
-                        <div className="text-[10px] sm:text-xs font-bold uppercase tracking-widest mt-1">
-                          {language === 'ru' ? 'Продукция' : language === 'kz' ? 'Өнім' : 'Products'}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <div className="text-5xl sm:text-6xl mb-6">{item.icon}</div>
+                <h3 className="text-base sm:text-lg font-bold text-gray-900 leading-tight">
+                  {item.title}
+                </h3>
               </div>
             ))}
           </div>
@@ -433,11 +366,11 @@ export function Home() {
 
           {loading ? (
             <div className="text-center py-20">
-              <div className="text-gray-600 text-lg">Загрузка новостей...</div>
+              <div className="text-gray-600 text-lg">{t('home.news.loading')}</div>
             </div>
           ) : news.length === 0 ? (
             <div className="text-center py-20">
-              <div className="text-gray-600 text-lg">Новостей пока нет</div>
+              <div className="text-gray-600 text-lg">{t('home.news.noNews')}</div>
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
@@ -464,7 +397,7 @@ export function Home() {
                         </p>
                         <div className="mt-3 sm:mt-4">
                           <span className="inline-block bg-[#006442] text-white px-4 py-2 text-xs font-bold uppercase rounded-md shadow-lg">
-                            Подробнее
+                            {t('home.news.readMore')}
                           </span>
                         </div>
                       </div>
@@ -477,7 +410,7 @@ export function Home() {
 
           <div className="text-center mt-12">
             <Link to="/news">
-              <Button size="lg" variant="secondary">Все новости →</Button>
+              <Button size="lg" variant="secondary">{t('home.news.allNews')}</Button>
             </Link>
           </div>
         </div>
@@ -485,108 +418,6 @@ export function Home() {
 
       {/* Partners Section */}
       <Partners />
-
-      {/* CTA Section */}
-      <section className="relative py-16 sm:py-24 lg:py-32 bg-[#0D0D0D] text-white overflow-hidden rounded-xl">
-        {/* Background Image */}
-        <div className="absolute inset-0">
-          <img
-            src="https://images.unsplash.com/photo-1758599543152-a73184816eba?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMGhhbmRzaGFrZSUyMHBhcnRuZXJzaGlwfGVufDF8fHx8MTc2ODQxNTQ4M3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-            alt="Partnership"
-            className="w-full h-full object-cover opacity-30"
-          />
-          <div className="absolute inset-0 bg-[#0D0D0D]/95"></div>
-        </div>
-
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-            {/* Left - Main CTA */}
-            <div className="pl-4 sm:pl-8">
-              <div className="inline-block bg-white text-gray-900 px-6 py-2 text-xs font-bold mb-6 uppercase tracking-widest rounded-md shadow-lg">
-                Начните сотрудничество
-              </div>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 leading-tight uppercase tracking-tight">
-                Станьте нашим партнёром
-              </h2>
-              <p className="text-base sm:text-lg text-white/90 mb-8 leading-relaxed">
-                Свяжитесь с нами для обсуждения возможностей
-                партнёрства и получения индивидуального
-                коммерческого предложения
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="w-full sm:w-auto">Связаться с нами</Button>
-                <Button size="lg" variant="secondary" className="w-full sm:w-auto">
-                  Скачать презентацию
-                </Button>
-              </div>
-            </div>
-
-            {/* Right - Contact Cards */}
-            <div className="space-y-6">
-              <div className="bg-white/10 backdrop-blur-md p-6 rounded-xl hover:bg-white/15 transition-all">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-white/20 flex items-center justify-center text-2xl flex-shrink-0 border-2 border-white/40">
-                    📞
-                  </div>
-                  <div>
-                    <div className="text-sm text-white/70 mb-1 uppercase tracking-wider font-bold">
-                      Телефон
-                    </div>
-                    <div className="text-lg font-bold">
-                      +7 (727) 123-45-67
-                    </div>
-                    <div className="text-sm text-white/80">
-                      Пн-Пт: 9:00 - 18:00
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-white/10 backdrop-blur-md p-6 border-2 border-white/30 hover:border-[#006442] transition-all">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-white/20 flex items-center justify-center text-2xl flex-shrink-0 border-2 border-white/40">
-                    ✉️
-                  </div>
-                  <div>
-                    <div className="text-sm text-white/70 mb-1 uppercase tracking-wider font-bold">
-                      Email
-                    </div>
-                    <div className="text-lg font-bold">
-                      info@alpecon.kz
-                    </div>
-                    <div className="text-sm text-white/80">
-                      Ответим в течение 24 часов
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-all">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-white/20 rounded-md flex items-center justify-center text-2xl flex-shrink-0 border border-white/30">
-                    📍
-                  </div>
-                  <div>
-                    <div className="text-sm text-white/70 mb-1">
-                      Адрес
-                    </div>
-                    <div className="text-lg font-bold">
-                      г. Алматы
-                    </div>
-                    <div className="text-sm text-white/80">
-                      Республика Казахстан
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Decorative Elements */}
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
-        <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
-      </section>
     </div>
   );
 }

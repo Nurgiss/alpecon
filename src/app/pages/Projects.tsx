@@ -1,5 +1,8 @@
+import { useLanguage } from '@/app/contexts/LanguageContext';
 
 export function Projects() {
+  const { t } = useLanguage();
+  
   const projects = [
     {
       title: 'Qazaq Global Food',
@@ -45,7 +48,7 @@ export function Projects() {
         <div className="absolute inset-0">
           <img
             src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=2000"
-            alt="Проекты"
+            alt={t('projects.hero.title')}
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80"></div>
@@ -53,26 +56,26 @@ export function Projects() {
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 lg:pt-32">
           <div className="pl-4 sm:pl-8">
             <div className="inline-block bg-white/10 backdrop-blur-md px-6 py-2 text-xs font-bold mb-6 uppercase tracking-widest text-white rounded-md">
-              Наши проекты
+              {t('projects.hero.badge')}
             </div>
             <h1 className="text-white text-4xl sm:text-5xl lg:text-7xl font-bold mb-6 uppercase tracking-tight leading-[1.1]">
-              Экосистема полного цикла
+              {t('projects.hero.title')}
             </h1>
             <p className="text-white/90 text-base sm:text-xl lg:text-2xl max-w-3xl leading-tight mb-8">
-              От полей до готовой продукции — интегрированный агропромышленный кластер
+              {t('projects.hero.subtitle')}
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 max-w-2xl mt-8 sm:mt-12">
               <div className="bg-white/10 backdrop-blur-md p-5 sm:p-6 rounded-md">
                 <div className="text-3xl sm:text-4xl font-bold text-white mb-2">5</div>
-                <div className="text-xs text-white/80 uppercase tracking-wider font-bold">Проектов</div>
+                <div className="text-xs text-white/80 uppercase tracking-wider font-bold">{t('projects.hero.stat1')}</div>
               </div>
               <div className="bg-white/10 backdrop-blur-md p-5 sm:p-6 rounded-md">
                 <div className="text-3xl sm:text-4xl font-bold text-white mb-2">150K+</div>
-                <div className="text-xs text-white/80 uppercase tracking-wider font-bold">Тонн/год</div>
+                <div className="text-xs text-white/80 uppercase tracking-wider font-bold">{t('projects.hero.stat2')}</div>
               </div>
               <div className="bg-white/10 backdrop-blur-md p-5 sm:p-6 rounded-md">
                 <div className="text-3xl sm:text-4xl font-bold text-white mb-2">100%</div>
-                <div className="text-xs text-white/80 uppercase tracking-wider font-bold">Интеграция</div>
+                <div className="text-xs text-white/80 uppercase tracking-wider font-bold">{t('projects.hero.stat3')}</div>
               </div>
             </div>
           </div>
@@ -89,10 +92,10 @@ export function Projects() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="pl-4 sm:pl-8 mb-12 sm:mb-16">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 uppercase tracking-tight leading-[1.1]">
-              Наши проекты
+              {t('projects.section.title')}
             </h2>
             <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl leading-relaxed">
-              Каждый проект — это важная часть единой экосистемы, создающей добавленную стоимость на каждом этапе
+              {t('projects.section.subtitle')}
             </p>
           </div>
 
@@ -121,7 +124,7 @@ export function Projects() {
                   {/* Content */}
                   <div className="p-6 sm:p-8 lg:p-12 flex flex-col justify-center lg:order-2">
                     <div className="inline-block bg-gray-900 text-white px-4 py-2 text-xs font-bold mb-6 uppercase tracking-widest rounded-md w-fit">
-                      Проект {index + 1}
+                      {t('projects.section.project')} {index + 1}
                     </div>
                     <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 sm:mb-6 uppercase tracking-tight leading-tight">
                       {project.title}
@@ -137,7 +140,7 @@ export function Projects() {
                           {project.stats.capacity}
                         </div>
                         <div className="text-xs text-gray-600 uppercase tracking-wider font-bold">
-                          Мощность
+                          {t('projects.capacity')}
                         </div>
                       </div>
                       <div className="bg-gray-50 p-4 sm:p-6 rounded-md border-l-4 border-[#006442]">
@@ -145,7 +148,7 @@ export function Projects() {
                           {project.stats.products}
                         </div>
                         <div className="text-xs text-gray-600 uppercase tracking-wider font-bold">
-                          Продукция
+                          {t('projects.products')}
                         </div>
                       </div>
                     </div>
@@ -158,44 +161,6 @@ export function Projects() {
       </section>
 
       {/* Integration Section */}
-      <section className="relative py-16 sm:py-24 lg:py-32 bg-gray-900 text-white overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=2000"
-            alt="Integration"
-            className="w-full h-full object-cover opacity-20"
-          />
-          <div className="absolute inset-0 bg-gray-900/90"></div>
-        </div>
-
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center max-w-4xl mx-auto mb-12 sm:mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 uppercase tracking-tight">
-              Единая экосистема
-            </h2>
-            <p className="text-base sm:text-lg lg:text-xl text-white/80 leading-relaxed">
-              Все проекты интегрированы в единую цифровую платформу Alpecon AgrOS, обеспечивая максимальную эффективность и прозрачность всех процессов
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
-            {[
-              { icon: '🌱', title: 'Сырье', desc: 'Контроль от поля' },
-              { icon: '⚙️', title: 'Переработка', desc: 'Современное производство' },
-              { icon: '📊', title: 'Аналитика', desc: 'Цифровой контроль' },
-              { icon: '🚚', title: 'Логистика', desc: 'Быстрая доставка' },
-            ].map((item, idx) => (
-              <div key={idx} className="text-center group">
-                <div className="w-20 h-20 sm:w-24 sm:h-24 mx-auto mb-4 sm:mb-6 bg-white/10 backdrop-blur-md rounded-md flex items-center justify-center text-4xl sm:text-5xl border-2 border-white/20 group-hover:border-[#006442] group-hover:bg-[#006442]/20 transition-all">
-                  {item.icon}
-                </div>
-                <h3 className="text-base sm:text-xl font-bold mb-2 uppercase">{item.title}</h3>
-                <p className="text-xs sm:text-sm text-white/70">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

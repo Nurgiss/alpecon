@@ -21,7 +21,8 @@ export function Admin() {
     category_kz: '',
     category_en: '',
     image: '',
-    author: 'Алпекон Групп'
+    author: 'Алпекон Групп',
+    source: ''
   });
 
   useEffect(() => {
@@ -79,6 +80,7 @@ export function Admin() {
         category: formData.category_ru,
         image: formData.image,
         author: formData.author,
+        source: formData.source,
         // Добавляем мультиязычные поля
         title_ru: formData.title_ru,
         title_kz: formData.title_kz,
@@ -110,7 +112,8 @@ export function Admin() {
         category_kz: '', 
         category_en: '', 
         image: '', 
-        author: 'Алпекон Групп' 
+        author: 'Алпекон Групп',
+        source: ''
       });
       setShowForm(false);
       setEditingNews(null);
@@ -134,7 +137,8 @@ export function Admin() {
       category_kz: (newsItem as any).category_kz || '',
       category_en: (newsItem as any).category_en || '',
       image: newsItem.image,
-      author: newsItem.author
+      author: newsItem.author,
+      source: newsItem.source || ''
     });
     setShowForm(true);
   };
@@ -166,7 +170,8 @@ export function Admin() {
       category_kz: '', 
       category_en: '', 
       image: '', 
-      author: 'Алпекон Групп' 
+      author: 'Алпекон Групп',
+      source: ''
     });
   };
 
@@ -344,22 +349,54 @@ export function Admin() {
                     type="text"
                     value={formData.author}
                     onChange={(e) => setFormData({ ...formData, author: e.target.value })}
-                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-md focus:border-[#006442] focus:outline-none"
+                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-md focus:border-[#006442] focus:outline-none text-sm"
                   />
+                  <p className="text-xs text-gray-500 mt-1">Источник (отображается маленьким шрифтом)</p>
                 </div>
 
                 <div>
                   <label className="block text-sm font-bold text-gray-700 mb-2 uppercase">
-                    {t('admin.form.image')}
+                    Ссылка на источник
                   </label>
                   <input
-                    type="file"
-                    accept="image/*"
-                    onChange={handleImageUpload}
-                    disabled={uploading}
-                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-md focus:border-[#006442] focus:outline-none file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-[#006442] file:text-white hover:file:bg-[#005033] disabled:opacity-50"
+                    type="url"
+                    value={formData.source}
+                    onChange={(e) => setFormData({ ...formData, source: e.target.value })}
+                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-md focus:border-[#006442] focus:outline-none"
+                    placeholder="https://example.com/article"
                   />
-                  {uploading && <p className="text-sm text-gray-600 mt-2">Загрузка...</p>}
+                  <p className="text-xs text-gray-500 mt-1">URL ссылки на оригинальную статью (опционально)</p>
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-sm font-bold text-gray-700 mb-2 uppercase">
+                  {t('admin.form.image')}
+                </label>
+                <div className="space-y-3">
+                  <div>
+                    <input
+                      type="text"
+                      value={formData.image}
+                      onChange={(e) => setFormData({ ...formData, image: e.target.value })}
+                      className="w-full px-4 py-3 border-2 border-gray-300 rounded-md focus:border-[#006442] focus:outline-none"
+                      placeholder="https://example.com/image.jpg или загрузите файл ниже"
+                    />
+                    <p className="text-xs text-gray-500 mt-1">Вставьте URL изображения</p>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <span className="text-sm text-gray-600">или</span>
+                  </div>
+                  <div>
+                    <input
+                      type="file"
+                      accept="image/*"
+                      onChange={handleImageUpload}
+                      disabled={uploading}
+                      className="w-full px-4 py-3 border-2 border-gray-300 rounded-md focus:border-[#006442] focus:outline-none file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-[#006442] file:text-white hover:file:bg-[#005033] disabled:opacity-50"
+                    />
+                    {uploading && <p className="text-sm text-gray-600 mt-2">Загрузка...</p>}
+                  </div>
                 </div>
               </div>
 

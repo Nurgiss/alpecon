@@ -98,8 +98,10 @@ export const translations = {
           readTime: "5 мин чтения",
           excerpt: "Наше предприятие подписало долгосрочное соглашение о сотрудничестве с Министерством сельского хозяйства"
         },
-        readMore: "Читать далее",
-        allNews: "Все новости"
+        loading: "Загрузка новостей...",
+        noNews: "Новостей пока нет",
+        readMore: "Подробнее",
+        allNews: "Все новости →"
       },
       partners: {
         title: "Наши партнёры",
@@ -127,6 +129,149 @@ export const translations = {
           capacity: "50 т/сутки",
           products: "35+ видов"
         }
+      }
+    },
+    about: {
+      hero: {
+        title: "Alpecon Group",
+        subtitle: "Казахстанская инвестиционная компания"
+      },
+      mission: {
+        title: "О нас",
+        text1: "Alpecon Group — казахстанская инвестиционная компания, реализующая в Алматинской области масштабный экспортно-ориентированный проект по созданию интегрированного агропромышленного кластера глубокой переработки фруктов и овощей.",
+        text2: "Мы формируем современную экосистему, объединяющую фермеров, промышленную переработку, цифровые технологии и международные рынки.",
+        text3: "Наша цель — развитие глубокой переработки сельхозсырья в Казахстане, рост несырьевого экспорта и выпуск конкурентоспособной продукции с высокой добавленной стоимостью."
+      },
+      values: {
+        title: "Наши ценности",
+        quality: {
+          title: "Качество",
+          desc: "Строгий контроль на всех этапах производства и постоянное совершенствование процессов"
+        },
+        innovation: {
+          title: "Инновации",
+          desc: "Использование передовых технологий и внедрение современных решений"
+        },
+        reliability: {
+          title: "Надёжность",
+          desc: "Стабильное выполнение обязательств и долгосрочные партнёрские отношения"
+        },
+        ecology: {
+          title: "Экология",
+          desc: "Забота об окружающей среде и устойчивое развитие производства"
+        }
+      },
+      contact: {
+        badge: "Начните сотрудничество",
+        title: "Станьте нашим партнёром",
+        subtitle: "Свяжитесь с нами для обсуждения возможностей партнёрства и получения индивидуального коммерческого предложения",
+        button: "Связаться с нами",
+        phone: "Телефон",
+        email: "Email",
+        address: "Адрес",
+        addressText: "г. Алматы, Республика Казахстан"
+      }
+    },
+    projects: {
+      hero: {
+        badge: "Наши проекты",
+        title: "Экосистема полного цикла",
+        subtitle: "От полей до готовой продукции — интегрированный агропромышленный кластер",
+        stat1: "Проектов",
+        stat2: "Тонн/год",
+        stat3: "Интеграция"
+      },
+      section: {
+        title: "Наши проекты",
+        subtitle: "Каждый проект — это важная часть единой экосистемы, создающей добавленную стоимость на каждом этапе",
+        project: "Проект"
+      },
+      capacity: "Мощность",
+      products: "Продукция",
+      learnMore: "Подробнее"
+    },
+    investors: {
+      hero: {
+        title: "Инвесторам",
+        subtitle: "Alpecon Group — надежный партнер для инвестиций в агропромышленный сектор Казахстана"
+      },
+      section: {
+        title: "Инвестиции в будущее",
+        text1: "Alpecon Group реализует масштабный экспортно-ориентированный проект по созданию интегрированного агропромышленного кластера глубокой переработки фруктов и овощей в Алматинской области.",
+        text2: "Наш проект — это создание современной экосистемы, объединяющей фермеров, промышленную переработку, цифровые технологии и международные рынки сбыта.",
+        text3: "Мы предлагаем инвесторам участие в развитии производства продукции с высокой добавленной стоимостью и расширении несырьевого экспорта Казахстана."
+      },
+      contact: {
+        badge: "Начните сотрудничество",
+        title: "Станьте нашим партнёром",
+        subtitle: "Свяжитесь с нами для обсуждения возможностей партнёрства и получения индивидуального коммерческого предложения",
+        button: "Связаться с нами",
+        phone: "Телефон",
+        email: "Email",
+        address: "Адрес",
+        addressText: "г. Алматы, Республика Казахстан"
+      }
+    },
+    contacts: {
+      hero: {
+        title: "Контакты",
+        subtitle: "Свяжитесь с нами"
+      },
+      section: {
+        badge: "Начните сотрудничество",
+        title: "Свяжитесь с нами",
+        subtitle: "Мы готовы ответить на ваши вопросы и обсудить возможности сотрудничества",
+        phone: "Телефон",
+        email: "Email",
+        address: "Адрес",
+        addressText: "г. Алматы, Республика Казахстан"
+      }
+    },
+    vacancies: {
+      hero: {
+        title: "Вакансии",
+        subtitle: "Присоединяйтесь к нашей команде"
+      },
+      form: {
+        title: "Отправить резюме",
+        subtitle: "Заполните форму, и мы свяжемся с вами",
+        name: "ФИО",
+        namePlaceholder: "Иванов Иван Иванович",
+        phone: "Телефон",
+        phonePlaceholder: "+7 (___) ___-__-__",
+        email: "Email",
+        emailPlaceholder: "example@mail.com",
+        position: "Желаемая должность",
+        positionPlaceholder: "Например: Технолог, Инженер, Менеджер",
+        experience: "Опыт работы",
+        experienceSelect: "Выберите опыт",
+        experienceOptions: {
+          none: "Без опыта",
+          oneToThree: "1-3 года",
+          threeToFive: "3-5 лет",
+          fivePlus: "Более 5 лет"
+        },
+        resume: "Резюме",
+        message: "Дополнительная информация",
+        messagePlaceholder: "Расскажите о своем образовании, навыках и опыте работы...",
+        submit: "Отправить заявку",
+        submitting: "Отправка...",
+        required: "* Обязательные поля",
+        submitSuccess: "Ваша заявка отправлена! Мы свяжемся с вами в ближайшее время."
+      },
+      contact: {
+        title: "Остались вопросы?",
+        subtitle: "Свяжитесь с нашим HR-отделом",
+        phone: "Телефон",
+        email: "Email HR"
+      }
+    },
+    newsPage: {
+      subscribe: {
+        title: "Подпишитесь на рассылку",
+        subtitle: "Получайте последние новости на почту",
+        placeholder: "Ваш email",
+        button: "Подписаться"
       }
     },
     admin: {
@@ -266,8 +411,10 @@ export const translations = {
           readTime: "5 мин оқу",
           excerpt: "Біздің кәсіпорын Ауыл шаруашылығы министрлігімен ұзақ мерзімді ынтымақтастық туралы келісімге қол қойды"
         },
-        readMore: "Толығырақ оқу",
-        allNews: "Барлық жаңалықтар"
+        loading: "Жаңалықтар жүктелуде...",
+        noNews: "Жаңалықтар әлі жоқ",
+        readMore: "Толығырақ",
+        allNews: "Барлық жаңалықтар →"
       },
       partners: {
         title: "Біздің серіктестер",
@@ -295,6 +442,149 @@ export const translations = {
           capacity: "50 т/тәулік",
           products: "35+ түр"
         }
+      }
+    },
+    about: {
+      hero: {
+        title: "Alpecon Group",
+        subtitle: "Қазақстандық инвестициялық компания"
+      },
+      mission: {
+        title: "Біз туралы",
+        text1: "Alpecon Group — Алматы облысында жемістер мен көкөністерді терең өңдеудің интеграцияланған агроөнеркәсіптік кластерін құру бойынша ауқымды экспортқа бағытталған жобаны іске асыратын қазақстандық инвестициялық компания.",
+        text2: "Біз фермерлерді, өнеркәсіптік өңдеуді, цифрлық технологияларды және халықаралық нарықтарды біріктіретін заманауи экожүйені қалыптастырамыз.",
+        text3: "Біздің мақсатымыз — Қазақстанда ауыл шаруашылығы шикізатын терең өңдеуді дамыту, шикізаттық емес экспортты өсіру және жоғары қосымша құны бар бәсекеге қабілетті өнім шығару."
+      },
+      values: {
+        title: "Біздің құндылықтар",
+        quality: {
+          title: "Сапа",
+          desc: "Өндірістің барлық кезеңдерінде қатаң бақылау және үдерістерді үнемі жетілдіру"
+        },
+        innovation: {
+          title: "Инновациялар",
+          desc: "Озық технологияларды пайдалану және заманауи шешімдерді енгізу"
+        },
+        reliability: {
+          title: "Сенімділік",
+          desc: "Міндеттемелерді тұрақты орындау және ұзақ мерзімді серіктестік қарым-қатынастар"
+        },
+        ecology: {
+          title: "Экология",
+          desc: "Қоршаған ортаны қорғау және өндірісті тұрақты дамыту"
+        }
+      },
+      contact: {
+        badge: "Ынтымақтастықты бастаңыз",
+        title: "Біздің серіктесіміз болыңыз",
+        subtitle: "Серіктестік мүмкіндіктерін талқылау және жеке коммерциялық ұсыныс алу үшін бізбен байланысыңыз",
+        button: "Бізбен байланысу",
+        phone: "Телефон",
+        email: "Email",
+        address: "Мекенжай",
+        addressText: "Алматы қ., Қазақстан"
+      }
+    },
+    projects: {
+      hero: {
+        badge: "Біздің жобалар",
+        title: "Толық циклді экожүйе",
+        subtitle: "Егістіктен дайын өнімге дейін — интеграцияланған агроөнеркәсіптік кластер",
+        stat1: "Жобалар",
+        stat2: "Тонна/жыл",
+        stat3: "Интеграция"
+      },
+      section: {
+        title: "Біздің жобалар",
+        subtitle: "Әр жоба — әр кезеңде қосымша құн жасайтын бірыңғай экожүйенің маңызды бөлігі",
+        project: "Жоба"
+      },
+      capacity: "Қуаттылық",
+      products: "Өнімдер",
+      learnMore: "Толығырақ"
+    },
+    investors: {
+      hero: {
+        title: "Инвесторларға",
+        subtitle: "Alpecon Group — Қазақстанның агроөнеркәсіптік секторына инвестициялар үшін сенімді серіктес"
+      },
+      section: {
+        title: "Болашаққа инвестиция",
+        text1: "Alpecon Group Алматы облысында жемістер мен көкөністерді терең өңдеудің интеграцияланған агроөнеркәсіптік кластерін құру бойынша ауқымды экспортқа бағытталған жобаны іске асырады.",
+        text2: "Біздің жоба — фермерлерді, өнеркәсіптік өңдеуді, цифрлық технологияларды және халықаралық сату нарықтарын біріктіретін заманауи экожүйені құру.",
+        text3: "Біз инвесторларға жоғары қосымша құны бар өнім өндіруді дамытуға және Қазақстанның шикізаттық емес экспортын кеңейтуге қатысуды ұсынамыз."
+      },
+      contact: {
+        badge: "Ынтымақтастықты бастаңыз",
+        title: "Біздің серіктесіміз болыңыз",
+        subtitle: "Серіктестік мүмкіндіктерін талқылау және жеке коммерциялық ұсыныс алу үшін бізбен байланысыңыз",
+        button: "Бізбен байланысу",
+        phone: "Телефон",
+        email: "Email",
+        address: "Мекенжай",
+        addressText: "Алматы қ., Қазақстан"
+      }
+    },
+    contacts: {
+      hero: {
+        title: "Байланыс",
+        subtitle: "Бізбен байланысыңыз"
+      },
+      section: {
+        badge: "Ынтымақтастықты бастаңыз",
+        title: "Бізбен байланысыңыз",
+        subtitle: "Біз сіздің сұрақтарыңызға жауап беруге және ынтымақтастық мүмкіндіктерін талқылауға дайынбыз",
+        phone: "Телефон",
+        email: "Email",
+        address: "Мекенжай",
+        addressText: "Алматы қ., Қазақстан"
+      }
+    },
+    vacancies: {
+      hero: {
+        title: "Бос орындар",
+        subtitle: "Біздің командаға қосылыңыз"
+      },
+      form: {
+        title: "Резюме жіберу",
+        subtitle: "Форманы толтырыңыз, біз сізбен байланысамыз",
+        name: "Аты-жөні",
+        namePlaceholder: "Иванов Иван Иванович",
+        phone: "Телефон",
+        phonePlaceholder: "+7 (___) ___-__-__",
+        email: "Email",
+        emailPlaceholder: "example@mail.com",
+        position: "Қалаған лауазым",
+        positionPlaceholder: "Мысалы: Технолог, Инженер, Менеджер",
+        experience: "Жұмыс тәжірибесі",
+        experienceSelect: "Тәжірибені таңдаңыз",
+        experienceOptions: {
+          none: "Тәжірибесіз",
+          oneToThree: "1-3 жыл",
+          threeToFive: "3-5 жыл",
+          fivePlus: "5 жылдан астам"
+        },
+        resume: "Резюме",
+        message: "Қосымша ақпарат",
+        messagePlaceholder: "Білім, дағдылар және жұмыс тәжірибесі туралы айтыңыз...",
+        submit: "Өтінім жіберу",
+        submitting: "Жіберілуде...",
+        required: "* Міндетті өрістер",
+        submitSuccess: "Сіздің өтінішіңіз жіберілді! Біз жақын арада сізбен хабарласамыз."
+      },
+      contact: {
+        title: "Сұрақтар қалды ма?",
+        subtitle: "HR бөліміне хабарласыңыз",
+        phone: "Телефон",
+        email: "HR Email"
+      }
+    },
+    newsPage: {
+      subscribe: {
+        title: "Тарату тізіміне жазылыңыз",
+        subtitle: "Соңғы жаңалықтарды электрондық поштаға алыңыз",
+        placeholder: "Сіздің email",
+        button: "Жазылу"
       }
     },
     admin: {
@@ -345,11 +635,8 @@ export const translations = {
       news: "News",
       contacts: "Contacts"
     },
-      news: "News",
-      contacts: "Contacts"
-    },
     header: {
-      location: "Almaty, Republic of Kazakhstan",
+      location: "Almaty, Kazakhstan",
       phone: "+7 (727) 123-45-67"
     },
     footer: {
@@ -364,24 +651,24 @@ export const translations = {
     },
     home: {
       hero: {
-        badge: "Full Cycle Production",
-        title: "Modern Agro-Industrial Company of Kazakhstan",
+        badge: "Full Cycle",
+        title: "Modern Agro-Industrial Company",
         cardTitle: "ALPECON GROUP",
         cardDescription: "A company with global experience and unique capabilities, combining diverse assets in industry, transport and logistics.",
         products: "Our Products",
         about: "About Company"
       },
       director: {
-        title: "Working for the benefit of Kazakhstan",
-        text1: "Our plant invests in projects aimed at improving the quality of life for every citizen of the country, actively implementing innovative solutions and supporting sustainable development of society.",
+        title: "Working for Kazakhstan",
+        text1: "Our plant invests in projects aimed at improving the quality of life for every citizen, actively implementing innovative solutions and supporting sustainable development.",
         name: "Dinmukhamet Idrisov",
         position: "Chairman of the Supervisory Board"
       },
       about: {
         badge: "About Company",
         title: "About Our Plant",
-        text1: "Our plant is one of the leading enterprises in the field of vegetable and fruit processing in Russia. We specialize in the production of canned products, juices, purees and frozen products.",
-        text2: "Using advanced technologies and strict quality control, we ensure high standards at all stages of production.",
+        text1: "Our plant is one of the leading enterprises in vegetable and fruit processing in Russia. We specialize in the production of canned products, juices, purees and frozen products.",
+        text2: "Using advanced technologies and strict quality control, we ensure high standards at all production stages.",
         yearFounded: "Year Founded",
         employees: "Employees",
         learnMore: "Learn More"
@@ -402,7 +689,7 @@ export const translations = {
         employees: {
           number: "500+",
           label: "Employees",
-          desc: "Qualified personnel"
+          desc: "Qualified staff"
         },
         export: {
           number: "15+",
@@ -413,7 +700,7 @@ export const translations = {
       production: {
         badge: "Production",
         title: "Modern Production",
-        subtitle: "Our production facilities are equipped with the latest technology",
+        subtitle: "Our facilities are equipped with the latest technology",
         item1: {
           title: "Automation",
           description: "Fully automated production lines"
@@ -424,33 +711,16 @@ export const translations = {
         },
         item3: {
           title: "Certification",
-          description: "International ISO and HACCP standards"
+          description: "International ISO and HACCP"
         }
-      },
-      news: {
-        badge: "News",
-        title: "Latest News",
-        mainNews: {
-          category: "Main News",
-          title: "Signing of Cooperation Agreement with the Ministry",
-          date: "15.01.2026",
-          readTime: "5 min read",
-          excerpt: "Our enterprise signed a long-term cooperation agreement with the Ministry of Agriculture"
-        },
-        readMore: "Read More",
-        allNews: "All News"
-      },
-      partners: {
-        title: "Our Partners",
-        description: "We work with leading companies and organizations"
       },
       directions: {
         badge: "Directions",
         title: "Production Directions",
-        subtitle: "Full cycle of vegetable and fruit processing using modern technologies",
+        subtitle: "Full production cycle from raw materials to finished products",
         canning: {
           title: "Canning",
-          desc: "Full cycle of canning vegetables and fruits while preserving all the beneficial properties of the products",
+          desc: "Full cycle of canning vegetables and fruits while preserving all beneficial properties",
           capacity: "30 tons/day",
           products: "80+ types"
         },
@@ -466,11 +736,173 @@ export const translations = {
           capacity: "50 tons/day",
           products: "35+ types"
         }
+      },
+      news: {
+        badge: "News",
+        title: "Latest News",
+        mainNews: {
+          category: "Main News",
+          title: "Signing of Cooperation Agreement with the Ministry",
+          date: "15.01.2026",
+          readTime: "5 min read",
+          excerpt: "Our enterprise signed a long-term cooperation agreement with the Ministry of Agriculture"
+        },
+        loading: "Loading news...",
+        noNews: "No news yet",
+        readMore: "Read More",
+        allNews: "All News →"
+      },
+      partners: {
+        title: "Our Partners",
+        description: "We work with leading companies and organizations"
+      }
+    },
+    about: {
+      hero: {
+        title: "Alpecon Group",
+        subtitle: "Kazakhstan Investment Company"
+      },
+      mission: {
+        title: "About Us",
+        text1: "Alpecon Group is a Kazakhstani investment company implementing a large-scale export-oriented project to create an integrated agro-industrial cluster for deep processing of fruits and vegetables in Almaty region.",
+        text2: "We are forming a modern ecosystem that unites farmers, industrial processing, digital technologies and international markets.",
+        text3: "Our goal is to develop deep processing of agricultural raw materials in Kazakhstan, grow non-resource exports and produce competitive products with high added value."
+      },
+      values: {
+        title: "Our Values",
+        quality: {
+          title: "Quality",
+          desc: "Strict control at all production stages and continuous process improvement"
+        },
+        innovation: {
+          title: "Innovation",
+          desc: "Using advanced technologies and implementing modern solutions"
+        },
+        reliability: {
+          title: "Reliability",
+          desc: "Stable fulfillment of obligations and long-term partnerships"
+        },
+        ecology: {
+          title: "Ecology",
+          desc: "Environmental care and sustainable production development"
+        }
+      },
+      contact: {
+        badge: "Start Cooperation",
+        title: "Become Our Partner",
+        subtitle: "Contact us to discuss partnership opportunities and receive an individual commercial offer",
+        button: "Contact Us",
+        phone: "Phone",
+        email: "Email",
+        address: "Address",
+        addressText: "Almaty, Kazakhstan"
+      }
+    },
+    projects: {
+      hero: {
+        badge: "Our Projects",
+        title: "Full Cycle Ecosystem",
+        subtitle: "From fields to finished products — integrated agro-industrial cluster",
+        stat1: "Projects",
+        stat2: "Tons/year",
+        stat3: "Integration"
+      },
+      section: {
+        title: "Our Projects",
+        subtitle: "Each project is an important part of a unified ecosystem creating added value at every stage",
+        project: "Project"
+      },
+      capacity: "Capacity",
+      products: "Products",
+      learnMore: "Learn More"
+    },
+    investors: {
+      hero: {
+        title: "Investors",
+        subtitle: "Alpecon Group — reliable partner for investments in Kazakhstan agro-industrial sector"
+      },
+      section: {
+        title: "Investment in the Future",
+        text1: "Alpecon Group implements a large-scale export-oriented project to create an integrated agro-industrial cluster for deep processing of fruits and vegetables in Almaty region.",
+        text2: "Our project creates a modern ecosystem that unites farmers, industrial processing, digital technologies and international markets.",
+        text3: "We offer investors participation in developing high value-added production and expanding Kazakhstan non-resource exports."
+      },
+      contact: {
+        badge: "Start Cooperation",
+        title: "Become Our Partner",
+        subtitle: "Contact us to discuss partnership opportunities and receive an individual commercial offer",
+        button: "Contact Us",
+        phone: "Phone",
+        email: "Email",
+        address: "Address",
+        addressText: "Almaty, Kazakhstan"
+      }
+    },
+    contacts: {
+      hero: {
+        title: "Contacts",
+        subtitle: "Get in Touch"
+      },
+      section: {
+        badge: "Start Cooperation",
+        title: "Contact Us",
+        subtitle: "We are ready to answer your questions and discuss cooperation opportunities",
+        phone: "Phone",
+        email: "Email",
+        address: "Address",
+        addressText: "Almaty, Kazakhstan"
+      }
+    },
+    vacancies: {
+      hero: {
+        title: "Vacancies",
+        subtitle: "Join Our Team"
+      },
+      form: {
+        title: "Submit Resume",
+        subtitle: "Fill out the form and we'll contact you",
+        name: "Full Name",
+        namePlaceholder: "John Doe",
+        phone: "Phone",
+        phonePlaceholder: "+7 (___) ___-__-__",
+        email: "Email",
+        emailPlaceholder: "example@mail.com",
+        position: "Desired Position",
+        positionPlaceholder: "E.g.: Technologist, Engineer, Manager",
+        experience: "Work Experience",
+        experienceSelect: "Select experience",
+        experienceOptions: {
+          none: "No experience",
+          oneToThree: "1-3 years",
+          threeToFive: "3-5 years",
+          fivePlus: "More than 5 years"
+        },
+        resume: "Resume",
+        message: "Additional Information",
+        messagePlaceholder: "Tell us about your education, skills and work experience...",
+        submit: "Submit Application",
+        submitting: "Sending...",
+        required: "* Required fields",
+        submitSuccess: "Your application has been submitted! We will contact you shortly."
+      },
+      contact: {
+        title: "Have Questions?",
+        subtitle: "Contact our HR department",
+        phone: "Phone",
+        email: "HR Email"
+      }
+    },
+    newsPage: {
+      subscribe: {
+        title: "Subscribe to Newsletter",
+        subtitle: "Get latest news by email",
+        placeholder: "Your email",
+        button: "Subscribe"
       }
     },
     admin: {
       title: "News Management",
-      subtitle: "Content Administration",
+      subtitle: "Create and manage news",
       createButton: "+ Create News",
       cancelButton: "Cancel",
       createNews: "Create News",
@@ -506,3 +938,4 @@ export const translations = {
       category: "Category:"
     }
   }
+};
