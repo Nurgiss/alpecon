@@ -21,6 +21,10 @@ export class UpdateNewsDTO {
   @IsOptional()
   author?: string;
 
+  @IsString()
+  @IsOptional()
+  source?: string;
+
   // Multi-language fields
   @IsString()
   @IsOptional()

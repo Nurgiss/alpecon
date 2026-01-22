@@ -35,6 +35,7 @@ model News {
   // Other fields
   image     String   // URL to image
   author    String
+  source    String?  // Optional source/reference
   date      DateTime
 
   // Timestamps

@@ -1,4 +1,4 @@
-import { IsString, IsNotEmpty, IsOptional, IsUrl } from 'class-validator';
+import { IsString, IsNotEmpty, IsOptional } from 'class-validator';
 
 export class CreateNewsDTO {
   @IsString()
@@ -20,6 +20,10 @@ export class CreateNewsDTO {
   @IsString()
   @IsOptional()
   author?: string;
+
+  @IsString()
+  @IsOptional()
+  source?: string;
 
   // Multi-language fields
   @IsString()

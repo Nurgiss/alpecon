@@ -1,10 +1,11 @@
 import 'reflect-metadata';
-import express, { Request, Response } from 'express';
+import express, { Request, Response, NextFunction } from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { randomUUID } from 'crypto';
 import multer from 'multer';
 import prisma from './config/database.js';
 import { CreateNewsDTO, UpdateNewsDTO, NewsResponseDTO } from './dto/index.js';
@@ -19,12 +20,12 @@ const UPLOADS_DIR = path.join(__dirname, '..', 'uploads');
 
 // Настройка multer для загрузки изображений
 const storage = multer.diskStorage({
-  destination: async (req, file, cb) => {
+  destination: async (_req, _file, cb) => {
     await fs.mkdir(UPLOADS_DIR, { recursive: true });
     cb(null, UPLOADS_DIR);
   },
-  filename: (req, file, cb) => {
-    const uniqueName = `${Date.now()}-${crypto.randomUUID()}${path.extname(file.originalname)}`;
+  filename: (_req, file, cb) => {
+    const uniqueName = `${Date.now()}-${randomUUID()}${path.extname(file.originalname)}`;
     cb(null, uniqueName);
   }
 });
@@ -32,7 +33,7 @@ const storage = multer.diskStorage({
 const upload = multer({
   storage,
   limits: { fileSize: 5 * 1024 * 1024 }, // 5MB
-  fileFilter: (req, file, cb) => {
+  fileFilter: (_req, file, cb) => {
     const allowedTypes = /jpeg|jpg|png|gif|webp/;
     const extname = allowedTypes.test(path.extname(file.originalname).toLowerCase());
     const mimetype = allowedTypes.test(file.mimetype);
@@ -62,24 +63,25 @@ app.post('/api/login', (req: Request, res: Response) => {
 });
 
 // Простой middleware для "защиты" роутов
-const requireAuth = (req: Request, res: Response, next: express.NextFunction) => {
+const requireAuth = (_req: Request, _res: Response, next: NextFunction): void => {
   // В реальном приложении здесь будет проверка JWT токена
   // Для простоты, мы будем передавать "секрет" в заголовках
-  if (req.headers.authorization === 'admin-secret-token') {
-    next();
-  } else {
-    // res.status(401).json({ error: 'Требуется авторизация' });
-    next(); // Временно отключаем защиту для разработки
-  }
+  // if (_req.headers.authorization === 'admin-secret-token') {
+  //   next();
+  // } else {
+  //   _res.status(401).json({ error: 'Требуется авторизация' });
+  // }
+  next(); // Временно отключаем защиту для разработки
 };
 
 // Routes
 
 // Загрузка изображения
-app.post('/api/upload', requireAuth, upload.single('image'), (req: Request, res: Response) => {
+app.post('/api/upload', requireAuth, upload.single('image'), (req: Request, res: Response): void => {
   try {
     if (!req.file) {
-      return res.status(400).json({ error: 'Файл не загружен' });
+      res.status(400).json({ error: 'Файл не загружен' });
+      return;
     }
     const imageUrl = `/uploads/${req.file.filename}`;
     res.json({ url: imageUrl });
@@ -89,7 +91,7 @@ app.post('/api/upload', requireAuth, upload.single('image'), (req: Request, res:
 });
 
 // Получить все новости
-app.get('/api/news', async (req: Request, res: Response) => {
+app.get('/api/news', async (_req: Request, res: Response): Promise<void> => {
   try {
     const newsList = await prisma.news.findMany({
       orderBy: {
@@ -106,16 +108,17 @@ app.get('/api/news', async (req: Request, res: Response) => {
 });
 
 // Получить одну новость по ID
-app.get('/api/news/:id', async (req: Request, res: Response) => {
+app.get('/api/news/:id', async (req: Request, res: Response): Promise<void> => {
   try {
-    const { id } = req.params;
+    const id = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
 
     const news = await prisma.news.findUnique({
       where: { id }
     });
 
     if (!news) {
-      return res.status(404).json({ error: 'Новость не найдена' });
+      res.status(404).json({ error: 'Новость не найдена' });
+      return;
     }
 
     const response = NewsResponseDTO.fromEntity(news);
@@ -127,7 +130,7 @@ app.get('/api/news/:id', async (req: Request, res: Response) => {
 });
 
 // Создать новую новость
-app.post('/api/news', requireAuth, validateDTO(CreateNewsDTO), async (req: Request, res: Response) => {
+app.post('/api/news', requireAuth, validateDTO(CreateNewsDTO), async (req: Request, res: Response): Promise<void> => {
   try {
     const dto: CreateNewsDTO = req.body;
 
@@ -138,6 +141,7 @@ app.post('/api/news', requireAuth, validateDTO(CreateNewsDTO), async (req: Reque
         category: dto.category,
         image: dto.image || 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800',
         author: dto.author || 'Администратор',
+        source: dto.source,
         date: new Date(),
         titleRu: dto.titleRu,
         titleKz: dto.titleKz,
@@ -160,9 +164,9 @@ app.post('/api/news', requireAuth, validateDTO(CreateNewsDTO), async (req: Reque
 });
 
 // Обновить новость
-app.put('/api/news/:id', requireAuth, validateDTO(UpdateNewsDTO, true), async (req: Request, res: Response) => {
+app.put('/api/news/:id', requireAuth, validateDTO(UpdateNewsDTO, true), async (req: Request, res: Response): Promise<void> => {
   try {
-    const { id } = req.params;
+    const id = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
     const dto: UpdateNewsDTO = req.body;
 
     // Check if news exists
@@ -171,7 +175,8 @@ app.put('/api/news/:id', requireAuth, validateDTO(UpdateNewsDTO, true), async (r
     });
 
     if (!existingNews) {
-      return res.status(404).json({ error: 'Новость не найдена' });
+      res.status(404).json({ error: 'Новость не найдена' });
+      return;
     }
 
     // Update news
@@ -183,6 +188,7 @@ app.put('/api/news/:id', requireAuth, validateDTO(UpdateNewsDTO, true), async (r
         category: dto.category,
         image: dto.image,
         author: dto.author,
+        source: dto.source,
         titleRu: dto.titleRu,
         titleKz: dto.titleKz,
         titleEn: dto.titleEn,
@@ -204,9 +210,9 @@ app.put('/api/news/:id', requireAuth, validateDTO(UpdateNewsDTO, true), async (r
 });
 
 // Удалить новость
-app.delete('/api/news/:id', requireAuth, async (req: Request, res: Response) => {
+app.delete('/api/news/:id', requireAuth, async (req: Request, res: Response): Promise<void> => {
   try {
-    const { id } = req.params;
+    const id = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
 
     // Check if news exists
     const existingNews = await prisma.news.findUnique({
@@ -214,7 +220,8 @@ app.delete('/api/news/:id', requireAuth, async (req: Request, res: Response) => 
     });
 
     if (!existingNews) {
-      return res.status(404).json({ error: 'Новость не найдена' });
+      res.status(404).json({ error: 'Новость не найдена' });
+      return;
     }
 
     await prisma.news.delete({
@@ -229,7 +236,7 @@ app.delete('/api/news/:id', requireAuth, async (req: Request, res: Response) => 
 });
 
 // Health check
-app.get('/health', (req: Request, res: Response) => {
+app.get('/health', (_req: Request, res: Response) => {
   res.json({ status: 'OK', timestamp: new Date().toISOString() });
 });
 

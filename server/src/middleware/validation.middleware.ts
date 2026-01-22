@@ -14,7 +14,7 @@ export function validateDTO(
   dtoClass: any,
   skipMissingProperties = false
 ) {
-  return async (req: Request, res: Response, next: NextFunction) => {
+  return async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
       // Transform plain object to class instance
       const dtoInstance = plainToClass(dtoClass, req.body);
@@ -34,17 +34,18 @@ export function validateDTO(
           value: error.value,
         }));
 
-        return res.status(400).json({
+        res.status(400).json({
           error: 'Validation failed',
           details: formattedErrors,
         });
+        return;
       }
 
       // Attach the validated and transformed DTO to request
       req.body = dtoInstance;
       next();
     } catch (error) {
-      return res.status(500).json({
+      res.status(500).json({
         error: 'Internal server error during validation',
       });
     }
