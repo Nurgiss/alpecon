@@ -1,0 +1,45 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// News model with multi-language support
+model News {
+  id        String   @id @default(uuid())
+
+  // Multi-language fields for title
+  title     String   // Default/fallback title
+  titleRu   String?  @map("title_ru")
+  titleKz   String?  @map("title_kz")
+  titleEn   String?  @map("title_en")
+
+  // Multi-language fields for content
+  content   String   // Default/fallback content
+  contentRu String?  @map("content_ru")
+  contentKz String?  @map("content_kz")
+  contentEn String?  @map("content_en")
+
+  // Multi-language fields for category
+  category   String  // Default/fallback category
+  categoryRu String? @map("category_ru")
+  categoryKz String? @map("category_kz")
+  categoryEn String? @map("category_en")
+
+  // Other fields
+  image     String   // URL to image
+  author    String
+  date      DateTime
+
+  // Timestamps
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("news")
+}

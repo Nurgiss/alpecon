@@ -1,18 +1,21 @@
-import express from 'express';
+import 'reflect-metadata';
+import express, { Request, Response } from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import multer from 'multer';
-import prisma from './prisma/client.js';
+import prisma from './config/database.js';
+import { CreateNewsDTO, UpdateNewsDTO, NewsResponseDTO } from './dto/index.js';
+import { validateDTO } from './middleware/validation.middleware.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
 const PORT = 3002;
-const UPLOADS_DIR = path.join(__dirname, 'uploads');
+const UPLOADS_DIR = path.join(__dirname, '..', 'uploads');
 
 // Настройка multer для загрузки изображений
 const storage = multer.diskStorage({
@@ -21,7 +24,7 @@ const storage = multer.diskStorage({
     cb(null, UPLOADS_DIR);
   },
   filename: (req, file, cb) => {
-    const uniqueName = `${Date.now()}-${uuidv4()}${path.extname(file.originalname)}`;
+    const uniqueName = `${Date.now()}-${crypto.randomUUID()}${path.extname(file.originalname)}`;
     cb(null, uniqueName);
   }
 });
@@ -48,7 +51,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/uploads', express.static(UPLOADS_DIR));
 
 // Эндпоинт для авторизации
-app.post('/api/login', (req, res) => {
+app.post('/api/login', (req: Request, res: Response) => {
   const { username, password } = req.body;
   if (username === 'Admin' && password === 'admin') {
     // В реальном приложении здесь должен быть токен (JWT)
@@ -59,7 +62,7 @@ app.post('/api/login', (req, res) => {
 });
 
 // Простой middleware для "защиты" роутов
-const requireAuth = (req, res, next) => {
+const requireAuth = (req: Request, res: Response, next: express.NextFunction) => {
   // В реальном приложении здесь будет проверка JWT токена
   // Для простоты, мы будем передавать "секрет" в заголовках
   if (req.headers.authorization === 'admin-secret-token') {
@@ -70,38 +73,10 @@ const requireAuth = (req, res, next) => {
   }
 };
 
-// Утилита для преобразования данных из Prisma в формат API (camelCase -> snake_case)
-function transformNewsToAPI(news) {
-  if (Array.isArray(news)) {
-    return news.map(item => transformNewsToAPI(item));
-  }
-
-  return {
-    id: news.id,
-    title: news.title,
-    content: news.content,
-    category: news.category,
-    image: news.image,
-    author: news.author,
-    date: news.date.toISOString(),
-    createdAt: news.createdAt.toISOString(),
-    updatedAt: news.updatedAt.toISOString(),
-    title_ru: news.titleRu,
-    title_kz: news.titleKz,
-    title_en: news.titleEn,
-    content_ru: news.contentRu,
-    content_kz: news.contentKz,
-    content_en: news.contentEn,
-    category_ru: news.categoryRu,
-    category_kz: news.categoryKz,
-    category_en: news.categoryEn,
-  };
-}
-
 // Routes
 
 // Загрузка изображения
-app.post('/api/upload', requireAuth, upload.single('image'), (req, res) => {
+app.post('/api/upload', requireAuth, upload.single('image'), (req: Request, res: Response) => {
   try {
     if (!req.file) {
       return res.status(400).json({ error: 'Файл не загружен' });
@@ -114,140 +89,147 @@ app.post('/api/upload', requireAuth, upload.single('image'), (req, res) => {
 });
 
 // Получить все новости
-app.get('/api/news', async (req, res) => {
+app.get('/api/news', async (req: Request, res: Response) => {
   try {
-    const news = await readNews();
-    res.json(news);
+    const newsList = await prisma.news.findMany({
+      orderBy: {
+        createdAt: 'desc'
+      }
+    });
+
+    const response = NewsResponseDTO.fromEntities(newsList);
+    res.json(response);
   } catch (error) {
+    console.error('Error fetching news:', error);
     res.status(500).json({ error: 'Ошибка при получении новостей' });
   }
 });
 
 // Получить одну новость по ID
-app.get('/api/news/:id', async (req, res) => {
+app.get('/api/news/:id', async (req: Request, res: Response) => {
   try {
-    const news = await readNews();
-    const newsItem = news.find(item => item.id === req.params.id);
-    
-    if (!newsItem) {
+    const { id } = req.params;
+
+    const news = await prisma.news.findUnique({
+      where: { id }
+    });
+
+    if (!news) {
       return res.status(404).json({ error: 'Новость не найдена' });
     }
-    
-    res.json(newsItem);
+
+    const response = NewsResponseDTO.fromEntity(news);
+    res.json(response);
   } catch (error) {
+    console.error('Error fetching news:', error);
     res.status(500).json({ error: 'Ошибка при получении новости' });
   }
 });
 
 // Создать новую новость
-app.post('/api/news', requireAuth, async (req, res) => {
+app.post('/api/news', requireAuth, validateDTO(CreateNewsDTO), async (req: Request, res: Response) => {
   try {
-    const { 
-      title, content, image, category, author,
-      title_ru, title_kz, title_en,
-      content_ru, content_kz, content_en,
-      category_ru, category_kz, category_en
-    } = req.body;
-    
-    if (!title || !content) {
-      return res.status(400).json({ error: 'Заголовок и содержание обязательны' });
-    }
-    
-    const news = await readNews();
-    
-    const newNewsItem = {
-      id: uuidv4(),
-      title,
-      content,
-      image: image || 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800',
-      category: category || 'Общее',
-      author: author || 'Администратор',
-      date: new Date().toISOString(),
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
-      // Мультиязычные поля
-      title_ru,
-      title_kz,
-      title_en,
-      content_ru,
-      content_kz,
-      content_en,
-      category_ru,
-      category_kz,
-      category_en
-    };
-    
-    news.unshift(newNewsItem);
-    await writeNews(news);
-    
-    res.status(201).json(newNewsItem);
+    const dto: CreateNewsDTO = req.body;
+
+    const news = await prisma.news.create({
+      data: {
+        title: dto.title,
+        content: dto.content,
+        category: dto.category,
+        image: dto.image || 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800',
+        author: dto.author || 'Администратор',
+        date: new Date(),
+        titleRu: dto.titleRu,
+        titleKz: dto.titleKz,
+        titleEn: dto.titleEn,
+        contentRu: dto.contentRu,
+        contentKz: dto.contentKz,
+        contentEn: dto.contentEn,
+        categoryRu: dto.categoryRu,
+        categoryKz: dto.categoryKz,
+        categoryEn: dto.categoryEn,
+      }
+    });
+
+    const response = NewsResponseDTO.fromEntity(news);
+    res.status(201).json(response);
   } catch (error) {
+    console.error('Error creating news:', error);
     res.status(500).json({ error: 'Ошибка при создании новости' });
   }
 });
 
 // Обновить новость
-app.put('/api/news/:id', requireAuth, async (req, res) => {
+app.put('/api/news/:id', requireAuth, validateDTO(UpdateNewsDTO, true), async (req: Request, res: Response) => {
   try {
-    const news = await readNews();
-    const index = news.findIndex(item => item.id === req.params.id);
-    
-    if (index === -1) {
+    const { id } = req.params;
+    const dto: UpdateNewsDTO = req.body;
+
+    // Check if news exists
+    const existingNews = await prisma.news.findUnique({
+      where: { id }
+    });
+
+    if (!existingNews) {
       return res.status(404).json({ error: 'Новость не найдена' });
     }
-    
-    const { 
-      title, content, image, category, author,
-      title_ru, title_kz, title_en,
-      content_ru, content_kz, content_en,
-      category_ru, category_kz, category_en
-    } = req.body;
-    
-    news[index] = {
-      ...news[index],
-      title: title || news[index].title,
-      content: content || news[index].content,
-      image: image || news[index].image,
-      category: category || news[index].category,
-      author: author || news[index].author,
-      title_ru,
-      title_kz,
-      title_en,
-      content_ru,
-      content_kz,
-      content_en,
-      category_ru,
-      category_kz,
-      category_en,
-      updatedAt: new Date().toISOString()
-    };
-    
-    await writeNews(news);
-    res.json(news[index]);
+
+    // Update news
+    const updatedNews = await prisma.news.update({
+      where: { id },
+      data: {
+        title: dto.title,
+        content: dto.content,
+        category: dto.category,
+        image: dto.image,
+        author: dto.author,
+        titleRu: dto.titleRu,
+        titleKz: dto.titleKz,
+        titleEn: dto.titleEn,
+        contentRu: dto.contentRu,
+        contentKz: dto.contentKz,
+        contentEn: dto.contentEn,
+        categoryRu: dto.categoryRu,
+        categoryKz: dto.categoryKz,
+        categoryEn: dto.categoryEn,
+      }
+    });
+
+    const response = NewsResponseDTO.fromEntity(updatedNews);
+    res.json(response);
   } catch (error) {
+    console.error('Error updating news:', error);
     res.status(500).json({ error: 'Ошибка при обновлении новости' });
   }
 });
 
 // Удалить новость
-app.delete('/api/news/:id', requireAuth, async (req, res) => {
+app.delete('/api/news/:id', requireAuth, async (req: Request, res: Response) => {
   try {
-    const news = await readNews();
-    const filteredNews = news.filter(item => item.id !== req.params.id);
-    
-    if (news.length === filteredNews.length) {
+    const { id } = req.params;
+
+    // Check if news exists
+    const existingNews = await prisma.news.findUnique({
+      where: { id }
+    });
+
+    if (!existingNews) {
       return res.status(404).json({ error: 'Новость не найдена' });
     }
-    
-    await writeNews(filteredNews);
+
+    await prisma.news.delete({
+      where: { id }
+    });
+
     res.json({ message: 'Новость удалена успешно' });
   } catch (error) {
+    console.error('Error deleting news:', error);
     res.status(500).json({ error: 'Ошибка при удалении новости' });
   }
 });
 
 // Health check
-app.get('/health', (req, res) => {
+app.get('/health', (req: Request, res: Response) => {
   res.json({ status: 'OK', timestamp: new Date().toISOString() });
 });
 

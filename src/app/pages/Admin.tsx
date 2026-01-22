@@ -11,15 +11,15 @@ export function Admin() {
   const [editingNews, setEditingNews] = useState<NewsItem | null>(null);
   const [uploading, setUploading] = useState(false);
   const [formData, setFormData] = useState({
-    title_ru: '',
-    title_kz: '',
-    title_en: '',
-    content_ru: '',
-    content_kz: '',
-    content_en: '',
-    category_ru: '',
-    category_kz: '',
-    category_en: '',
+    titleRu: '',
+    titleKz: '',
+    titleEn: '',
+    contentRu: '',
+    contentKz: '',
+    contentEn: '',
+    categoryRu: '',
+    categoryKz: '',
+    categoryEn: '',
     image: '',
     author: 'Алпекон Групп',
     source: ''
@@ -75,22 +75,22 @@ export function Admin() {
     try {
       // Преобразуем данные для API - отправляем и старые поля (для совместимости), и новые мультиязычные
       const newsData = {
-        title: formData.title_ru, // Используем русский как основной
-        content: formData.content_ru,
-        category: formData.category_ru,
+        title: formData.titleRu, // Используем русский как основной
+        content: formData.contentRu,
+        category: formData.categoryRu,
         image: formData.image,
         author: formData.author,
         source: formData.source,
         // Добавляем мультиязычные поля
-        title_ru: formData.title_ru,
-        title_kz: formData.title_kz,
-        title_en: formData.title_en,
-        content_ru: formData.content_ru,
-        content_kz: formData.content_kz,
-        content_en: formData.content_en,
-        category_ru: formData.category_ru,
-        category_kz: formData.category_kz,
-        category_en: formData.category_en
+        titleRu: formData.titleRu,
+        titleKz: formData.titleKz,
+        titleEn: formData.titleEn,
+        contentRu: formData.contentRu,
+        contentKz: formData.contentKz,
+        contentEn: formData.contentEn,
+        categoryRu: formData.categoryRu,
+        categoryKz: formData.categoryKz,
+        categoryEn: formData.categoryEn
       };
 
       if (editingNews) {
@@ -102,15 +102,15 @@ export function Admin() {
       }
       
       setFormData({ 
-        title_ru: '', 
-        title_kz: '', 
-        title_en: '', 
-        content_ru: '', 
-        content_kz: '', 
-        content_en: '', 
-        category_ru: '', 
-        category_kz: '', 
-        category_en: '', 
+        titleRu: '', 
+        titleKz: '', 
+        titleEn: '', 
+        contentRu: '', 
+        contentKz: '', 
+        contentEn: '', 
+        categoryRu: '', 
+        categoryKz: '', 
+        categoryEn: '', 
         image: '', 
         author: 'Алпекон Групп',
         source: ''
@@ -127,15 +127,15 @@ export function Admin() {
   const handleEdit = (newsItem: NewsItem) => {
     setEditingNews(newsItem);
     setFormData({
-      title_ru: (newsItem as any).title_ru || newsItem.title,
-      title_kz: (newsItem as any).title_kz || '',
-      title_en: (newsItem as any).title_en || '',
-      content_ru: (newsItem as any).content_ru || newsItem.content,
-      content_kz: (newsItem as any).content_kz || '',
-      content_en: (newsItem as any).content_en || '',
-      category_ru: (newsItem as any).category_ru || newsItem.category,
-      category_kz: (newsItem as any).category_kz || '',
-      category_en: (newsItem as any).category_en || '',
+      titleRu: (newsItem as any).titleRu || newsItem.title,
+      titleKz: (newsItem as any).titleKz || '',
+      titleEn: (newsItem as any).titleEn || '',
+      contentRu: (newsItem as any).contentRu || newsItem.content,
+      contentKz: (newsItem as any).contentKz || '',
+      contentEn: (newsItem as any).contentEn || '',
+      categoryRu: (newsItem as any).categoryRu || newsItem.category,
+      categoryKz: (newsItem as any).categoryKz || '',
+      categoryEn: (newsItem as any).categoryEn || '',
       image: newsItem.image,
       author: newsItem.author,
       source: newsItem.source || ''
@@ -160,15 +160,15 @@ export function Admin() {
     setShowForm(false);
     setEditingNews(null);
     setFormData({ 
-      title_ru: '', 
-      title_kz: '', 
-      title_en: '', 
-      content_ru: '', 
-      content_kz: '', 
-      content_en: '', 
-      category_ru: '', 
-      category_kz: '', 
-      category_en: '', 
+      titleRu: '', 
+      titleKz: '', 
+      titleEn: '', 
+      contentRu: '', 
+      contentKz: '', 
+      contentEn: '', 
+      categoryRu: '', 
+      categoryKz: '', 
+      categoryEn: '', 
       image: '', 
       author: 'Алпекон Групп',
       source: ''
@@ -235,8 +235,8 @@ export function Admin() {
                     <label className="block text-xs font-bold text-gray-600 mb-1">Русский (RU)</label>
                     <input
                       type="text"
-                      value={formData.title_ru}
-                      onChange={(e) => setFormData({ ...formData, title_ru: e.target.value })}
+                      value={formData.titleRu}
+                      onChange={(e) => setFormData({ ...formData, titleRu: e.target.value })}
                       className="w-full px-4 py-2 border border-gray-300 rounded-md focus:border-[#006442] focus:outline-none"
                       required
                       placeholder="Введите заголовок на русском"
@@ -246,8 +246,8 @@ export function Admin() {
                     <label className="block text-xs font-bold text-gray-600 mb-1">Қазақша (KZ)</label>
                     <input
                       type="text"
-                      value={formData.title_kz}
-                      onChange={(e) => setFormData({ ...formData, title_kz: e.target.value })}
+                      value={formData.titleKz}
+                      onChange={(e) => setFormData({ ...formData, titleKz: e.target.value })}
                       className="w-full px-4 py-2 border border-gray-300 rounded-md focus:border-[#006442] focus:outline-none"
                       placeholder="Тақырыпты қазақ тілінде енгізіңіз"
                     />
@@ -256,8 +256,8 @@ export function Admin() {
                     <label className="block text-xs font-bold text-gray-600 mb-1">English (EN)</label>
                     <input
                       type="text"
-                      value={formData.title_en}
-                      onChange={(e) => setFormData({ ...formData, title_en: e.target.value })}
+                      value={formData.titleEn}
+                      onChange={(e) => setFormData({ ...formData, titleEn: e.target.value })}
                       className="w-full px-4 py-2 border border-gray-300 rounded-md focus:border-[#006442] focus:outline-none"
                       placeholder="Enter title in English"
                     />
@@ -272,8 +272,8 @@ export function Admin() {
                   <div>
                     <label className="block text-xs font-bold text-gray-600 mb-1">Русский (RU)</label>
                     <textarea
-                      value={formData.content_ru}
-                      onChange={(e) => setFormData({ ...formData, content_ru: e.target.value })}
+                      value={formData.contentRu}
+                      onChange={(e) => setFormData({ ...formData, contentRu: e.target.value })}
                       className="w-full px-4 py-2 border border-gray-300 rounded-md focus:border-[#006442] focus:outline-none resize-none"
                       rows={4}
                       required
@@ -283,8 +283,8 @@ export function Admin() {
                   <div>
                     <label className="block text-xs font-bold text-gray-600 mb-1">Қазақша (KZ)</label>
                     <textarea
-                      value={formData.content_kz}
-                      onChange={(e) => setFormData({ ...formData, content_kz: e.target.value })}
+                      value={formData.contentKz}
+                      onChange={(e) => setFormData({ ...formData, contentKz: e.target.value })}
                       className="w-full px-4 py-2 border border-gray-300 rounded-md focus:border-[#006442] focus:outline-none resize-none"
                       rows={4}
                       placeholder="Мәтінді қазақ тілінде енгізіңіз"
@@ -293,8 +293,8 @@ export function Admin() {
                   <div>
                     <label className="block text-xs font-bold text-gray-600 mb-1">English (EN)</label>
                     <textarea
-                      value={formData.content_en}
-                      onChange={(e) => setFormData({ ...formData, content_en: e.target.value })}
+                      value={formData.contentEn}
+                      onChange={(e) => setFormData({ ...formData, contentEn: e.target.value })}
                       className="w-full px-4 py-2 border border-gray-300 rounded-md focus:border-[#006442] focus:outline-none resize-none"
                       rows={4}
                       placeholder="Enter content in English"
@@ -311,8 +311,8 @@ export function Admin() {
                     <label className="block text-xs font-bold text-gray-600 mb-1">Русский (RU)</label>
                     <input
                       type="text"
-                      value={formData.category_ru}
-                      onChange={(e) => setFormData({ ...formData, category_ru: e.target.value })}
+                      value={formData.categoryRu}
+                      onChange={(e) => setFormData({ ...formData, categoryRu: e.target.value })}
                       className="w-full px-4 py-2 border border-gray-300 rounded-md focus:border-[#006442] focus:outline-none"
                       placeholder="Производство, Партнерство и т.д."
                     />
@@ -321,8 +321,8 @@ export function Admin() {
                     <label className="block text-xs font-bold text-gray-600 mb-1">Қазақша (KZ)</label>
                     <input
                       type="text"
-                      value={formData.category_kz}
-                      onChange={(e) => setFormData({ ...formData, category_kz: e.target.value })}
+                      value={formData.categoryKz}
+                      onChange={(e) => setFormData({ ...formData, categoryKz: e.target.value })}
                       className="w-full px-4 py-2 border border-gray-300 rounded-md focus:border-[#006442] focus:outline-none"
                       placeholder="Өндіріс, Серіктестік және т.б."
                     />
@@ -331,8 +331,8 @@ export function Admin() {
                     <label className="block text-xs font-bold text-gray-600 mb-1">English (EN)</label>
                     <input
                       type="text"
-                      value={formData.category_en}
-                      onChange={(e) => setFormData({ ...formData, category_en: e.target.value })}
+                      value={formData.categoryEn}
+                      onChange={(e) => setFormData({ ...formData, categoryEn: e.target.value })}
                       className="w-full px-4 py-2 border border-gray-300 rounded-md focus:border-[#006442] focus:outline-none"
                       placeholder="Production, Partnership, etc."
                     />

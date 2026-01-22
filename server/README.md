@@ -1,16 +1,29 @@
 # Alpecon Group Backend API
 
-Простой REST API для управления новостями на сайте Alpecon Group.
+TypeScript + Express + Prisma backend для управления новостями на сайте Alpecon Group.
 
-## 🚀 Запуск
+## 🚀 Quick Start
+
+### Development
 
 ```bash
-cd server
+# Install dependencies
 npm install
+
+# Copy environment variables
+cp .env.example .env
+
+# Generate Prisma Client
+npm run prisma:generate
+
+# Run migrations
+npm run prisma:migrate
+
+# Start development server
 npm run dev
 ```
 
-Сервер запустится на `http://localhost:3001`
+Сервер запустится на `http://localhost:3002`
 
 ## 📡 API Endpoints
 
