@@ -136,7 +136,14 @@ fi
 
 # Validate critical environment variables
 echo -e "${YELLOW}Validating environment variables...${NC}"
-source .env
+
+# Load environment variables (portable way)
+if [ -f .env ]; then
+    # Export variables from .env file
+    set -a
+    . .env
+    set +a
+fi
 
 if [ -z "$JWT_SECRET" ] || [ "$JWT_SECRET" = "your-secret-key-here-change-in-production" ]; then
     echo -e "${RED}❌ JWT_SECRET is not set or using default value!${NC}"
