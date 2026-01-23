@@ -12,6 +12,7 @@
     "prisma:migrate": "prisma migrate dev",
     "prisma:studio": "prisma studio",
     "migrate:data": "tsx scripts/migrate-data.ts",
+    "migrate:fix": "bash scripts/fix-migration.sh",
     "generate:jwt-secret": "tsx scripts/generate-jwt-secret.ts",
     "hash:password": "tsx scripts/hash-password.ts"
   },
