@@ -73,6 +73,13 @@ chmod +x deploy.sh
 ./deploy.sh --initial
 ```
 
+**Important:** If you get an error about `source` or `.env not found`, make sure to run with bash:
+```bash
+bash deploy.sh --initial
+```
+
+Do NOT use `sh deploy.sh` as it may use a different shell that doesn't support bash features.
+
 This will:
 - Check if Node.js is installed
 - Install PM2 globally

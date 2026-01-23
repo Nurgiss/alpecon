@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 ################################################################################
 # Alpecon Backend Deployment Script for VPS
@@ -8,6 +8,12 @@
 #   --skip-build Skip TypeScript build (for quick restarts)
 #   --skip-deps  Skip npm install (when dependencies haven't changed)
 ################################################################################
+
+# Ensure we're running in bash
+if [ -z "$BASH_VERSION" ]; then
+    echo "This script requires bash. Please run with: bash deploy.sh"
+    exit 1
+fi
 
 set -e  # Exit on error
 
@@ -137,13 +143,16 @@ fi
 # Validate critical environment variables
 echo -e "${YELLOW}Validating environment variables...${NC}"
 
-# Load environment variables (portable way)
-if [ -f .env ]; then
-    # Export variables from .env file
-    set -a
-    . .env
-    set +a
+# Load environment variables
+if [ ! -f .env ]; then
+    echo -e "${RED}❌ .env file not found!${NC}"
+    exit 1
 fi
+
+# Export variables from .env file (bash-compatible way)
+set -a
+source .env 2>/dev/null || . .env
+set +a
 
 if [ -z "$JWT_SECRET" ] || [ "$JWT_SECRET" = "your-secret-key-here-change-in-production" ]; then
     echo -e "${RED}❌ JWT_SECRET is not set or using default value!${NC}"
