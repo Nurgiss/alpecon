@@ -1,5 +1,6 @@
 import jwt, { Secret } from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
+import 'dotenv/config';
 
 // Admin role enum
 export enum UserRole {

@@ -1,4 +1,5 @@
 import 'reflect-metadata';
+import 'dotenv/config';
 import express, { Request, Response } from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
@@ -67,8 +68,9 @@ app.post('/api/login', async (req: Request, res: Response): Promise<void> => {
       return;
     }
 
-    // Check username
-    if (username !== AUTH_CONFIG.adminUsername) {
+    // Check username (case-insensitive)
+    if (username.toLowerCase() !== AUTH_CONFIG.adminUsername.toLowerCase()) {
+      console.log('❌ Username mismatch:', { received: username, expected: AUTH_CONFIG.adminUsername });
       res.status(401).json({
         success: false,
         message: 'Неверный логин или пароль'
@@ -78,6 +80,7 @@ app.post('/api/login', async (req: Request, res: Response): Promise<void> => {
 
     // Verify password (supports both plain text and bcrypt hash)
     const isPasswordValid = await verifyPassword(password, AUTH_CONFIG.adminPassword);
+    console.log('🔐 Password verification:', { isPasswordValid, passwordLength: password.length, hashLength: AUTH_CONFIG.adminPassword.length });
 
     if (!isPasswordValid) {
       res.status(401).json({
