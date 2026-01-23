@@ -79,7 +79,9 @@ export const verifyPassword = async (
   storedPassword: string
 ): Promise<boolean> => {
   // Check if stored password is a bcrypt hash (starts with $2a$, $2b$, or $2y$)
+    console.log('Is stored password a bcrypt hash?', storedPassword);
   const isBcryptHash = /^\$2[aby]\$/.test(storedPassword);
+  console.warn('Is stored password a bcrypt hash?', isBcryptHash);
 
   if (isBcryptHash) {
     // Use bcrypt comparison for hashed passwords
