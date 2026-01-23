@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { newsApi, NewsItem } from '@/services/newsApi';
 import { Button } from '@/app/components/Button';
 import { useLanguage } from '@/app/contexts/LanguageContext';
 
 export function Admin() {
+  const navigate = useNavigate();
   const { language, setLanguage, t } = useLanguage();
   const [news, setNews] = useState<NewsItem[]>([]);
   const [loading, setLoading] = useState(true);
@@ -26,8 +28,13 @@ export function Admin() {
   });
 
   useEffect(() => {
+    // Check authentication on mount
+    if (!newsApi.isAuthenticated()) {
+      navigate('/admin/login');
+      return;
+    }
     loadNews();
-  }, []);
+  }, [navigate]);
 
   const loadNews = async () => {
     try {
@@ -46,24 +53,20 @@ export function Admin() {
     const file = e.target.files?.[0];
     if (!file) return;
 
-    const formDataUpload = new FormData();
-    formDataUpload.append('image', file);
-
     try {
       setUploading(true);
-      const response = await fetch('http://localhost:3002/api/upload', {
-        method: 'POST',
-        body: formDataUpload,
-      });
-      
-      if (!response.ok) throw new Error('Ошибка загрузки');
-      
-      const data = await response.json();
+      const data = await newsApi.uploadImage(file);
       const imageUrl = `http://localhost:3002${data.url}`;
-      
+
       setFormData(prev => ({ ...prev, image: imageUrl }));
     } catch (error) {
-      alert('Ошибка при загрузке изображения');
+      if ((error as Error).message === 'UNAUTHORIZED') {
+        alert('Сессия истекла. Пожалуйста, войдите снова.');
+        newsApi.logout();
+        navigate('/admin/login');
+      } else {
+        alert('Ошибка при загрузке изображения');
+      }
     } finally {
       setUploading(false);
     }
@@ -120,7 +123,13 @@ export function Admin() {
       loadNews();
     } catch (error) {
       console.error('Ошибка сохранения:', error);
-      alert(t('admin.actions.error'));
+      if ((error as Error).message === 'UNAUTHORIZED') {
+        alert('Сессия истекла. Пожалуйста, войдите снова.');
+        newsApi.logout();
+        navigate('/admin/login');
+      } else {
+        alert(t('admin.actions.error'));
+      }
     }
   };
 
@@ -152,27 +161,40 @@ export function Admin() {
       loadNews();
     } catch (error) {
       console.error('Ошибка удаления:', error);
-      alert(t('admin.actions.deleteError'));
+      if ((error as Error).message === 'UNAUTHORIZED') {
+        alert('Сессия истекла. Пожалуйста, войдите снова.');
+        newsApi.logout();
+        navigate('/admin/login');
+      } else {
+        alert(t('admin.actions.deleteError'));
+      }
     }
   };
 
   const handleCancel = () => {
     setShowForm(false);
     setEditingNews(null);
-    setFormData({ 
-      titleRu: '', 
-      titleKz: '', 
-      titleEn: '', 
-      contentRu: '', 
-      contentKz: '', 
-      contentEn: '', 
-      categoryRu: '', 
-      categoryKz: '', 
-      categoryEn: '', 
-      image: '', 
+    setFormData({
+      titleRu: '',
+      titleKz: '',
+      titleEn: '',
+      contentRu: '',
+      contentKz: '',
+      contentEn: '',
+      categoryRu: '',
+      categoryKz: '',
+      categoryEn: '',
+      image: '',
       author: 'Алпекон Групп',
       source: ''
     });
+  };
+
+  const handleLogout = () => {
+    if (confirm('Вы уверены, что хотите выйти?')) {
+      newsApi.logout();
+      navigate('/admin/login');
+    }
   };
 
   if (loading) {
@@ -210,12 +232,18 @@ export function Admin() {
                   </button>
                 ))}
               </div>
-              <Button 
+              <Button
                 onClick={() => setShowForm(!showForm)}
                 size="lg"
               >
                 {showForm ? t('admin.cancelButton') : t('admin.createButton')}
               </Button>
+              <button
+                onClick={handleLogout}
+                className="px-4 py-2 bg-red-600 text-white text-sm font-bold uppercase rounded-md hover:bg-red-700 transition-colors"
+              >
+                Выйти
+              </button>
             </div>
           </div>
         </div>

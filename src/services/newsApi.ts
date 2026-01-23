@@ -1,5 +1,8 @@
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3002/api';
 
+// Token storage key
+const TOKEN_KEY = 'alpecon_admin_token';
+
 export interface NewsItem {
   id: string;
   title: string;
@@ -16,12 +19,61 @@ export interface NewsItem {
   categoryEn?: string | null;
   image: string;
   author: string;
+  source?: string | null;
   date: string;
   createdAt: string;
   updatedAt: string;
 }
 
+export interface LoginResponse {
+  success: boolean;
+  message: string;
+  token?: string;
+  username?: string;
+}
+
+// Helper function to get auth headers
+const getAuthHeaders = (): HeadersInit => {
+  const token = localStorage.getItem(TOKEN_KEY);
+  return {
+    'Content-Type': 'application/json',
+    ...(token ? { Authorization: `Bearer ${token}` } : {}),
+  };
+};
+
 export const newsApi = {
+  // Authentication
+  async login(username: string, password: string): Promise<LoginResponse> {
+    const response = await fetch(`${API_URL}/login`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ username, password }),
+    });
+
+    const data = await response.json();
+
+    // Store token if login successful
+    if (data.success && data.token) {
+      localStorage.setItem(TOKEN_KEY, data.token);
+    }
+
+    return data;
+  },
+
+  logout() {
+    localStorage.removeItem(TOKEN_KEY);
+  },
+
+  isAuthenticated(): boolean {
+    return !!localStorage.getItem(TOKEN_KEY);
+  },
+
+  getToken(): string | null {
+    return localStorage.getItem(TOKEN_KEY);
+  },
+
   // Получить все новости
   async getAll(): Promise<NewsItem[]> {
     const response = await fetch(`${API_URL}/news`);
@@ -36,37 +88,65 @@ export const newsApi = {
     return response.json();
   },
 
-  // Создать новость
+  // Создать новость (требует авторизации)
   async create(data: Partial<NewsItem>): Promise<NewsItem> {
     const response = await fetch(`${API_URL}/news`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: getAuthHeaders(),
       body: JSON.stringify(data),
     });
+
+    if (response.status === 401) {
+      throw new Error('UNAUTHORIZED');
+    }
     if (!response.ok) throw new Error('Failed to create news');
     return response.json();
   },
 
-  // Обновить новость
+  // Обновить новость (требует авторизации)
   async update(id: string, data: Partial<NewsItem>): Promise<NewsItem> {
     const response = await fetch(`${API_URL}/news/${id}`, {
       method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: getAuthHeaders(),
       body: JSON.stringify(data),
     });
+
+    if (response.status === 401) {
+      throw new Error('UNAUTHORIZED');
+    }
     if (!response.ok) throw new Error('Failed to update news');
     return response.json();
   },
 
-  // Удалить новость
+  // Удалить новость (требует авторизации)
   async delete(id: string): Promise<void> {
     const response = await fetch(`${API_URL}/news/${id}`, {
       method: 'DELETE',
+      headers: getAuthHeaders(),
     });
+
+    if (response.status === 401) {
+      throw new Error('UNAUTHORIZED');
+    }
     if (!response.ok) throw new Error('Failed to delete news');
+  },
+
+  // Загрузить изображение (требует авторизации)
+  async uploadImage(file: File): Promise<{ url: string }> {
+    const formData = new FormData();
+    formData.append('image', file);
+
+    const token = localStorage.getItem(TOKEN_KEY);
+    const response = await fetch(`${API_URL}/upload`, {
+      method: 'POST',
+      headers: token ? { Authorization: `Bearer ${token}` } : {},
+      body: formData,
+    });
+
+    if (response.status === 401) {
+      throw new Error('UNAUTHORIZED');
+    }
+    if (!response.ok) throw new Error('Failed to upload image');
+    return response.json();
   },
 };

@@ -10,6 +10,7 @@ import { News } from '@/app/pages/News';
 import { NewsDetail } from '@/app/pages/NewsDetail';
 import { Contacts } from '@/app/pages/Contacts';
 import { Admin } from '@/app/pages/Admin';
+import { AdminLogin } from '@/app/pages/AdminLogin';
 import { LanguageProvider } from '@/app/contexts/LanguageContext';
 import { Projects } from '@/app/pages/Projects';
 import { Investors } from '@/app/pages/Investors';
@@ -20,9 +21,10 @@ export default function App() {
     <LanguageProvider>
       <BrowserRouter>
         <Routes>
-          {/* Admin route without header/footer */}
+          {/* Admin routes without header/footer */}
+          <Route path="/admin/login" element={<AdminLogin />} />
           <Route path="/admin" element={<Admin />} />
-          
+
           {/* Public routes with header/footer */}
           <Route path="*" element={
             <div className="min-h-screen bg-white flex flex-col">

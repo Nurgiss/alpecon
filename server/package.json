@@ -11,7 +11,9 @@
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev",
     "prisma:studio": "prisma studio",
-    "migrate:data": "tsx scripts/migrate-data.ts"
+    "migrate:data": "tsx scripts/migrate-data.ts",
+    "generate:jwt-secret": "tsx scripts/generate-jwt-secret.ts",
+    "hash:password": "tsx scripts/hash-password.ts"
   },
   "keywords": [
     "express",
@@ -36,9 +38,11 @@
     "uuid": "^9.0.1"
   },
   "devDependencies": {
+    "@types/bcrypt": "^6.0.0",
     "@types/better-sqlite3": "^7.6.13",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
+    "@types/jsonwebtoken": "^9.0.10",
     "@types/multer": "^2.0.0",
     "@types/node": "^25.0.10",
     "@types/uuid": "^10.0.0",

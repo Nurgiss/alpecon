@@ -110,6 +110,10 @@ server/
 - `npm run prisma:studio` - Open Prisma Studio GUI
 - `npm run migrate:data` - Migrate data from old news.json
 
+### Security & Deployment
+- `npm run generate:jwt-secret` - Generate secure JWT secret
+- `npm run hash:password <password>` - Hash password with bcrypt
+
 ## 🔧 Технологии
 
 - **Runtime:** Node.js 20+
@@ -123,18 +127,84 @@ server/
 
 ## 🔐 Authentication
 
-Временная аутентификация (ИЗМЕНИТЬ В PRODUCTION!):
+The backend uses JWT-based authentication to protect admin routes.
+
+### Default Credentials (Development Only)
 - Username: `Admin`
 - Password: `admin`
 
+**⚠️ WARNING:** These defaults are blocked in production. You MUST change them!
+
+### Setup Production Credentials
+
+1. **Generate JWT Secret:**
+   ```bash
+   npm run generate:jwt-secret
+   ```
+   Copy the generated secret to your `.env` file.
+
+2. **Hash Admin Password:**
+   ```bash
+   npm run hash:password "YourSecurePassword"
+   ```
+   Copy the bcrypt hash to your `.env` file.
+
+3. **Update .env:**
+   ```env
+   JWT_SECRET=<generated-secret-from-step-1>
+   ADMIN_USERNAME=your_admin_username
+   ADMIN_PASSWORD=<bcrypt-hash-from-step-2>
+   ```
+
+### Protected Endpoints
+- `POST /api/news` - Create news (requires auth)
+- `PUT /api/news/:id` - Update news (requires auth)
+- `DELETE /api/news/:id` - Delete news (requires auth)
+- `POST /api/upload` - Upload image (requires auth)
+
+### Authentication Flow
+1. Login: `POST /api/login` with `{username, password}`
+2. Receive JWT token in response
+3. Include token in requests: `Authorization: Bearer <token>`
+4. Token expires after 24 hours (configurable)
+
 ## 🚢 Deployment
 
-See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed VPS deployment instructions.
+### Quick Start on VPS
 
-Quick deploy on VPS:
+**First time setup:**
+```bash
+chmod +x deploy.sh
+./deploy.sh --initial
+```
+
+This will:
+- Install PM2 process manager
+- Setup PM2 to start on boot
+- Create `.env` file from example
+- Guide you through configuration
+
+**After configuring .env:**
 ```bash
 ./deploy.sh
 ```
+
+**Quick redeployments:**
+```bash
+./deploy.sh --skip-deps        # Skip npm install (faster)
+./deploy.sh --skip-build       # Skip build (restart only)
+```
+
+### Full Guide
+See [VPS-SETUP.md](./VPS-SETUP.md) for complete VPS setup guide with:
+- Node.js installation
+- PostgreSQL setup
+- Nginx reverse proxy
+- SSL certificates
+- Firewall configuration
+- Backup scripts
+
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for deployment checklist and troubleshooting.
 
 ## 🗄️ Database
 

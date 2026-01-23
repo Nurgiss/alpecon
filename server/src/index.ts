@@ -1,5 +1,5 @@
 import 'reflect-metadata';
-import express, { Request, Response, NextFunction } from 'express';
+import express, { Request, Response } from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import fs from 'fs/promises';
@@ -10,6 +10,8 @@ import multer from 'multer';
 import prisma from './config/database.js';
 import { CreateNewsDTO, UpdateNewsDTO, NewsResponseDTO } from './dto/index.js';
 import { validateDTO } from './middleware/validation.middleware.js';
+import { requireAuth } from './middleware/auth.middleware.js';
+import { AUTH_CONFIG, generateToken, verifyPassword } from './config/auth.config.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -51,28 +53,57 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/uploads', express.static(UPLOADS_DIR));
 
-// Эндпоинт для авторизации
-app.post('/api/login', (req: Request, res: Response) => {
-  const { username, password } = req.body;
-  if (username === 'Admin' && password === 'admin') {
-    // В реальном приложении здесь должен быть токен (JWT)
-    res.json({ success: true, message: 'Авторизация успешна' });
-  } else {
-    res.status(401).json({ success: false, message: 'Неверный логин или пароль' });
+// Эндпоинт для авторизации с JWT
+app.post('/api/login', async (req: Request, res: Response): Promise<void> => {
+  try {
+    const { username, password } = req.body;
+
+    // Validate input
+    if (!username || !password) {
+      res.status(400).json({
+        success: false,
+        message: 'Логин и пароль обязательны'
+      });
+      return;
+    }
+
+    // Check username
+    if (username !== AUTH_CONFIG.adminUsername) {
+      res.status(401).json({
+        success: false,
+        message: 'Неверный логин или пароль'
+      });
+      return;
+    }
+
+    // Verify password (supports both plain text and bcrypt hash)
+    const isPasswordValid = await verifyPassword(password, AUTH_CONFIG.adminPassword);
+
+    if (!isPasswordValid) {
+      res.status(401).json({
+        success: false,
+        message: 'Неверный логин или пароль'
+      });
+      return;
+    }
+
+    // Generate JWT token
+    const token = generateToken(username);
+
+    res.json({
+      success: true,
+      message: 'Авторизация успешна',
+      token,
+      username
+    });
+  } catch (error) {
+    console.error('Login error:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Ошибка сервера при авторизации'
+    });
   }
 });
-
-// Простой middleware для "защиты" роутов
-const requireAuth = (_req: Request, _res: Response, next: NextFunction): void => {
-  // В реальном приложении здесь будет проверка JWT токена
-  // Для простоты, мы будем передавать "секрет" в заголовках
-  // if (_req.headers.authorization === 'admin-secret-token') {
-  //   next();
-  // } else {
-  //   _res.status(401).json({ error: 'Требуется авторизация' });
-  // }
-  next(); // Временно отключаем защиту для разработки
-};
 
 // Routes
 
