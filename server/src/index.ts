@@ -154,17 +154,36 @@ app.post('/api/upload', requireAuth, upload.single('image'), (req: Request, res:
   }
 });
 
-// Получить все новости
-app.get('/api/news', async (_req: Request, res: Response): Promise<void> => {
+// Получить все новости (с пагинацией)
+app.get('/api/news', async (req: Request, res: Response): Promise<void> => {
   try {
-    const newsList = await prisma.news.findMany({
-      orderBy: {
-        createdAt: 'desc'
-      }
-    });
+    // Parse pagination parameters
+    const page = Math.max(1, parseInt(req.query.page as string) || 1);
+    const limit = Math.min(100, Math.max(1, parseInt(req.query.limit as string) || 12));
+    const skip = (page - 1) * limit;
 
-    const response = NewsResponseDTO.fromEntities(newsList);
-    res.json(response);
+    // Get total count and paginated data in parallel
+    const [total, newsList] = await Promise.all([
+      prisma.news.count(),
+      prisma.news.findMany({
+        orderBy: { createdAt: 'desc' },
+        skip,
+        take: limit,
+      }),
+    ]);
+
+    const data = NewsResponseDTO.fromEntities(newsList);
+    const pages = Math.ceil(total / limit);
+
+    res.json({
+      data,
+      pagination: {
+        page,
+        limit,
+        total,
+        pages,
+      },
+    });
   } catch (error) {
     console.error('Error fetching news:', error);
     res.status(500).json({ error: 'Ошибка при получении новостей' });

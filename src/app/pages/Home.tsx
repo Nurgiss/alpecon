@@ -18,8 +18,8 @@ export function Home() {
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const data = await newsApi.getAll();
-        setNews(data.slice(0, 3)); // Берем только 3 последние новости
+        const response = await newsApi.getAll(1, 3); // Fetch only 3 latest news
+        setNews(response.data);
       } catch (error) {
         console.error('Error loading news:', error);
       } finally {

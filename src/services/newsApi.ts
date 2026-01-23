@@ -53,6 +53,18 @@ export interface LoginResponse {
   username?: string;
 }
 
+export interface PaginationInfo {
+  page: number;
+  limit: number;
+  total: number;
+  pages: number;
+}
+
+export interface PaginatedNewsResponse {
+  data: NewsItem[];
+  pagination: PaginationInfo;
+}
+
 // Helper function to get auth headers
 const getAuthHeaders = (): HeadersInit => {
   const token = localStorage.getItem(TOKEN_KEY);
@@ -95,9 +107,9 @@ export const newsApi = {
     return localStorage.getItem(TOKEN_KEY);
   },
 
-  // Получить все новости
-  async getAll(): Promise<NewsItem[]> {
-    const response = await fetch(`${API_URL}/news`);
+  // Получить новости с пагинацией
+  async getAll(page = 1, limit = 12): Promise<PaginatedNewsResponse> {
+    const response = await fetch(`${API_URL}/news?page=${page}&limit=${limit}`);
     if (!response.ok) throw new Error('Failed to fetch news');
     return response.json();
   },
