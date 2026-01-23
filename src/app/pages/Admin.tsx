@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { newsApi, NewsItem } from '@/services/newsApi';
+import { newsApi, NewsItem, getUploadUrl } from '@/services/newsApi';
 import { Button } from '@/app/components/Button';
 import { useLanguage } from '@/app/contexts/LanguageContext';
 
@@ -56,7 +56,7 @@ export function Admin() {
     try {
       setUploading(true);
       const data = await newsApi.uploadImage(file);
-      const imageUrl = `http://localhost:3002${data.url}`;
+      const imageUrl = getUploadUrl(data.url);
 
       setFormData(prev => ({ ...prev, image: imageUrl }));
     } catch (error) {

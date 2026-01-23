@@ -1,5 +1,26 @@
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3002/api';
 
+// Base URL for uploads (extracted from API_URL)
+const getBaseUrl = (): string => {
+  // If API_URL is relative (e.g., '/api'), return empty string (same origin)
+  if (API_URL.startsWith('/')) {
+    return '';
+  }
+  // Otherwise extract base URL (e.g., 'http://localhost:3002' from 'http://localhost:3002/api')
+  try {
+    const url = new URL(API_URL);
+    return url.origin;
+  } catch {
+    return '';
+  }
+};
+
+// Build full URL for uploaded images
+export const getUploadUrl = (path: string): string => {
+  const baseUrl = getBaseUrl();
+  return `${baseUrl}${path}`;
+};
+
 // Token storage key
 const TOKEN_KEY = 'alpecon_admin_token';
 
