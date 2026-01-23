@@ -82,6 +82,17 @@ if [ "$INITIAL_SETUP" = true ]; then
     echo -e "${GREEN}✓ npm version: $(npm --version)${NC}"
     echo ""
 
+    # Check if sqlite3 is installed
+    if ! command -v sqlite3 &> /dev/null; then
+        echo -e "${YELLOW}📦 Installing sqlite3...${NC}"
+        sudo apt-get update -qq
+        sudo apt-get install -y sqlite3
+        echo -e "${GREEN}✓ sqlite3 installed${NC}"
+    else
+        echo -e "${GREEN}✓ sqlite3 is already installed${NC}"
+    fi
+    echo ""
+
     # Check if PM2 is installed
     if ! command -v pm2 &> /dev/null; then
         echo -e "${YELLOW}📦 Installing PM2 globally...${NC}"
