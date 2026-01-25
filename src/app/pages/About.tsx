@@ -1,6 +1,6 @@
-import { ImagePlaceholder } from '@/app/components/ImagePlaceholder';
-import { Button } from '@/app/components/Button';
+// import { Button } from '@/app/components/Button';
 import { useLanguage } from '@/app/contexts/LanguageContext';
+import { Target, TrendingUp, Users, Shield, Lightbulb, Handshake, Leaf } from 'lucide-react';
 
 export function About() {
   const { t } = useLanguage();
@@ -19,8 +19,8 @@ export function About() {
         </div>
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 lg:pt-32">
           <div className="pl-4 sm:pl-8">
-            <h1 className="text-white text-4xl sm:text-5xl lg:text-7xl font-bold mb-6 uppercase tracking-tight leading-[1.1]">{t('about.hero.title')}</h1>
-            <p className="text-white/90 text-base sm:text-lg lg:text-2xl max-w-3xl leading-tight">
+            <h1 className="text-white text-4xl sm:text-5xl lg:text-5xl font-geologica font-bold mb-6 uppercase tracking-tight leading-[1.1]">{t('about.hero.title')}</h1>
+            <p className="text-white/90 text-base sm:text-lg lg:text-lg font-geist max-w-3xl leading-tight">
               {t('about.hero.subtitle')}
             </p>
           </div>
@@ -37,25 +37,43 @@ export function About() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center mb-20 sm:mb-24 lg:mb-32">
             <div>
-              <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-gray-900 mb-6 sm:mb-8 uppercase">{t('about.mission.title')}</h2>
-              <p className="text-base sm:text-lg lg:text-xl text-gray-700 mb-4 sm:mb-6 leading-relaxed">
-                {t('about.mission.text1')}
-              </p>
-              <p className="text-base sm:text-lg lg:text-xl text-gray-700 mb-4 sm:mb-6 lg:mb-8 leading-relaxed">
-                {t('about.mission.text2')}
-              </p>
-              <p className="text-base sm:text-lg lg:text-xl text-gray-700 mb-6 sm:mb-8 leading-relaxed">
-                {t('about.mission.text3')}
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-geologica font-bold text-gray-900 mb-6 sm:mb-8 uppercase">{t('about.mission.title')}</h2>
+              <p className="text-base sm:text-lg lg:text-lg text-gray-700 font-geist leading-relaxed">
+                Alpecon Group — казахстанская инвестиционная компания, реализующая в Алматинской области масштабный экспортно-ориентированный проект по созданию интегрированного агропромышленного кластера глубокой переработки фруктов и овощей.
               </p>
             </div>
             <div className="grid grid-cols-2 gap-4 sm:gap-6">
               <div className="space-y-4 sm:space-y-6">
-                <ImagePlaceholder height="h-64 sm:h-72" label="Plant Facility 1" className="rounded-md" />
-                <ImagePlaceholder height="h-48 sm:h-56" label="Plant Facility 2" className="rounded-md" />
+                <div className="overflow-hidden rounded-md shadow-lg">
+                  <img
+                    src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&auto=format&fit=crop&q=80"
+                    alt="Plant Facility 1"
+                    className="w-full h-64 sm:h-72 object-cover transition-all duration-500"
+                  />
+                </div>
+                <div className="overflow-hidden rounded-md shadow-lg">
+                  <img
+                    src="https://images.unsplash.com/photo-1635961179148-3d886568775c?w=800&auto=format&fit=crop&q=80"
+                    alt="Plant Facility 2"
+                    className="w-full h-48 sm:h-56 object-cover transition-all duration-500"
+                  />
+                </div>
               </div>
               <div className="space-y-4 sm:space-y-6 pt-8 sm:pt-12">
-                <ImagePlaceholder height="h-48 sm:h-56" label="Plant Facility 3" className="rounded-md" />
-                <ImagePlaceholder height="h-64 sm:h-72" label="Plant Facility 4" className="rounded-md" />
+                <div className="overflow-hidden rounded-md shadow-lg">
+                  <img
+                    src="https://images.unsplash.com/photo-1594737626072-90dc274bc2bc?w=800&auto=format&fit=crop&q=80"
+                    alt="Plant Facility 3"
+                    className="w-full h-48 sm:h-56 object-cover"
+                  />
+                </div>
+                <div className="overflow-hidden rounded-md shadow-lg">
+                  <img
+                    src="https://images.unsplash.com/photo-1745517512760-dd48be2f7cb8?w=800&auto=format&fit=crop&q=80"
+                    alt="Plant Facility 4"
+                    className="w-full h-64 sm:h-72 object-cover"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -65,10 +83,45 @@ export function About() {
         </div>
       </section>
 
+      {/* Mission Cards Section */}
+      <section className="py-16 sm:py-24 lg:py-32 bg-gray-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-geologica font-bold text-gray-900 uppercase">Наши миссии</h2>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10 lg:gap-12">
+            <div className="bg-gradient-to-br from-[#133327] to-[#1a4a3d] shadow-lg rounded-lg p-6 sm:p-8 hover:shadow-xl transition-all text-center text-white">
+              <div className="w-16 h-16 bg-white/20 rounded-lg flex items-center justify-center mx-auto mb-6 backdrop-blur-sm">
+                <Target className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl sm:text-2xl font-geologica font-bold mb-4 uppercase">Цель 1</h3>
+              <p className="text-sm font-geist leading-relaxed">{t('about.mission.text1')}</p>
+            </div>
+
+            <div className="bg-gradient-to-br from-[#133327] to-[#1a4a3d] shadow-lg rounded-lg p-6 sm:p-8 hover:shadow-xl transition-all text-center text-white">
+              <div className="w-16 h-16 bg-white/20 rounded-lg flex items-center justify-center mx-auto mb-6 backdrop-blur-sm">
+                <TrendingUp className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl sm:text-2xl font-geologica font-bold mb-4 uppercase">Цель 2</h3>
+              <p className="text-sm font-geist leading-relaxed">{t('about.mission.text2')}</p>
+            </div>
+
+            <div className="bg-gradient-to-br from-[#133327] to-[#1a4a3d] shadow-lg rounded-lg p-6 sm:p-8 hover:shadow-xl transition-all text-center text-white">
+              <div className="w-16 h-16 bg-white/20 rounded-lg flex items-center justify-center mx-auto mb-6 backdrop-blur-sm">
+                <Users className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl sm:text-2xl font-geologica font-bold mb-4 uppercase">Цель 3</h3>
+              <p className="text-sm font-geist leading-relaxed">{t('about.mission.text3')}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Values Section with Visual Elements */}
       <section className="py-16 sm:py-24 lg:py-32 bg-gray-100 text-gray-900">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold mb-12 sm:mb-16 lg:mb-20 text-center uppercase">{t('about.values.title')}</h2>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-geologica font-bold mb-12 sm:mb-16 lg:mb-20 text-center uppercase">{t('about.values.title')}</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-10">
             {[
               { 
@@ -96,104 +149,21 @@ export function About() {
                 image: 'Ecology Value'
               },
             ].map((value, idx) => (
-              <div key={idx} className="text-center bg-white shadow-md rounded-md p-8 sm:p-10 hover:shadow-xl transition-all group">
-                <ImagePlaceholder height="h-40 sm:h-48" label={value.image} className="rounded mb-4 sm:mb-6" />
-                <div className="text-4xl sm:text-5xl lg:text-6xl mb-4 sm:mb-6 group-hover:scale-110 transition-transform">{value.icon}</div>
-                <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 uppercase">{value.title}</h3>
-                <p className="text-sm sm:text-base text-gray-600 leading-relaxed">{value.desc}</p>
+              <div key={idx} className="text-center bg-white shadow-md rounded-md p-8 sm:p-10 hover:shadow-xl transition-all">
+                <div className={`w-16 h-16 bg-[#006442]/20 rounded-full flex items-center justify-center mx-auto mb-6`}>
+                  {idx === 0 && <Shield className="w-8 h-8 text-[#006442]" />}
+                  {idx === 1 && <Lightbulb className="w-8 h-8 text-[#006442]" />}
+                  {idx === 2 && <Handshake className="w-8 h-8 text-[#006442]" />}
+                  {idx === 3 && <Leaf className="w-8 h-8 text-[#006442]" />}
+                </div>
+                <h3 className="text-xl sm:text-2xl font-geologica font-bold mb-3 sm:mb-4 uppercase">{value.title}</h3>
+                <p className="text-sm sm:text-base text-gray-600 font-geist leading-relaxed">{value.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="relative py-16 sm:py-24 lg:py-32 bg-[#0D0D0D] text-white overflow-hidden">
-
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-            {/* Left - Main CTA */}
-            <div className="pl-4 sm:pl-8">
-              <div className="inline-block bg-white text-gray-900 px-6 py-2 text-xs font-bold mb-6 uppercase tracking-widest rounded-lg shadow-lg">
-                {t('about.contact.badge')}
-              </div>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 leading-tight uppercase tracking-tight">
-                {t('about.contact.title')}
-              </h2>
-              <p className="text-base sm:text-lg text-white/90 mb-8 leading-relaxed">
-                {t('about.contact.subtitle')}
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="w-full sm:w-auto">{t('about.contact.button')}</Button>
-              </div>
-            </div>
-
-            {/* Right - Contact Cards */}
-            <div className="space-y-6">
-              <div className="bg-[#2A2A2A] p-6 rounded-lg hover:bg-[#333333] transition-all">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center text-2xl flex-shrink-0">
-                    📞
-                  </div>
-                  <div>
-                    <div className="text-sm text-white/70 mb-1 uppercase tracking-wider font-bold">
-                      {t('about.contact.phone')}
-                    </div>
-                    <div className="text-lg font-bold">
-                      +7 (727) 123-45-67
-                    </div>
-                    <div className="text-sm text-white/80">
-                      {t('footer.workTime')}
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-[#2A2A2A] p-6 rounded-lg hover:bg-[#333333] transition-all">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center text-2xl flex-shrink-0">
-                    ✉️
-                  </div>
-                  <div>
-                    <div className="text-sm text-white/70 mb-1 uppercase tracking-wider font-bold">
-                      {t('about.contact.email')}
-                    </div>
-                    <div className="text-lg font-bold">
-                      info@alpecon.kz
-                    </div>
-                    <div className="text-sm text-white/80">
-                      {t('footer.email')}
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-[#2A2A2A] p-6 rounded-lg hover:bg-[#333333] transition-all">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center text-2xl flex-shrink-0">
-                    📍
-                  </div>
-                  <div>
-                    <div className="text-sm text-white/70 mb-1 uppercase tracking-wider font-bold">
-                      {t('about.contact.address')}
-                    </div>
-                    <div className="text-lg font-bold">
-                      {t('about.contact.addressText')}
-                    </div>
-                    <div className="text-sm text-white/80">
-                      {t('header.location')}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Decorative Elements */}
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
-        <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
-      </section>
     </div>
   );
 }

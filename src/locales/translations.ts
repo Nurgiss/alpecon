@@ -18,10 +18,10 @@ export const translations = {
       quickLinks: "Быстрые ссылки",
       contacts: "Контакты",
       address: "Адрес",
-      addressText: "123456, Россия, Московская область, г. Москва, ул. Промышленная, 15",
+      addressText: "123456, Казахстан, Алматыская обл., г. Алматы, Промышленная ул., 15 ",
       workTime: "Пн-Пт: 9:00 - 18:00",
-      email: "info@plant.ru",
-      copyright: "© 2024 Завод по переработке овощей и фруктов. Все права защищены."
+      email: "info@alpecon.kz",
+      copyright: "© 2026 Alpecon Group. Все права защищены."
     },
     home: {
       hero: {
@@ -34,14 +34,14 @@ export const translations = {
       },
       director: {
         title: "Работаем на благо Казахстана",
-        text1: "Наш завод инвестирует в проекты, направленные на повышение качества жизни каждого жителя страны, активно внедряя инновационные решения и поддерживая устойчивое развитие общества.",
-        name: "Динмухамет Идрисов",
-        position: "Председатель наблюдательного совета"
+        text1: "Alpecon Group — казахстанская инвестиционная компания, реализующая в Алматинской области масштабный экспортно-ориентированный проект по созданию интегрированного агропромышленного кластера глубокой переработки фруктов и овощей.",
+        name: "Самат Балабеков",
+        position: "Генеральный Директор"
       },
       about: {
         badge: "О компании",
         title: "О нашем заводе",
-        text1: "Наш завод является одним из ведущих предприятий в области переработки овощей и фруктов в Росси. Мы специализируемся на производстве консервированной продукци, соков, пюре и замороженных продуктов.",
+        text1: "Alpecon Group — казахстанская инвестиционная компания, реализующая в Алматинской области масштабный экспортно-ориентированный проект по созданию интегрированного агропромышленного кластера глубокой переработки фруктов и овощей.",
         text2: "Используя передовые технологии и строгий контроль качества, мы обеспечиваем высокие стандарты на всех этапах производства.",
         yearFounded: "Год основания",
         employees: "Сотрудников",
@@ -109,25 +109,31 @@ export const translations = {
       },
       directions: {
         badge: "Направления",
-        title: "Направления производства",
+        title: "Направления деятельности",
         subtitle: "Полный цикл переработки овощей и фруктов с использованием современных технологий",
-        canning: {
-          title: "Консервирование",
-          desc: "Полный цикл консервирования овощей и фруктов с сохранением всех полезных свойств продукции",
-          capacity: "30 т/сутки",
-          products: "80+ видов"
+        item1: {
+          title: "Современный яблоневый сад",
+          icon: "🏭"
         },
-        freezing: {
-          title: "Заморозка",
-          desc: "Современные линии быстрой заморозки для максимального сохранения свежести и питательной ценности",
-          capacity: "25 т/сутки",
-          products: "40+ видов"
+        item2: {
+          title: "Завод по производству фруктовых и овощных концентратов и пюре",
+          icon: "⚗️"
         },
-        juice: {
-          title: "Производство соков",
-          desc: "Натуральные соки прямого отжима без добавления консервантов и искусственных красителей",
-          capacity: "50 т/сутки",
-          products: "35+ видов"
+        item3: {
+          title: "Завод по производству пектина и пищевых волокон",
+          icon: "📦"
+        },
+        item4: {
+          title: "Пункты приемки фруктов и овощей",
+          icon: "🏢"
+        },
+        item5: {
+          title: "Фруктохранилище",
+          icon: "💻"
+        },
+        item6: {
+          title: "IT Платформа",
+          icon: "💻"
         }
       }
     },
@@ -163,8 +169,8 @@ export const translations = {
       },
       contact: {
         badge: "Начните сотрудничество",
-        title: "Станьте нашим партнёром",
-        subtitle: "Свяжитесь с нами для обсуждения возможностей партнёрства и получения индивидуального коммерческого предложения",
+        title: "Свяжитесь с нами",
+        subtitle: "Для обсуждения возможностей партнёрства и получения индивидуального коммерческого предложения",
         button: "Связаться с нами",
         phone: "Телефон",
         email: "Email",
@@ -333,7 +339,7 @@ export const translations = {
       address: "Мекенжай",
       addressText: "123456, Ресей, Мәскеу облысы, Мәскеу қ., Өнеркәсіп көшесі, 15",
       workTime: "Дс-Жм: 9:00 - 18:00",
-      email: "info@plant.ru",
+      email: "info@alpecon.kz",
       copyright: "© 2024 Көкөніс пен жемістерді қайта өңдеу зауыты. Барлық құқықтар қорғалған."
     },
     home: {
@@ -348,8 +354,8 @@ export const translations = {
       director: {
         title: "Қазақстанның игілігі үшін жұмыс істейміз",
         text1: "Біздің зауыт инновациялық шешімдерді белсенді енгізе отырып және қоғамның тұрақты дамуын қолдай отырып, ел тұрғындарының әрқайсысының өмір сапасын арттыруға бағытталған жобаларға инвестиция салады.",
-        name: "Дінмұхамет Ідрисов",
-        position: "Бақылау кеңесінің төрағасы"
+        name: "Самат Балабеков",
+        position: "Бас Директор"
       },
       about: {
         badge: "Компания туралы",
@@ -424,23 +430,29 @@ export const translations = {
         badge: "Бағыттар",
         title: "Өндіріс бағыттары",
         subtitle: "Заманауи технологияларды пайдалана отырып, көкөніс пен жемістерді қайта өңдеудің толық циклі",
-        canning: {
-          title: "Консервілеу",
-          desc: "Өнімнің барлық пайдалы қасиеттерін сақтай отырып, көкөніс пен жемістерді консервілеудің толық циклі",
-          capacity: "30 т/тәулік",
-          products: "80+ түр"
+        item1: {
+          title: "Заманауи алма бағы",
+          icon: "🏭"
         },
-        freezing: {
-          title: "Мұздату",
-          desc: "Тазалық пен тағамдық құндылықты максималды сақтау үшін жылдам мұздатудың заманауи желілері",
-          capacity: "25 т/тәулік",
-          products: "40+ түр"
+        item2: {
+          title: "Жемістер мен көкөністердің концентраттары мен пюресін өндіру зауыты",
+          icon: "⚗️"
         },
-        juice: {
-          title: "Шырын өндірісі",
-          desc: "Консерванттар мен жасанды бояулар қоспай тікелей сығылған табиғи шырындар",
-          capacity: "50 т/тәулік",
-          products: "35+ түр"
+        item3: {
+          title: "Пектин мен тамақ талшықтарын өндіру зауыты",
+          icon: "📦"
+        },
+        item4: {
+          title: "Жемістер мен көкөністерді қабылдау пункттері",
+          icon: "🏢"
+        },
+        item5: {
+          title: "Жеміс қоймасы",
+          icon: "💻"
+        },
+        item6: {
+          title: "IT Платформа",
+          icon: "💻"
         }
       }
     },
@@ -646,7 +658,7 @@ export const translations = {
       address: "Address",
       addressText: "123456, Russia, Moscow Region, Moscow, Industrial Street, 15",
       workTime: "Mon-Fri: 9:00 AM - 6:00 PM",
-      email: "info@plant.ru",
+      email: "info@alpecon.kz",
       copyright: "© 2024 Vegetable and Fruit Processing Plant. All rights reserved."
     },
     home: {
@@ -661,8 +673,8 @@ export const translations = {
       director: {
         title: "Working for Kazakhstan",
         text1: "Our plant invests in projects aimed at improving the quality of life for every citizen, actively implementing innovative solutions and supporting sustainable development.",
-        name: "Dinmukhamet Idrisov",
-        position: "Chairman of the Supervisory Board"
+        name: "Samat Balabekov",
+        position: "General Director"
       },
       about: {
         badge: "About Company",
@@ -718,23 +730,29 @@ export const translations = {
         badge: "Directions",
         title: "Production Directions",
         subtitle: "Full production cycle from raw materials to finished products",
-        canning: {
-          title: "Canning",
-          desc: "Full cycle of canning vegetables and fruits while preserving all beneficial properties",
-          capacity: "30 tons/day",
-          products: "80+ types"
+        item1: {
+          title: "Modern Apple Orchard",
+          icon: "🏭"
         },
-        freezing: {
-          title: "Freezing",
-          desc: "Modern quick-freezing lines for maximum preservation of freshness and nutritional value",
-          capacity: "25 tons/day",
-          products: "40+ types"
+        item2: {
+          title: "Fruit and Vegetable Concentrates and Puree Production Plant",
+          icon: "⚗️"
         },
-        juice: {
-          title: "Juice Production",
-          desc: "Natural direct-pressed juices without preservatives and artificial colors",
-          capacity: "50 tons/day",
-          products: "35+ types"
+        item3: {
+          title: "Pectin and Dietary Fiber Production Plant",
+          icon: "📦"
+        },
+        item4: {
+          title: "Fruit and Vegetable Reception Points",
+          icon: "🏢"
+        },
+        item5: {
+          title: "Fruit Storage",
+          icon: "💻"
+        },
+        item6: {
+          title: "IT Platform",
+          icon: "💻"
         }
       },
       news: {

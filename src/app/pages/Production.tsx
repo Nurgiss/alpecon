@@ -1,4 +1,3 @@
-import { ImagePlaceholder } from '@/app/components/ImagePlaceholder';
 import { Button } from '@/app/components/Button';
 
 export function Production() {
@@ -7,7 +6,11 @@ export function Production() {
       {/* Hero Section - Full Screen */}
       <section className="relative h-screen flex items-center">
         <div className="absolute inset-0">
-          <ImagePlaceholder height="h-full" label="Background Video/Image" className="rounded-none" />
+          <img
+            src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1200&auto=format&fit=crop&q=80"
+            alt="Production Background"
+            className="w-full h-full object-cover"
+          />
           <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/60"></div>
         </div>
         <div className="relative z-10 container mx-auto px-8 pt-32">
@@ -53,12 +56,36 @@ export function Production() {
             </div>
             <div className="grid grid-cols-2 gap-6">
               <div className="space-y-6">
-                <ImagePlaceholder height="h-72" label="Production Line 1" className="rounded-md" />
-                <ImagePlaceholder height="h-56" label="Production Line 2" className="rounded-md" />
+                <div className="overflow-hidden rounded-md shadow-lg">
+                  <img
+                    src="https://images.unsplash.com/photo-1635961179148-3d886568775c?w=600&auto=format&fit=crop&q=80"
+                    alt="Production Line 1"
+                    className="w-full h-72 object-cover transition-all duration-500"
+                  />
+                </div>
+                <div className="overflow-hidden rounded-md shadow-lg">
+                  <img
+                    src="https://images.unsplash.com/photo-1594737626072-90dc274bc2bc?w=600&auto=format&fit=crop&q=80"
+                    alt="Production Line 2"
+                    className="w-full h-56 object-cover transition-all duration-500"
+                  />
+                </div>
               </div>
               <div className="space-y-6 pt-12">
-                <ImagePlaceholder height="h-56" label="Production Line 3" className="rounded-md" />
-                <ImagePlaceholder height="h-72" label="Production Line 4" className="rounded-md" />
+                <div className="overflow-hidden rounded-md shadow-lg">
+                  <img
+                    src="https://images.unsplash.com/photo-1745517512760-dd48be2f7cb8?w=600&auto=format&fit=crop&q=80"
+                    alt="Production Line 3"
+                    className="w-full h-56 object-cover"
+                  />
+                </div>
+                <div className="overflow-hidden rounded-md shadow-lg">
+                  <img
+                    src="https://images.unsplash.com/photo-1586528116493-a7a7b9b4b4c?w=600&auto=format&fit=crop&q=80"
+                    alt="Production Line 4"
+                    className="w-full h-72 object-cover"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -124,8 +151,28 @@ export function Production() {
                 <div className="grid grid-cols-2 gap-12 p-12">
                   {/* Left side - Images */}
                   <div className="space-y-6">
-                    <ImagePlaceholder height="h-80" label={line.image1} className="rounded-md" />
-                    <ImagePlaceholder height="h-64" label={line.image2} className="rounded-md" />
+                    <div className="overflow-hidden rounded-md shadow-lg">
+                      <img
+                        src={
+                          line.image1 === 'Canning Line Main' ? 'https://images.unsplash.com/photo-1635961179148-3d886568775c?w=600&auto=format&fit=crop&q=80' :
+                          line.image1 === 'Juice Line Main' ? 'https://images.unsplash.com/photo-1766788467067-d443f19314b6?w=600&auto=format&fit=crop&q=80' :
+                          'https://images.unsplash.com/photo-1586528116493-a7a7b9b4b4c?w=600&auto=format&fit=crop&q=80'
+                        }
+                        alt={line.image1}
+                        className="w-full h-80 object-cover transition-all duration-500"
+                      />
+                    </div>
+                    <div className="overflow-hidden rounded-md shadow-lg">
+                      <img
+                        src={
+                          line.image2 === 'Canning Process' ? 'https://images.unsplash.com/photo-1594737626072-90dc274bc2bc?w=600&auto=format&fit=crop&q=80' :
+                          line.image2 === 'Juice Processing' ? 'https://images.unsplash.com/photo-1745517512760-dd48be2f7cb8?w=600&auto=format&fit=crop&q=80' :
+                          'https://images.unsplash.com/photo-1636319517064-2c096305df82?w=600&auto=format&fit=crop&q=80'
+                        }
+                        alt={line.image2}
+                        className="w-full h-64 object-cover transition-all duration-500"
+                      />
+                    </div>
                   </div>
 
                   {/* Right side - Info */}
@@ -233,7 +280,13 @@ export function Production() {
               },
             ].map((tech, idx) => (
               <div key={idx} className="bg-white rounded-md shadow-xl overflow-hidden border border-gray-100 hover:shadow-2xl transition-all hover:-translate-y-2 group">
-                <ImagePlaceholder height="h-48" label={tech.image} className="rounded-none group-hover:scale-110 transition-transform duration-500" />
+                <div className="overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1636319517064-2c096305df82?w=400&auto=format&fit=crop"
+                    alt={tech.name}
+                    className="w-full h-48 object-cover transition-all duration-500 group-hover:scale-110"
+                  />
+                </div>
                 <div className="p-8 text-center">
                   <div className="text-5xl mb-4">{tech.icon}</div>
                   <h3 className="text-lg font-bold text-gray-900 mb-2 uppercase">{tech.name}</h3>
@@ -258,7 +311,13 @@ export function Production() {
               { step: '05', title: 'Контроль', desc: 'Финальная проверка', icon: '✓' },
             ].map((item, idx) => (
               <div key={idx} className="bg-white rounded-md shadow-xl overflow-hidden border border-gray-100 hover:shadow-2xl transition-all group">
-                <ImagePlaceholder height="h-56" label={item.title} className="rounded-none group-hover:scale-110 transition-transform duration-500" />
+                <div className="overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1594737626072-90dc274bc2bc?w=400&auto=format&fit=crop"
+                    alt={item.title}
+                    className="w-full h-56 object-cover transition-all duration-500 group-hover:scale-110"
+                  />
+                </div>
                 <div className="p-6 text-center">
                   <div className="text-5xl mb-4">{item.icon}</div>
                   <div className="text-4xl font-bold text-gray-900 mb-2">{item.step}</div>
@@ -292,7 +351,13 @@ export function Production() {
               },
             ].map((control, idx) => (
               <div key={idx} className="bg-white rounded-md shadow-xl overflow-hidden border border-gray-100">
-                <ImagePlaceholder height="h-56" label={control.image} className="rounded-none" />
+                <div className="overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&auto=format&fit=crop"
+                    alt={control.title}
+                    className="w-full h-56 object-cover"
+                  />
+                </div>
                 <div className="p-8">
                   <h3 className="text-2xl font-bold text-gray-900 mb-4 uppercase">{control.title}</h3>
                   <p className="text-gray-600 mb-6">{control.desc}</p>
@@ -366,7 +431,13 @@ export function Production() {
               </p>
               <Button size="lg">Записаться на экскурсию</Button>
             </div>
-            <ImagePlaceholder height="h-96" label="Factory Tour" className="rounded-md" />
+            <div className="overflow-hidden rounded-md shadow-lg">
+              <img
+                src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&auto=format&fit=crop"
+                alt="Factory Tour"
+                className="w-full h-96 object-cover"
+              />
+            </div>
           </div>
         </div>
       </section>

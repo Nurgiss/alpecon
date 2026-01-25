@@ -1,12 +1,14 @@
-import { ImagePlaceholder } from '@/app/components/ImagePlaceholder';
-
 export function Quality() {
   return (
     <div>
       {/* Hero Section - Full Screen */}
       <section className="relative h-screen flex items-center">
         <div className="absolute inset-0">
-          <ImagePlaceholder height="h-full" label="Background Video/Image" className="rounded-none" />
+          <img
+            src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&auto=format&fit=crop"
+            alt="Quality Background"
+            className="w-full h-full object-cover"
+          />
           <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/60"></div>
         </div>
         <div className="relative z-10 container mx-auto px-8 pt-32">
@@ -50,7 +52,13 @@ export function Quality() {
             </div>
             <div className="relative">
               <div className="absolute -inset-4 bg-gradient-to-r from-green-400 to-blue-500 rounded-md opacity-20 blur-2xl"></div>
-              <ImagePlaceholder height="h-96" label="Quality Control" className="relative" />
+              <div className="overflow-hidden rounded-md shadow-lg relative">
+                <img
+                  src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&auto=format&fit=crop&q=80"
+                  alt="Quality Control"
+                  className="w-full h-96 object-cover"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -131,7 +139,13 @@ export function Quality() {
               { title: 'Органолептический анализ', desc: 'Оценка вкуса, запаха, внешнего вида продукции' },
             ].map((test, idx) => (
               <div key={idx} className="bg-white rounded-md shadow-xl overflow-hidden border border-gray-100 hover:shadow-2xl transition-all hover:-translate-y-2">
-                <ImagePlaceholder height="h-64" label="Lab Testing" className="rounded-none" />
+                <div className="overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&auto=format&fit=crop"
+                    alt={test.title}
+                    className="w-full h-64 object-cover transition-all duration-300 hover:scale-105"
+                  />
+                </div>
                 <div className="p-8">
                   <h3 className="text-2xl font-bold text-gray-900 mb-4">{test.title}</h3>
                   <p className="text-lg text-gray-600 leading-relaxed">{test.desc}</p>

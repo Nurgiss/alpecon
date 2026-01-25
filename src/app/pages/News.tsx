@@ -125,45 +125,6 @@ export function News() {
               </div>
             ))}
           </div>
-
-          {/* Pagination */}
-          <div className="flex justify-center gap-3">
-            {[1, 2, 3, 4, 5].map((page) => (
-              <button
-                key={page}
-                className={`w-12 h-12 rounded font-bold transition-all ${
-                  page === 1
-                    ? 'bg-[#006442] text-white shadow-lg'
-                    : 'bg-white text-gray-700 border-2 border-gray-200 hover:bg-gray-50'
-                }`}
-              >
-                {page}
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Newsletter Subscription */}
-      <section className="py-24 bg-[#0D0D0D] text-white">
-        <div className="container mx-auto px-8 text-center">
-          <div className="max-w-3xl mx-auto">
-            <div className="inline-block bg-white/10 text-white px-4 py-1.5 rounded text-xs font-bold mb-6 uppercase border border-white/20">
-              Рассылка
-            </div>
-            <h2 className="text-4xl font-bold mb-6 uppercase">Подпишитесь на новости</h2>
-            <p className="text-lg opacity-90 mb-12 leading-relaxed">
-              Получайте актуальную информацию о событиях компании, новых продуктах и специальных предложениях
-            </p>
-            <div className="max-w-xl mx-auto flex gap-4">
-              <input
-                type="email"
-                placeholder="Ваш email"
-                className="flex-1 px-6 py-4 rounded border-2 border-white/20 bg-white/10 backdrop-blur-sm focus:outline-none focus:border-[#006442] text-white placeholder:text-white/50"
-              />
-              <Button size="lg">Подписаться</Button>
-            </div>
-          </div>
         </div>
       </section>
     </div>

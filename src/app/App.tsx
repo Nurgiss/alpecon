@@ -13,7 +13,7 @@ import { Admin } from '@/app/pages/Admin';
 import { AdminLogin } from '@/app/pages/AdminLogin';
 import { LanguageProvider } from '@/app/contexts/LanguageContext';
 import { Projects } from '@/app/pages/Projects';
-import { Investors } from '@/app/pages/Investors';
+// import { Investors } from '@/app/pages/Investors';
 import { Vacancies } from '@/app/pages/Vacancies';
 
 export default function App() {
@@ -34,7 +34,7 @@ export default function App() {
                   <Route path="/" element={<Home />} />
                   <Route path="/about" element={<About />} />
                   <Route path="/projects" element={<Projects />} />
-                  <Route path="/investors" element={<Investors />} />
+                  {/* <Route path="/investors" element={<Investors />} /> */}
                   <Route path="/vacancies" element={<Vacancies />} />
                   <Route path="/production" element={<Production />} />
                   <Route path="/products" element={<Products />} />

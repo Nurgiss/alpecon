@@ -1,4 +1,5 @@
 
+{/*
 import { Button } from '@/app/components/Button';
 import { useLanguage } from '@/app/contexts/LanguageContext';
 
@@ -10,7 +11,7 @@ export function Investors() {
       <section className="relative min-h-screen flex items-center">
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1579621970795-87f9a79363a9?w=2000"
+            src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=2000&auto=format&fit=crop&q=80"
             alt={t('investors.hero.title')}
             className="w-full h-full object-cover"
           />
@@ -41,24 +42,23 @@ export function Investors() {
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 sm:mb-8 uppercase">
                 {t('investors.section.title')}
               </h2>
-              <p className="text-base sm:text-lg lg:text-xl text-gray-700 mb-4 sm:mb-6 leading-relaxed">
+              <p className="text-base sm:text-lg lg:text-lg text-gray-700 mb-4 sm:mb-6 leading-relaxed">
                 {t('investors.section.text1')}
               </p>
-              <p className="text-base sm:text-lg lg:text-xl text-gray-700 mb-4 sm:mb-6 leading-relaxed">
+              <p className="text-base sm:text-lg lg:text-lg text-gray-700 mb-4 sm:mb-6 leading-relaxed">
                 {t('investors.section.text2')}
               </p>
-              <p className="text-base sm:text-lg lg:text-xl text-gray-700 mb-6 sm:mb-8 leading-relaxed">
+              <p className="text-base sm:text-lg lg:text-lg text-gray-700 mb-6 sm:mb-8 leading-relaxed">
                 {t('investors.section.text3')}
               </p>
             </div>
-            <div className="grid grid-cols-2 gap-4 sm:gap-6">
-              <div className="space-y-4 sm:space-y-6">
-                <div className="bg-gray-100 h-64 sm:h-72 rounded-md"></div>
-                <div className="bg-gray-100 h-48 sm:h-56 rounded-md"></div>
-              </div>
-              <div className="space-y-4 sm:space-y-6 pt-8 sm:pt-12">
-                <div className="bg-gray-100 h-48 sm:h-56 rounded-md"></div>
-                <div className="bg-gray-100 h-64 sm:h-72 rounded-md"></div>
+            <div className="relative">
+              <div className="overflow-hidden rounded-md shadow-xl">
+                <img
+                  src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=800&auto=format&fit=crop&q=80"
+                  alt="Investment Growth Chart"
+                  className="w-full h-96 lg:h-[500px] object-cover transition-all duration-500 hover:scale-105"
+                />
               </div>
             </div>
           </div>
@@ -72,9 +72,6 @@ export function Investors() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             {/* Left - Main CTA */}
             <div className="pl-4 sm:pl-8">
-              <div className="inline-block bg-white text-gray-900 px-6 py-2 text-xs font-bold mb-6 uppercase tracking-widest rounded-lg shadow-lg">
-                {t('investors.contact.badge')}
-              </div>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 leading-tight uppercase tracking-tight">
                 {t('investors.contact.title')}
               </h2>
@@ -98,7 +95,7 @@ export function Investors() {
                       {t('investors.contact.phone')}
                     </div>
                     <div className="text-lg font-bold">
-                      +7 (727) 123-45-67
+                      {t('header.phone')}
                     </div>
                     <div className="text-sm text-white/80">
                       Пн-Пт: 9:00 - 18:00
@@ -117,7 +114,7 @@ export function Investors() {
                       {t('investors.contact.email')}
                     </div>
                     <div className="text-lg font-bold">
-                      info@alpecon.kz
+                      {t('footer.email')}
                     </div>
                     <div className="text-sm text-white/80">
                       Ответим в течение 24 часов
@@ -136,7 +133,7 @@ export function Investors() {
                       {t('investors.contact.address')}
                     </div>
                     <div className="text-lg font-bold">
-                      г. Алматы
+                      {t('header.location')}
                     </div>
                     <div className="text-sm text-white/80">
                       {t('investors.contact.addressText')}
@@ -155,3 +152,4 @@ export function Investors() {
     </div>
   );
 }
+*/}

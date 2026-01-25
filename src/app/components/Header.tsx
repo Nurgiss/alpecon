@@ -1,9 +1,9 @@
 import { Link, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { Instagram, Linkedin, Phone, MapPin, Menu, X } from 'lucide-react';
 import logoColor from '@/assets/logo-color.png';
 import logoWhite from '@/assets/logo-white.png';
 import { useLanguage } from '@/app/contexts/LanguageContext';
+import { Menu, X } from 'lucide-react';
 
 export function Header() {
   const location = useLocation();
@@ -15,7 +15,7 @@ export function Header() {
     { name: t('nav.home'), path: '/' },
     { name: t('nav.about'), path: '/about' },
     { name: t('nav.projects'), path: '/projects' },
-    { name: t('nav.investors'), path: '/investors' },
+    // { name: t('nav.investors'), path: '/investors' },
     { name: t('nav.vacancies'), path: '/vacancies' },
     { name: t('nav.news'), path: '/news' },
     { name: t('nav.contacts'), path: '/contacts' },
@@ -30,11 +30,16 @@ export function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Always show scrolled state on contacts and vacancies pages
+  const isContactsPage = location.pathname === '/contacts';
+  const isVacanciesPage = location.pathname === '/vacancies';
+  const showScrolled = scrolled || isContactsPage || isVacanciesPage;
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
       {/* Top Info Bar - Hidden on mobile */}
       <div className={`hidden lg:block transition-all duration-300 ${
-        scrolled 
+        showScrolled 
           ? 'bg-white/95 backdrop-blur-xl border-b border-gray-200' 
           : 'bg-transparent border-b border-white/10'
       }`}>
@@ -42,43 +47,17 @@ export function Header() {
           <div className="flex items-center justify-between py-2">
             {/* Left - Address */}
             <div className={`flex items-center gap-2 text-xs uppercase tracking-wider ${
-              scrolled ? 'text-gray-700' : 'text-white/70'
+              showScrolled ? 'text-gray-700' : 'text-white/70'
             }`}>
-              <MapPin className="w-3.5 h-3.5" />
               <span className="truncate">{t('header.location')}</span>
             </div>
 
             {/* Right - Social & Phone */}
             <div className="flex items-center gap-6">
-              {/* Social Links */}
-              <div className="flex items-center gap-3">
-                <a
-                  href="https://instagram.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`transition-colors ${
-                    scrolled ? 'text-gray-700 hover:text-[#006442]' : 'text-white/70 hover:text-[#006442]'
-                  }`}
-                >
-                  <Instagram className="w-3.5 h-3.5" />
-                </a>
-                <a
-                  href="https://linkedin.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`transition-colors ${
-                    scrolled ? 'text-gray-700 hover:text-[#006442]' : 'text-white/70 hover:text-[#006442]'
-                  }`}
-                >
-                  <Linkedin className="w-3.5 h-3.5" />
-                </a>
-              </div>
-
               {/* Phone */}
               <div className={`flex items-center gap-2 text-xs uppercase tracking-wider ${
-                scrolled ? 'text-gray-700' : 'text-white/70'
+                showScrolled ? 'text-gray-700' : 'text-white/70'
               }`}>
-                <Phone className="w-3.5 h-3.5" />
                 <span>{t('header.phone')}</span>
               </div>
             </div>
@@ -88,7 +67,7 @@ export function Header() {
 
       {/* Main Navigation */}
       <div className={`transition-all duration-300 ${
-        scrolled 
+        showScrolled 
           ? 'bg-white/95 backdrop-blur-xl border-b border-gray-200 shadow-lg' 
           : 'bg-transparent'
       }`}>
@@ -97,7 +76,7 @@ export function Header() {
             {/* Logo */}
             <Link to="/" className="flex items-center z-50">
               <div className="w-28 h-10 sm:w-32 sm:h-11 lg:w-36 lg:h-12">
-                <img src={scrolled ? logoColor : logoWhite} alt="Alpecon Group" className="w-full h-full object-contain" />
+                <img src={showScrolled ? logoColor : logoWhite} alt="Alpecon Group" className="w-full h-full object-contain" />
               </div>
             </Link>
 
@@ -107,13 +86,13 @@ export function Header() {
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`text-xs tracking-widest transition-all uppercase px-4 xl:px-6 py-3 relative whitespace-nowrap ${
-                    scrolled
+                  className={`text-xs tracking-widest transition-all uppercase px-4 xl:px-6 py-3 relative whitespace-nowrap min-w-[80px] xl:min-w-[100px] ${
+                    showScrolled
                       ? location.pathname === item.path
-                        ? 'text-gray-900 font-bold bg-gray-100'
+                        ? 'text-gray-900 bg-gray-100'
                         : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
                       : location.pathname === item.path
-                      ? 'text-white font-bold bg-white/5'
+                      ? 'text-white bg-white/5'
                       : 'text-white/60 hover:text-white hover:bg-white/5'
                   }`}
                 >
@@ -133,7 +112,7 @@ export function Header() {
                   className={`font-bold text-xs transition-all px-3 sm:px-4 py-2 uppercase tracking-widest ${
                     language === 'kz' 
                       ? 'text-white bg-[#006442]' 
-                      : scrolled
+                      : showScrolled
                       ? 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
                       : 'text-white/60 hover:text-white hover:bg-white/5'
                   }`}
@@ -145,7 +124,7 @@ export function Header() {
                   className={`font-bold text-xs transition-all px-3 sm:px-4 py-2 uppercase tracking-widest ${
                     language === 'en' 
                       ? 'text-white bg-[#006442]' 
-                      : scrolled
+                      : showScrolled
                       ? 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
                       : 'text-white/60 hover:text-white hover:bg-white/5'
                   }`}
@@ -157,7 +136,7 @@ export function Header() {
                   className={`font-bold text-xs transition-all px-3 sm:px-4 py-2 uppercase tracking-widest ${
                     language === 'ru' 
                       ? 'text-white bg-[#006442]' 
-                      : scrolled
+                      : showScrolled
                       ? 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
                       : 'text-white/60 hover:text-white hover:bg-white/5'
                   }`}
@@ -170,10 +149,10 @@ export function Header() {
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 className={`lg:hidden p-2 ${
-                  scrolled ? 'text-gray-900' : 'text-white'
+                  showScrolled ? 'text-gray-900' : 'text-white'
                 }`}
               >
-                {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
               </button>
             </div>
           </div>
@@ -189,7 +168,7 @@ export function Header() {
                 key={item.path}
                 to={item.path}
                 onClick={() => setMobileMenuOpen(false)}
-                className={`block text-sm font-bold uppercase tracking-wider py-3 px-4 rounded-md transition-all ${
+                className={`block text-sm font-bold uppercase tracking-wider py-3 px-4 rounded-md ${
                   location.pathname === item.path
                     ? 'text-white bg-[#006442]'
                     : 'text-gray-900 hover:bg-gray-100'
