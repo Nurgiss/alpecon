@@ -21,6 +21,9 @@ export class NewsResponseDTO {
   author!: string;
 
   @Expose()
+  source?: string | null;
+
+  @Expose()
   date!: Date;
 
   @Expose()
@@ -70,6 +73,7 @@ export class NewsResponseDTO {
       category: news.category,
       image: news.image,
       author: news.author,
+      source: news.source,
       date: news.date,
       createdAt: news.createdAt,
       updatedAt: news.updatedAt,

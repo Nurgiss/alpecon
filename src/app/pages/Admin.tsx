@@ -1,13 +1,17 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { newsApi, NewsItem } from '@/services/newsApi';
+import { newsApi, NewsItem, getUploadUrl, PaginationInfo } from '@/services/newsApi';
 import { Button } from '@/app/components/Button';
 import { useLanguage } from '@/app/contexts/LanguageContext';
+
+const ITEMS_PER_PAGE = 20;
 
 export function Admin() {
   const navigate = useNavigate();
   const { language, setLanguage, t } = useLanguage();
   const [news, setNews] = useState<NewsItem[]>([]);
+  const [pagination, setPagination] = useState<PaginationInfo | null>(null);
+  const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(true);
   const [showForm, setShowForm] = useState(false);
   const [editingNews, setEditingNews] = useState<NewsItem | null>(null);
@@ -33,20 +37,25 @@ export function Admin() {
       navigate('/admin/login');
       return;
     }
-    loadNews();
-  }, [navigate]);
+    loadNews(currentPage);
+  }, [navigate, currentPage]);
 
-  const loadNews = async () => {
+  const loadNews = async (page: number) => {
     try {
       setLoading(true);
-      const data = await newsApi.getAll();
-      setNews(data);
+      const response = await newsApi.getAll(page, ITEMS_PER_PAGE);
+      setNews(response.data);
+      setPagination(response.pagination);
     } catch (error) {
       console.error('Ошибка загрузки новостей:', error);
       alert(t('admin.actions.loadError'));
     } finally {
       setLoading(false);
     }
+  };
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
   };
 
   const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -56,7 +65,7 @@ export function Admin() {
     try {
       setUploading(true);
       const data = await newsApi.uploadImage(file);
-      const imageUrl = `http://localhost:3002${data.url}`;
+      const imageUrl = getUploadUrl(data.url);
 
       setFormData(prev => ({ ...prev, image: imageUrl }));
     } catch (error) {
@@ -120,7 +129,7 @@ export function Admin() {
       });
       setShowForm(false);
       setEditingNews(null);
-      loadNews();
+      loadNews(currentPage);
     } catch (error) {
       console.error('Ошибка сохранения:', error);
       if ((error as Error).message === 'UNAUTHORIZED') {
@@ -158,7 +167,7 @@ export function Admin() {
     try {
       await newsApi.delete(id);
       alert(t('admin.actions.deletedSuccess'));
-      loadNews();
+      loadNews(currentPage);
     } catch (error) {
       console.error('Ошибка удаления:', error);
       if ((error as Error).message === 'UNAUTHORIZED') {
@@ -508,6 +517,47 @@ export function Admin() {
               </div>
             ))}
           </div>
+
+          {/* Pagination */}
+          {pagination && pagination.pages > 1 && (
+            <div className="flex justify-center items-center gap-2 mt-8">
+              <button
+                onClick={() => handlePageChange(currentPage - 1)}
+                disabled={currentPage === 1}
+                className="px-4 py-2 rounded font-bold transition-all bg-gray-200 text-gray-700 hover:bg-gray-300 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                ←
+              </button>
+
+              {Array.from({ length: pagination.pages }, (_, i) => i + 1).map((page) => (
+                <button
+                  key={page}
+                  onClick={() => handlePageChange(page)}
+                  className={`w-10 h-10 rounded font-bold transition-all ${
+                    page === currentPage
+                      ? 'bg-[#006442] text-white'
+                      : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                  }`}
+                >
+                  {page}
+                </button>
+              ))}
+
+              <button
+                onClick={() => handlePageChange(currentPage + 1)}
+                disabled={currentPage === pagination.pages}
+                className="px-4 py-2 rounded font-bold transition-all bg-gray-200 text-gray-700 hover:bg-gray-300 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                →
+              </button>
+            </div>
+          )}
+
+          {pagination && (
+            <div className="text-center mt-4 text-gray-500 text-sm">
+              Страница {pagination.page} из {pagination.pages} (всего {pagination.total} новостей)
+            </div>
+          )}
         </div>
       </div>
     </div>

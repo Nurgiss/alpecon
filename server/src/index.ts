@@ -2,6 +2,7 @@ import 'reflect-metadata';
 import 'dotenv/config';
 import express, { Request, Response } from 'express';
 import cors from 'cors';
+import rateLimit from 'express-rate-limit';
 import bodyParser from 'body-parser';
 import fs from 'fs/promises';
 import path from 'path';
@@ -48,14 +49,45 @@ const upload = multer({
   }
 });
 
+// CORS configuration
+const corsOrigins = process.env.CORS_ORIGINS
+  ? process.env.CORS_ORIGINS.split(',').map(origin => origin.trim())
+  : ['http://localhost:5173', 'http://localhost:5174'];
+
+const corsOptions: cors.CorsOptions = {
+  origin: (origin, callback) => {
+    // Allow requests with no origin (mobile apps, curl, etc.)
+    if (!origin) return callback(null, true);
+
+    if (corsOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
+};
+
+// Rate limiting for login endpoint
+const loginRateLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 5, // 5 attempts per window
+  message: {
+    success: false,
+    message: 'Слишком много попыток входа. Попробуйте через 15 минут.',
+  },
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+
 // Middleware
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/uploads', express.static(UPLOADS_DIR));
 
-// Эндпоинт для авторизации с JWT
-app.post('/api/login', async (req: Request, res: Response): Promise<void> => {
+// Эндпоинт для авторизации с JWT (rate limited)
+app.post('/api/login', loginRateLimiter, async (req: Request, res: Response): Promise<void> => {
   try {
     const { username, password } = req.body;
 
@@ -70,7 +102,6 @@ app.post('/api/login', async (req: Request, res: Response): Promise<void> => {
 
     // Check username (case-insensitive)
     if (username.toLowerCase() !== AUTH_CONFIG.adminUsername.toLowerCase()) {
-      console.log('❌ Username mismatch:', { received: username, expected: AUTH_CONFIG.adminUsername });
       res.status(401).json({
         success: false,
         message: 'Неверный логин или пароль'
@@ -80,7 +111,6 @@ app.post('/api/login', async (req: Request, res: Response): Promise<void> => {
 
     // Verify password (supports both plain text and bcrypt hash)
     const isPasswordValid = await verifyPassword(password, AUTH_CONFIG.adminPassword);
-    console.log('🔐 Password verification:', { isPasswordValid, passwordLength: password.length, hashLength: AUTH_CONFIG.adminPassword.length });
 
     if (!isPasswordValid) {
       res.status(401).json({
@@ -124,17 +154,36 @@ app.post('/api/upload', requireAuth, upload.single('image'), (req: Request, res:
   }
 });
 
-// Получить все новости
-app.get('/api/news', async (_req: Request, res: Response): Promise<void> => {
+// Получить все новости (с пагинацией)
+app.get('/api/news', async (req: Request, res: Response): Promise<void> => {
   try {
-    const newsList = await prisma.news.findMany({
-      orderBy: {
-        createdAt: 'desc'
-      }
-    });
+    // Parse pagination parameters
+    const page = Math.max(1, parseInt(req.query.page as string) || 1);
+    const limit = Math.min(100, Math.max(1, parseInt(req.query.limit as string) || 12));
+    const skip = (page - 1) * limit;
 
-    const response = NewsResponseDTO.fromEntities(newsList);
-    res.json(response);
+    // Get total count and paginated data in parallel
+    const [total, newsList] = await Promise.all([
+      prisma.news.count(),
+      prisma.news.findMany({
+        orderBy: { createdAt: 'desc' },
+        skip,
+        take: limit,
+      }),
+    ]);
+
+    const data = NewsResponseDTO.fromEntities(newsList);
+    const pages = Math.ceil(total / limit);
+
+    res.json({
+      data,
+      pagination: {
+        page,
+        limit,
+        total,
+        pages,
+      },
+    });
   } catch (error) {
     console.error('Error fetching news:', error);
     res.status(500).json({ error: 'Ошибка при получении новостей' });
