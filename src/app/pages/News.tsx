@@ -22,8 +22,8 @@ export function News() {
   const loadNews = async () => {
     try {
       setLoading(true);
-      const data = await newsApi.getAll();
-      setNews(data);
+      const response = await newsApi.getAll();
+      setNews(response.data);
       setError(null);
     } catch (err) {
       setError('Ошибка загрузки новостей');
