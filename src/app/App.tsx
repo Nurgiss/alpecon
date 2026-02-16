@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { Header } from '@/app/components/Header';
 import { Footer } from '@/app/components/Footer';
 import { Home } from '@/app/pages/Home';
@@ -15,11 +15,23 @@ import { LanguageProvider } from '@/app/contexts/LanguageContext';
 import { Projects } from '@/app/pages/Projects';
 // import { Investors } from '@/app/pages/Investors';
 import { Vacancies } from '@/app/pages/Vacancies';
+import { useEffect } from 'react';
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 export default function App() {
   return (
     <LanguageProvider>
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           {/* Admin routes without header/footer */}
           <Route path="/admin/login" element={<AdminLogin />} />

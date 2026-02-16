@@ -49,14 +49,14 @@ export function Projects() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80"></div>
         </div>
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 lg:pt-32">
-          <div className="pl-4 sm:pl-8">
+          <div className="text-center">
             <h1 className="text-white text-4xl sm:text-5xl lg:text-6xl font-geologica font-bold mb-6 uppercase tracking-tight leading-[1.1]">
               {t('projects.hero.title')}
             </h1>
-            <p className="text-white/90 text-base sm:text-lg lg:text-lg font-geist max-w-3xl leading-tight mb-8">
+            <p className="text-white/90 text-base sm:text-lg lg:text-lg font-geist max-w-3xl leading-tight mb-8 mx-auto">
               {t('projects.hero.subtitle')}
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-2xl mt-8 sm:mt-12">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-2xl mt-8 sm:mt-12 mx-auto">
               <div className="bg-white/10 backdrop-blur-md p-5 sm:p-6 rounded-md">
                 <div className="text-3xl sm:text-4xl font-bold text-white mb-2">5</div>
                 <div className="text-xs text-white/80 uppercase tracking-wider font-bold">{t('projects.hero.stat1')}</div>

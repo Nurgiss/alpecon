@@ -7,9 +7,9 @@ export function Footer() {
   return (
     <footer className="bg-[rgb(255,255,255)] text-[#0D0D0D]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-12 mb-8 sm:mb-10 lg:mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-12 mb-8 sm:mb-10 lg:mb-12">
           {/* Column 1 - About */}
-          <div className="sm:col-span-2 lg:col-span-1">
+          <div>
             <div className="mb-4 sm:mb-6">
               <img 
                 src={logoColor} 
@@ -22,18 +22,7 @@ export function Footer() {
             </p>
           </div>
 
-          {/* Column 2 - Quick Links */}
-          <div>
-            <h3 className="font-bold text-[#0D0D0D] mb-4 sm:mb-6 uppercase tracking-wide text-sm sm:text-base">{t('footer.quickLinks')}</h3>
-            <ul className="space-y-2 sm:space-y-3 text-sm sm:text-base">
-              <li><a href="/about" className="text-[#0D0D0D]/60 hover:text-[#0D0D0D] transition-colors">О заводе</a></li>
-              <li><a href="/production" className="text-[#0D0D0D]/60 hover:text-[#0D0D0D] transition-colors">Производство</a></li>
-              <li><a href="/products" className="text-[#0D0D0D]/60 hover:text-[#0D0D0D] transition-colors">Продукция</a></li>
-              <li><a href="/quality" className="text-[#0D0D0D]/60 hover:text-[#0D0D0D] transition-colors">Качество</a></li>
-            </ul>
-          </div>
-
-          {/* Column 3 - Contacts */}
+          {/* Column 2 - Contacts */}
           <div>
             <h3 className="font-bold text-[#0D0D0D] mb-4 sm:mb-6 uppercase tracking-wide text-sm sm:text-base">{t('footer.contacts')}</h3>
             <ul className="space-y-2 sm:space-y-3 text-sm sm:text-base text-[#0D0D0D]/60">
@@ -43,7 +32,7 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Column 4 - Address */}
+          {/* Column 3 - Address */}
           <div>
             <h3 className="font-bold text-[#0D0D0D] mb-4 sm:mb-6 uppercase tracking-wide text-sm sm:text-base">{t('footer.address')}</h3>
             <p className="text-sm sm:text-base text-[#0D0D0D]/60 leading-relaxed">

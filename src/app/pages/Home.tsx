@@ -140,15 +140,15 @@ export function Home() {
               <div className="space-y-4 sm:space-y-6">
                 <div className="overflow-hidden rounded-md shadow-lg">
                   <img
-                    src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&auto=format&fit=crop&q=80"
-                    alt="Plant Facility 1"
+                    src="https://images.unsplash.com/photo-1589217157232-464b505b197f?w=800&auto=format&fit=crop&q=80"
+                    alt="Apple Orchard"
                     className="w-full h-64 sm:h-72 object-cover transition-all duration-500"
                   />
                 </div>
                 <div className="overflow-hidden rounded-md shadow-lg">
                   <img
-                    src="https://images.unsplash.com/photo-1635961179148-3d886568775c?w=800&auto=format&fit=crop&q=80"
-                    alt="Plant Facility 2"
+                    src="https://images.unsplash.com/photo-1619546813926-a78fa6372cd2?w=800&auto=format&fit=crop&q=80"
+                    alt="Fresh Fruits"
                     className="w-full h-48 sm:h-56 object-cover transition-all duration-500"
                   />
                 </div>
@@ -156,15 +156,15 @@ export function Home() {
               <div className="space-y-4 sm:space-y-6 pt-8 sm:pt-12">
                 <div className="overflow-hidden rounded-md shadow-lg">
                   <img
-                    src="https://images.unsplash.com/photo-1594737626072-90dc274bc2bc?w=800&auto=format&fit=crop&q=80"
-                    alt="Plant Facility 3"
+                    src="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=800&auto=format&fit=crop&q=80"
+                    alt="Factory Facility"
                     className="w-full h-48 sm:h-56 object-cover"
                   />
                 </div>
                 <div className="overflow-hidden rounded-md shadow-lg">
                   <img
-                    src="https://images.unsplash.com/photo-1745517512760-dd48be2f7cb8?w=800&auto=format&fit=crop&q=80"
-                    alt="Plant Facility 4"
+                    src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&auto=format&fit=crop&q=80"
+                    alt="Agricultural Fields"
                     className="w-full h-64 sm:h-72 object-cover"
                   />
                 </div>
