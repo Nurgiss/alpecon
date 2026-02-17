@@ -1,7 +1,11 @@
 // import { Button } from '@/app/components/Button';
 import { useLanguage } from '@/app/contexts/LanguageContext';
 import { Target, TrendingUp, Users, Shield, Lightbulb, Handshake, Leaf } from 'lucide-react';
-import imgHeroAbout from '@/assets/image 16.jpg';
+import imgHeroAbout from '@/assets/about-hero.jpg';
+import imgMission from '@/assets/image 24.jpg';
+import iconExports from '@/assets/exports.png';
+import iconEco from '@/assets/eco.png';
+import iconFarmer from '@/assets/farmer.png';
 
 export function About() {
   const { t } = useLanguage();
@@ -16,11 +20,11 @@ export function About() {
             alt={t('about.hero.title')}
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-black/65"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/30 to-black/45"></div>
         </div>
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 lg:pt-32 text-center">
           <div>
-            <h1 className="text-white text-4xl sm:text-5xl lg:text-6xl font-geologica font-bold mb-6 uppercase tracking-tight leading-[1.1]">{t('about.hero.title')}</h1>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-geologica font-bold text-white uppercase tracking-tight leading-[1.1] mb-6">{t('about.hero.title')}</h1>
             <p className="text-white/90 text-base sm:text-lg lg:text-xl font-geist max-w-3xl leading-tight mx-auto">
               {t('about.hero.subtitle')}
             </p>
@@ -33,28 +37,28 @@ export function About() {
         </div>
       </section>
 
-      {/* Mission Section with Detailed Cards */}
+      {/* About Section with Images */}
       <section className="py-16 sm:py-24 lg:py-32 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center mb-20 sm:mb-24 lg:mb-32">
             <div>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-geologica font-bold text-gray-900 mb-6 sm:mb-8 uppercase">{t('about.mission.title')}</h2>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-geologica font-bold text-gray-900 uppercase tracking-tight leading-[1.1] mb-6 sm:mb-8">{t('about.mission.title')}</h2>
               <p className="text-base sm:text-lg lg:text-lg text-gray-700 font-geist leading-relaxed">
-                Alpecon Group — казахстанская инвестиционная компания, реализующая в Алматинской области масштабный экспортно-ориентированный проект по созданию интегрированного агропромышленного кластера глубокой переработки фруктов и овощей.
+                {t('home.aboutSection.text')}
               </p>
             </div>
             <div className="grid grid-cols-2 gap-4 sm:gap-6">
               <div className="space-y-4 sm:space-y-6">
                 <div className="overflow-hidden rounded-md shadow-lg">
                   <img
-                    src="https://images.unsplash.com/photo-1589217157232-464b505b197f?w=800&auto=format&fit=crop&q=80"
+                    src="https://images.unsplash.com/photo-1651525670054-279c154bc3b6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmcnVpdCUyMHByb2Nlc3NpbmclMjBmYWN0b3J5JTIwcHJvZHVjdGlvbnxlbnwxfHx8fDE3NzEzNTM1OTd8MA&ixlib=rb-4.1.0&q=80&w=1080"
                     alt="Apple Orchard"
                     className="w-full h-64 sm:h-72 object-cover transition-all duration-500"
                   />
                 </div>
                 <div className="overflow-hidden rounded-md shadow-lg">
                   <img
-                    src="https://images.unsplash.com/photo-1619546813926-a78fa6372cd2?w=800&auto=format&fit=crop&q=80"
+                    src="https://images.unsplash.com/photo-1759893904087-9faefe81befa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmcmVzaCUyMGFwcGxlcyUyMGhhcnZlc3QlMjByZWQlMjBncmVlbnxlbnwxfHx8fDE3NzEzNTY5NzJ8MA&ixlib=rb-4.1.0&q=80&w=1080"
                     alt="Fresh Fruits"
                     className="w-full h-48 sm:h-56 object-cover transition-all duration-500"
                   />
@@ -63,15 +67,15 @@ export function About() {
               <div className="space-y-4 sm:space-y-6 pt-8 sm:pt-12">
                 <div className="overflow-hidden rounded-md shadow-lg">
                   <img
-                    src="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=800&auto=format&fit=crop&q=80"
-                    alt="Factory Facility"
+                    src="https://images.unsplash.com/photo-1770068511771-7c146210a55b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzb2xhciUyMHBhbmVscyUyMGZhcm0lMjByZW5ld2FibGUlMjBlbmVyZ3l8ZW58MXx8fHwxNzcxMzMzMDU0fDA&ixlib=rb-4.1.0&q=80&w=1080"
+                    alt="Solar Panels"
                     className="w-full h-48 sm:h-56 object-cover"
                   />
                 </div>
                 <div className="overflow-hidden rounded-md shadow-lg">
                   <img
-                    src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&auto=format&fit=crop&q=80"
-                    alt="Agricultural Fields"
+                    src="https://images.unsplash.com/photo-1769259046907-a5165e978af5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxncmVlbmhvdXNlJTIwYWdyaWN1bHR1cmUlMjBtb2Rlcm4lMjBmYXJtfGVufDF8fHx8MTc3MTM1Njk3Mnww&ixlib=rb-4.1.0&q=80&w=1080"
+                    alt="Greenhouse"
                     className="w-full h-64 sm:h-72 object-cover"
                   />
                 </div>
@@ -84,83 +88,107 @@ export function About() {
         </div>
       </section>
 
-      {/* Mission Cards Section */}
+      {/* Mission Section - Modern Design */}
       <section className="py-16 sm:py-24 lg:py-32 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 sm:mb-16 lg:mb-20">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-geologica font-bold text-gray-900 uppercase">Наши миссии</h2>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10 lg:gap-12">
-            <div className="bg-gradient-to-br from-[#133327] to-[#1a4a3d] shadow-lg rounded-lg p-6 sm:p-8 hover:shadow-xl transition-all text-center text-white">
-              <div className="w-16 h-16 bg-white/20 rounded-lg flex items-center justify-center mx-auto mb-6 backdrop-blur-sm">
-                <Target className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-xl sm:text-2xl font-geologica font-bold mb-4 uppercase">Цель 1</h3>
-              <p className="text-sm font-geist leading-relaxed">{t('about.mission.text1')}</p>
+          <div className="relative w-full overflow-hidden rounded-[32px] min-h-[430px]">
+            {/* Фоновые изображения яблоневого сада */}
+            <div className="absolute inset-0">
+              <img 
+                alt="Apple orchard" 
+                className="absolute inset-0 w-full h-full object-cover" 
+                src={imgMission} 
+              />
+              <img 
+                alt="" 
+                className="absolute inset-0 w-full h-full object-cover brightness-110 contrast-105 saturate-110" 
+                src={imgMission} 
+              />
             </div>
-
-            <div className="bg-gradient-to-br from-[#133327] to-[#1a4a3d] shadow-lg rounded-lg p-6 sm:p-8 hover:shadow-xl transition-all text-center text-white">
-              <div className="w-16 h-16 bg-white/20 rounded-lg flex items-center justify-center mx-auto mb-6 backdrop-blur-sm">
-                <TrendingUp className="w-8 h-8 text-white" />
+            
+            {/* Темно-зеленая карточка с текстом справа */}
+            <div className="absolute right-0 top-1/2 -translate-y-1/2 w-full lg:w-[50%] h-full flex items-center">
+              <div className="bg-[#123327]/90 backdrop-blur-sm lg:rounded-l-[32px] w-full h-full lg:h-[85%] flex flex-col justify-center px-8 sm:px-12 py-12 lg:py-8">
+                <h2 className="font-geologica font-bold text-3xl sm:text-4xl lg:text-[40px] text-white mb-6 sm:mb-8">
+                  НАША МИССИЯ
+                </h2>
+                <div className="font-geist font-normal text-sm sm:text-base lg:text-[16px] text-white space-y-4">
+                  <p>Создавать экологичное агро-наследие детям.</p>
+                  <p>Перерабатывая фруктовые отходы, уменьшаем вредное воздействие на экологию, сажая и заботясь о фруктовых деревьях увеличиваем поглощение углекислого газа, внеся свой вклад в изменение климата.</p>
+                </div>
               </div>
-              <h3 className="text-xl sm:text-2xl font-geologica font-bold mb-4 uppercase">Цель 2</h3>
-              <p className="text-sm font-geist leading-relaxed">{t('about.mission.text2')}</p>
-            </div>
-
-            <div className="bg-gradient-to-br from-[#133327] to-[#1a4a3d] shadow-lg rounded-lg p-6 sm:p-8 hover:shadow-xl transition-all text-center text-white">
-              <div className="w-16 h-16 bg-white/20 rounded-lg flex items-center justify-center mx-auto mb-6 backdrop-blur-sm">
-                <Users className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-xl sm:text-2xl font-geologica font-bold mb-4 uppercase">Цель 3</h3>
-              <p className="text-sm font-geist leading-relaxed">{t('about.mission.text3')}</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Values Section with Visual Elements */}
-      <section className="py-16 sm:py-24 lg:py-32 bg-white text-gray-900">
+      {/* Values Section - Dark Green Cards */}
+      <section className="py-16 sm:py-24 lg:py-32 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-geologica font-bold mb-12 sm:mb-16 lg:mb-20 text-center uppercase">{t('about.values.title')}</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-10">
-            {[
-              { 
-                title: t('about.values.quality.title'), 
-                desc: t('about.values.quality.desc'),
-                icon: '⭐',
-                image: 'Quality Value'
-              },
-              { 
-                title: t('about.values.innovation.title'), 
-                desc: t('about.values.innovation.desc'),
-                icon: '💡',
-                image: 'Innovation Value'
-              },
-              { 
-                title: t('about.values.reliability.title'), 
-                desc: t('about.values.reliability.desc'),
-                icon: '🤝',
-                image: 'Reliability Value'
-              },
-              { 
-                title: t('about.values.ecology.title'), 
-                desc: t('about.values.ecology.desc'),
-                icon: '🌱',
-                image: 'Ecology Value'
-              },
-            ].map((value, idx) => (
-              <div key={idx} className="text-center bg-white shadow-md rounded-md p-8 sm:p-10 hover:shadow-xl transition-all border border-gray-200">
-                <div className={`w-16 h-16 bg-[#006442]/20 rounded-full flex items-center justify-center mx-auto mb-6`}>
-                  {idx === 0 && <Shield className="w-8 h-8 text-[#006442]" />}
-                  {idx === 1 && <Lightbulb className="w-8 h-8 text-[#006442]" />}
-                  {idx === 2 && <Handshake className="w-8 h-8 text-[#006442]" />}
-                  {idx === 3 && <Leaf className="w-8 h-8 text-[#006442]" />}
-                </div>
-                <h3 className="text-xl sm:text-2xl font-geologica font-bold mb-3 sm:mb-4 uppercase">{value.title}</h3>
-                <p className="text-sm sm:text-base text-gray-600 font-geist leading-relaxed">{value.desc}</p>
+          <div>
+            <div className="relative min-h-[700px] rounded-3xl overflow-hidden">
+              {/* Background image */}
+              <img 
+                src="https://images.unsplash.com/photo-1730628257362-d3ddcf952a75?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxncmVlbiUyMGZpZWxkcyUyMGxhbmRzY2FwZSUyMG1vdW50YWluc3xlbnwxfHx8fDE3NzEzMzkzNzR8MA&ixlib=rb-4.1.0&q=80&w=1080"
+                alt="Landscape background"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+              
+              {/* Затемнение */}
+              <div className="absolute inset-0 bg-black/5" />
+              
+              {/* Заголовок */}
+              <div className="relative pt-12 sm:pt-16 text-center z-10 mb-8">
+                <h2 className="font-geologica font-bold text-4xl sm:text-5xl text-white mb-3 tracking-wide">
+                  НАШИ ЦЕННОСТИ
+                </h2>
+                <p className="font-geist font-normal text-lg sm:text-xl text-white/90">
+                  Природа и Инновации
+                </p>
               </div>
-            ))}
+              
+              {/* Карточки */}
+              <div className="relative flex flex-col lg:flex-row justify-center items-stretch gap-6 sm:gap-8 px-4 sm:px-8 lg:px-12 pb-12 sm:pb-16 pt-8 sm:pt-12 z-10">
+                {/* Export Card */}
+                <div className="bg-[#123327] flex flex-col gap-6 items-center px-6 sm:px-8 py-8 sm:py-10 rounded-3xl w-full lg:w-[360px] transition-all duration-300 hover:shadow-2xl hover:scale-105 hover:bg-[#1a4a38]">
+                  <div className="flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-full">
+                    <img src={iconExports} alt="ЭКСПОРТ" className="w-10 h-10 sm:w-12 sm:h-12 object-contain" />
+                  </div>
+                  <h3 className="font-geologica font-bold text-xl sm:text-2xl text-white uppercase text-center">
+                    ЭКСПОРТ
+                  </h3>
+                  <p className="font-geist font-normal text-sm sm:text-base text-center text-white/90 leading-relaxed">
+                    Мы ориентированы на экспорт продукции глубокой переработки — концентратов, пюре и пектина. Наша задача — обеспечивать стабильные поставки качественного сырья международным партнерам.
+                  </p>
+                </div>
+                
+                {/* Ecology Card */}
+                <div className="bg-[#123327] flex flex-col gap-6 items-center px-6 sm:px-8 py-8 sm:py-10 rounded-3xl w-full lg:w-[360px] transition-all duration-300 hover:shadow-2xl hover:scale-105 hover:bg-[#1a4a38]">
+                  <div className="flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-full">
+                    <img src={iconEco} alt="ЭКОЛОГИЯ" className="w-10 h-10 sm:w-12 sm:h-12 object-contain" />
+                  </div>
+                  <h3 className="font-geologica font-bold text-xl sm:text-2xl text-white uppercase text-center">
+                    ЭКОЛОГИЯ
+                  </h3>
+                  <p className="font-geist font-normal text-sm sm:text-base text-center text-white/90 leading-relaxed">
+                    Основа нашей работы — рациональное использование природных ресурсов региона. Мы внедряем технологии безотходной переработки и замкнутого цикла производства.
+                  </p>
+                </div>
+                
+                {/* People Card */}
+                <div className="bg-[#123327] flex flex-col gap-6 items-center px-6 sm:px-8 py-8 sm:py-10 rounded-3xl w-full lg:w-[360px] transition-all duration-300 hover:shadow-2xl hover:scale-105 hover:bg-[#1a4a38]">
+                  <div className="flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-full">
+                    <img src={iconFarmer} alt="ЛЮДИ" className="w-10 h-10 sm:w-12 sm:h-12 object-contain" />
+                  </div>
+                  <h3 className="font-geologica font-bold text-xl sm:text-2xl text-white uppercase text-center">
+                    ЛЮДИ
+                  </h3>
+                  <p className="font-geist font-normal text-sm sm:text-base text-center text-white/90 leading-relaxed">
+                    Alpecon Group — это рабочие места для местных специалистов и поддержка фермерских хозяйств. Мы выстраиваем прямую связь с производителями сырья.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -169,7 +197,7 @@ export function About() {
       <section className="py-16 sm:py-24 lg:py-32 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16 lg:mb-20">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-geologica font-bold text-gray-900 uppercase">Наша команда</h2>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-geologica font-bold text-gray-900 uppercase tracking-tight leading-[1.1]">Наша команда</h2>
             <p className="text-base sm:text-lg text-gray-600 mt-4 max-w-2xl mx-auto">
               Профессионалы с многолетним опытом в агропромышленной отрасли
             </p>
@@ -182,11 +210,8 @@ export function About() {
                 <Users className="w-24 h-24 text-gray-400" />
               </div>
               <div className="p-6">
-                <h3 className="text-xl sm:text-2xl font-geologica font-bold text-gray-900 mb-2">Самат Балабеков</h3>
+                <h3 className="text-xl sm:text-2xl font-geologica font-bold text-gray-900 mb-2">Балабеков Самат Жумабаевич</h3>
                 <p className="text-[#006442] font-semibold mb-3 uppercase text-sm">Генеральный директор</p>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  Опытный руководитель с 20+ летним стажем в агропромышленной сфере
-                </p>
               </div>
             </div>
 
@@ -196,11 +221,8 @@ export function About() {
                 <Users className="w-24 h-24 text-gray-400" />
               </div>
               <div className="p-6">
-                <h3 className="text-xl sm:text-2xl font-geologica font-bold text-gray-900 mb-2">Асель Нурбекова</h3>
+                <h3 className="text-xl sm:text-2xl font-geologica font-bold text-gray-900 mb-2">Бейсенбин Бауыржан Айдарович</h3>
                 <p className="text-[#006442] font-semibold mb-3 uppercase text-sm">Финансовый директор</p>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  Эксперт в области финансового планирования и управления инвестициями
-                </p>
               </div>
             </div>
 
@@ -210,53 +232,30 @@ export function About() {
                 <Users className="w-24 h-24 text-gray-400" />
               </div>
               <div className="p-6">
-                <h3 className="text-xl sm:text-2xl font-geologica font-bold text-gray-900 mb-2">Ержан Абдуллаев</h3>
+                <h3 className="text-xl sm:text-2xl font-geologica font-bold text-gray-900 mb-2">Хахулин Егор Александрович</h3>
                 <p className="text-[#006442] font-semibold mb-3 uppercase text-sm">Технический директор</p>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  Специалист по внедрению передовых технологий в производство
-                </p>
               </div>
             </div>
 
-            {/* Директор по производству */}
+            {/* Управляющий директор */}
             <div className="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-all">
               <div className="h-64 sm:h-72 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
                 <Users className="w-24 h-24 text-gray-400" />
               </div>
               <div className="p-6">
-                <h3 className="text-xl sm:text-2xl font-geologica font-bold text-gray-900 mb-2">Марат Токаев</h3>
-                <p className="text-[#006442] font-semibold mb-3 uppercase text-sm">Директор по производству</p>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  Руководитель производственных процессов с опытом более 15 лет
-                </p>
+                <h3 className="text-xl sm:text-2xl font-geologica font-bold text-gray-900 mb-2">Ибраимов Ержан Еркинкалиевич</h3>
+                <p className="text-[#006442] font-semibold mb-3 uppercase text-sm">Управляющий директор по корпоративным вопросам и безопасности</p>
               </div>
             </div>
 
-            {/* Директор по качеству */}
+            {/* Директор по развитию садоводства */}
             <div className="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-all">
               <div className="h-64 sm:h-72 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
                 <Users className="w-24 h-24 text-gray-400" />
               </div>
               <div className="p-6">
-                <h3 className="text-xl sm:text-2xl font-geologica font-bold text-gray-900 mb-2">Гульнара Касымова</h3>
-                <p className="text-[#006442] font-semibold mb-3 uppercase text-sm">Директор по качеству</p>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  Эксперт по контролю качества и сертификации продукции
-                </p>
-              </div>
-            </div>
-
-            {/* Коммерческий директор */}
-            <div className="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-all">
-              <div className="h-64 sm:h-72 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
-                <Users className="w-24 h-24 text-gray-400" />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl sm:text-2xl font-geologica font-bold text-gray-900 mb-2">Айдар Сарсенов</h3>
-                <p className="text-[#006442] font-semibold mb-3 uppercase text-sm">Коммерческий директор</p>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  Специалист по развитию международных рынков и экспорту
-                </p>
+                <h3 className="text-xl sm:text-2xl font-geologica font-bold text-gray-900 mb-2">Сарсекеев Бирлес Кабдулович</h3>
+                <p className="text-[#006442] font-semibold mb-3 uppercase text-sm">Директор по развитию садоводства</p>
               </div>
             </div>
           </div>

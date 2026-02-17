@@ -17,9 +17,6 @@ export function Footer() {
                 className="h-12 sm:h-14 lg:h-16 w-auto"
               />
             </div>
-            <p className="text-sm sm:text-base text-[#0D0D0D]/60 leading-relaxed max-w-xs">
-              {t('footer.about')}
-            </p>
           </div>
 
           {/* Column 2 - Contacts */}

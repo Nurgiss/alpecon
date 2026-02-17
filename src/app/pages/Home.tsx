@@ -7,6 +7,8 @@ import { newsApi, type NewsItem } from '@/services/newsApi';
 import { Link } from 'react-router-dom';
 import imgHeroBackground from '@/assets/Hero.png';
 import imgDirector from '@/assets/ceo.png';
+import imgPektin from '@/assets/pektin.jpg';
+import imgFoodStorage from '@/assets/foodstorage.jpg';
 
 const imgGeminiGeneratedImage = "https://images.unsplash.com/photo-1594737626072-90dc274bc2bc?w=800&auto=format&fit=crop";
 
@@ -99,7 +101,7 @@ export function Home() {
               {/* Right - Quote */}
               <div className="space-y-6">
                 <div>
-                  <h2 className="text-3xl sm:text-4xl font-geologica font-bold text-gray-900 leading-[1.1] uppercase tracking-tight mb-4 sm:mb-6">
+                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-geologica font-bold text-gray-900 uppercase tracking-tight leading-[1.1] mb-4 sm:mb-6">
                     {t('home.director.title')}
                   </h2>
                 </div>
@@ -128,9 +130,9 @@ export function Home() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center mb-20 sm:mb-24 lg:mb-32">
             <div>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-geologica font-bold text-gray-900 mb-6 sm:mb-8 uppercase">О нашем холдинге</h2>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-geologica font-bold text-gray-900 uppercase tracking-tight leading-[1.1] mb-6 sm:mb-8">{t('home.aboutSection.title')}</h2>
               <p className="text-base sm:text-lg lg:text-lg text-gray-700 font-geist leading-relaxed">
-                Alpecon Group — казахстанская инвестиционная компания, реализующая в Алматинской области масштабный экспортно-ориентированный проект по созданию интегрированного агропромышленного кластера глубокой переработки фруктов и овощей.
+                {t('home.aboutSection.text')}
               </p>
               <Link to="/about" className="w-full sm:w-auto bg-[rgb(175_37_28)] text-white px-6 sm:px-8 py-3 sm:py-4 font-bold text-sm uppercase tracking-wider hover:bg-[rgb(150_30_25)] transition-colors rounded-md shadow-lg inline-block text-center mt-6">
                 {t('home.about.learnMore')}
@@ -140,14 +142,14 @@ export function Home() {
               <div className="space-y-4 sm:space-y-6">
                 <div className="overflow-hidden rounded-md shadow-lg">
                   <img
-                    src="https://images.unsplash.com/photo-1589217157232-464b505b197f?w=800&auto=format&fit=crop&q=80"
+                    src="https://images.unsplash.com/photo-1651525670054-279c154bc3b6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmcnVpdCUyMHByb2Nlc3NpbmclMjBmYWN0b3J5JTIwcHJvZHVjdGlvbnxlbnwxfHx8fDE3NzEzNTM1OTd8MA&ixlib=rb-4.1.0&q=80&w=1080"
                     alt="Apple Orchard"
                     className="w-full h-64 sm:h-72 object-cover transition-all duration-500"
                   />
                 </div>
                 <div className="overflow-hidden rounded-md shadow-lg">
                   <img
-                    src="https://images.unsplash.com/photo-1619546813926-a78fa6372cd2?w=800&auto=format&fit=crop&q=80"
+                    src="https://images.unsplash.com/photo-1759893904087-9faefe81befa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmcmVzaCUyMGFwcGxlcyUyMGhhcnZlc3QlMjByZWQlMjBncmVlbnxlbnwxfHx8fDE3NzEzNTY5NzJ8MA&ixlib=rb-4.1.0&q=80&w=1080"
                     alt="Fresh Fruits"
                     className="w-full h-48 sm:h-56 object-cover transition-all duration-500"
                   />
@@ -156,15 +158,15 @@ export function Home() {
               <div className="space-y-4 sm:space-y-6 pt-8 sm:pt-12">
                 <div className="overflow-hidden rounded-md shadow-lg">
                   <img
-                    src="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=800&auto=format&fit=crop&q=80"
-                    alt="Factory Facility"
+                    src="https://images.unsplash.com/photo-1770068511771-7c146210a55b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzb2xhciUyMHBhbmVscyUyMGZhcm0lMjByZW5ld2FibGUlMjBlbmVyZ3l8ZW58MXx8fHwxNzcxMzMzMDU0fDA&ixlib=rb-4.1.0&q=80&w=1080"
+                    alt="Solar Panels"
                     className="w-full h-48 sm:h-56 object-cover"
                   />
                 </div>
                 <div className="overflow-hidden rounded-md shadow-lg">
                   <img
-                    src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&auto=format&fit=crop&q=80"
-                    alt="Agricultural Fields"
+                    src="https://images.unsplash.com/photo-1769259046907-a5165e978af5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxncmVlbmhvdXNlJTIwYWdyaWN1bHR1cmUlMjBtb2Rlcm4lMjBmYXJtfGVufDF8fHx8MTc3MTM1Njk3Mnww&ixlib=rb-4.1.0&q=80&w=1080"
+                    alt="Greenhouse"
                     className="w-full h-64 sm:h-72 object-cover"
                   />
                 </div>
@@ -174,113 +176,61 @@ export function Home() {
         </div>
       </section>
 
-      {/* Key Numbers - Clean Dark Section */}
-      <section className="relative py-16 sm:py-20 bg-[#133327] text-white overflow-hidden">
-
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="pl-4 sm:pl-8 mb-10 sm:mb-16">
-            <h2 className="text-3xl sm:text-4xl font-geologica font-bold mb-3 sm:mb-4 uppercase tracking-tight">
-              {t('home.stats.title')}
-            </h2>
-            <p className="text-lg text-white/80 font-geist max-w-2xl">
-              {t('home.stats.subtitle')}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+      {/* Directions Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-geologica font-bold text-gray-900 uppercase tracking-tight leading-[1.1] mb-16 text-center">
+            НАПРАВЛЕНИЯ ДЕЯТЕЛЬНОСТИ
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
-                number: t('home.stats.year.number'),
-                label: t('home.stats.year.label'),
-                desc: t('home.stats.year.desc'),
-                icon: "📅",
+                image: "https://images.unsplash.com/photo-1689650552915-d547c24fe85e?w=800&auto=format&fit=crop",
+                title: "Яблоневый сад",
+                category: "СЕЛЬСКОЕ ХОЗЯЙСТВО",
               },
               {
-                number: t('home.stats.capacity.number'),
-                label: t('home.stats.capacity.label'),
-                desc: t('home.stats.capacity.desc'),
-                icon: "🏭",
+                image: "https://images.unsplash.com/photo-1651525670099-f828fb5478a5?w=800&auto=format&fit=crop",
+                title: "Завод концентратов",
+                category: "ПЕРЕРАБОТКА",
               },
               {
-                number: t('home.stats.export.number'),
-                label: t('home.stats.export.label'),
-                desc: t('home.stats.export.desc'),
-                icon: "📦",
+                image: imgPektin,
+                title: "Завод пектина",
+                category: "ПЕРЕРАБОТКА",
               },
-            ].map((item, idx) => (
+              {
+                image: "https://images.unsplash.com/photo-1552841287-6a0e47282441?w=800&auto=format&fit=crop",
+                title: "Пункты приемки",
+                category: "ЛОГИСТИКА",
+              },
+              {
+                image: imgFoodStorage,
+                title: "Фруктохранилище",
+                category: "ХРАНЕНИЕ",
+              },
+              {
+                image: "https://images.unsplash.com/photo-1744230673231-865d54a0aba4?w=800&auto=format&fit=crop",
+                title: "IT Платформа",
+                category: "ТЕХНОЛОГИИ",
+              },
+            ].map((direction, index) => (
               <div
-                key={idx}
-                className="bg-white/5 backdrop-blur-sm border-2 border-white/10 p-8 hover:border-[#006442] transition-all group rounded-md"
+                key={index}
+                className="relative group overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 h-[280px]"
               >
-                <div className="text-6xl font-bold mb-3 text-white group-hover:text-[#006442] transition-colors">
-                  {item.number}
-                </div>
-                <div className="text-sm font-bold mb-2 uppercase tracking-widest text-white/90">
-                  {item.label}
-                </div>
-                <div className="text-xs text-white/60 uppercase tracking-wide">
-                  {item.desc}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Production Directions - Clean Cards */}
-      <section className="py-16 sm:py-20 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="pl-4 sm:pl-8 mb-12 sm:mb-16">
-            <h2 className="text-3xl sm:text-4xl font-geologica font-bold text-gray-900 mb-6 sm:mb-8 uppercase tracking-tight leading-[1.1]">
-              {t('home.directions.title')}
-            </h2>
-            <p className="text-base sm:text-lg text-gray-600 font-geist max-w-3xl">
-              {t('home.directions.subtitle')}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-            {[
-              {
-                title: t('home.directions.item1.title'),
-                icon: t('home.directions.item1.icon'),
-                image: "https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?w=800&auto=format&fit=crop"
-              },
-              {
-                title: t('home.directions.item2.title'),
-                icon: t('home.directions.item2.icon'),
-                image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&auto=format&fit=crop"
-              },
-              {
-                title: t('home.directions.item3.title'),
-                icon: t('home.directions.item3.icon'),
-                image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&auto=format&fit=crop"
-              },
-              {
-                title: t('home.directions.item4.title'),
-                icon: t('home.directions.item4.icon'),
-                image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&auto=format&fit=crop"
-              },
-              {
-                title: t('home.directions.item5.title'),
-                icon: t('home.directions.item5.icon'),
-                image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&auto=format&fit=crop"
-              },
-              {
-                title: t('home.directions.item6.title'),
-                icon: t('home.directions.item6.icon'),
-                image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&auto=format&fit=crop"
-              },
-            ].map((item, idx) => (
-              <div
-                key={idx}
-                className="relative overflow-hidden shadow-md hover:shadow-xl p-8 sm:p-10 transition-all rounded-lg min-h-[200px] flex flex-col items-center justify-center text-center bg-cover bg-center"
-                style={{ backgroundImage: `url(${item.image})` }}
-              >
-                <div className="absolute inset-0 bg-[#133327]/85"></div>
-                <div className="relative z-10">
-                  <h3 className="text-xl sm:text-2xl font-geologica font-bold text-white leading-tight">
-                    {item.title}
+                <img
+                  src={direction.image}
+                  alt={direction.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
+                  <div className="text-xs font-bold uppercase tracking-widest mb-3 text-white/70 font-['Geist']">
+                    {direction.category}
+                  </div>
+                  <h3 className="text-xl font-bold uppercase font-['Geologica']">
+                    {direction.title}
                   </h3>
                 </div>
               </div>
@@ -289,11 +239,66 @@ export function Home() {
         </div>
       </section>
 
+      {/* Stats Section */}
+      <section className="relative py-32 overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="https://images.unsplash.com/photo-1655176198204-e939d46fc584?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx2YXN0JTIwYWdyaWN1bHR1cmFsJTIwZmllbGQlMjBhZXJpYWwlMjB2aWV3JTIwZ29sZGVufGVufDF8fHx8MTc3MTM1NzUwMHww&ixlib=rb-4.1.0&q=80&w=1080"
+            alt="Background"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/70 to-black/80"></div>
+        </div>
+
+        <div className="relative z-10 container mx-auto px-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-geologica font-bold text-white uppercase tracking-tight leading-[1.1] mb-20 text-center">
+            МЫ В ЦИФРАХ
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div className="bg-white/10 backdrop-blur-md border border-white/20 p-10 rounded-2xl hover:bg-white/15 transition-all duration-300">
+              <div className="text-6xl font-bold text-white mb-4 font-['Geologica']">
+                262,000
+              </div>
+              <div className="text-sm font-bold uppercase tracking-widest text-white/80 mb-3 font-['Geist']">
+                ТОНН CO₂-ЭКВ
+              </div>
+              <p className="text-white/70 text-sm font-['Geist']">
+                Предотвращение выбросов парниковых газов
+              </p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-md border border-white/20 p-10 rounded-2xl hover:bg-white/15 transition-all duration-300">
+              <div className="text-6xl font-bold text-white mb-4 font-['Geologica']">
+                100K
+              </div>
+              <div className="text-sm font-bold uppercase tracking-widest text-white/80 mb-3 font-['Geist']">
+                ТОНН В ГОД
+              </div>
+              <p className="text-white/70 text-sm font-['Geist']">
+                Переработка органических отходов
+              </p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-md border border-white/20 p-10 rounded-2xl hover:bg-white/15 transition-all duration-300">
+              <div className="text-6xl font-bold text-white mb-4 font-['Geologica']">
+                2024
+              </div>
+              <div className="text-sm font-bold uppercase tracking-widest text-white/80 mb-3 font-['Geist']">
+                ГОД ОСНОВАНИЯ
+              </div>
+              <p className="text-white/70 text-sm font-['Geist']">
+                Начало работы компании
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* News Section - Government & Corporate News */}
       <section className="py-16 sm:py-20 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="pl-4 sm:pl-8 mb-12 sm:mb-16">
-            <h2 className="text-3xl sm:text-4xl font-geologica font-bold text-gray-900 mb-4 uppercase tracking-tight leading-[1.1]">
+          <div className="mb-12 sm:mb-16 text-center">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-geologica font-bold text-gray-900 uppercase tracking-tight leading-[1.1] mb-4">
               {t('home.news.title')}
             </h2>
           </div>
@@ -323,7 +328,7 @@ export function Home() {
                         <div className="text-xs mb-2 font-bold uppercase tracking-widest opacity-90">
                           {formatDate(item.date)}
                         </div>
-                        <h3 className="text-xl sm:text-2xl font-geologica font-bold mb-2 sm:mb-3 leading-tight uppercase tracking-tight">
+                        <h3 className="text-xl sm:text-2xl font-geologica font-bold uppercase tracking-tight leading-tight mb-2 sm:mb-3">
                           {getLocalizedField(item, 'title')}
                         </h3>
                         <p className="text-xs sm:text-sm font-geist leading-relaxed opacity-90 line-clamp-3">

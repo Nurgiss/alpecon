@@ -12,7 +12,7 @@ export function Quality() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/60"></div>
         </div>
         <div className="relative z-10 container mx-auto px-8 pt-32">
-          <h1 className="text-white text-7xl font-bold mb-6 uppercase">Качество и стандарты</h1>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-geologica font-bold text-white uppercase tracking-tight leading-[1.1] mb-6">Качество и стандарты</h1>
           <p className="text-white/90 text-2xl max-w-3xl">
             Международные стандарты и непрерывный контроль
           </p>
@@ -29,7 +29,7 @@ export function Quality() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 gap-20 items-center">
             <div>
-              <h2 className="text-5xl font-bold text-gray-900 mb-8">Политика качества</h2>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-geologica font-bold text-gray-900 uppercase tracking-tight leading-[1.1] mb-8">Политика качества</h2>
               <p className="text-xl text-gray-700 mb-6 leading-relaxed">
                 Наша компания придерживается строгих стандартов качества на всех этапах производства. Мы используем только сертифицированное сырьё и современное оборудование для обеспечения высочайшего качества готовой продукции.
               </p>

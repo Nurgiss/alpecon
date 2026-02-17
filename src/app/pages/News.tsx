@@ -89,7 +89,7 @@ export function News() {
             <div className="inline-block bg-gray-900 text-white px-4 py-1.5 rounded-md text-xs font-bold mb-4 uppercase shadow-lg">
               Архив
             </div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-4 uppercase">Все новости</h2>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-geologica font-bold text-gray-900 uppercase tracking-tight leading-[1.1] mb-4">Все новости</h2>
           </div>
           
           <div className="grid grid-cols-3 gap-8 mb-16">
@@ -112,7 +112,7 @@ export function News() {
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3 uppercase group-hover:text-[#006442] transition-colors">
+                  <h3 className="text-xl sm:text-2xl font-geologica font-bold text-gray-900 uppercase tracking-tight leading-tight mb-3 group-hover:text-[#006442] transition-colors">
                     {getLocalizedField(newsItem, 'title')}
                   </h3>
                   <p className="text-gray-600 mb-4 line-clamp-3 leading-relaxed">

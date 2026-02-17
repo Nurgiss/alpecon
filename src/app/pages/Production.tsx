@@ -14,7 +14,7 @@ export function Production() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/60"></div>
         </div>
         <div className="relative z-10 container mx-auto px-8 pt-32">
-          <h1 className="text-white text-7xl font-bold mb-6 uppercase">Производство</h1>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-geologica font-bold text-white uppercase tracking-tight leading-[1.1] mb-6">Производство</h1>
           <p className="text-white/90 text-2xl max-w-3xl">
             Современные технологии и полный цикл переработки
           </p>
@@ -31,7 +31,7 @@ export function Production() {
         <div className="container mx-auto px-8">
           <div className="grid grid-cols-2 gap-20 items-center mb-32">
             <div>
-              <h2 className="text-6xl font-bold text-gray-900 mb-8 uppercase">Производственный комплекс</h2>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-geologica font-bold text-gray-900 uppercase tracking-tight leading-[1.1] mb-8">Производственный комплекс</h2>
               <p className="text-xl text-gray-700 mb-6 leading-relaxed">
                 Наш завод оснащён современным европейским оборудованием и автоматизированными линиями, обеспечивающими высокую производительность и качество продукции.
               </p>
@@ -95,7 +95,7 @@ export function Production() {
       {/* Production Lines - Detailed Cards */}
       <section className="py-32 bg-gray-50">
         <div className="container mx-auto px-8">
-          <h2 className="text-6xl font-bold text-gray-900 mb-20 text-center uppercase">Производственные линии</h2>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-geologica font-bold text-gray-900 uppercase tracking-tight leading-[1.1] mb-20 text-center">Производственные линии</h2>
           <div className="space-y-32">
             {[
               {
@@ -177,7 +177,7 @@ export function Production() {
 
                   {/* Right side - Info */}
                   <div>
-                    <h3 className="text-5xl font-bold text-gray-900 mb-6 uppercase">{line.title}</h3>
+                    <h3 className="text-3xl sm:text-4xl font-geologica font-bold text-gray-900 uppercase tracking-tight leading-tight mb-6">{line.title}</h3>
                     <p className="text-xl text-gray-700 mb-8 leading-relaxed">{line.desc}</p>
                     
                     {/* Stats Grid */}
@@ -224,7 +224,7 @@ export function Production() {
       {/* Technologies with Detailed Cards */}
       <section className="py-32 bg-white">
         <div className="container mx-auto px-8">
-          <h2 className="text-6xl font-bold text-gray-900 mb-8 text-center uppercase">Применяемые технологии</h2>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-geologica font-bold text-gray-900 uppercase tracking-tight leading-[1.1] mb-8 text-center">Применяемые технологии</h2>
           <p className="text-xl text-gray-600 text-center mb-20 max-w-3xl mx-auto">
             Передовое оборудование и инновационные решения для производства высококачественной продукции
           </p>
@@ -289,7 +289,7 @@ export function Production() {
                 </div>
                 <div className="p-8 text-center">
                   <div className="text-5xl mb-4">{tech.icon}</div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-2 uppercase">{tech.name}</h3>
+                  <h3 className="text-xl font-geologica font-bold text-gray-900 uppercase tracking-tight leading-tight mb-2">{tech.name}</h3>
                   <p className="text-sm text-gray-600">{tech.desc}</p>
                 </div>
               </div>
@@ -301,7 +301,7 @@ export function Production() {
       {/* Process Flow with Visual Steps */}
       <section className="py-32 bg-gray-50">
         <div className="container mx-auto px-8">
-          <h2 className="text-6xl font-bold text-gray-900 mb-20 text-center uppercase">Этапы производства</h2>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-geologica font-bold text-gray-900 uppercase tracking-tight leading-[1.1] mb-20 text-center">Этапы производства</h2>
           <div className="grid grid-cols-5 gap-6 mb-20">
             {[
               { step: '01', title: 'Приёмка сырья', desc: 'Входной контроль качества каждой партии', icon: '🚛' },
@@ -379,7 +379,7 @@ export function Production() {
       {/* Equipment Section */}
       <section className="py-32 bg-white">
         <div className="container mx-auto px-8">
-          <h2 className="text-6xl font-bold text-gray-900 mb-20 text-center uppercase">Оборудование</h2>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-geologica font-bold text-gray-900 uppercase tracking-tight leading-[1.1] mb-20 text-center">Оборудование</h2>
           <div className="grid grid-cols-2 gap-12">
             {[
               {
@@ -425,7 +425,7 @@ export function Production() {
         <div className="container mx-auto px-8">
           <div className="grid grid-cols-2 gap-20 items-center">
             <div>
-              <h2 className="text-6xl font-bold mb-8 uppercase">Экскурсия на производство</h2>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-geologica font-bold text-white uppercase tracking-tight leading-[1.1] mb-8">Экскурсия на производство</h2>
               <p className="text-2xl text-white/70 mb-12">
                 Приглашаем партнёров и клиентов посетить наше производство и убедиться в качестве нашей продукции
               </p>

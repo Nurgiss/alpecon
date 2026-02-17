@@ -19,7 +19,7 @@ export function Investors() {
         </div>
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 lg:pt-32">
           <div className="pl-4 sm:pl-8">
-            <h1 className="text-white text-4xl sm:text-5xl lg:text-7xl font-bold mb-6 uppercase tracking-tight leading-[1.1]">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-geologica font-bold text-white uppercase tracking-tight leading-[1.1] mb-6">
               {t('investors.hero.title')}
             </h1>
             <p className="text-white/90 text-base sm:text-lg lg:text-2xl max-w-3xl leading-tight">
@@ -39,7 +39,7 @@ export function Investors() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center mb-16">
             <div>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 sm:mb-8 uppercase">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-geologica font-bold text-gray-900 uppercase tracking-tight leading-[1.1] mb-6 sm:mb-8">
                 {t('investors.section.title')}
               </h2>
               <p className="text-base sm:text-lg lg:text-lg text-gray-700 mb-4 sm:mb-6 leading-relaxed">

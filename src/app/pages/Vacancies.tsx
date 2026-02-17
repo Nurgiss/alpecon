@@ -42,7 +42,7 @@ export function Vacancies() {
           <div className="max-w-3xl mx-auto">
             <div className="bg-white rounded-md shadow-2xl p-4 sm:p-6 lg:p-8">
               <div className="text-center mb-8 sm:mb-10">
-                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-geologica font-bold text-gray-900 mb-4 uppercase tracking-tight">
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-geologica font-bold text-gray-900 uppercase tracking-tight leading-[1.1] mb-4">
                   {t('vacancies.form.title')}
                 </h2>
                 <p className="text-base sm:text-lg text-gray-600 font-geist">

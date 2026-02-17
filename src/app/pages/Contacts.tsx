@@ -12,7 +12,7 @@ export function Contacts() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             {/* Left - Main CTA */}
             <div className="pl-4 sm:pl-8">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-geologica font-bold mb-6 leading-tight uppercase tracking-tight">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-geologica font-bold text-gray-900 uppercase tracking-tight leading-[1.1] mb-6">
                 {t('contacts.section.title')}
               </h2>
               <p className="text-base sm:text-lg text-gray-600 font-geist mb-8 leading-relaxed">

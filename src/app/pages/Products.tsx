@@ -14,7 +14,7 @@ export function Products() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/60"></div>
         </div>
         <div className="relative z-10 container mx-auto px-8 pt-32 text-center text-white">
-          <h1 className="text-6xl font-geologica font-bold mb-6 uppercase">Наша продукция</h1>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-geologica font-bold text-white uppercase tracking-tight leading-[1.1] mb-6">Наша продукция</h1>
           <p className="text-lg opacity-90 font-geist max-w-3xl mx-auto">
             Широкий ассортимент качественной продукции для ваших потребностей
           </p>

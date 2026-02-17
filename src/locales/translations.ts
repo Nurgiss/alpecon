@@ -47,6 +47,10 @@ export const translations = {
         employees: "Сотрудников",
         learnMore: "Узнать больше"
       },
+      aboutSection: {
+        title: "О нашем холдинге",
+        text: "Alpecon Group - современная агропромышленная компания из Казахстана, специализирующаяся на глубокой переработке овощей и фруктов для внутреннего потребления и международных рынков. Мы создаем натуральную продукцию высокого качества, используя современные технологии переработки и устойчивые экологические практики. Наша бизнес-модель основана на долгосрочных экспортных контрактах, поддержке локальных фермеров и развитии сельских территорий."
+      },
       stats: {
         title: "Мы в цифрах",
         subtitle: "Факты и достижения, подтверждающие нашу надёжность",
@@ -366,6 +370,10 @@ export const translations = {
         employees: "Қызметкерлер",
         learnMore: "Толығырақ"
       },
+      aboutSection: {
+        title: "Біздің холдинг туралы",
+        text: "Alpecon Group - Қазақстанның заманауи агроөнеркәсіп компаниясы, көкөніс пен жеміс-жидекті ішкі тұтыну және халықаралық нарықтарға арналған терең қайта өңдеуге мамандандырылған. Біз заманауи қайта өңдеу технологияларын және тұрақты экологиялық тәжірибелерді пайдалана отырып, жоғары сапалы табиғи өнімдер жасаймыз. Біздің бизнес-үлгіміз ұзақ мерзімді экспорттық келісімшарттарға, жергілікті фермерлерді қолдауға және ауылдық аумақтарды дамытуға негізделген."
+      },
       stats: {
         title: "Біз сандармен",
         subtitle: "Біздің сенімділігімізді растайтын фактілер мен жетістіктер",
@@ -684,6 +692,10 @@ export const translations = {
         yearFounded: "Year Founded",
         employees: "Employees",
         learnMore: "Learn More"
+      },
+      aboutSection: {
+        title: "About Our Holding",
+        text: "Alpecon Group is a modern agro-industrial company from Kazakhstan, specializing in deep processing of vegetables and fruits for domestic consumption and international markets. We create high-quality natural products using advanced processing technologies and sustainable environmental practices. Our business model is based on long-term export contracts, support for local farmers and development of rural areas."
       },
       stats: {
         title: "Our Numbers",

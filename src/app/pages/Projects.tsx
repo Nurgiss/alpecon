@@ -1,39 +1,92 @@
 import { useLanguage } from '@/app/contexts/LanguageContext';
 
+interface ProjectCardProps {
+  image: string;
+  title: string;
+  description: string;
+  products: string;
+  productsLabel: string;
+}
+
+function ProjectCard({ image, title, description, products, productsLabel }: ProjectCardProps) {
+  return (
+    <div className="group relative overflow-hidden rounded-2xl aspect-square bg-white shadow-lg hover:shadow-2xl transition-all duration-500">
+      {/* Изображение */}
+      <div className="absolute inset-0">
+        <img 
+          src={image} 
+          alt={title}
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+        />
+        {/* Градиент для читаемости текста */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
+      </div>
+      
+      {/* Контент */}
+      <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-8 text-white">
+        <h3 className="text-xl sm:text-2xl font-geologica font-bold uppercase tracking-tight leading-tight mb-3 transform transition-transform duration-500 group-hover:-translate-y-2">
+          {title}
+        </h3>
+        <p className="font-geist text-xs sm:text-sm mb-4 opacity-90 line-clamp-2 transition-all duration-500 group-hover:line-clamp-none">
+          {description}
+        </p>
+        
+        {/* Продукция */}
+        <div className="border-l-4 border-[#007349] pl-4 bg-black/30 backdrop-blur-sm py-3 -mx-2 px-6 rounded">
+          <div className="font-geologica font-bold text-base sm:text-lg mb-1">
+            {products}
+          </div>
+          <div className="font-geist text-xs uppercase tracking-wide opacity-75">
+            {productsLabel}
+          </div>
+        </div>
+      </div>
+      
+      {/* Hover эффект - зеленая рамка */}
+      <div className="absolute inset-0 border-4 border-[#007349] opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl pointer-events-none" />
+    </div>
+  );
+}
+
 export function Projects() {
   const { t } = useLanguage();
   
   const projects = [
     {
-      title: 'Qazaq Global Food',
-      description: 'завод по переработке фруктов и овощей и выпуску концентратов фруктовых соков, овощных и фруктовых пюре.',
-      stats: { capacity: '50K тонн', products: '15+ видов' },
-      image: 'https://images.unsplash.com/photo-1644375386140-f22123ceeec4?w=800',
+      image: "https://images.unsplash.com/photo-1651525670054-279c154bc3b6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmcnVpdCUyMHByb2Nlc3NpbmclMjBmYWN0b3J5JTIwcHJvZHVjdGlvbnxlbnwxfHx8fDE3NzEzNTM1OTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      title: 'TOO "Qazaq Global Food JV"',
+      description: 'Производство яблочного концентрата, фруктовых и овощных пюре.',
+      products: "Концентраты, пюре",
+      productsLabel: "ПРОИЗВОДСТВО"
     },
     {
-      title: 'Qazaq Agro Processing',
-      description: 'завод по переработке выжимок фруктов и овощей и выпуску пектина, пищевых волокон.',
-      stats: { capacity: '20K тонн', products: 'Пектин, волокна' },
-      image: 'https://images.unsplash.com/photo-1582769923195-c6e60dc1d8dc?w=800',
+      image: "https://images.unsplash.com/photo-1762267659909-811e6dcacbe5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxvcmdhbmljJTIwYWdyaWN1bHR1cmUlMjBhcHBsZSUyMG9yY2hhcmR8ZW58MXx8fHwxNzcxMzUzNTk3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      title: 'TOO "QazaqAgroProcessing"',
+      description: 'Высокотехнологичное производство пектина.',
+      products: "Пектин",
+      productsLabel: "ПРОИЗВОДСТВО"
     },
     {
-      title: 'Run Planet Organic',
-      description: 'Завод по производству яблочного сока прямого отжима и яблочного пюре из отборных плодов с линией розлива.',
-      stats: { capacity: '30K тонн', products: 'Соки, пюре' },
-      image: 'https://images.unsplash.com/photo-1734773432473-d1a7a13c3507?w=800',
+      image: "https://images.unsplash.com/photo-1652211955973-b9138bc1b09a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhcHBsZSUyMGp1aWNlJTIwcHJvZHVjdGlvbnxlbnwxfHx8fDE3NzEzNTM1OTh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      title: 'TOO "RUN PLANET ORGANIC"',
+      description: 'Производство натуральных яблочных соков и пюре.',
+      products: "Соки, пюре",
+      productsLabel: "ПРОИЗВОДСТВО"
     },
     {
-      title: 'Сеть заготовительных пунктов',
-      description: 'создание обширной сети заготовительных пунктов для приемки фруктов и овощей, распределения средств защиты и удобрений, предоставления комфорта и сервиса фермерам (хоз бытовой магазин, кофейня, пространство для переговоров).',
-      stats: { capacity: '50+ пунктов', products: 'Полный сервис' },
-      image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800',
+      image: "https://images.unsplash.com/photo-1766158554276-fcba78477081?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmcmVzaCUyMHByb2R1Y2UlMjBtYXJrZXQlMjBzdG9yYWdlfGVufDF8fHx8MTc3MTM1MzU5OHww&ixlib=rb-4.1.0&q=80&w=1080",
+      title: "Сеть заготовительных пунктов",
+      description: "Связующее звено между фермерами и производством.",
+      products: "Логистика",
+      productsLabel: "ИНФРАСТРУКТУРА"
     },
     {
-      title: 'Alpecon AgrOS',
-      description: 'цифровая платформа объединяющая в единую цифровую экосистему садоводов, фермеров, центр агрокомпетенции, заготовительные пункты, завод по переработке фруктов и овощей, фруктохранилища и овощехранилища.',
-      stats: { capacity: 'Cloud', products: 'Цифровая экосистема' },
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800',
-    },
+      image: "https://images.unsplash.com/photo-1645628100819-981300372236?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhZ3JpY3VsdHVyYWwlMjB0ZWNobm9sb2d5JTIwZmFybSUyMHNvZnR3YXJlfGVufDF8fHx8MTc3MTM1MzY2Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+      title: "Alpecon AgrOS",
+      description: "Агротехнологическая операционная система для управления производством.",
+      products: "IT-система",
+      productsLabel: "ТЕХНОЛОГИИ"
+    }
   ];
 
   return (
@@ -42,7 +95,7 @@ export function Projects() {
       <section className="relative min-h-screen flex items-center">
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=2000"
+            src="https://images.unsplash.com/photo-1752706033018-da7f6ff09562?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBhZ3JpY3VsdHVyYWwlMjBmYWNpbGl0eSUyMHByb2R1Y3Rpb258ZW58MXx8fHwxNzcxMzU0MjYzfDA&ixlib=rb-4.1.0&q=80&w=1080"
             alt={t('projects.hero.title')}
             className="w-full h-full object-cover"
           />
@@ -50,7 +103,7 @@ export function Projects() {
         </div>
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 lg:pt-32">
           <div className="text-center">
-            <h1 className="text-white text-4xl sm:text-5xl lg:text-6xl font-geologica font-bold mb-6 uppercase tracking-tight leading-[1.1]">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-geologica font-bold text-white uppercase tracking-tight leading-[1.1] mb-6">
               {t('projects.hero.title')}
             </h1>
             <p className="text-white/90 text-base sm:text-lg lg:text-lg font-geist max-w-3xl leading-tight mb-8 mx-auto">
@@ -75,47 +128,28 @@ export function Projects() {
         </div>
       </section>
 
-      {/* Projects Grid */}
-      <section className="py-16 sm:py-24 lg:py-32 bg-gray-50">
+      {/* Projects Grid - New Modern Design */}
+      <section className="py-16 sm:py-24 lg:py-32 bg-gradient-to-b from-white to-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="pl-4 sm:pl-8 mb-12 sm:mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-geologica font-bold text-gray-900 mb-6 uppercase tracking-tight leading-[1.1]">
-              {t('projects.section.title')}
+          {/* Заголовок секции */}
+          <div className="mb-12 sm:mb-16 text-center">
+            <h2 className="font-geologica font-bold text-4xl sm:text-5xl mb-4">
+              НАШИ ПРОЕКТЫ
             </h2>
-            <p className="text-base sm:text-lg lg:text-lg text-gray-600 font-geist max-w-3xl leading-relaxed">
-              {t('projects.section.subtitle')}
+            <p className="font-geist text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
+              Каждый проект — это важная часть единой экосистемы, создающей добавленную стоимость на каждом этапе
             </p>
           </div>
 
-          <div className="space-y-6 sm:space-y-8">
-            {projects.map((project, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-md shadow-xl overflow-hidden hover:shadow-2xl transition-all group"
-              >
-                <div className="p-6 sm:p-8 lg:p-12">
-                  <div>
-                    <h3 className="text-2xl sm:text-3xl lg:text-4xl font-geologica font-bold text-gray-900 mb-4 sm:mb-6 uppercase tracking-tight leading-tight">
-                      {project.title}
-                    </h3>
-                    <p className="text-base sm:text-lg text-gray-700 font-geist leading-relaxed mb-6 sm:mb-8">
-                      {project.description}
-                    </p>
-
-                    {/* Stats */}
-                    <div className="grid grid-cols-1 gap-3 sm:gap-4 mt-4 sm:mt-6">
-                      <div className="bg-gray-50 p-4 sm:p-6 rounded-md border-l-4 border-[#ae251c]">
-                        <div className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
-                          {project.stats.products}
-                        </div>
-                        <div className="text-xs text-gray-600 uppercase tracking-wider font-bold">
-                          {t('projects.products')}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+          {/* Сетка проектов - 3 в первом ряду, 2 во втором */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {projects.slice(0, 3).map((project, index) => (
+              <ProjectCard key={index} {...project} />
+            ))}
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mt-6 sm:mt-8 max-w-5xl mx-auto">
+            {projects.slice(3).map((project, index) => (
+              <ProjectCard key={index + 3} {...project} />
             ))}
           </div>
         </div>
