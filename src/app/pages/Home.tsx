@@ -131,9 +131,11 @@ export function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center mb-20 sm:mb-24 lg:mb-32">
             <div>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-geologica font-bold text-gray-900 uppercase tracking-tight leading-[1.1] mb-6 sm:mb-8">{t('home.aboutSection.title')}</h2>
-              <p className="text-base sm:text-lg lg:text-lg text-gray-700 font-geist leading-relaxed">
-                {t('home.aboutSection.text')}
-              </p>
+              <div className="space-y-4 text-base sm:text-lg lg:text-lg text-gray-700 font-geist leading-relaxed">
+                {t('home.aboutSection.text').split('\n\n').map((paragraph, index) => (
+                  <p key={index}>{paragraph}</p>
+                ))}
+              </div>
               <Link to="/about" className="w-full sm:w-auto bg-[rgb(175_37_28)] text-white px-6 sm:px-8 py-3 sm:py-4 font-bold text-sm uppercase tracking-wider hover:bg-[rgb(150_30_25)] transition-colors rounded-md shadow-lg inline-block text-center mt-6">
                 {t('home.about.learnMore')}
               </Link>
@@ -149,7 +151,7 @@ export function Home() {
                 </div>
                 <div className="overflow-hidden rounded-md shadow-lg">
                   <img
-                    src="https://images.unsplash.com/photo-1759893904087-9faefe81befa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmcmVzaCUyMGFwcGxlcyUyMGhhcnZlc3QlMjByZWQlMjBncmVlbnxlbnwxfHx8fDE3NzEzNTY5NzJ8MA&ixlib=rb-4.1.0&q=80&w=1080"
+                    src="/src/assets/2.jpeg"
                     alt="Fresh Fruits"
                     className="w-full h-48 sm:h-56 object-cover transition-all duration-500"
                   />
@@ -158,19 +160,74 @@ export function Home() {
               <div className="space-y-4 sm:space-y-6 pt-8 sm:pt-12">
                 <div className="overflow-hidden rounded-md shadow-lg">
                   <img
-                    src="https://images.unsplash.com/photo-1770068511771-7c146210a55b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzb2xhciUyMHBhbmVscyUyMGZhcm0lMjByZW5ld2FibGUlMjBlbmVyZ3l8ZW58MXx8fHwxNzcxMzMzMDU0fDA&ixlib=rb-4.1.0&q=80&w=1080"
+                    src="/src/assets/1.jpg"
                     alt="Solar Panels"
                     className="w-full h-48 sm:h-56 object-cover"
                   />
                 </div>
                 <div className="overflow-hidden rounded-md shadow-lg">
                   <img
-                    src="https://images.unsplash.com/photo-1769259046907-a5165e978af5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxncmVlbmhvdXNlJTIwYWdyaWN1bHR1cmUlMjBtb2Rlcm4lMjBmYXJtfGVufDF8fHx8MTc3MTM1Njk3Mnww&ixlib=rb-4.1.0&q=80&w=1080"
+                    src="/src/assets/3.jpg"
                     alt="Greenhouse"
                     className="w-full h-64 sm:h-72 object-cover"
                   />
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="relative py-32 overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="https://images.unsplash.com/photo-1655176198204-e939d46fc584?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx2YXN0JTIwYWdyaWN1bHR1cmFsJTIwZmllbGQlMjBhZXJpYWwlMjB2aWV3JTIwZ29sZGVufGVufDF8fHx8MTc3MTM1NzUwMHww&ixlib=rb-4.1.0&q=80&w=1080"
+            alt="Background"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/70 to-black/80"></div>
+        </div>
+
+        <div className="relative z-10 container mx-auto px-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-geologica font-bold text-white uppercase tracking-tight leading-[1.1] mb-20 text-center">
+            МЫ В ЦИФРАХ
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div className="bg-white/10 backdrop-blur-md border border-white/20 p-10 rounded-2xl hover:bg-white/15 transition-all duration-300 text-center">
+              <div className="text-6xl font-bold text-white mb-4 font-['Geologica']">
+                262,000
+              </div>
+              <div className="text-sm font-bold uppercase tracking-widest text-white/80 mb-3 font-['Geist']">
+                ТОНН CO₂-ЭКВ
+              </div>
+              <p className="text-white/70 text-sm font-['Geist']">
+                Предотвращение выбросов парниковых газов
+              </p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-md border border-white/20 p-10 rounded-2xl hover:bg-white/15 transition-all duration-300 text-center">
+              <div className="text-6xl font-bold text-white mb-4 font-['Geologica']">
+                100 000
+              </div>
+              <div className="text-sm font-bold uppercase tracking-widest text-white/80 mb-3 font-['Geist']">
+                ТОНН В ГОД
+              </div>
+              <p className="text-white/70 text-sm font-['Geist']">
+                Мощность переработки органических отходов
+              </p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-md border border-white/20 p-10 rounded-2xl hover:bg-white/15 transition-all duration-300 text-center">
+              <div className="text-6xl font-bold text-white mb-4 font-['Geologica']">
+                2024
+              </div>
+              <div className="text-sm font-bold uppercase tracking-widest text-white/80 mb-3 font-['Geist']">
+                ГОД ОСНОВАНИЯ
+              </div>
+              <p className="text-white/70 text-sm font-['Geist']">
+                Начало работы компании
+              </p>
             </div>
           </div>
         </div>
@@ -200,12 +257,12 @@ export function Home() {
                 category: "ПЕРЕРАБОТКА",
               },
               {
-                image: "https://images.unsplash.com/photo-1552841287-6a0e47282441?w=800&auto=format&fit=crop",
-                title: "Пункты приемки",
+                image: "/src/assets/foodstorage.jpg",
+                title: "Пункты приемки фруктов и овощей",
                 category: "ЛОГИСТИКА",
               },
               {
-                image: imgFoodStorage,
+                image: "/src/assets/4 - storage.jpeg",
                 title: "Фруктохранилище",
                 category: "ХРАНЕНИЕ",
               },
@@ -235,61 +292,6 @@ export function Home() {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="relative py-32 overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src="https://images.unsplash.com/photo-1655176198204-e939d46fc584?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx2YXN0JTIwYWdyaWN1bHR1cmFsJTIwZmllbGQlMjBhZXJpYWwlMjB2aWV3JTIwZ29sZGVufGVufDF8fHx8MTc3MTM1NzUwMHww&ixlib=rb-4.1.0&q=80&w=1080"
-            alt="Background"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/70 to-black/80"></div>
-        </div>
-
-        <div className="relative z-10 container mx-auto px-6">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-geologica font-bold text-white uppercase tracking-tight leading-[1.1] mb-20 text-center">
-            МЫ В ЦИФРАХ
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <div className="bg-white/10 backdrop-blur-md border border-white/20 p-10 rounded-2xl hover:bg-white/15 transition-all duration-300">
-              <div className="text-6xl font-bold text-white mb-4 font-['Geologica']">
-                262,000
-              </div>
-              <div className="text-sm font-bold uppercase tracking-widest text-white/80 mb-3 font-['Geist']">
-                ТОНН CO₂-ЭКВ
-              </div>
-              <p className="text-white/70 text-sm font-['Geist']">
-                Предотвращение выбросов парниковых газов
-              </p>
-            </div>
-
-            <div className="bg-white/10 backdrop-blur-md border border-white/20 p-10 rounded-2xl hover:bg-white/15 transition-all duration-300">
-              <div className="text-6xl font-bold text-white mb-4 font-['Geologica']">
-                100K
-              </div>
-              <div className="text-sm font-bold uppercase tracking-widest text-white/80 mb-3 font-['Geist']">
-                ТОНН В ГОД
-              </div>
-              <p className="text-white/70 text-sm font-['Geist']">
-                Переработка органических отходов
-              </p>
-            </div>
-
-            <div className="bg-white/10 backdrop-blur-md border border-white/20 p-10 rounded-2xl hover:bg-white/15 transition-all duration-300">
-              <div className="text-6xl font-bold text-white mb-4 font-['Geologica']">
-                2024
-              </div>
-              <div className="text-sm font-bold uppercase tracking-widest text-white/80 mb-3 font-['Geist']">
-                ГОД ОСНОВАНИЯ
-              </div>
-              <p className="text-white/70 text-sm font-['Geist']">
-                Начало работы компании
-              </p>
-            </div>
           </div>
         </div>
       </section>

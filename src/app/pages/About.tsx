@@ -43,9 +43,11 @@ export function About() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center mb-20 sm:mb-24 lg:mb-32">
             <div>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-geologica font-bold text-gray-900 uppercase tracking-tight leading-[1.1] mb-6 sm:mb-8">{t('about.mission.title')}</h2>
-              <p className="text-base sm:text-lg lg:text-lg text-gray-700 font-geist leading-relaxed">
-                {t('home.aboutSection.text')}
-              </p>
+              <div className="space-y-4 text-base sm:text-lg lg:text-lg text-gray-700 font-geist leading-relaxed">
+                {t('home.aboutSection.text').split('\n\n').map((paragraph, index) => (
+                  <p key={index}>{paragraph}</p>
+                ))}
+              </div>
             </div>
             <div className="grid grid-cols-2 gap-4 sm:gap-6">
               <div className="space-y-4 sm:space-y-6">
@@ -58,7 +60,7 @@ export function About() {
                 </div>
                 <div className="overflow-hidden rounded-md shadow-lg">
                   <img
-                    src="https://images.unsplash.com/photo-1759893904087-9faefe81befa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmcmVzaCUyMGFwcGxlcyUyMGhhcnZlc3QlMjByZWQlMjBncmVlbnxlbnwxfHx8fDE3NzEzNTY5NzJ8MA&ixlib=rb-4.1.0&q=80&w=1080"
+                    src="/src/assets/2.jpeg"
                     alt="Fresh Fruits"
                     className="w-full h-48 sm:h-56 object-cover transition-all duration-500"
                   />
@@ -67,14 +69,14 @@ export function About() {
               <div className="space-y-4 sm:space-y-6 pt-8 sm:pt-12">
                 <div className="overflow-hidden rounded-md shadow-lg">
                   <img
-                    src="https://images.unsplash.com/photo-1770068511771-7c146210a55b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzb2xhciUyMHBhbmVscyUyMGZhcm0lMjByZW5ld2FibGUlMjBlbmVyZ3l8ZW58MXx8fHwxNzcxMzMzMDU0fDA&ixlib=rb-4.1.0&q=80&w=1080"
+                    src="/src/assets/1.jpg"
                     alt="Solar Panels"
                     className="w-full h-48 sm:h-56 object-cover"
                   />
                 </div>
                 <div className="overflow-hidden rounded-md shadow-lg">
                   <img
-                    src="https://images.unsplash.com/photo-1769259046907-a5165e978af5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxncmVlbmhvdXNlJTIwYWdyaWN1bHR1cmUlMjBtb2Rlcm4lMjBmYXJtfGVufDF8fHx8MTc3MTM1Njk3Mnww&ixlib=rb-4.1.0&q=80&w=1080"
+                    src="/src/assets/3.jpg"
                     alt="Greenhouse"
                     className="w-full h-64 sm:h-72 object-cover"
                   />
@@ -205,57 +207,62 @@ export function About() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-12">
             {/* Генеральный директор */}
-            <div className="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-all">
-              <div className="h-64 sm:h-72 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
+            <div className="relative overflow-hidden rounded-2xl aspect-square bg-white shadow-lg hover:shadow-2xl transition-all">
+              <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
                 <Users className="w-24 h-24 text-gray-400" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent" />
               </div>
-              <div className="p-6">
-                <h3 className="text-xl sm:text-2xl font-geologica font-bold text-gray-900 mb-2">Балабеков Самат Жумабаевич</h3>
-                <p className="text-[#006442] font-semibold mb-3 uppercase text-sm">Генеральный директор</p>
+              <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-8 text-white">
+                <h3 className="text-xl sm:text-2xl font-geologica font-bold uppercase tracking-tight leading-tight mb-2">Балабеков Самат Жумабаевич</h3>
+                <p className="text-[#00d97e] font-semibold uppercase text-xs sm:text-sm tracking-wide">Генеральный директор</p>
               </div>
             </div>
 
             {/* Финансовый директор */}
-            <div className="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-all">
-              <div className="h-64 sm:h-72 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
+            <div className="relative overflow-hidden rounded-2xl aspect-square bg-white shadow-lg hover:shadow-2xl transition-all">
+              <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
                 <Users className="w-24 h-24 text-gray-400" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent" />
               </div>
-              <div className="p-6">
-                <h3 className="text-xl sm:text-2xl font-geologica font-bold text-gray-900 mb-2">Бейсенбин Бауыржан Айдарович</h3>
-                <p className="text-[#006442] font-semibold mb-3 uppercase text-sm">Финансовый директор</p>
+              <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-8 text-white">
+                <h3 className="text-xl sm:text-2xl font-geologica font-bold uppercase tracking-tight leading-tight mb-2">Бейсенбин Бауыржан Айдарович</h3>
+                <p className="text-[#00d97e] font-semibold uppercase text-xs sm:text-sm tracking-wide">Финансовый директор</p>
               </div>
             </div>
 
-            {/* Технический директор */}
-            <div className="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-all">
-              <div className="h-64 sm:h-72 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
-                <Users className="w-24 h-24 text-gray-400" />
+            {/* Управляющий директор по корпоративным вопросам и безопасности */}
+            <div className="relative overflow-hidden rounded-2xl aspect-square bg-white shadow-lg hover:shadow-2xl transition-all">
+              <div className="absolute inset-0">
+                <img src="/src/assets/7 - Egor.jpeg" alt="Хахулин Егор Александрович" className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent" />
               </div>
-              <div className="p-6">
-                <h3 className="text-xl sm:text-2xl font-geologica font-bold text-gray-900 mb-2">Хахулин Егор Александрович</h3>
-                <p className="text-[#006442] font-semibold mb-3 uppercase text-sm">Технический директор</p>
+              <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-8 text-white">
+                <h3 className="text-xl sm:text-2xl font-geologica font-bold uppercase tracking-tight leading-tight mb-2">Хахулин Егор Александрович</h3>
+                <p className="text-[#00d97e] font-semibold uppercase text-xs sm:text-sm tracking-wide">Управляющий директор по корпоративным вопросам и безопасности</p>
               </div>
             </div>
 
             {/* Управляющий директор */}
-            <div className="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-all">
-              <div className="h-64 sm:h-72 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
-                <Users className="w-24 h-24 text-gray-400" />
+            <div className="relative overflow-hidden rounded-2xl aspect-square bg-white shadow-lg hover:shadow-2xl transition-all">
+              <div className="absolute inset-0">
+                <img src="/src/assets/8 - Erzhan.jpeg" alt="Ибраимов Ержан Еркинкалиевич" className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent" />
               </div>
-              <div className="p-6">
-                <h3 className="text-xl sm:text-2xl font-geologica font-bold text-gray-900 mb-2">Ибраимов Ержан Еркинкалиевич</h3>
-                <p className="text-[#006442] font-semibold mb-3 uppercase text-sm">Управляющий директор по корпоративным вопросам и безопасности</p>
+              <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-8 text-white">
+                <h3 className="text-xl sm:text-2xl font-geologica font-bold uppercase tracking-tight leading-tight mb-2">Ибраимов Ержан Еркинкалиевич</h3>
+                <p className="text-[#00d97e] font-semibold uppercase text-xs sm:text-sm tracking-wide">Управляющий директор по корпоративным вопросам и безопасности</p>
               </div>
             </div>
 
             {/* Директор по развитию садоводства */}
-            <div className="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-all">
-              <div className="h-64 sm:h-72 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
+            <div className="relative overflow-hidden rounded-2xl aspect-square bg-white shadow-lg hover:shadow-2xl transition-all">
+              <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
                 <Users className="w-24 h-24 text-gray-400" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent" />
               </div>
-              <div className="p-6">
-                <h3 className="text-xl sm:text-2xl font-geologica font-bold text-gray-900 mb-2">Сарсекеев Бирлес Кабдулович</h3>
-                <p className="text-[#006442] font-semibold mb-3 uppercase text-sm">Директор по развитию садоводства</p>
+              <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-8 text-white">
+                <h3 className="text-xl sm:text-2xl font-geologica font-bold uppercase tracking-tight leading-tight mb-2">Сарсекеев Бирлес Кабдулович</h3>
+                <p className="text-[#00d97e] font-semibold uppercase text-xs sm:text-sm tracking-wide">Директор по развитию садоводства</p>
               </div>
             </div>
           </div>

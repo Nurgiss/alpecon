@@ -115,7 +115,7 @@ export function Projects() {
                 <div className="text-xs text-white/80 uppercase tracking-wider font-bold">{t('projects.hero.stat1')}</div>
               </div>
               <div className="bg-white/10 backdrop-blur-md p-5 sm:p-6 rounded-md">
-                <div className="text-3xl sm:text-4xl font-bold text-white mb-2">150K+</div>
+                <div className="text-3xl sm:text-4xl font-bold text-white mb-2">100 000</div>
                 <div className="text-xs text-white/80 uppercase tracking-wider font-bold">{t('projects.hero.stat2')}</div>
               </div>
             </div>

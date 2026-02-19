@@ -61,17 +61,11 @@ export function News() {
           />
           <div className="absolute inset-0 bg-black/50"></div>
         </div>
-        <div className="relative z-10 container mx-auto px-8 pt-32">
-          <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md px-6 py-3 rounded-full border border-white/20 mb-8">
-            <div className="w-2 h-2 bg-[#006442] rounded-full"></div>
-            <span className="text-white/90 text-sm font-medium tracking-wide uppercase">
-              Новости компании
-            </span>
-          </div>
-          <h1 className="text-white font-bold mb-6 uppercase text-[56px] leading-tight max-w-4xl">
+        <div className="relative z-10 container mx-auto px-8 pt-32 text-center flex flex-col items-center">
+          <h1 className="text-white font-bold mb-6 uppercase text-[56px] leading-tight">
             Новости и события
           </h1>
-          <p className="text-white/90 text-xl max-w-3xl leading-relaxed">
+          <p className="text-white/90 text-xl leading-relaxed">
             Последние события и достижения компании
           </p>
         </div>
