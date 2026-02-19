@@ -6,6 +6,12 @@ import imgMission from '@/assets/image 24.jpg';
 import iconExports from '@/assets/exports.png';
 import iconEco from '@/assets/eco.png';
 import iconFarmer from '@/assets/farmer.png';
+import imgEgor from '@/assets/7 - Egor.jpeg';
+import imgErzhan from '@/assets/8 - Erzhan.jpeg';
+import img1 from '@/assets/1.jpg';
+import img2 from '@/assets/2.jpeg';
+import img3 from '@/assets/3.jpg';
+import img4Storage from '@/assets/4 - storage.jpeg';
 
 export function About() {
   const { t } = useLanguage();
@@ -60,7 +66,7 @@ export function About() {
                 </div>
                 <div className="overflow-hidden rounded-md shadow-lg">
                   <img
-                    src="/src/assets/2.jpeg"
+                    src={img2}
                     alt="Fresh Fruits"
                     className="w-full h-48 sm:h-56 object-cover transition-all duration-500"
                   />
@@ -69,14 +75,14 @@ export function About() {
               <div className="space-y-4 sm:space-y-6 pt-8 sm:pt-12">
                 <div className="overflow-hidden rounded-md shadow-lg">
                   <img
-                    src="/src/assets/1.jpg"
+                    src={img1}
                     alt="Solar Panels"
                     className="w-full h-48 sm:h-56 object-cover"
                   />
                 </div>
                 <div className="overflow-hidden rounded-md shadow-lg">
                   <img
-                    src="/src/assets/3.jpg"
+                    src={img3}
                     alt="Greenhouse"
                     className="w-full h-64 sm:h-72 object-cover"
                   />
@@ -233,7 +239,7 @@ export function About() {
             {/* Управляющий директор по корпоративным вопросам и безопасности */}
             <div className="relative overflow-hidden rounded-2xl aspect-square bg-white shadow-lg hover:shadow-2xl transition-all">
               <div className="absolute inset-0">
-                <img src="/src/assets/7 - Egor.jpeg" alt="Хахулин Егор Александрович" className="w-full h-full object-cover" />
+                <img src={imgEgor} alt="Хахулин Егор Александрович" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent" />
               </div>
               <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-8 text-white">
@@ -245,7 +251,7 @@ export function About() {
             {/* Управляющий директор */}
             <div className="relative overflow-hidden rounded-2xl aspect-square bg-white shadow-lg hover:shadow-2xl transition-all">
               <div className="absolute inset-0">
-                <img src="/src/assets/8 - Erzhan.jpeg" alt="Ибраимов Ержан Еркинкалиевич" className="w-full h-full object-cover" />
+                <img src={imgErzhan} alt="Ибраимов Ержан Еркинкалиевич" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent" />
               </div>
               <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-8 text-white">
