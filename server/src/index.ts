@@ -56,12 +56,18 @@ const corsOrigins = process.env.CORS_ORIGINS
 
 const corsOptions: cors.CorsOptions = {
   origin: (origin, callback) => {
+    // Log the incoming origin for debugging
+    console.log('🔍 CORS request from origin:', origin);
+    console.log('📋 Allowed origins:', corsOrigins);
+    
     // Allow requests with no origin (mobile apps, curl, etc.)
     if (!origin) return callback(null, true);
 
     if (corsOrigins.includes(origin)) {
+      console.log('✅ Origin allowed');
       callback(null, true);
     } else {
+      console.log('❌ Origin blocked');
       callback(new Error('Not allowed by CORS'));
     }
   },
