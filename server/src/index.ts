@@ -52,7 +52,14 @@ const upload = multer({
 // CORS configuration
 const corsOrigins = process.env.CORS_ORIGINS
   ? process.env.CORS_ORIGINS.split(',').map(origin => origin.trim())
-  : ['http://localhost:5173', 'http://localhost:5174', 'http://82.115.43.184', 'http://alpecon.kz', 'https://alpecon.kz'];
+  : [
+      'http://localhost:5173', 
+      'http://localhost:5174', 
+      'http://82.115.43.184',
+      'http://alpecon.kz', 
+      'https://alpecon.kz',
+      'https://www.alpecon.kz'
+    ];
 
 const corsOptions: cors.CorsOptions = {
   origin: (origin, callback) => {
