@@ -5,7 +5,7 @@ import { useLanguage } from '@/app/contexts/LanguageContext';
 import { useState, useEffect } from 'react';
 import { newsApi, type NewsItem } from '@/services/newsApi';
 import { Link } from 'react-router-dom';
-import imgHeroBackground from '@/assets/hero.jpg';
+import imgHeroBackground from '@/assets/Hero.jpg';
 import imgDirector from '@/assets/ceo.png';
 import imgPektin from '@/assets/pektin.jpg';
 import imgFoodStorage from '@/assets/foodstorage.jpg';
