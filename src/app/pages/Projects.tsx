@@ -1,4 +1,8 @@
 import { useLanguage } from '@/app/contexts/LanguageContext';
+import imgHeroProjects from '@/assets/13.jpg';
+import imgPektin from '@/assets/pektin.jpg';
+import imgFoodStorage from '@/assets/foodstorage.jpg';
+import imgStorage from '@/assets/dd7ee0f9f3ea990275005640e6558c573eccfaa0.png';
 
 interface ProjectCardProps {
   image: string;
@@ -60,31 +64,31 @@ export function Projects() {
       productsLabel: "ПРОИЗВОДСТВО"
     },
     {
-      image: "https://images.unsplash.com/photo-1762267659909-811e6dcacbe5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxvcmdhbmljJTIwYWdyaWN1bHR1cmUlMjBhcHBsZSUyMG9yY2hhcmR8ZW58MXx8fHwxNzcxMzUzNTk3fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      title: 'TOO "QazaqAgroProcessing"',
+      image: imgPektin,
+      title: 'TOO "Qazaq Agro Processing"',
       description: 'Высокотехнологичное производство пектина.',
       products: "Пектин",
       productsLabel: "ПРОИЗВОДСТВО"
     },
     {
-      image: "https://images.unsplash.com/photo-1652211955973-b9138bc1b09a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhcHBsZSUyMGp1aWNlJTIwcHJvZHVjdGlvbnxlbnwxfHx8fDE3NzEzNTM1OTh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      image: "https://images.pexels.com/photos/8169572/pexels-photo-8169572.jpeg",
       title: 'TOO "RUN PLANET ORGANIC"',
       description: 'Производство натуральных яблочных соков и пюре.',
       products: "Соки, пюре",
       productsLabel: "ПРОИЗВОДСТВО"
     },
     {
-      image: "https://images.unsplash.com/photo-1766158554276-fcba78477081?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmcmVzaCUyMHByb2R1Y2UlMjBtYXJrZXQlMjBzdG9yYWdlfGVufDF8fHx8MTc3MTM1MzU5OHww&ixlib=rb-4.1.0&q=80&w=1080",
+      image: imgStorage,
       title: "Сеть заготовительных пунктов",
       description: "Связующее звено между фермерами и производством.",
       products: "Логистика",
       productsLabel: "ИНФРАСТРУКТУРА"
     },
     {
-      image: "https://images.unsplash.com/photo-1645628100819-981300372236?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhZ3JpY3VsdHVyYWwlMjB0ZWNobm9sb2d5JTIwZmFybSUyMHNvZnR3YXJlfGVufDF8fHx8MTc3MTM1MzY2Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+      image: "https://images.unsplash.com/photo-1744230673231-865d54a0aba4?w=800&auto=format&fit=crop",
       title: "Alpecon AgrOS",
-      description: "Агротехнологическая операционная система для управления производством.",
-      products: "IT-система",
+      description: "Цифровая экосистема для фермеров: от прогноза спроса до гарантированного сбыта урожая.",
+      products: "IT-платформа",
       productsLabel: "ТЕХНОЛОГИИ"
     }
   ];
@@ -95,11 +99,11 @@ export function Projects() {
       <section className="relative min-h-screen flex items-center">
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1752706033018-da7f6ff09562?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBhZ3JpY3VsdHVyYWwlMjBmYWNpbGl0eSUyMHByb2R1Y3Rpb258ZW58MXx8fHwxNzcxMzU0MjYzfDA&ixlib=rb-4.1.0&q=80&w=1080"
+            src={imgHeroProjects}
             alt={t('projects.hero.title')}
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
         </div>
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 lg:pt-32">
           <div className="text-center">

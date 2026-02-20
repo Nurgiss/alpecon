@@ -11,6 +11,7 @@ import { NewsDetail } from '@/app/pages/NewsDetail';
 import { Contacts } from '@/app/pages/Contacts';
 import { Admin } from '@/app/pages/Admin';
 import { AdminLogin } from '@/app/pages/AdminLogin';
+import { NotFound } from '@/app/pages/NotFound';
 import { LanguageProvider } from '@/app/contexts/LanguageContext';
 import { Projects } from '@/app/pages/Projects';
 // import { Investors } from '@/app/pages/Investors';
@@ -54,6 +55,7 @@ export default function App() {
                   <Route path="/news" element={<News />} />
                   <Route path="/news/:id" element={<NewsDetail />} />
                   <Route path="/contacts" element={<Contacts />} />
+                  <Route path="*" element={<NotFound />} />
                 </Routes>
               </main>
               <Footer />

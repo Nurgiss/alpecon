@@ -206,9 +206,6 @@ export function About() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16 lg:mb-20">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-geologica font-bold text-gray-900 uppercase tracking-tight leading-[1.1]">Наша команда</h2>
-            <p className="text-base sm:text-lg text-gray-600 mt-4 max-w-2xl mx-auto">
-              Профессионалы с многолетним опытом в агропромышленной отрасли
-            </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-12">
@@ -220,11 +217,11 @@ export function About() {
               </div>
               <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-8 text-white">
                 <h3 className="text-xl sm:text-2xl font-geologica font-bold uppercase tracking-tight leading-tight mb-2">Балабеков Самат Жумабаевич</h3>
-                <p className="text-[#00d97e] font-semibold uppercase text-xs sm:text-sm tracking-wide">Генеральный директор</p>
+                <p className="text-white/90 font-semibold uppercase text-xs sm:text-sm tracking-wide">Генеральный директор</p>
               </div>
             </div>
 
-            {/* Финансовый директор */}
+            {/* Коммерческий директор */}
             <div className="relative overflow-hidden rounded-2xl aspect-square bg-white shadow-lg hover:shadow-2xl transition-all">
               <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
                 <Users className="w-24 h-24 text-gray-400" />
@@ -232,11 +229,11 @@ export function About() {
               </div>
               <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-8 text-white">
                 <h3 className="text-xl sm:text-2xl font-geologica font-bold uppercase tracking-tight leading-tight mb-2">Бейсенбин Бауыржан Айдарович</h3>
-                <p className="text-[#00d97e] font-semibold uppercase text-xs sm:text-sm tracking-wide">Финансовый директор</p>
+                <p className="text-white/90 font-semibold uppercase text-xs sm:text-sm tracking-wide">Коммерческий директор</p>
               </div>
             </div>
 
-            {/* Управляющий директор по корпоративным вопросам и безопасности */}
+            {/* Технический директор */}
             <div className="relative overflow-hidden rounded-2xl aspect-square bg-white shadow-lg hover:shadow-2xl transition-all">
               <div className="absolute inset-0">
                 <img src={imgEgor} alt="Хахулин Егор Александрович" className="w-full h-full object-cover" />
@@ -244,11 +241,11 @@ export function About() {
               </div>
               <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-8 text-white">
                 <h3 className="text-xl sm:text-2xl font-geologica font-bold uppercase tracking-tight leading-tight mb-2">Хахулин Егор Александрович</h3>
-                <p className="text-[#00d97e] font-semibold uppercase text-xs sm:text-sm tracking-wide">Управляющий директор по корпоративным вопросам и безопасности</p>
+                <p className="text-white/90 font-semibold uppercase text-xs sm:text-sm tracking-wide">Технический директор</p>
               </div>
             </div>
 
-            {/* Управляющий директор */}
+            {/* Руководитель аппарата */}
             <div className="relative overflow-hidden rounded-2xl aspect-square bg-white shadow-lg hover:shadow-2xl transition-all">
               <div className="absolute inset-0">
                 <img src={imgErzhan} alt="Ибраимов Ержан Еркинкалиевич" className="w-full h-full object-cover" />
@@ -256,7 +253,7 @@ export function About() {
               </div>
               <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-8 text-white">
                 <h3 className="text-xl sm:text-2xl font-geologica font-bold uppercase tracking-tight leading-tight mb-2">Ибраимов Ержан Еркинкалиевич</h3>
-                <p className="text-[#00d97e] font-semibold uppercase text-xs sm:text-sm tracking-wide">Управляющий директор по корпоративным вопросам и безопасности</p>
+                <p className="text-white/90 font-semibold uppercase text-xs sm:text-sm tracking-wide">Руководитель аппарата</p>
               </div>
             </div>
 
@@ -268,7 +265,7 @@ export function About() {
               </div>
               <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-8 text-white">
                 <h3 className="text-xl sm:text-2xl font-geologica font-bold uppercase tracking-tight leading-tight mb-2">Сарсекеев Бирлес Кабдулович</h3>
-                <p className="text-[#00d97e] font-semibold uppercase text-xs sm:text-sm tracking-wide">Директор по развитию садоводства</p>
+                <p className="text-white/90 font-semibold uppercase text-xs sm:text-sm tracking-wide">Директор по развитию садоводства</p>
               </div>
             </div>
           </div>

@@ -18,7 +18,7 @@ export const translations = {
       quickLinks: "Быстрые ссылки",
       contacts: "Контакты",
       address: "Адрес",
-      addressText: "123456, Казахстан, Алматыская обл., г. Алматы, Промышленная ул., 15 ",
+      addressText: "г. Алматы, Аль-фараби 19к2б, БЦ Нурлытау, 2Б блок, 8 этаж, 803 офис",
       workTime: "Пн-Пт: 9:00 - 18:00",
       email: "info@alpecon.kz",
       copyright: "© 2026 Alpecon Group. Все права защищены."
@@ -179,7 +179,7 @@ export const translations = {
         phone: "Телефон",
         email: "Email",
         address: "Адрес",
-        addressText: "г. Алматы, Республика Казахстан"
+        addressText: "г. Алматы, Аль-фараби 19к2б, БЦ Нурлытау, 2Б блок, 8 этаж, 803 офис | г. Астана, Қонаев көшесі, 12/1, На Водно-Зеленом Бульваре, 9 этаж"
       }
     },
     projects: {
@@ -234,7 +234,7 @@ export const translations = {
         phone: "Телефон",
         email: "Email",
         address: "Адрес",
-        addressText: "г. Алматы, Республика Казахстан"
+        addressText: "г. Алматы, Аль-фараби 19к2б, БЦ Нурлытау, 2Б блок, 8 этаж, 803 офис | г. Астана, Қонаев көшесі, 12/1, На Водно-Зеленом Бульваре, 9 этаж"
       }
     },
     vacancies: {
