@@ -67,9 +67,9 @@ export function Home() {
         </div>
 
         {/* Content - Centered */}
-        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 lg:pt-32">
+        <div className="relative z-10 container mx-auto px-6 sm:px-6 lg:px-8 pt-20 sm:pt-24 lg:pt-32">
           <div className="max-w-5xl mx-auto text-center">
-            <h1 className="text-white font-geologica font-bold mb-8 sm:mb-10 leading-[1.1] uppercase text-4xl sm:text-5xl lg:text-6xl tracking-tight">
+            <h1 className="text-white font-geologica font-bold mb-8 sm:mb-10 leading-[1.1] uppercase text-4xl sm:text-5xl lg:text-6xl tracking-tight break-words hyphens-auto">
               {t('home.hero.title')}
             </h1>
 
