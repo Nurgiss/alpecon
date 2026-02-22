@@ -47,7 +47,7 @@ export function About() {
       <section className="py-16 sm:py-24 lg:py-32 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center mb-20 sm:mb-24 lg:mb-32">
-            <div>
+            <div className="text-center lg:text-left">
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-geologica font-bold text-gray-900 uppercase tracking-tight leading-[1.1] mb-6 sm:mb-8">{t('about.mission.title')}</h2>
               <div className="space-y-4 text-base sm:text-lg lg:text-lg text-gray-700 font-geist leading-relaxed">
                 {t('home.aboutSection.text').split('\n\n').map((paragraph, index) => (
@@ -147,7 +147,7 @@ export function About() {
               
               {/* Заголовок */}
               <div className="relative pt-12 sm:pt-16 text-center z-10 mb-8">
-                <h2 className="font-geologica font-bold text-4xl sm:text-5xl text-white mb-3 tracking-wide">
+                <h2 className="font-geologica font-bold text-3xl sm:text-4xl lg:text-5xl text-white mb-3 tracking-wide uppercase">
                   НАШИ ЦЕННОСТИ
                 </h2>
                 <p className="font-geist font-normal text-lg sm:text-xl text-white/90">
