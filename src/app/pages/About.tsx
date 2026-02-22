@@ -49,7 +49,7 @@ export function About() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center mb-20 sm:mb-24 lg:mb-32">
             <div className="text-center lg:text-left">
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-geologica font-bold text-gray-900 uppercase tracking-tight leading-[1.1] mb-6 sm:mb-8">{t('about.mission.title')}</h2>
-              <div className="space-y-4 text-base sm:text-lg lg:text-lg text-gray-700 font-geist leading-relaxed">
+              <div className="space-y-4 text-base sm:text-lg lg:text-lg text-gray-700 font-geist leading-relaxed text-center lg:text-left">
                 {t('home.aboutSection.text').split('\n\n').map((paragraph, index) => (
                   <p key={index}>{paragraph}</p>
                 ))}
@@ -120,7 +120,7 @@ export function About() {
                 <h2 className="font-geologica font-bold text-3xl sm:text-4xl lg:text-[40px] text-white mb-6 sm:mb-8">
                   НАША МИССИЯ
                 </h2>
-                <div className="font-geist font-normal text-sm sm:text-base lg:text-[16px] text-white space-y-4">
+                <div className="font-geist font-normal text-base sm:text-lg lg:text-lg text-white space-y-4">
                   <p>Создавать экологичное агро-наследие детям.</p>
                   <p>Перерабатывая фруктовые отходы, уменьшаем вредное воздействие на экологию, сажая и заботясь о фруктовых деревьях увеличиваем поглощение углекислого газа, внеся свой вклад в изменение климата.</p>
                 </div>
@@ -165,7 +165,7 @@ export function About() {
                   <h3 className="font-geologica font-bold text-xl sm:text-2xl text-white uppercase text-center">
                     ЭКСПОРТ
                   </h3>
-                  <p className="font-geist font-normal text-sm sm:text-base text-center text-white/90 leading-relaxed">
+                  <p className="font-geist font-normal text-base sm:text-lg text-center text-white/90 leading-relaxed">
                     Мы ориентированы на экспорт продукции глубокой переработки — концентратов, пюре и пектина. Наша задача — обеспечивать стабильные поставки качественного сырья международным партнерам.
                   </p>
                 </div>
@@ -178,7 +178,7 @@ export function About() {
                   <h3 className="font-geologica font-bold text-xl sm:text-2xl text-white uppercase text-center">
                     ЭКОЛОГИЯ
                   </h3>
-                  <p className="font-geist font-normal text-sm sm:text-base text-center text-white/90 leading-relaxed">
+                  <p className="font-geist font-normal text-base sm:text-lg text-center text-white/90 leading-relaxed">
                     Основа нашей работы — рациональное использование природных ресурсов региона. Мы внедряем технологии безотходной переработки и замкнутого цикла производства.
                   </p>
                 </div>
@@ -191,7 +191,7 @@ export function About() {
                   <h3 className="font-geologica font-bold text-xl sm:text-2xl text-white uppercase text-center">
                     ЛЮДИ
                   </h3>
-                  <p className="font-geist font-normal text-sm sm:text-base text-center text-white/90 leading-relaxed">
+                  <p className="font-geist font-normal text-base sm:text-lg text-center text-white/90 leading-relaxed">
                     Alpecon Group — это рабочие места для местных специалистов и поддержка фермерских хозяйств. Мы выстраиваем прямую связь с производителями сырья.
                   </p>
                 </div>
