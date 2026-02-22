@@ -38,8 +38,11 @@ export default function App() {
           <Route path="/dashboard-cms-2025/login" element={<AdminLogin />} />
           <Route path="/dashboard-cms-2025" element={<Admin />} />
 
+          {/* 404 page without header/footer */}
+          <Route path="/404" element={<NotFound />} />
+
           {/* Public routes with header/footer */}
-          <Route path="*" element={
+          <Route path="/" element={
             <div className="min-h-screen bg-white flex flex-col">
               <Header />
               <main className="flex-1">
@@ -55,12 +58,14 @@ export default function App() {
                   <Route path="/news" element={<News />} />
                   <Route path="/news/:id" element={<NewsDetail />} />
                   <Route path="/contacts" element={<Contacts />} />
-                  <Route path="*" element={<NotFound />} />
                 </Routes>
               </main>
               <Footer />
             </div>
           } />
+
+          {/* Catch all for 404 */}
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </LanguageProvider>
