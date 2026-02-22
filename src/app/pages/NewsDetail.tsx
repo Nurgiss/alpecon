@@ -114,7 +114,7 @@ export function NewsDetail() {
               <span className="text-white/80 text-base">{formatDate(news.date)}</span>
             </div>
             
-            <h1 className="text-white font-bold mb-6 uppercase text-3xl sm:text-4xl lg:text-[48px] leading-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-geologica font-bold text-white uppercase tracking-tight leading-[1.1] mb-6">
               {title}
             </h1>
             

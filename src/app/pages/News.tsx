@@ -62,7 +62,7 @@ export function News() {
           <div className="absolute inset-0 bg-black/50"></div>
         </div>
         <div className="relative z-10 container mx-auto px-8 pt-32 text-center flex flex-col items-center">
-          <h1 className="text-white font-bold mb-6 uppercase text-[56px] leading-tight">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-geologica font-bold text-white uppercase tracking-tight leading-[1.1] mb-6">
             Новости и события
           </h1>
           <p className="text-white/90 text-xl leading-relaxed">
