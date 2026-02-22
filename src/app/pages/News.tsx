@@ -86,7 +86,7 @@ export function News() {
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-geologica font-bold text-gray-900 uppercase tracking-tight leading-[1.1] mb-4">Все новости</h2>
           </div>
           
-          <div className="grid grid-cols-3 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
             {news.map((newsItem) => (
               <div key={newsItem.id} className="bg-white rounded-md shadow-lg overflow-hidden hover:shadow-xl transition-all group">
                 <div className="relative h-64 overflow-hidden">
