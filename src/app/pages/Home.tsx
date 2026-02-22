@@ -199,7 +199,7 @@ export function Home() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             <div className="bg-white/10 backdrop-blur-md border border-white/20 p-10 rounded-2xl hover:bg-white/15 transition-all duration-300 text-center">
-              <div className="text-6xl font-bold text-white mb-4 font-['Geologica']">
+              <div className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4 font-['Geologica']">
                 2024
               </div>
               <div className="text-sm font-bold uppercase tracking-widest text-white/80 mb-3 font-['Geist']">
@@ -211,7 +211,7 @@ export function Home() {
             </div>
 
             <div className="bg-white/10 backdrop-blur-md border border-white/20 p-10 rounded-2xl hover:bg-white/15 transition-all duration-300 text-center">
-              <div className="text-6xl font-bold text-white mb-4 font-['Geologica']">
+              <div className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4 font-['Geologica']">
                 262 000
               </div>
               <div className="text-sm font-bold uppercase tracking-widest text-white/80 mb-3 font-['Geist']">
@@ -223,7 +223,7 @@ export function Home() {
             </div>
 
             <div className="bg-white/10 backdrop-blur-md border border-white/20 p-10 rounded-2xl hover:bg-white/15 transition-all duration-300 text-center">
-              <div className="text-6xl font-bold text-white mb-4 font-['Geologica']">
+              <div className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4 font-['Geologica']">
                 100 000
               </div>
               <div className="text-sm font-bold uppercase tracking-widest text-white/80 mb-3 font-['Geist']">
