@@ -35,8 +35,8 @@ export default function App() {
         <ScrollToTop />
         <Routes>
           {/* Admin routes without header/footer */}
-          <Route path="/admin/login" element={<AdminLogin />} />
-          <Route path="/admin" element={<Admin />} />
+          <Route path="/dashboard-cms-2025/login" element={<AdminLogin />} />
+          <Route path="/dashboard-cms-2025" element={<Admin />} />
 
           {/* Public routes with header/footer */}
           <Route path="*" element={
