@@ -8,7 +8,7 @@ import iconEco from '@/assets/eco.png';
 import iconFarmer from '@/assets/farmer.png';
 import imgEgor from '@/assets/7 - Egor.jpeg';
 import imgErzhan from '@/assets/8 - Erzhan.jpeg';
-import imgDirector from '@/assets/Dir.jpeg';
+import imgDirector from '@/assets/IMG_0129.JPG';
 import img1 from '@/assets/1.jpg';
 import img2 from '@/assets/2.jpeg';
 import img3 from '@/assets/3.jpg';
