@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 import { newsApi, type NewsItem } from '@/services/newsApi';
 import { Link } from 'react-router-dom';
 import imgHeroBackground from '@/assets/Hero.jpg';
-import imgDirector from '@/assets/ceo.png';
+import imgDirector from '@/assets/Dir.jpeg';
 import imgPektin from '@/assets/pektin.jpg';
 import imgFoodStorage from '@/assets/foodstorage.jpg';
 import img1 from '@/assets/1.jpg';
