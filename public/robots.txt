@@ -1,0 +1,21 @@
+# Alpecon Group - robots.txt
+
+User-agent: *
+Allow: /
+
+# Disallow admin pages
+Disallow: /admin
+Disallow: /admin-login
+
+# Sitemap location
+Sitemap: https://alpecon.kz/sitemap.xml
+
+# Popular search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Yandex
+Allow: /
+
+User-agent: Bingbot
+Allow: /

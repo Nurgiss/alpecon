@@ -177,6 +177,27 @@ export const translations = {
           desc: "Забота об окружающей среде и устойчивое развитие производства"
         }
       },
+      mission: {
+        title: "НАША МИССИЯ",
+        text1: "Создавать экологичное агро-наследие детям.",
+        text2: "Перерабатывая фруктовые отходы, уменьшаем вредное воздействие на экологию, сажая и заботясь о фруктовых деревьях увеличиваем поглощение углекислого газа, внеся свой вклад в изменение климата."
+      },
+      values: {
+        title: "НАШИ ЦЕННОСТИ",
+        subtitle: "Природа и Инновации",
+        export: {
+          title: "ЭКСПОРТ",
+          description: "Мы ориентированы на экспорт продукции глубокой переработки — концентратов, пюре и пектина. Наша задача — обеспечивать стабильные поставки качественного сырья международным партнерам."
+        },
+        ecology: {
+          title: "ЭКОЛОГИЯ",
+          description: "Основа нашей работы — рациональное использование природных ресурсов региона. Мы внедряем технологии безотходной переработки и замкнутого цикла производства."
+        },
+        people: {
+          title: "ЛЮДИ",
+          description: "Alpecon Group — это рабочие места для местных специалистов и поддержка фермерских хозяйств. Мы выстраиваем прямую связь с производителями сырья."
+        }
+      },
       team: {
         title: "Наша команда",
         director: {
@@ -493,26 +514,32 @@ export const translations = {
         subtitle: "Заманауи технологияларды пайдалана отырып, көкөніс пен жемістерді қайта өңдеудің толық циклі",
         item1: {
           title: "Заманауи алма бағы",
+          category: "АУЫЛ ШАРУАШЫЛЫҒЫ",
           icon: "🏭"
         },
         item2: {
           title: "Жемістер мен көкөністердің концентраттары мен пюресін өндіру зауыты",
+          category: "ҚАЙТА ӨҢДЕУ",
           icon: "⚗️"
         },
         item3: {
           title: "Пектин мен тамақ талшықтарын өндіру зауыты",
+          category: "ҚАЙТА ӨҢДЕУ",
           icon: "📦"
         },
         item4: {
           title: "Жемістер мен көкөністерді қабылдау пункттері",
+          category: "ЛОГИСТИКА",
           icon: "🏢"
         },
         item5: {
           title: "Жеміс қоймасы",
+          category: "САҚТАУ",
           icon: "💻"
         },
         item6: {
           title: "IT Платформа",
+          category: "ТЕХНОЛОГИЯЛАР",
           icon: "💻"
         }
       }
@@ -523,32 +550,40 @@ export const translations = {
         subtitle: "Қазақстандық инвестициялық компания"
       },
       mission: {
-        title: "Біз туралы",
-        text1: "Alpecon Group — Алматы облысында жемістер мен көкөністерді терең өңдеудің интеграцияланған агроөнеркәсіптік кластерін құру бойынша ауқымды экспортқа бағытталған жобаны іске асыратын қазақстандық инвестициялық компания.",
-        text2: "Біз фермерлерді, өнеркәсіптік өңдеуді, цифрлық технологияларды және халықаралық нарықтарды біріктіретін заманауи экожүйені қалыптастырамыз.",
-        text3: "Біздің мақсатымыз — Қазақстанда ауыл шаруашылығы шикізатын терең өңдеуді дамыту, шикізаттық емес экспортты өсіру және жоғары қосымша құны бар бәсекеге қабілетті өнім шығару."
+        title: "БІЗДІҢ МИССИЯМЫЗ",
+        text1: "Балаларға экологиялық агро-мұраны қалдыру.",
+        text2: "Жеміс қалдықтарын қайта өңдей отырып, экологияға зиянды әсерді азайтамыз, жеміс ағаштарын отырғызып, оларға қамқорлық жасай отырып, көмірқышқыл газын сіңіруді арттырамыз, климаттың өзгеруіне өз үлесімізді қосамыз."
       },
       values: {
-        title: "Біздің құндылықтар",
-        quality: {
-          title: "Сапа",
-          desc: "Өндірістің барлық кезеңдерінде қатаң бақылау және үдерістерді үнемі жетілдіру"
-        },
-        innovation: {
-          title: "Инновациялар",
-          desc: "Озық технологияларды пайдалану және заманауи шешімдерді енгізу"
-        },
-        reliability: {
-          title: "Сенімділік",
-          desc: "Міндеттемелерді тұрақты орындау және ұзақ мерзімді серіктестік қарым-қатынастар"
+        title: "БІЗДІҢ ҚҰНДЫЛЫҚТАР",
+        subtitle: "Табиғат және Инновациялар",
+        export: {
+          title: "ЭКСПОРТ",
+          description: "Біз терең өңдеу өнімдерін — концентраттарды, пюрені және пектинді экспортқа бағдарланамыз. Біздің міндетіміз — халықаралық серіктестерге сапалы шикізатты тұрақты жеткізуді қамтамасыз ету."
         },
         ecology: {
-          title: "Экология",
-          desc: "Қоршаған ортаны қорғау және өндірісті тұрақты дамыту"
+          title: "ЭКОЛОГИЯ",
+          description: "Біздің жұмысымыздың негізі — аймақтың табиғи ресурстарын ұтымды пайдалану. Біз қалдықсыз өңдеу және жабық циклді өндіріс технологияларын енгіземіз."
+        },
+        people: {
+          title: "АДАМДАР",
+          description: "Alpecon Group — бұл жергілікті мамандар үшін жұмыс орындары және фермер шаруашылықтарын қолдау. Біз шикізат өндірушілермен тікелей байланыс орнатамыз."
         }
       },
       team: {
-        title: "Біздің команда"
+        title: "Біздің команда",
+        director: {
+          name: "Балабеков Самат Жұмабайұлы",
+          position: "Бас директор"
+        },
+        commercial: {
+          name: "Бейсенбин Бауыржан Айдарұлы",
+          position: "Коммерциялық директор"
+        },
+        technical: {
+          name: "Хахулин Егор Александрович",
+          position: "Техникалық директор"
+        }
       },
       contact: {
         badge: "Ынтымақтастықты бастаңыз",
@@ -832,26 +867,32 @@ export const translations = {
         subtitle: "Full production cycle from raw materials to finished products",
         item1: {
           title: "Modern Apple Orchard",
+          category: "AGRICULTURE",
           icon: "🏭"
         },
         item2: {
           title: "Fruit and Vegetable Concentrates and Puree Production Plant",
+          category: "PROCESSING",
           icon: "⚗️"
         },
         item3: {
           title: "Pectin and Dietary Fiber Production Plant",
+          category: "PROCESSING",
           icon: "📦"
         },
         item4: {
           title: "Fruit and Vegetable Reception Points",
+          category: "LOGISTICS",
           icon: "🏢"
         },
         item5: {
           title: "Fruit Storage",
+          category: "STORAGE",
           icon: "💻"
         },
         item6: {
           title: "IT Platform",
+          category: "TECHNOLOGIES",
           icon: "💻"
         }
       },
@@ -881,32 +922,40 @@ export const translations = {
         subtitle: "Kazakhstan Investment Company"
       },
       mission: {
-        title: "About Us",
-        text1: "Alpecon Group is a Kazakhstani investment company implementing a large-scale export-oriented project to create an integrated agro-industrial cluster for deep processing of fruits and vegetables in Almaty region.",
-        text2: "We are forming a modern ecosystem that unites farmers, industrial processing, digital technologies and international markets.",
-        text3: "Our goal is to develop deep processing of agricultural raw materials in Kazakhstan, grow non-resource exports and produce competitive products with high added value."
+        title: "OUR MISSION",
+        text1: "Create an environmentally friendly agricultural legacy for children.",
+        text2: "By processing fruit waste, we reduce harmful environmental impact; by planting and caring for fruit trees, we increase carbon dioxide absorption, contributing our part to climate change."
       },
       values: {
-        title: "Our Values",
-        quality: {
-          title: "Quality",
-          desc: "Strict control at all production stages and continuous process improvement"
-        },
-        innovation: {
-          title: "Innovation",
-          desc: "Using advanced technologies and implementing modern solutions"
-        },
-        reliability: {
-          title: "Reliability",
-          desc: "Stable fulfillment of obligations and long-term partnerships"
+        title: "OUR VALUES",
+        subtitle: "Nature and Innovation",
+        export: {
+          title: "EXPORT",
+          description: "We focus on exporting deep-processed products — concentrates, purees and pectin. Our task is to ensure stable supplies of quality raw materials to international partners."
         },
         ecology: {
-          title: "Ecology",
-          desc: "Environmental care and sustainable production development"
+          title: "ECOLOGY",
+          description: "The foundation of our work is the rational use of the region's natural resources. We implement waste-free processing and closed-loop production technologies."
+        },
+        people: {
+          title: "PEOPLE",
+          description: "Alpecon Group provides jobs for local specialists and supports farms. We build direct connections with raw material producers."
         }
       },
       team: {
-        title: "Our Team"
+        title: "Our Team",
+        director: {
+          name: "Balabekov Samat Zhumabayevich",
+          position: "General Director"
+        },
+        commercial: {
+          name: "Beisenbin Baurzhan Aidarovich",
+          position: "Commercial Director"
+        },
+        technical: {
+          name: "Khakhulin Egor Alexandrovich",
+          position: "Technical Director"
+        }
       },
       contact: {
         badge: "Start Cooperation",

@@ -118,11 +118,11 @@ export function About() {
             <div className="absolute right-0 top-1/2 -translate-y-1/2 w-full lg:w-[50%] h-full flex items-center">
               <div className="bg-[#123327]/90 backdrop-blur-sm lg:rounded-l-[32px] w-full h-full lg:h-[85%] flex flex-col justify-center px-8 sm:px-12 py-12 lg:py-8">
                 <h2 className="font-geologica font-bold text-3xl sm:text-4xl lg:text-[40px] text-white mb-6 sm:mb-8">
-                  НАША МИССИЯ
+                  {t('about.mission.title')}
                 </h2>
                 <div className="font-geist font-normal text-base sm:text-lg lg:text-lg text-white space-y-4">
-                  <p>Создавать экологичное агро-наследие детям.</p>
-                  <p>Перерабатывая фруктовые отходы, уменьшаем вредное воздействие на экологию, сажая и заботясь о фруктовых деревьях увеличиваем поглощение углекислого газа, внеся свой вклад в изменение климата.</p>
+                  <p>{t('about.mission.text1')}</p>
+                  <p>{t('about.mission.text2')}</p>
                 </div>
               </div>
             </div>
@@ -148,10 +148,10 @@ export function About() {
               {/* Заголовок */}
               <div className="relative pt-12 sm:pt-16 text-center z-10 mb-8">
                 <h2 className="font-geologica font-bold text-3xl sm:text-4xl lg:text-5xl text-white mb-3 tracking-wide uppercase">
-                  НАШИ ЦЕННОСТИ
+                  {t('about.values.title')}
                 </h2>
                 <p className="font-geist font-normal text-lg sm:text-xl text-white/90">
-                  Природа и Инновации
+                  {t('about.values.subtitle')}
                 </p>
               </div>
               
@@ -160,39 +160,39 @@ export function About() {
                 {/* Export Card */}
                 <div className="bg-[#123327] flex flex-col gap-6 items-center px-6 sm:px-8 py-8 sm:py-10 rounded-3xl w-full lg:w-[360px] transition-all duration-300 hover:shadow-2xl hover:scale-105 hover:bg-[#1a4a38]">
                   <div className="flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-full">
-                    <img src={iconExports} alt="ЭКСПОРТ" className="w-10 h-10 sm:w-12 sm:h-12 object-contain" />
+                    <img src={iconExports} alt={t('about.values.export.title')} className="w-10 h-10 sm:w-12 sm:h-12 object-contain" />
                   </div>
                   <h3 className="font-geologica font-bold text-xl sm:text-2xl text-white uppercase text-center">
-                    ЭКСПОРТ
+                    {t('about.values.export.title')}
                   </h3>
                   <p className="font-geist font-normal text-base sm:text-lg text-center text-white/90 leading-relaxed">
-                    Мы ориентированы на экспорт продукции глубокой переработки — концентратов, пюре и пектина. Наша задача — обеспечивать стабильные поставки качественного сырья международным партнерам.
+                    {t('about.values.export.description')}
                   </p>
                 </div>
                 
                 {/* Ecology Card */}
                 <div className="bg-[#123327] flex flex-col gap-6 items-center px-6 sm:px-8 py-8 sm:py-10 rounded-3xl w-full lg:w-[360px] transition-all duration-300 hover:shadow-2xl hover:scale-105 hover:bg-[#1a4a38]">
                   <div className="flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-full">
-                    <img src={iconEco} alt="ЭКОЛОГИЯ" className="w-10 h-10 sm:w-12 sm:h-12 object-contain" />
+                    <img src={iconEco} alt={t('about.values.ecology.title')} className="w-10 h-10 sm:w-12 sm:h-12 object-contain" />
                   </div>
                   <h3 className="font-geologica font-bold text-xl sm:text-2xl text-white uppercase text-center">
-                    ЭКОЛОГИЯ
+                    {t('about.values.ecology.title')}
                   </h3>
                   <p className="font-geist font-normal text-base sm:text-lg text-center text-white/90 leading-relaxed">
-                    Основа нашей работы — рациональное использование природных ресурсов региона. Мы внедряем технологии безотходной переработки и замкнутого цикла производства.
+                    {t('about.values.ecology.description')}
                   </p>
                 </div>
                 
                 {/* People Card */}
                 <div className="bg-[#123327] flex flex-col gap-6 items-center px-6 sm:px-8 py-8 sm:py-10 rounded-3xl w-full lg:w-[360px] transition-all duration-300 hover:shadow-2xl hover:scale-105 hover:bg-[#1a4a38]">
                   <div className="flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-full">
-                    <img src={iconFarmer} alt="ЛЮДИ" className="w-10 h-10 sm:w-12 sm:h-12 object-contain" />
+                    <img src={iconFarmer} alt={t('about.values.people.title')} className="w-10 h-10 sm:w-12 sm:h-12 object-contain" />
                   </div>
                   <h3 className="font-geologica font-bold text-xl sm:text-2xl text-white uppercase text-center">
-                    ЛЮДИ
+                    {t('about.values.people.title')}
                   </h3>
                   <p className="font-geist font-normal text-base sm:text-lg text-center text-white/90 leading-relaxed">
-                    Alpecon Group — это рабочие места для местных специалистов и поддержка фермерских хозяйств. Мы выстраиваем прямую связь с производителями сырья.
+                    {t('about.values.people.description')}
                   </p>
                 </div>
               </div>
