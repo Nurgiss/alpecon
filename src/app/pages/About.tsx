@@ -1,6 +1,6 @@
 // import { Button } from '@/app/components/Button';
 import { useLanguage } from '@/app/contexts/LanguageContext';
-import { Target, TrendingUp, Users, Shield, Lightbulb, Handshake, Leaf } from 'lucide-react';
+import { Users } from 'lucide-react';
 import imgHeroAbout from '@/assets/about-hero.jpg';
 import imgMission from '@/assets/image 24.jpg';
 import iconExports from '@/assets/exports.png';
@@ -8,10 +8,10 @@ import iconEco from '@/assets/eco.png';
 import iconFarmer from '@/assets/farmer.png';
 import imgEgor from '@/assets/7 - Egor.jpeg';
 import imgErzhan from '@/assets/8 - Erzhan.jpeg';
+import imgDirector from '@/assets/Dir.jpeg';
 import img1 from '@/assets/1.jpg';
 import img2 from '@/assets/2.jpeg';
 import img3 from '@/assets/3.jpg';
-import img4Storage from '@/assets/4 - storage.jpeg';
 
 export function About() {
   const { t } = useLanguage();
@@ -211,8 +211,8 @@ export function About() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-12">
             {/* Генеральный директор */}
             <div className="relative overflow-hidden rounded-2xl aspect-square bg-white shadow-lg hover:shadow-2xl transition-all">
-              <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
-                <Users className="w-24 h-24 text-gray-400" />
+              <div className="absolute inset-0">
+                <img src={imgDirector} alt="Балабеков Самат Жумабаевич" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent" />
               </div>
               <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-8 text-white">

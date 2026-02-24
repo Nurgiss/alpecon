@@ -219,7 +219,7 @@ export const translations = {
         phone: "Телефон",
         email: "Email",
         address: "Адрес",
-        addressText: "г. Алматы, Республика Казахстан"
+        addressText: "г. Алматы, Аль-фараби 19к2б, БЦ Нурлытау, 2Б блок, 8 этаж, 803 офис | г. Астана, Қонаев көшесі, 12/1, На Водно-Зеленом Бульваре, 9 этаж"
       }
     },
     contacts: {
@@ -341,10 +341,10 @@ export const translations = {
       quickLinks: "Жылдам сілтемелер",
       contacts: "Байланыстар",
       address: "Мекенжай",
-      addressText: "123456, Ресей, Мәскеу облысы, Мәскеу қ., Өнеркәсіп көшесі, 15",
+      addressText: "Алматы қ., Әл-Фараби д., 19к2б, Нұрлытау БО, 2Б блок, 8 қабат, 803 кеңсе | Астана қ., Қонаев көшесі, 12/1, Су-Жасыл Бульварда, 9 қабат",
       workTime: "Дс-Жм: 9:00 - 18:00",
       email: "info@alpecon.kz",
-      copyright: "© 2024 Көкөніс пен жемістерді қайта өңдеу зауыты. Барлық құқықтар қорғалған."
+      copyright: "© 2026 Alpecon Group. Барлық құқықтар қорғалған."
     },
     home: {
       hero: {
@@ -502,7 +502,7 @@ export const translations = {
         phone: "Телефон",
         email: "Email",
         address: "Мекенжай",
-        addressText: "Алматы қ., Қазақстан"
+        addressText: "Алматы қ., Әл-Фараби д., 19к2б, Нұрлытау БО, 2Б блок, 8 қабат, 803 кеңсе | Астана қ., Қонаев көшесі, 12/1, Су-Жасыл Бульварда, 9 қабат"
       }
     },
     projects: {
@@ -542,7 +542,7 @@ export const translations = {
         phone: "Телефон",
         email: "Email",
         address: "Мекенжай",
-        addressText: "Алматы қ., Қазақстан"
+        addressText: "Алматы қ., Әл-Фараби д., 19к2б, Нұрлытау БО, 2Б блок, 8 қабат, 803 кеңсе | Астана қ., Қонаев көшесі, 12/1, Су-Жасыл Бульварда, 9 қабат"
       }
     },
     contacts: {
@@ -557,7 +557,7 @@ export const translations = {
         phone: "Телефон",
         email: "Email",
         address: "Мекенжай",
-        addressText: "Алматы қ., Қазақстан"
+        addressText: "Алматы қ., Әл-Фараби д., 19к2б, Нұрлытау БО, 2Б блок, 8 қабат, 803 кеңсе | Астана қ., Қонаев көшесі, 12/1, Су-Жасыл Бульварда, 9 қабат"
       }
     },
     vacancies: {
@@ -664,10 +664,10 @@ export const translations = {
       quickLinks: "Quick Links",
       contacts: "Contacts",
       address: "Address",
-      addressText: "123456, Russia, Moscow Region, Moscow, Industrial Street, 15",
+      addressText: "Almaty, Al-Farabi 19k2b, BC Nurlytau, 2B block, 8th floor, office 803 | Astana, Konayev street, 12/1, Water-Green Boulevard, 9th floor",
       workTime: "Mon-Fri: 9:00 AM - 6:00 PM",
       email: "info@alpecon.kz",
-      copyright: "© 2024 Vegetable and Fruit Processing Plant. All rights reserved."
+      copyright: "© 2026 Alpecon Group. All rights reserved."
     },
     home: {
       hero: {
@@ -825,7 +825,7 @@ export const translations = {
         phone: "Phone",
         email: "Email",
         address: "Address",
-        addressText: "Almaty, Kazakhstan"
+        addressText: "Almaty, Al-Farabi 19k2b, BC Nurlytau, 2B block, 8th floor, office 803 | Astana, Konayev street, 12/1, Water-Green Boulevard, 9th floor"
       }
     },
     projects: {
@@ -865,7 +865,7 @@ export const translations = {
         phone: "Phone",
         email: "Email",
         address: "Address",
-        addressText: "Almaty, Kazakhstan"
+        addressText: "Almaty, Al-Farabi 19k2b, BC Nurlytau, 2B block, 8th floor, office 803 | Astana, Konayev street, 12/1, Water-Green Boulevard, 9th floor"
       }
     },
     contacts: {
@@ -880,7 +880,7 @@ export const translations = {
         phone: "Phone",
         email: "Email",
         address: "Address",
-        addressText: "Almaty, Kazakhstan"
+        addressText: "Almaty, Al-Farabi 19k2b, BC Nurlytau, 2B block, 8th floor, office 803 | Astana, Konayev street, 12/1, Water-Green Boulevard, 9th floor"
       }
     },
     vacancies: {
