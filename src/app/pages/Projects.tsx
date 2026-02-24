@@ -59,38 +59,38 @@ export function Projects() {
   const projects = [
     {
       image: "https://images.unsplash.com/photo-1651525670054-279c154bc3b6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmcnVpdCUyMHByb2Nlc3NpbmclMjBmYWN0b3J5JTIwcHJvZHVjdGlvbnxlbnwxfHx8fDE3NzEzNTM1OTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      title: 'TOO "Qazaq Global Food JV"',
-      description: 'Производство яблочного концентрата, фруктовых и овощных пюре.',
-      products: "Концентраты, пюре",
-      productsLabel: "ПРОИЗВОДСТВО"
+      title: t('projects.items.qazaqGlobal.title'),
+      description: t('projects.items.qazaqGlobal.description'),
+      products: t('projects.items.qazaqGlobal.products'),
+      productsLabel: t('projects.items.qazaqGlobal.productsLabel')
     },
     {
       image: imgPektin,
-      title: 'TOO "Qazaq Agro Processing"',
-      description: 'Высокотехнологичное производство пектина.',
-      products: "Пектин",
-      productsLabel: "ПРОИЗВОДСТВО"
+      title: t('projects.items.qazaqAgro.title'),
+      description: t('projects.items.qazaqAgro.description'),
+      products: t('projects.items.qazaqAgro.products'),
+      productsLabel: t('projects.items.qazaqAgro.productsLabel')
     },
     {
       image: imgJuice,
-      title: 'TOO "RUN PLANET ORGANIC"',
-      description: 'Производство натуральных яблочных соков и пюре.',
-      products: "Соки, пюре",
-      productsLabel: "ПРОИЗВОДСТВО"
+      title: t('projects.items.runPlanet.title'),
+      description: t('projects.items.runPlanet.description'),
+      products: t('projects.items.runPlanet.products'),
+      productsLabel: t('projects.items.runPlanet.productsLabel')
     },
     {
       image: imgStorage,
-      title: "Сеть заготовительных пунктов",
-      description: "Связующее звено между фермерами и производством.",
-      products: "Логистика",
-      productsLabel: "ИНФРАСТРУКТУРА"
+      title: t('projects.items.network.title'),
+      description: t('projects.items.network.description'),
+      products: t('projects.items.network.products'),
+      productsLabel: t('projects.items.network.productsLabel')
     },
     {
       image: "https://images.unsplash.com/photo-1744230673231-865d54a0aba4?w=800&auto=format&fit=crop",
-      title: "Alpecon AgrOS",
-      description: "Цифровая экосистема для фермеров: от прогноза спроса до гарантированного сбыта урожая.",
-      products: "IT-платформа",
-      productsLabel: "ТЕХНОЛОГИИ"
+      title: t('projects.items.agros.title'),
+      description: t('projects.items.agros.description'),
+      products: t('projects.items.agros.products'),
+      productsLabel: t('projects.items.agros.productsLabel')
     }
   ];
 

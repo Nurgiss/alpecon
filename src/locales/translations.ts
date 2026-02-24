@@ -116,27 +116,33 @@ export const translations = {
         title: "Направления деятельности",
         subtitle: "Полный цикл переработки овощей и фруктов с использованием современных технологий",
         item1: {
-          title: "Современный яблоневый сад",
+          title: "Завод по производству фруктовых и овощных концентратов и пюре",
+          category: "ПЕРЕРАБОТКА",
           icon: "🏭"
         },
         item2: {
-          title: "Завод по производству фруктовых и овощных концентратов и пюре",
+          title: "Завод по производству пектина и пищевых волокон",
+          category: "ПЕРЕРАБОТКА",
           icon: "⚗️"
         },
         item3: {
-          title: "Завод по производству пектина и пищевых волокон",
+          title: "Яблоневые кооперативы",
+          category: "СЕЛЬСКОЕ ХОЗЯЙСТВО",
           icon: "📦"
         },
         item4: {
           title: "Пункты приемки фруктов и овощей",
+          category: "ЛОГИСТИКА",
           icon: "🏢"
         },
         item5: {
           title: "Фруктохранилище",
+          category: "ХРАНЕНИЕ",
           icon: "💻"
         },
         item6: {
           title: "IT Платформа",
+          category: "ТЕХНОЛОГИИ",
           icon: "💻"
         }
       }
@@ -172,7 +178,19 @@ export const translations = {
         }
       },
       team: {
-        title: "Наша команда"
+        title: "Наша команда",
+        director: {
+          name: "Балабеков Самат Жумабаевич",
+          position: "Генеральный директор"
+        },
+        commercial: {
+          name: "Бейсенбин Бауыржан Айдарович",
+          position: "Коммерческий директор"
+        },
+        technical: {
+          name: "Хахулин Егор Александрович",
+          position: "Технический директор"
+        }
       },
       contact: {
         badge: "Начните сотрудничество",
@@ -198,6 +216,38 @@ export const translations = {
         title: "Наши проекты",
         subtitle: "Каждый проект — это важная часть единой экосистемы, создающей добавленную стоимость на каждом этапе",
         project: "Проект"
+      },
+      items: {
+        qazaqGlobal: {
+          title: 'TOO "Qazaq Global Food JV"',
+          description: 'Производство яблочного концентрата, фруктовых и овощных пюре.',
+          products: "Концентраты, пюре",
+          productsLabel: "ПРОИЗВОДСТВО"
+        },
+        qazaqAgro: {
+          title: 'TOO "Qazaq Agro Processing"',
+          description: 'Высокотехнологичное производство пектина.',
+          products: "Пектин",
+          productsLabel: "ПРОИЗВОДСТВО"
+        },
+        runPlanet: {
+          title: 'TOO "RUN PLANET ORGANIC"',
+          description: 'Производство натуральных яблочных соков и пюре.',
+          products: "Соки, пюре",
+          productsLabel: "ПРОИЗВОДСТВО"
+        },
+        network: {
+          title: "Сеть заготовительных пунктов",
+          description: "Связующее звено между фермерами и производством.",
+          products: "Логистика",
+          productsLabel: "ИНФРАСТРУКТУРА"
+        },
+        agros: {
+          title: "Alpecon AgrOS",
+          description: "Цифровая экосистема для фермеров: от прогноза спроса до гарантированного сбыта урожая.",
+          products: "IT-платформа",
+          productsLabel: "ТЕХНОЛОГИИ"
+        }
       },
       capacity: "Мощность",
       products: "Продукция",
@@ -525,6 +575,38 @@ export const translations = {
         subtitle: "Әр жоба — әр кезеңде қосымша құн жасайтын бірыңғай экожүйенің маңызды бөлігі",
         project: "Жоба"
       },
+      items: {
+        qazaqGlobal: {
+          title: 'TOO "Qazaq Global Food JV"',
+          description: 'Алма концентратын, жеміс және көкөніс пюресін өндіру.',
+          products: "Концентраттар, пюре",
+          productsLabel: "ӨНДІРІС"
+        },
+        qazaqAgro: {
+          title: 'TOO "Qazaq Agro Processing"',
+          description: 'Пектинді жоғары технологиялық өндіру.',
+          products: "Пектин",
+          productsLabel: "ӨНДІРІС"
+        },
+        runPlanet: {
+          title: 'TOO "RUN PLANET ORGANIC"',
+          description: 'Табиғи алма шырындары мен пюресін өндіру.',
+          products: "Шырындар, пюре",
+          productsLabel: "ӨНДІРІС"
+        },
+        network: {
+          title: "Дайындау пункттерінің желісі",
+          description: "Фермерлер мен өндіріс арасындағы байланыстырушы буын.",
+          products: "Логистика",
+          productsLabel: "ИНФРАҚҰРЫЛЫМ"
+        },
+        agros: {
+          title: "Alpecon AgrOS",
+          description: "Фермерлерге арналған цифрлық экожүйе: сұраныс болжамынан өнімнің кепілді сатылымына дейін.",
+          products: "IT-платформа",
+          productsLabel: "ТЕХНОЛОГИЯЛАР"
+        }
+      },
       capacity: "Қуаттылық",
       products: "Өнімдер",
       learnMore: "Толығырақ"
@@ -850,6 +932,38 @@ export const translations = {
         title: "Our Projects",
         subtitle: "Each project is an important part of a unified ecosystem creating added value at every stage",
         project: "Project"
+      },
+      items: {
+        qazaqGlobal: {
+          title: 'TOO "Qazaq Global Food JV"',
+          description: 'Production of apple concentrate, fruit and vegetable purees.',
+          products: "Concentrates, purees",
+          productsLabel: "PRODUCTION"
+        },
+        qazaqAgro: {
+          title: 'TOO "Qazaq Agro Processing"',
+          description: 'High-tech pectin production.',
+          products: "Pectin",
+          productsLabel: "PRODUCTION"
+        },
+        runPlanet: {
+          title: 'TOO "RUN PLANET ORGANIC"',
+          description: 'Production of natural apple juices and purees.',
+          products: "Juices, purees",
+          productsLabel: "PRODUCTION"
+        },
+        network: {
+          title: "Network of procurement points",
+          description: "Connecting link between farmers and production.",
+          products: "Logistics",
+          productsLabel: "INFRASTRUCTURE"
+        },
+        agros: {
+          title: "Alpecon AgrOS",
+          description: "Digital ecosystem for farmers: from demand forecasting to guaranteed crop sales.",
+          products: "IT-platform",
+          productsLabel: "TECHNOLOGY"
+        }
       },
       capacity: "Capacity",
       products: "Products",

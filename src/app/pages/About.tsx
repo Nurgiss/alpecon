@@ -212,12 +212,12 @@ export function About() {
             {/* Генеральный директор */}
             <div className="relative overflow-hidden rounded-2xl aspect-square bg-white shadow-lg hover:shadow-2xl transition-all">
               <div className="absolute inset-0">
-                <img src={imgDirector} alt="Балабеков Самат Жумабаевич" className="w-full h-full object-cover" />
+                <img src={imgDirector} alt={t('about.team.director.name')} className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent" />
               </div>
               <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-8 text-white">
-                <h3 className="text-xl sm:text-2xl font-geologica font-bold uppercase tracking-tight leading-tight mb-2">Балабеков Самат Жумабаевич</h3>
-                <p className="text-white/90 font-semibold uppercase text-xs sm:text-sm tracking-wide">Генеральный директор</p>
+                <h3 className="text-xl sm:text-2xl font-geologica font-bold uppercase tracking-tight leading-tight mb-2">{t('about.team.director.name')}</h3>
+                <p className="text-white/90 font-semibold uppercase text-xs sm:text-sm tracking-wide">{t('about.team.director.position')}</p>
               </div>
             </div>
 
@@ -228,20 +228,20 @@ export function About() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent" />
               </div>
               <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-8 text-white">
-                <h3 className="text-xl sm:text-2xl font-geologica font-bold uppercase tracking-tight leading-tight mb-2">Бейсенбин Бауыржан Айдарович</h3>
-                <p className="text-white/90 font-semibold uppercase text-xs sm:text-sm tracking-wide">Коммерческий директор</p>
+                <h3 className="text-xl sm:text-2xl font-geologica font-bold uppercase tracking-tight leading-tight mb-2">{t('about.team.commercial.name')}</h3>
+                <p className="text-white/90 font-semibold uppercase text-xs sm:text-sm tracking-wide">{t('about.team.commercial.position')}</p>
               </div>
             </div>
 
             {/* Технический директор */}
             <div className="relative overflow-hidden rounded-2xl aspect-square bg-white shadow-lg hover:shadow-2xl transition-all">
               <div className="absolute inset-0">
-                <img src={imgEgor} alt="Хахулин Егор Александрович" className="w-full h-full object-cover" />
+                <img src={imgEgor} alt={t('about.team.technical.name')} className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent" />
               </div>
               <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-8 text-white">
-                <h3 className="text-xl sm:text-2xl font-geologica font-bold uppercase tracking-tight leading-tight mb-2">Хахулин Егор Александрович</h3>
-                <p className="text-white/90 font-semibold uppercase text-xs sm:text-sm tracking-wide">Технический директор</p>
+                <h3 className="text-xl sm:text-2xl font-geologica font-bold uppercase tracking-tight leading-tight mb-2">{t('about.team.technical.name')}</h3>
+                <p className="text-white/90 font-semibold uppercase text-xs sm:text-sm tracking-wide">{t('about.team.technical.position')}</p>
               </div>
             </div>
 

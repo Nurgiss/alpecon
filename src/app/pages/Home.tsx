@@ -200,37 +200,37 @@ export function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             <div className="bg-white/10 backdrop-blur-md border border-white/20 p-10 rounded-2xl hover:bg-white/15 transition-all duration-300 text-center">
               <div className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4 font-['Geologica']">
-                2024
+                {t('home.stats.year.number')}
               </div>
               <div className="text-sm font-bold uppercase tracking-widest text-white/80 mb-3 font-['Geist']">
-                ГОД ОСНОВАНИЯ
+                {t('home.stats.year.label')}
               </div>
               <p className="text-white/70 text-sm font-['Geist']">
-                Начало работы компании
+                {t('home.stats.year.desc')}
               </p>
             </div>
 
             <div className="bg-white/10 backdrop-blur-md border border-white/20 p-10 rounded-2xl hover:bg-white/15 transition-all duration-300 text-center">
               <div className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4 font-['Geologica']">
-                262 000
+                {t('home.stats.capacity.number')}
               </div>
               <div className="text-sm font-bold uppercase tracking-widest text-white/80 mb-3 font-['Geist']">
-                ТОНН CO₂-ЭКВ.
+                {t('home.stats.capacity.label')}
               </div>
               <p className="text-white/70 text-sm font-['Geist']">
-                Ежегодное предотвращение выбросов парниковых газов в атмосферу
+                {t('home.stats.capacity.desc')}
               </p>
             </div>
 
             <div className="bg-white/10 backdrop-blur-md border border-white/20 p-10 rounded-2xl hover:bg-white/15 transition-all duration-300 text-center">
               <div className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4 font-['Geologica']">
-                100 000
+                {t('home.stats.employees.number')}
               </div>
               <div className="text-sm font-bold uppercase tracking-widest text-white/80 mb-3 font-['Geist']">
-                ТОНН В ГОД
+                {t('home.stats.employees.label')}
               </div>
               <p className="text-white/70 text-sm font-['Geist']">
-                Мощность переработки органических отходов
+                {t('home.stats.employees.desc')}
               </p>
             </div>
           </div>
@@ -247,33 +247,33 @@ export function Home() {
             {[
               {
                 image: "https://images.unsplash.com/photo-1651525670099-f828fb5478a5?w=800&auto=format&fit=crop",
-                title: "Завод по производству фруктовых и овощных концентратов и пюре",
-                category: "ПЕРЕРАБОТКА",
+                title: t('home.directions.item1.title'),
+                category: t('home.directions.item1.category'),
               },
               {
                 image: imgPektin,
-                title: "Завод по производству пектина и пищевых волокон",
-                category: "ПЕРЕРАБОТКА",
+                title: t('home.directions.item2.title'),
+                category: t('home.directions.item2.category'),
               },
               {
                 image: "https://images.unsplash.com/photo-1689650552915-d547c24fe85e?w=800&auto=format&fit=crop",
-                title: "Яблоневые кооперативы",
-                category: "СЕЛЬСКОЕ ХОЗЯЙСТВО",
+                title: t('home.directions.item3.title'),
+                category: t('home.directions.item3.category'),
               },
               {
                 image: imgFoodStorage,
-                title: "Пункты приемки фруктов и овощей",
-                category: "ЛОГИСТИКА",
+                title: t('home.directions.item4.title'),
+                category: t('home.directions.item4.category'),
               },
               {
                 image: img4Storage,
-                title: "Фруктохранилище",
-                category: "ХРАНЕНИЕ",
+                title: t('home.directions.item5.title'),
+                category: t('home.directions.item5.category'),
               },
               {
                 image: "https://images.unsplash.com/photo-1744230673231-865d54a0aba4?w=800&auto=format&fit=crop",
-                title: "IT Платформа",
-                category: "ТЕХНОЛОГИИ",
+                title: t('home.directions.item6.title'),
+                category: t('home.directions.item6.category'),
               },
             ].map((direction, index) => (
               <div
