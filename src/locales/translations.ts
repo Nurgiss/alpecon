@@ -18,7 +18,7 @@ export const translations = {
       quickLinks: "Быстрые ссылки",
       contacts: "Контакты",
       address: "Адрес",
-      addressText: "г. Алматы, Аль-фараби 19к2б, БЦ Нурлытау, 2Б блок, 8 этаж, 803 офис | г. Астана, Қонаев көшесі, 12/1, На Водно-Зеленом Бульваре, 9 этаж",
+      addressText: "г. Алматы, Аль-Фараби 19к2б, БЦ Нурлытау, 2Б блок, 8 этаж, 803 офис | г. Астана, улица Конаева, 12/1, На Водно-Зеленом Бульваре, 9 этаж",
       workTime: "Пн-Пт: 9:00 - 18:00",
       email: "info@alpecon.kz",
       copyright: "© 2026 Alpecon Group. Все права защищены."
@@ -36,7 +36,7 @@ export const translations = {
         title: "Работаем на благо Казахстана",
         text1: "Alpecon Group — казахстанская инвестиционная компания, реализующая в Алматинской области масштабный экспортно-ориентированный проект по созданию интегрированного агропромышленного кластера глубокой переработки фруктов и овощей.",
         name: "Самат Балабеков",
-        position: "Генеральный Директор"
+        position: "Генеральный директор"
       },
       about: {
         badge: "О компании",
@@ -179,7 +179,7 @@ export const translations = {
         phone: "Телефон",
         email: "Email",
         address: "Адрес",
-        addressText: "г. Алматы, Аль-фараби 19к2б, БЦ Нурлытау, 2Б блок, 8 этаж, 803 офис | г. Астана, Қонаев көшесі, 12/1, На Водно-Зеленом Бульваре, 9 этаж"
+        addressText: "г. Алматы, Аль-Фараби 19к2б, БЦ Нурлытау, 2Б блок, 8 этаж, 803 офис | г. Астана, улица Конаева, 12/1, На Водно-Зеленом Бульваре, 9 этаж"
       }
     },
     projects: {
@@ -219,7 +219,7 @@ export const translations = {
         phone: "Телефон",
         email: "Email",
         address: "Адрес",
-        addressText: "г. Алматы, Аль-фараби 19к2б, БЦ Нурлытау, 2Б блок, 8 этаж, 803 офис | г. Астана, Қонаев көшесі, 12/1, На Водно-Зеленом Бульваре, 9 этаж"
+        addressText: "г. Алматы, Аль-Фараби 19к2б, БЦ Нурлытау, 2Б блок, 8 этаж, 803 офис | г. Астана, улица Конаева, 12/1, На Водно-Зеленом Бульваре, 9 этаж"
       }
     },
     contacts: {
@@ -234,7 +234,7 @@ export const translations = {
         phone: "Телефон",
         email: "Email",
         address: "Адрес",
-        addressText: "г. Алматы, Аль-фараби 19к2б, БЦ Нурлытау, 2Б блок, 8 этаж, 803 офис | г. Астана, Қонаев көшесі, 12/1, На Водно-Зеленом Бульваре, 9 этаж"
+        addressText: "г. Алматы, Аль-Фараби 19к2б, БЦ Нурлытау, 2Б блок, 8 этаж, 803 офис | г. Астана, улица Конаева, 12/1, На Водно-Зеленом Бульваре, 9 этаж"
       }
     },
     vacancies: {
@@ -357,14 +357,14 @@ export const translations = {
       },
       director: {
         title: "Қазақстанның игілігі үшін жұмыс істейміз",
-        text1: "Біздің зауыт инновациялық шешімдерді белсенді енгізе отырып және қоғамның тұрақты дамуын қолдай отырып, ел тұрғындарының әрқайсысының өмір сапасын арттыруға бағытталған жобаларға инвестиция салады.",
+        text1: "Alpecon Group — Алматы облысында жемістер мен көкөністерді терең өңдеудің интеграцияланған агроөнеркәсіптік кластерін құру бойынша ауқымды экспортқа бағытталған жобаны іске асыратын қазақстандық инвестициялық компания.",
         name: "Самат Балабеков",
         position: "Бас Директор"
       },
       about: {
         badge: "Компания туралы",
         title: "Біздің зауыт туралы",
-        text1: "Біздің зауыт Ресейдегі көкөніс пен жемістерді қайта өңдеу саласындағы жетекші кәсіпорындардың бірі болып табылады. Біз консервіленген өнімдер, шырындар, пюре және мұздатылған өнімдерді өндіруге маманданамыз.",
+        text1: "Alpecon Group — қазақстандық инвестициялық компания, Алматы облысында жемістер мен көкөністерді терең өңдеудің интеграцияланған агроөнеркәсіптік кластерін құру бойынша ауқымды экспортқа бағытталған жобаны іске асыратын компания.",
         text2: "Озық технологияларды және қатаң сапа бақылауын қолдана отырып, біз өндірістің барлық кезеңдерінде жоғары стандарттарды қамтамасыз етеміз.",
         yearFounded: "Құрылған жылы",
         employees: "Қызметкерлер",
@@ -680,14 +680,14 @@ export const translations = {
       },
       director: {
         title: "Working for Kazakhstan",
-        text1: "Our plant invests in projects aimed at improving the quality of life for every citizen, actively implementing innovative solutions and supporting sustainable development.",
+        text1: "Alpecon Group is a Kazakhstani investment company implementing a large-scale export-oriented project to create an integrated agro-industrial cluster for deep processing of fruits and vegetables in Almaty region.",
         name: "Samat Balabekov",
         position: "General Director"
       },
       about: {
         badge: "About Company",
         title: "About Our Plant",
-        text1: "Our plant is one of the leading enterprises in vegetable and fruit processing in Russia. We specialize in the production of canned products, juices, purees and frozen products.",
+        text1: "Alpecon Group is a Kazakhstani investment company implementing a large-scale export-oriented project to create an integrated agro-industrial cluster for deep processing of fruits and vegetables in Almaty region.",
         text2: "Using advanced technologies and strict quality control, we ensure high standards at all production stages.",
         yearFounded: "Year Founded",
         employees: "Employees",
