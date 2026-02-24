@@ -3,6 +3,7 @@ import imgHeroProjects from '@/assets/13.jpg';
 import imgPektin from '@/assets/pektin.jpg';
 import imgFoodStorage from '@/assets/foodstorage.jpg';
 import imgStorage from '@/assets/dd7ee0f9f3ea990275005640e6558c573eccfaa0.png';
+import imgJuice from '@/assets/juice.jpeg';
 
 interface ProjectCardProps {
   image: string;
@@ -71,7 +72,7 @@ export function Projects() {
       productsLabel: "ПРОИЗВОДСТВО"
     },
     {
-      image: "https://images.pexels.com/photos/8169572/pexels-photo-8169572.jpeg",
+      image: imgJuice,
       title: 'TOO "RUN PLANET ORGANIC"',
       description: 'Производство натуральных яблочных соков и пюре.',
       products: "Соки, пюре",
