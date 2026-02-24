@@ -32,9 +32,13 @@ export function Footer() {
           {/* Column 3 - Address */}
           <div>
             <h3 className="font-bold text-[#0D0D0D] mb-4 sm:mb-6 uppercase tracking-wide text-sm sm:text-base">{t('footer.address')}</h3>
-            <p className="text-sm sm:text-base text-[#0D0D0D]/60 leading-relaxed">
-              {t('footer.addressText')}
-            </p>
+            <div className="space-y-4">
+              {t('footer.addressText').split(' | ').map((address, index) => (
+                <p key={index} className="text-sm sm:text-base text-[#0D0D0D]/60 leading-relaxed">
+                  {address}
+                </p>
+              ))}
+            </div>
           </div>
         </div>
 

@@ -256,18 +256,6 @@ export function About() {
                 <p className="text-white/90 font-semibold uppercase text-xs sm:text-sm tracking-wide">Руководитель аппарата</p>
               </div>
             </div>
-
-            {/* Директор по развитию садоводства */}
-            <div className="relative overflow-hidden rounded-2xl aspect-square bg-white shadow-lg hover:shadow-2xl transition-all">
-              <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
-                <Users className="w-24 h-24 text-gray-400" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent" />
-              </div>
-              <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-8 text-white">
-                <h3 className="text-xl sm:text-2xl font-geologica font-bold uppercase tracking-tight leading-tight mb-2">Сарсекеев Бирлес Кабдулович</h3>
-                <p className="text-white/90 font-semibold uppercase text-xs sm:text-sm tracking-wide">Директор по развитию садоводства</p>
-              </div>
-            </div>
           </div>
         </div>
       </section>
