@@ -139,10 +139,10 @@ export function Projects() {
           {/* Заголовок секции */}
           <div className="mb-12 sm:mb-16 text-center">
             <h2 className="font-geologica font-bold text-4xl sm:text-5xl mb-4">
-              НАШИ ПРОЕКТЫ
+              {t('projects.section.title')}
             </h2>
             <p className="font-geist text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
-              Каждый проект — это важная часть единой экосистемы, создающей добавленную стоимость на каждом этапе
+              {t('projects.section.subtitle')}
             </p>
           </div>
 

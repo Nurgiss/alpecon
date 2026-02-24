@@ -171,6 +171,9 @@ export const translations = {
           desc: "Забота об окружающей среде и устойчивое развитие производства"
         }
       },
+      team: {
+        title: "Наша команда"
+      },
       contact: {
         badge: "Начните сотрудничество",
         title: "Свяжитесь с нами",
@@ -494,6 +497,9 @@ export const translations = {
           desc: "Қоршаған ортаны қорғау және өндірісті тұрақты дамыту"
         }
       },
+      team: {
+        title: "Біздің команда"
+      },
       contact: {
         badge: "Ынтымақтастықты бастаңыз",
         title: "Біздің серіктесіміз болыңыз",
@@ -816,6 +822,9 @@ export const translations = {
           title: "Ecology",
           desc: "Environmental care and sustainable production development"
         }
+      },
+      team: {
+        title: "Our Team"
       },
       contact: {
         badge: "Start Cooperation",

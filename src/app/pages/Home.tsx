@@ -195,7 +195,7 @@ export function Home() {
 
         <div className="relative z-10 container mx-auto px-6">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-geologica font-bold text-white uppercase tracking-tight leading-[1.1] mb-20 text-center">
-            МЫ В ЦИФРАХ
+            {t('home.stats.title')}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             <div className="bg-white/10 backdrop-blur-md border border-white/20 p-10 rounded-2xl hover:bg-white/15 transition-all duration-300 text-center">
@@ -241,7 +241,7 @@ export function Home() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-geologica font-bold text-gray-900 uppercase tracking-tight leading-[1.1] mb-16 text-center">
-            НАПРАВЛЕНИЯ ДЕЯТЕЛЬНОСТИ
+            {t('home.directions.title')}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
