@@ -590,7 +590,7 @@ export const translations = {
         },
         staff: {
           name: "Ибраимов Ержан Калиевич",
-          position: "Аппарат жетекшісі"
+          position: "Аппарат Басшысы"
         }
       },
       contact: {
