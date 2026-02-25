@@ -211,6 +211,10 @@ export const translations = {
         technical: {
           name: "Хахулин Егор Александрович",
           position: "Технический директор"
+        },
+        staff: {
+          name: "Ибраимов Ержан Калиевич",
+          position: "Руководитель аппарата"
         }
       },
       contact: {
@@ -583,6 +587,10 @@ export const translations = {
         technical: {
           name: "Хахулин Егор Александрович",
           position: "Техникалық директор"
+        },
+        staff: {
+          name: "Ибраимов Ержан Калиевич",
+          position: "Аппарат жетекшісі"
         }
       },
       contact: {
@@ -955,6 +963,10 @@ export const translations = {
         technical: {
           name: "Khakhulin Egor",
           position: "Technical Director"
+        },
+        staff: {
+          name: "Ibraimov Yerzhan",
+          position: "Head of Administration"
         }
       },
       contact: {

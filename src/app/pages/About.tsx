@@ -253,8 +253,8 @@ export function About() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent" />
               </div>
               <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-8 text-white">
-                <h3 className="text-xl sm:text-2xl font-geologica font-bold uppercase tracking-tight leading-tight mb-2">Ибраимов Ержан Калиевич</h3>
-                <p className="text-white/90 font-semibold uppercase text-xs sm:text-sm tracking-wide">Руководитель аппарата</p>
+                <h3 className="text-xl sm:text-2xl font-geologica font-bold uppercase tracking-tight leading-tight mb-2">{t('about.team.staff.name')}</h3>
+                <p className="text-white/90 font-semibold uppercase text-xs sm:text-sm tracking-wide">{t('about.team.staff.position')}</p>
               </div>
             </div>
           </div>
