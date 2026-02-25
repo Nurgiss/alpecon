@@ -945,15 +945,15 @@ export const translations = {
       team: {
         title: "Our Team",
         director: {
-          name: "Balabekov Samat Zhumabayevich",
+          name: "Balabekov Samat",
           position: "General Director"
         },
         commercial: {
-          name: "Beisenbin Baurzhan Aidarovich",
+          name: "Beisenbin Baurzhan",
           position: "Commercial Director"
         },
         technical: {
-          name: "Khakhulin Egor Alexandrovich",
+          name: "Khakhulin Egor",
           position: "Technical Director"
         }
       },
