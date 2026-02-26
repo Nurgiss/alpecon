@@ -28,13 +28,14 @@ export function Admin() {
     categoryEn: '',
     image: '',
     author: 'Алпекон Групп',
-    source: ''
+    source: '',
+    publishedAt: new Date().toISOString().split('T')[0]
   });
 
   useEffect(() => {
     // Check authentication on mount
     if (!newsApi.isAuthenticated()) {
-      navigate('/admin/login');
+      navigate('/dashboard-cms-2025/login');
       return;
     }
     loadNews(currentPage);
@@ -72,7 +73,7 @@ export function Admin() {
       if ((error as Error).message === 'UNAUTHORIZED') {
         alert('Сессия истекла. Пожалуйста, войдите снова.');
         newsApi.logout();
-        navigate('/admin/login');
+        navigate('/dashboard-cms-2025/login');
       } else {
         alert('Ошибка при загрузке изображения');
       }
@@ -93,6 +94,7 @@ export function Admin() {
         image: formData.image,
         author: formData.author,
         source: formData.source,
+        date: formData.publishedAt ? new Date(formData.publishedAt).toISOString() : undefined,
         // Добавляем мультиязычные поля
         titleRu: formData.titleRu,
         titleKz: formData.titleKz,
@@ -125,7 +127,8 @@ export function Admin() {
         categoryEn: '', 
         image: '', 
         author: 'Алпекон Групп',
-        source: ''
+        source: '',
+        publishedAt: new Date().toISOString().split('T')[0]
       });
       setShowForm(false);
       setEditingNews(null);
@@ -135,7 +138,7 @@ export function Admin() {
       if ((error as Error).message === 'UNAUTHORIZED') {
         alert('Сессия истекла. Пожалуйста, войдите снова.');
         newsApi.logout();
-        navigate('/admin/login');
+        navigate('/dashboard-cms-2025/login');
       } else {
         alert(t('admin.actions.error'));
       }
@@ -156,7 +159,8 @@ export function Admin() {
       categoryEn: (newsItem as any).categoryEn || '',
       image: newsItem.image,
       author: newsItem.author,
-      source: newsItem.source || ''
+      source: newsItem.source || '',
+      publishedAt: newsItem.date ? new Date(newsItem.date).toISOString().split('T')[0] : new Date().toISOString().split('T')[0]
     });
     setShowForm(true);
   };
@@ -173,7 +177,7 @@ export function Admin() {
       if ((error as Error).message === 'UNAUTHORIZED') {
         alert('Сессия истекла. Пожалуйста, войдите снова.');
         newsApi.logout();
-        navigate('/admin/login');
+        navigate('/dashboard-cms-2025/login');
       } else {
         alert(t('admin.actions.deleteError'));
       }
@@ -195,14 +199,15 @@ export function Admin() {
       categoryEn: '',
       image: '',
       author: 'Алпекон Групп',
-      source: ''
+      source: '',
+      publishedAt: new Date().toISOString().split('T')[0]
     });
   };
 
   const handleLogout = () => {
     if (confirm('Вы уверены, что хотите выйти?')) {
       newsApi.logout();
-      navigate('/admin/login');
+      navigate('/dashboard-cms-2025/login');
     }
   };
 
@@ -270,32 +275,32 @@ export function Admin() {
                 <div className="space-y-3">
                   <div>
                     <label className="block text-xs font-bold text-gray-600 mb-1">Русский (RU)</label>
-                    <input
-                      type="text"
+                    <textarea
                       value={formData.titleRu}
                       onChange={(e) => setFormData({ ...formData, titleRu: e.target.value })}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:border-[#006442] focus:outline-none"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:border-[#006442] focus:outline-none resize-none"
+                      rows={2}
                       required
                       placeholder="Введите заголовок на русском"
                     />
                   </div>
                   <div>
                     <label className="block text-xs font-bold text-gray-600 mb-1">Қазақша (KZ)</label>
-                    <input
-                      type="text"
+                    <textarea
                       value={formData.titleKz}
                       onChange={(e) => setFormData({ ...formData, titleKz: e.target.value })}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:border-[#006442] focus:outline-none"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:border-[#006442] focus:outline-none resize-none"
+                      rows={2}
                       placeholder="Тақырыпты қазақ тілінде енгізіңіз"
                     />
                   </div>
                   <div>
                     <label className="block text-xs font-bold text-gray-600 mb-1">English (EN)</label>
-                    <input
-                      type="text"
+                    <textarea
                       value={formData.titleEn}
                       onChange={(e) => setFormData({ ...formData, titleEn: e.target.value })}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:border-[#006442] focus:outline-none"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:border-[#006442] focus:outline-none resize-none"
+                      rows={2}
                       placeholder="Enter title in English"
                     />
                   </div>
@@ -375,6 +380,17 @@ export function Admin() {
                     />
                   </div>
                 </div>
+              </div>
+
+              {/* Дата публикации */}
+              <div className="border-2 border-gray-200 rounded-md p-6">
+                <h3 className="text-lg font-bold text-gray-900 mb-4 uppercase">Дата публикации</h3>
+                <input
+                  type="date"
+                  value={formData.publishedAt}
+                  onChange={(e) => setFormData({ ...formData, publishedAt: e.target.value })}
+                  className="px-4 py-2 border border-gray-300 rounded-md focus:border-[#006442] focus:outline-none"
+                />
               </div>
 
               <div className="grid grid-cols-2 gap-6">
