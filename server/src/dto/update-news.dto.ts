@@ -61,4 +61,8 @@ export class UpdateNewsDTO {
   @IsString()
   @IsOptional()
   categoryEn?: string;
+
+  @IsString()
+  @IsOptional()
+  date?: string;
 }

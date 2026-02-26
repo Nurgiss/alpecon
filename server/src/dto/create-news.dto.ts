@@ -25,6 +25,10 @@ export class CreateNewsDTO {
   @IsOptional()
   source?: string;
 
+  @IsString()
+  @IsOptional()
+  date?: string;
+
   // Multi-language fields
   @IsString()
   @IsOptional()

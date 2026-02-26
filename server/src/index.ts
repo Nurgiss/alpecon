@@ -231,7 +231,7 @@ app.post('/api/news', requireAuth, validateDTO(CreateNewsDTO), async (req: Reque
         image: dto.image || 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800',
         author: dto.author || 'Администратор',
         source: dto.source,
-        date: new Date(),
+        date: dto.date ? new Date(dto.date) : new Date(),
         titleRu: dto.titleRu,
         titleKz: dto.titleKz,
         titleEn: dto.titleEn,
@@ -287,6 +287,7 @@ app.put('/api/news/:id', requireAuth, validateDTO(UpdateNewsDTO, true), async (r
         categoryRu: dto.categoryRu,
         categoryKz: dto.categoryKz,
         categoryEn: dto.categoryEn,
+        ...(dto.date ? { date: new Date(dto.date) } : {}),
       }
     });
 
