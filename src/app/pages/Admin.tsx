@@ -278,7 +278,7 @@ export function Admin() {
                     <textarea
                       value={formData.titleRu}
                       onChange={(e) => setFormData({ ...formData, titleRu: e.target.value })}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:border-[#006442] focus:outline-none resize-none"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:border-[#006442] focus:outline-none resize-y"
                       rows={2}
                       required
                       placeholder="Введите заголовок на русском"
@@ -289,7 +289,7 @@ export function Admin() {
                     <textarea
                       value={formData.titleKz}
                       onChange={(e) => setFormData({ ...formData, titleKz: e.target.value })}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:border-[#006442] focus:outline-none resize-none"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:border-[#006442] focus:outline-none resize-y"
                       rows={2}
                       placeholder="Тақырыпты қазақ тілінде енгізіңіз"
                     />
@@ -299,7 +299,7 @@ export function Admin() {
                     <textarea
                       value={formData.titleEn}
                       onChange={(e) => setFormData({ ...formData, titleEn: e.target.value })}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:border-[#006442] focus:outline-none resize-none"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:border-[#006442] focus:outline-none resize-y"
                       rows={2}
                       placeholder="Enter title in English"
                     />
@@ -316,8 +316,8 @@ export function Admin() {
                     <textarea
                       value={formData.contentRu}
                       onChange={(e) => setFormData({ ...formData, contentRu: e.target.value })}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:border-[#006442] focus:outline-none resize-none"
-                      rows={4}
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:border-[#006442] focus:outline-none resize-y min-h-[120px]"
+                      rows={6}
                       required
                       placeholder="Введите текст на русском"
                     />
@@ -327,8 +327,8 @@ export function Admin() {
                     <textarea
                       value={formData.contentKz}
                       onChange={(e) => setFormData({ ...formData, contentKz: e.target.value })}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:border-[#006442] focus:outline-none resize-none"
-                      rows={4}
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:border-[#006442] focus:outline-none resize-y min-h-[120px]"
+                      rows={6}
                       placeholder="Мәтінді қазақ тілінде енгізіңіз"
                     />
                   </div>
@@ -337,8 +337,8 @@ export function Admin() {
                     <textarea
                       value={formData.contentEn}
                       onChange={(e) => setFormData({ ...formData, contentEn: e.target.value })}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:border-[#006442] focus:outline-none resize-none"
-                      rows={4}
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:border-[#006442] focus:outline-none resize-y min-h-[120px]"
+                      rows={6}
                       placeholder="Enter content in English"
                     />
                   </div>
