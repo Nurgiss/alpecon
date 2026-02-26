@@ -19,7 +19,7 @@ export function AdminLogin() {
       const response = await newsApi.login(username, password);
 
       if (response.success) {
-        navigate('/admin');
+        navigate('/dashboard-cms-2025');
       } else {
         setError(response.message || 'Ошибка авторизации');
       }
