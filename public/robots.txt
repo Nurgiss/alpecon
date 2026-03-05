@@ -4,8 +4,8 @@ User-agent: *
 Allow: /
 
 # Disallow admin pages
-Disallow: /admin
-Disallow: /admin-login
+Disallow: /dashboard-cms-2025
+Disallow: /dashboard-cms-2025/login
 
 # Sitemap location
 Sitemap: https://alpecon.kz/sitemap.xml
