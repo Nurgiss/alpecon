@@ -16,6 +16,7 @@ import { LanguageProvider } from '@/app/contexts/LanguageContext';
 import { Projects } from '@/app/pages/Projects';
 // import { Investors } from '@/app/pages/Investors';
 import { Vacancies } from '@/app/pages/Vacancies';
+import { Analytics } from '@/app/components/Analytics';
 import { useEffect } from 'react';
 
 function ScrollToTop() {
@@ -33,6 +34,7 @@ export default function App() {
     <LanguageProvider>
       <BrowserRouter>
         <ScrollToTop />
+        <Analytics />
         <Routes>
           {/* Admin routes without header/footer */}
           <Route path="/dashboard-cms-2025/login" element={<AdminLogin />} />

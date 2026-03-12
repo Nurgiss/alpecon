@@ -36,6 +36,21 @@
     
     <!-- Google verification (добавьте после регистрации в Google Search Console) -->
     <!-- <meta name="google-site-verification" content="your-google-verification-code" /> -->
+
+    <!-- ============================================================ -->
+    <!-- Google Analytics 4                                           -->
+    <!-- Замените G-XXXXXXXXXX на ваш Measurement ID из GA4           -->
+    <!-- ============================================================ -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J8RJ1JEH8P"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      // send_page_view: false — страницы отслеживает компонент Analytics.tsx
+      gtag('config', 'G-J8RJ1JEH8P', { send_page_view: false });
+    </script>
+
+
     
     <!-- Schema.org structured data for Organization -->
     <script type="application/ld+json">
