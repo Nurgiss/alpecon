@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useLanguage } from '@/app/contexts/LanguageContext';
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3002/api';
@@ -14,6 +14,14 @@ export function Vacancies() {
     message: '',
   });
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [snackbar, setSnackbar] = useState<{ show: boolean; type: 'success' | 'error' }>({ show: false, type: 'success' });
+
+  useEffect(() => {
+    if (snackbar.show) {
+      const t = setTimeout(() => setSnackbar(s => ({ ...s, show: false })), 4000);
+      return () => clearTimeout(t);
+    }
+  }, [snackbar.show]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -25,10 +33,12 @@ export function Vacancies() {
         body: JSON.stringify(formData),
       });
       if (!res.ok) throw new Error('Server error');
-      setStatus('success');
+      setStatus('idle');
       setFormData({ name: '', email: '', phone: '', position: '', experience: '', message: '' });
+      setSnackbar({ show: true, type: 'success' });
     } catch {
-      setStatus('error');
+      setStatus('idle');
+      setSnackbar({ show: true, type: 'error' });
     }
   };
 
@@ -41,7 +51,36 @@ export function Vacancies() {
 
   return (
     <div>
+      {/* Snackbar */}
+      <div
+        className={`fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-3 px-6 py-4 rounded-lg shadow-2xl text-white text-sm font-medium transition-all duration-500 ${
+          snackbar.show ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
+        } ${snackbar.type === 'success' ? 'bg-[#006442]' : 'bg-red-600'}`}
+      >
+        {snackbar.type === 'success' ? (
+          <>
+            <svg className="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+            {t('vacancies.form.submitSuccess')}
+          </>
+        ) : (
+          <>
+            <svg className="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+            Ошибка отправки. Попробуйте ещё раз.
+          </>
+        )}
+        <button onClick={() => setSnackbar(s => ({ ...s, show: false }))} className="ml-2 opacity-70 hover:opacity-100">
+          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
       {/* Application Form */}
+      <section className="relative py-16 sm:py-24 lg:py-32 bg-gray-50 overflow-hidden">
       <section className="relative py-16 sm:py-24 lg:py-32 bg-gray-50 overflow-hidden">
         <div className="absolute inset-0">
           <img
@@ -171,17 +210,6 @@ export function Vacancies() {
                     {status === 'loading' ? t('vacancies.form.submitting') : t('vacancies.form.submit')}
                   </button>
                 </div>
-
-                {status === 'success' && (
-                  <div className="mt-4 p-4 bg-green-50 border border-green-200 rounded-md text-green-800 text-sm text-center font-geist">
-                    ✅ {t('vacancies.form.submitSuccess')}
-                  </div>
-                )}
-                {status === 'error' && (
-                  <div className="mt-4 p-4 bg-red-50 border border-red-200 rounded-md text-red-800 text-sm text-center font-geist">
-                    ❌ Произошла ошибка. Попробуйте позже или свяжитесь с нами напрямую.
-                  </div>
-                )}
 
                 <p className="text-sm text-gray-600 font-geist text-center mt-4">
                   {t('vacancies.form.required')}
