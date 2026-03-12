@@ -325,6 +325,65 @@ app.delete('/api/news/:id', requireAuth, async (req: Request, res: Response): Pr
   }
 });
 
+// Отправка заявки на вакансию → Telegram
+app.post('/api/apply', async (req: Request, res: Response): Promise<void> => {
+  try {
+    const { name, email, phone, position, experience, message } = req.body;
+
+    if (!name || !email || !phone || !position) {
+      res.status(400).json({ success: false, message: 'Заполните обязательные поля' });
+      return;
+    }
+
+    const experienceLabels: Record<string, string> = {
+      'no-experience': 'Без опыта',
+      '1-3': '1–3 года',
+      '3-5': '3–5 лет',
+      '5+': 'Более 5 лет',
+    };
+
+    const botToken = process.env.TELEGRAM_BOT_TOKEN;
+    const chatId = process.env.TELEGRAM_CHAT_ID;
+
+    if (!botToken || !chatId) {
+      console.warn('⚠️  Telegram не настроен. Заявка получена:', { name, email, phone, position });
+      res.json({ success: true, message: 'Заявка получена' });
+      return;
+    }
+
+    const text = [
+      `🟢 <b>Новая заявка на вакансию</b>`,
+      ``,
+      `👤 <b>ФИО:</b> ${name}`,
+      `📧 <b>Email:</b> ${email}`,
+      `📞 <b>Телефон:</b> ${phone}`,
+      `💼 <b>Должность:</b> ${position}`,
+      `🕐 <b>Опыт:</b> ${experienceLabels[experience] || experience || '—'}`,
+      message ? `📝 <b>Сообщение:</b> ${message}` : null,
+    ].filter(Boolean).join('\n');
+
+    const tgRes = await fetch(
+      `https://api.telegram.org/bot${botToken}/sendMessage`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ chat_id: chatId, text, parse_mode: 'HTML' }),
+      }
+    );
+
+    if (!tgRes.ok) {
+      const err = await tgRes.text();
+      throw new Error(`Telegram error: ${err}`);
+    }
+
+    console.log(`✅ Заявка отправлена в Telegram: ${name} → ${position}`);
+    res.json({ success: true, message: 'Заявка отправлена' });
+  } catch (error) {
+    console.error('Ошибка отправки заявки:', error);
+    res.status(500).json({ success: false, message: 'Ошибка сервера' });
+  }
+});
+
 // Health check
 app.get('/health', (_req: Request, res: Response) => {
   res.json({ status: 'OK', timestamp: new Date().toISOString() });

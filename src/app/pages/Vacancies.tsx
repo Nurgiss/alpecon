@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { Button } from '@/app/components/Button';
 import { useLanguage } from '@/app/contexts/LanguageContext';
+
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3002/api';
 
 export function Vacancies() {
   const { t } = useLanguage();
@@ -12,12 +13,23 @@ export function Vacancies() {
     experience: '',
     message: '',
   });
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Implement form submission
-    console.log('Form submitted:', formData);
-    alert(t('vacancies.form.submitSuccess'));
+    setStatus('loading');
+    try {
+      const res = await fetch(`${API_URL}/apply`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      if (!res.ok) throw new Error('Server error');
+      setStatus('success');
+      setFormData({ name: '', email: '', phone: '', position: '', experience: '', message: '' });
+    } catch {
+      setStatus('error');
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -153,11 +165,23 @@ export function Vacancies() {
                 <div className="pt-4">
                   <button
                     type="submit"
-                    className="w-full bg-[#006442] text-white px-8 py-4 font-bold text-sm uppercase tracking-wider hover:bg-[#005236] transition-colors rounded-md shadow-lg"
+                    disabled={status === 'loading'}
+                    className="w-full bg-[#006442] text-white px-8 py-4 font-bold text-sm uppercase tracking-wider hover:bg-[#005236] transition-colors rounded-md shadow-lg disabled:opacity-60 disabled:cursor-not-allowed"
                   >
-                    {t('vacancies.form.submit')}
+                    {status === 'loading' ? t('vacancies.form.submitting') : t('vacancies.form.submit')}
                   </button>
                 </div>
+
+                {status === 'success' && (
+                  <div className="mt-4 p-4 bg-green-50 border border-green-200 rounded-md text-green-800 text-sm text-center font-geist">
+                    ✅ {t('vacancies.form.submitSuccess')}
+                  </div>
+                )}
+                {status === 'error' && (
+                  <div className="mt-4 p-4 bg-red-50 border border-red-200 rounded-md text-red-800 text-sm text-center font-geist">
+                    ❌ Произошла ошибка. Попробуйте позже или свяжитесь с нами напрямую.
+                  </div>
+                )}
 
                 <p className="text-sm text-gray-600 font-geist text-center mt-4">
                   {t('vacancies.form.required')}
