@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 
 declare global {
@@ -19,10 +19,17 @@ export const GA4_MEASUREMENT_ID = 'G-J8RJ1JEH8P';   // Google Analytics 4
 export function Analytics() {
   const { pathname, search } = useLocation();
 
+  // useRef to skip the very first render (initial page_view is sent by GA4 automatically)
+  const isFirstRender = useRef(true);
+
   useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
     const url = pathname + search;
 
-    // Google Analytics 4
+    // Google Analytics 4 — SPA navigation
     if (typeof window.gtag === 'function') {
       window.gtag('event', 'page_view', {
         page_path: url,
