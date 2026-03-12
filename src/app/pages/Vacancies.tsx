@@ -81,7 +81,6 @@ export function Vacancies() {
 
       {/* Application Form */}
       <section className="relative py-16 sm:py-24 lg:py-32 bg-gray-50 overflow-hidden">
-      <section className="relative py-16 sm:py-24 lg:py-32 bg-gray-50 overflow-hidden">
         <div className="absolute inset-0">
           <img
             src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=2000"
