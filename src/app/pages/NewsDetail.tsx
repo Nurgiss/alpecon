@@ -6,7 +6,7 @@ import { useLanguage } from '@/app/contexts/LanguageContext';
 
 export function NewsDetail() {
   const { id } = useParams<{ id: string }>();
-  const { language } = useLanguage();
+  const { language, t } = useLanguage();
   const [news, setNews] = useState<NewsItem | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -70,7 +70,7 @@ export function NewsDetail() {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="text-2xl font-bold text-gray-600">Загрузка...</div>
+        <div className="text-2xl font-bold text-gray-600">{t('newsDetail.loading')}</div>
       </div>
     );
   }
@@ -79,9 +79,9 @@ export function NewsDetail() {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <div className="text-2xl font-bold text-gray-900 mb-4">Новость не найдена</div>
+          <div className="text-2xl font-bold text-gray-900 mb-4">{t('newsDetail.notFound')}</div>
           <Link to="/news">
-            <Button>Вернуться к новостям</Button>
+            <Button>{t('newsDetail.backToNews')}</Button>
           </Link>
         </div>
       </div>
@@ -119,7 +119,7 @@ export function NewsDetail() {
             </h1>
             
             <div className="flex items-center gap-4 text-white/80">
-              <span>Автор: {news.author}</span>
+              <span>{t('newsDetail.author')} {news.author}</span>
             </div>
           </div>
         </div>
@@ -139,7 +139,7 @@ export function NewsDetail() {
             {/* Article Footer */}
             <div className="mt-16 pt-8 border-t border-gray-200">
               <Link to="/news">
-                <Button>← Вернуться к новостям</Button>
+                <Button>{t('newsDetail.backToNews')}</Button>
               </Link>
             </div>
           </div>

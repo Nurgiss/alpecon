@@ -27,6 +27,7 @@ export const translations = {
       hero: {
         badge: "Производство полного цикла",
         title: "Современная агропромышленная компания Казахстана",
+        subtitle: "Передовые технологии переработки сельхозпродукции. Полный производственный цикл от сырья до готовой продукции.",
         cardTitle: "ALPECON GROUP",
         cardDescription: "Компания с глобальным опытом и уникальными возможностями, объединяющая разнообразные активы в сфере промышленности, транспорта и логистики.",
         products: "Наша продукция",
@@ -152,31 +153,7 @@ export const translations = {
         title: "Alpecon Group",
         subtitle: "Казахстанская инвестиционная компания"
       },
-      mission: {
-        title: "О нас",
-        text1: "Alpecon Group — казахстанская инвестиционная компания, реализующая в Алматинской области масштабный экспортно-ориентированный проект по созданию интегрированного агропромышленного кластера глубокой переработки фруктов и овощей.",
-        text2: "Мы формируем современную экосистему, объединяющую фермеров, промышленную переработку, цифровые технологии и международные рынки.",
-        text3: "Наша цель — развитие глубокой переработки сельхозсырья в Казахстане, рост несырьевого экспорта и выпуск конкурентоспособной продукции с высокой добавленной стоимостью."
-      },
-      values: {
-        title: "Наши ценности",
-        quality: {
-          title: "Качество",
-          desc: "Строгий контроль на всех этапах производства и постоянное совершенствование процессов"
-        },
-        innovation: {
-          title: "Инновации",
-          desc: "Использование передовых технологий и внедрение современных решений"
-        },
-        reliability: {
-          title: "Надёжность",
-          desc: "Стабильное выполнение обязательств и долгосрочные партнёрские отношения"
-        },
-        ecology: {
-          title: "Экология",
-          desc: "Забота об окружающей среде и устойчивое развитие производства"
-        }
-      },
+      sectionHeading: "О нас",
       mission: {
         title: "НАША МИССИЯ",
         text1: "Создавать экологичное агро-наследие детям.",
@@ -312,7 +289,9 @@ export const translations = {
         phone: "Телефон",
         email: "Email",
         address: "Адрес",
-        addressText: "г. Алматы, Аль-Фараби 19к2б, БЦ Нурлытау, 2Б блок, 8 этаж, 803 офис | г. Астана, улица Конаева, 12/1, На Водно-Зеленом Бульваре, 9 этаж"
+        addressText: "г. Алматы, Аль-Фараби 19к2б, БЦ Нурлытау, 2Б блок, 8 этаж, 803 офис | г. Астана, улица Конаева, 12/1, На Водно-Зеленом Бульваре, 9 этаж",
+        workTime: "Пн-Пт: 9:00 - 18:00",
+        responseTime: "Ответим в течение 24 часов"
       }
     },
     vacancies: {
@@ -345,7 +324,8 @@ export const translations = {
         submit: "Отправить заявку",
         submitting: "Отправка...",
         required: "* Обязательные поля",
-        submitSuccess: "Ваша заявка отправлена! Мы свяжемся с вами в ближайшее время."
+        submitSuccess: "Ваша заявка отправлена! Мы свяжемся с вами в ближайшее время.",
+        submitError: "Ошибка отправки. Попробуйте ещё раз."
       },
       contact: {
         title: "Остались вопросы?",
@@ -355,6 +335,15 @@ export const translations = {
       }
     },
     newsPage: {
+      hero: {
+        title: "Новости и события",
+        subtitle: "Последние события и достижения компании"
+      },
+      archive: "Архив",
+      allNewsTitle: "Все новости",
+      loading: "Загрузка...",
+      error: "Ошибка загрузки новостей",
+      readMore: "Подробнее",
       subscribe: {
         title: "Подпишитесь на рассылку",
         subtitle: "Получайте последние новости на почту",
@@ -398,7 +387,14 @@ export const translations = {
       loading: "Загрузка...",
       author: "Автор:",
       category: "Категория:"
-    }
+    },
+    newsDetail: {
+      loading: "Загрузка...",
+      notFound: "Новость не найдена",
+      error: "Не удалось загрузить новость",
+      backToNews: "← Вернуться к новостям",
+      author: "Автор:"
+    },
   },
   kz: {
     nav: {
@@ -428,6 +424,7 @@ export const translations = {
       hero: {
         badge: "Толық циклді өндіріс",
         title: "Қазақстанның заманауи агроөнеркәсіптік компаниясы",
+        subtitle: "Ауыл шаруашылығы өнімдерін қайта өңдеудің озық технологиялары. Шикізаттан дайын өнімге дейінгі толық өндірістік цикл.",
         cardTitle: "ALPECON GROUP",
         cardDescription: "Өнеркәсіп, көлік және логистика саласындағы әртүрлі активтерді біріктіретін жаһандық тәжірибе мен бірегей мүмкіндіктері бар компания.",
         products: "Біздің өнімдер",
@@ -553,6 +550,7 @@ export const translations = {
         title: "Alpecon Group",
         subtitle: "Қазақстандық инвестициялық компания"
       },
+      sectionHeading: "Біз туралы",
       mission: {
         title: "БІЗДІҢ МИССИЯМЫЗ",
         text1: "Балаларға экологиялық агро-мұраны қалдыру.",
@@ -688,7 +686,9 @@ export const translations = {
         phone: "Телефон",
         email: "Email",
         address: "Мекенжай",
-        addressText: "Алматы қ., Әл-Фараби д., 19к2б, Нұрлытау БО, 2Б блок, 8 қабат, 803 кеңсе | Астана қ., Қонаев көшесі, 12/1, Су-Жасыл Бульварда, 9 қабат"
+        addressText: "Алматы қ., Әл-Фараби д., 19к2б, Нұрлытау БО, 2Б блок, 8 қабат, 803 кеңсе | Астана қ., Қонаев көшесі, 12/1, Су-Жасыл Бульварда, 9 қабат",
+        workTime: "Дс-Жм: 9:00 - 18:00",
+        responseTime: "24 сағат ішінде жауап береміз"
       }
     },
     vacancies: {
@@ -721,7 +721,8 @@ export const translations = {
         submit: "Өтінім жіберу",
         submitting: "Жіберілуде...",
         required: "* Міндетті өрістер",
-        submitSuccess: "Сіздің өтінішіңіз жіберілді! Біз жақын арада сізбен хабарласамыз."
+        submitSuccess: "Сіздің өтінішіңіз жіберілді! Біз жақын арада сізбен хабарласамыз.",
+        submitError: "Жіберу қатесі. Қайталап көріңіз."
       },
       contact: {
         title: "Сұрақтар қалды ма?",
@@ -731,6 +732,15 @@ export const translations = {
       }
     },
     newsPage: {
+      hero: {
+        title: "Жаңалықтар мен оқиғалар",
+        subtitle: "Компанияның соңғы оқиғалары мен жетістіктері"
+      },
+      archive: "Мұрағат",
+      allNewsTitle: "Барлық жаңалықтар",
+      loading: "Жүктелуде...",
+      error: "Жаңалықтарды жүктеу қатесі",
+      readMore: "Толығырақ",
       subscribe: {
         title: "Тарату тізіміне жазылыңыз",
         subtitle: "Соңғы жаңалықтарды электрондық поштаға алыңыз",
@@ -774,7 +784,14 @@ export const translations = {
       loading: "Жүктелуде...",
       author: "Автор:",
       category: "Санат:"
-    }
+    },
+    newsDetail: {
+      loading: "Жүктелуде...",
+      notFound: "Жаңалық табылмады",
+      error: "Жаңалықты жүктеу мүмкін болмады",
+      backToNews: "← Жаңалықтарға оралу",
+      author: "Автор:"
+    },
   },
   en: {
     nav: {
@@ -804,6 +821,7 @@ export const translations = {
       hero: {
         badge: "Full Cycle",
         title: "Modern Agro-Industrial Company",
+        subtitle: "Advanced agricultural processing technologies. Full production cycle from raw materials to finished products.",
         cardTitle: "ALPECON GROUP",
         cardDescription: "A company with global experience and unique capabilities, combining diverse assets in industry, transport and logistics.",
         products: "Our Products",
@@ -929,6 +947,7 @@ export const translations = {
         title: "Alpecon Group",
         subtitle: "Kazakhstan Investment Company"
       },
+      sectionHeading: "About Us",
       mission: {
         title: "OUR MISSION",
         text1: "Create an environmentally friendly agricultural legacy for children.",
@@ -1064,7 +1083,9 @@ export const translations = {
         phone: "Phone",
         email: "Email",
         address: "Address",
-        addressText: "Almaty, Al-Farabi 19k2b, BC Nurlytau, 2B block, 8th floor, office 803 | Astana, Konayev street, 12/1, Water-Green Boulevard, 9th floor"
+        addressText: "Almaty, Al-Farabi 19k2b, BC Nurlytau, 2B block, 8th floor, office 803 | Astana, Konayev street, 12/1, Water-Green Boulevard, 9th floor",
+        workTime: "Mon-Fri: 9:00 AM - 6:00 PM",
+        responseTime: "We'll respond within 24 hours"
       }
     },
     vacancies: {
@@ -1097,7 +1118,8 @@ export const translations = {
         submit: "Submit Application",
         submitting: "Sending...",
         required: "* Required fields",
-        submitSuccess: "Your application has been submitted! We will contact you shortly."
+        submitSuccess: "Your application has been submitted! We will contact you shortly.",
+        submitError: "Submission error. Please try again."
       },
       contact: {
         title: "Have Questions?",
@@ -1107,6 +1129,15 @@ export const translations = {
       }
     },
     newsPage: {
+      hero: {
+        title: "News & Events",
+        subtitle: "Latest events and achievements of the company"
+      },
+      archive: "Archive",
+      allNewsTitle: "All News",
+      loading: "Loading...",
+      error: "Error loading news",
+      readMore: "Read More",
       subscribe: {
         title: "Subscribe to Newsletter",
         subtitle: "Get latest news by email",
@@ -1150,6 +1181,13 @@ export const translations = {
       loading: "Loading...",
       author: "Author:",
       category: "Category:"
-    }
+    },
+    newsDetail: {
+      loading: "Loading...",
+      notFound: "News not found",
+      error: "Failed to load news",
+      backToNews: "← Back to News",
+      author: "Author:"
+    },
   }
 };

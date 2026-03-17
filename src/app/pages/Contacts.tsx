@@ -35,7 +35,7 @@ export function Contacts() {
                       {t('header.phone')}
                     </div>
                     <div className="text-sm text-gray-700">
-                      Пн-Пт: 9:00 - 18:00
+                      {t('contacts.section.workTime')}
                     </div>
                   </div>
                 </div>
@@ -54,7 +54,7 @@ export function Contacts() {
                       {t('footer.email')}
                     </div>
                     <div className="text-sm text-gray-700">
-                      Ответим в течение 24 часов
+                      {t('contacts.section.responseTime')}
                     </div>
                   </div>
                 </div>

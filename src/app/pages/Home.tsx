@@ -74,7 +74,7 @@ export function Home() {
             </h1>
 
             <p className="text-white/80 text-base sm:text-lg font-geist leading-relaxed max-w-3xl mx-auto mb-12">
-              {language === 'ru' ? 'Передовые технологии переработки сельхозпродукции. Полный производственный цикл от сырья до готовой продукции.' : language === 'kz' ? 'Ауыл шаруашылығы өнімдерін қайта өңдеудің озық технологиялары. Шикізаттан дайын өнімге дейінгі толық өндірістік цикл.' : 'Advanced agricultural processing technologies. Full production cycle from raw materials to finished products.'}
+              {t('home.hero.subtitle')}
             </p>
           </div>
         </div>
