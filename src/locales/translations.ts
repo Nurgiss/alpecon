@@ -291,7 +291,8 @@ export const translations = {
         address: "Адрес",
         addressText: "г. Алматы, Аль-Фараби 19к2б, БЦ Нурлытау, 2Б блок, 8 этаж, 803 офис | г. Астана, улица Конаева, 12/1, На Водно-Зеленом Бульваре, 9 этаж",
         workTime: "Пн-Пт: 9:00 - 18:00",
-        responseTime: "Ответим в течение 24 часов"
+        responseTime: "Ответим в течение 24 часов",
+        telegramButton: "Написать в Telegram"
       }
     },
     vacancies: {
@@ -688,7 +689,8 @@ export const translations = {
         address: "Мекенжай",
         addressText: "Алматы қ., Әл-Фараби д., 19к2б, Нұрлытау БО, 2Б блок, 8 қабат, 803 кеңсе | Астана қ., Қонаев көшесі, 12/1, Су-Жасыл Бульварда, 9 қабат",
         workTime: "Дс-Жм: 9:00 - 18:00",
-        responseTime: "24 сағат ішінде жауап береміз"
+        responseTime: "24 сағат ішінде жауап береміз",
+        telegramButton: "Telegram-да жазу"
       }
     },
     vacancies: {
@@ -1085,7 +1087,8 @@ export const translations = {
         address: "Address",
         addressText: "Almaty, Al-Farabi 19k2b, BC Nurlytau, 2B block, 8th floor, office 803 | Astana, Konayev street, 12/1, Water-Green Boulevard, 9th floor",
         workTime: "Mon-Fri: 9:00 AM - 6:00 PM",
-        responseTime: "We'll respond within 24 hours"
+        responseTime: "We'll respond within 24 hours",
+        telegramButton: "Write on Telegram"
       }
     },
     vacancies: {
