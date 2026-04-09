@@ -436,8 +436,8 @@ export const translations = {
         about: "Компания туралы"
       },
       director: {
-        title: "Қазақстанның игілігі үшін жұмыс істейміз",
-        text1: "Alpecon Group — Алматы облысында жемістер мен көкөністерді терең өңдеудің интеграцияланған агроөнеркәсіптік кластерін құру бойынша ауқымды экспортқа бағытталған жобаны іске асыратын қазақстандық инвестициялық компания.",
+        title: "Агроөнеркәсіп секторын дамытудағы жүйелі тәсіл",
+        text1: "Alpecon Group Қазақстан Республикасы Президенті Қасым-Жомарт Тоқаевтың терең өңдеу мен экспортқа бағытталған экономиканы дамыту бағытына сәйкес агроөнеркәсіптік кластер жобасын іске асырады. Біз фермерлерді, дайындауды, сұрыптауды, сақтауды және өңдеуді біріктіретін интеграцияланған жүйе жасаймыз — тұрақты қосылған құн тізбегін қалыптастыру үшін.",
         name: "Самат Балабеков",
         position: "Бас Директор"
       },
@@ -451,8 +451,8 @@ export const translations = {
         learnMore: "Толығырақ"
       },
       aboutSection: {
-        title: "Біздің холдинг туралы",
-        text: "Alpecon Group - Қазақстанның заманауи агроөнеркәсіп компаниясы, көкөніс пен жеміс-жидекті ішкі тұтыну және халықаралық нарықтарға арналған терең қайта өңдеуге мамандандырылған. Біз заманауи қайта өңдеу технологияларын және тұрақты экологиялық тәжірибелерді пайдалана отырып, жоғары сапалы табиғи өнімдер жасаймыз. Біздің бизнес-үлгіміз ұзақ мерзімді экспорттық келісімшарттарға, жергілікті фермерлерді қолдауға және ауылдық аумақтарды дамытуға негізделген."
+        title: "Холдинг туралы",
+        text: "Alpecon Group — жемістер мен көкөністерді терең өңдеу жүйесін қалыптастырып жатқан қазақстандық агроөнеркәсіптік компания. Біз өз өндірістік инфрақұрылымымызға сүйенеміз, шикізат жеткізушілерімен тікелей ұзақ мерзімді қарым-қатынас орнатамыз және экспорттық нарықтарға бағытталамыз."
       },
       stats: {
         title: "Біз сандармен",
@@ -558,23 +558,23 @@ export const translations = {
       sectionHeading: "Біз туралы",
       mission: {
         title: "БІЗДІҢ МИССИЯМЫЗ",
-        text1: "Балаларға экологиялық агро-мұраны қалдыру.",
-        text2: "Жеміс қалдықтарын қайта өңдей отырып, экологияға зиянды әсерді азайтамыз, жеміс ағаштарын отырғызып, оларға қамқорлық жасай отырып, көмірқышқыл газын сіңіруді арттырамыз, климаттың өзгеруіне өз үлесімізді қосамыз."
+        text1: "Қазақстанда жердің, еңбектің және егіннің құндылығы өңдеу өнеркәсібін, аймақтық экономиканы және өмір сапасын дамытудың негізінде жататын тұрақты жүйе құру.",
+        text2: ""
       },
       values: {
         title: "БІЗДІҢ ҚҰНДЫЛЫҚТАР",
         subtitle: "Табиғат және Инновациялар",
         export: {
-          title: "ЭКСПОРТ",
-          description: "Біз терең өңдеу өнімдерін — концентраттарды, пюрені және пектинді экспортқа бағдарланамыз. Біздің міндетіміз — халықаралық серіктестерге сапалы шикізатты тұрақты жеткізуді қамтамасыз ету."
+          title: "ТҰРАҚТЫЛЫҚ",
+          description: "Біз сенімдіміз: тұрақтылық ашықтықтан басталады — жеткізушіден өндіріске дейінгі әр кезеңде түсінікті ережелер, ашық өзара іс-қимыл және жауапкершілік."
         },
         ecology: {
           title: "ЭКОЛОГИЯ",
-          description: "Біздің жұмысымыздың негізі — аймақтың табиғи ресурстарын ұтымды пайдалану. Біз қалдықсыз өңдеу және жабық циклді өндіріс технологияларын енгіземіз."
+          description: "Біз өңдеуді жерге және егінге жауапты қарым-қатынастың элементі ретінде қарастырамыз. Техникалық алманы (жерге түскен алма) қоса, өңдеуге тарта отырып, біз шикізат шығынын азайтамыз және алмалардың шіруі кезінде пайда болатын шығарындыларды болдырмай, экологиялық жүкті азайтамыз."
         },
         people: {
           title: "АДАМДАР",
-          description: "Alpecon Group — бұл жергілікті мамандар үшін жұмыс орындары және фермер шаруашылықтарын қолдау. Біз шикізат өндірушілермен тікелей байланыс орнатамыз."
+          description: "Тарихты адамдар жазады. Бүгінгі еңбек — ертеңгі табыс. Бұл фермерлер, қызметкерлер, серіктестер және соңғы нәтижені жасауға қатысқан барлығы. Біз қарым-қатынасты құрметке, тікелей өзара іс-қимылға және салалық тұрақты дамудың еңбекті және оның артындағы адамдарды қастерлеуден басталатынын түсінуге негіздейміз."
         },
         heritage: {
           title: "МҰРА",
@@ -838,8 +838,8 @@ export const translations = {
         about: "About Company"
       },
       director: {
-        title: "Working for Kazakhstan",
-        text1: "Alpecon Group is a Kazakhstani investment company implementing a large-scale export-oriented project to create an integrated agro-industrial cluster for deep processing of fruits and vegetables in Almaty region.",
+        title: "A Systematic Approach to Agro-Industrial Sector Development",
+        text1: "Alpecon Group is implementing an agro-industrial cluster project aligned with President of Kazakhstan Kassym-Jomart Tokayev's course toward deep processing and an export-oriented economy. We are building an integrated system uniting farmers, procurement, sorting, storage and processing to create a sustainable value chain.",
         name: "Samat Balabekov",
         position: "General Director"
       },
@@ -853,8 +853,8 @@ export const translations = {
         learnMore: "Learn More"
       },
       aboutSection: {
-        title: "About Our Holding",
-        text: "Alpecon Group is a modern agro-industrial company from Kazakhstan, specializing in deep processing of vegetables and fruits for domestic consumption and international markets. We create high-quality natural products using advanced processing technologies and sustainable environmental practices. Our business model is based on long-term export contracts, support for local farmers and development of rural areas."
+        title: "About the Holding",
+        text: "Alpecon Group is a Kazakhstani agro-industrial company building a deep processing system for fruits and vegetables. We rely on our own production infrastructure, establish direct long-term relationships with raw material suppliers, and focus on export markets."
       },
       stats: {
         title: "Our Numbers",
@@ -960,23 +960,23 @@ export const translations = {
       sectionHeading: "About Us",
       mission: {
         title: "OUR MISSION",
-        text1: "Create an environmentally friendly agricultural legacy for children.",
-        text2: "By processing fruit waste, we reduce harmful environmental impact; by planting and caring for fruit trees, we increase carbon dioxide absorption, contributing our part to climate change."
+        text1: "To create in Kazakhstan a sustainable system in which the value of land, labor and harvest is at the core of the development of the processing industry, regional economy and quality of life.",
+        text2: ""
       },
       values: {
         title: "OUR VALUES",
         subtitle: "Nature and Innovation",
         export: {
-          title: "EXPORT",
-          description: "We focus on exporting deep-processed products — concentrates, purees and pectin. Our task is to ensure stable supplies of quality raw materials to international partners."
+          title: "STABILITY",
+          description: "We believe stability starts with transparency — clear rules, open interaction and accountability at every stage, from supplier to production."
         },
         ecology: {
           title: "ECOLOGY",
-          description: "The foundation of our work is the rational use of the region's natural resources. We implement waste-free processing and closed-loop production technologies."
+          description: "We view processing as an element of responsible land and harvest stewardship. By including technical apples (windfalls) in processing, we reduce raw material losses and lower the environmental burden by preventing emissions from decomposing apples."
         },
         people: {
           title: "PEOPLE",
-          description: "Alpecon Group provides jobs for local specialists and supports farms. We build direct connections with raw material producers."
+          description: "History is written by people. Today's work is tomorrow's success. These are farmers, employees, partners and everyone involved in creating the final result. We build relationships on respect, direct interaction and the understanding that sustainable industry development begins with caring for labor and those behind it."
         },
         heritage: {
           title: "HERITAGE",
