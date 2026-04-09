@@ -6,15 +6,13 @@ import { useState, useEffect } from 'react';
 import { newsApi, type NewsItem } from '@/services/newsApi';
 import { Link } from 'react-router-dom';
 import imgHeroBackground from '@/assets/Hero.jpg';
-import imgDirector from '@/assets/Dir.jpeg';
+import imgGroup from '@/assets/group.jpg';
 import imgPektin from '@/assets/pektin.jpg';
 import imgFoodStorage from '@/assets/foodstorage.jpg';
 import img1 from '@/assets/1.jpg';
 import img2 from '@/assets/2.jpeg';
 import img3 from '@/assets/3.jpg';
 import img4Storage from '@/assets/4 - storage.jpeg';
-
-const imgGeminiGeneratedImage = "https://images.unsplash.com/photo-1594737626072-90dc274bc2bc?w=800&auto=format&fit=crop";
 
 export function Home() {
   const { t, language } = useLanguage();
@@ -87,51 +85,10 @@ export function Home() {
         </div>
       </section>
 
-      {/* Director Quote Section */}
-      <section className="py-16 sm:py-24 lg:py-32 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
-              <div className="relative">
-                <div className="overflow-hidden max-w-sm mx-auto rounded-md">
-                  <img
-                    src={imgDirector}
-                    alt="Director"
-                    className="w-full h-[300px] sm:h-[350px] lg:h-[400px] object-cover"
-                  />
-                </div>
-              </div>
-
-              {/* Right - Quote */}
-              <div className="space-y-6">
-                <div>
-                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-geologica font-bold text-gray-900 uppercase tracking-tight leading-[1.1] mb-4 sm:mb-6">
-                    {t('home.director.title')}
-                  </h2>
-                </div>
-
-                <div className="space-y-4 text-lg text-gray-700 font-geist leading-relaxed">
-                  <p className="text-lg text-gray-700 font-geist leading-relaxed">
-                    {t('home.director.text1')}
-                  </p>
-
-                  <p className="font-semibold text-gray-900 pt-4 border-t border-gray-200">
-                    {t('home.director.name')}
-                    <br />
-                    <span className="text-base text-gray-600 font-geist font-normal">
-                      {t('home.director.position')}
-                    </span>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* About Section - Mission Style */}
       <section className="py-16 sm:py-24 lg:py-32 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center mb-20 sm:mb-24 lg:mb-32">
             <div>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-geologica font-bold text-gray-900 uppercase tracking-tight leading-[1.1] mb-6 sm:mb-8">{t('home.aboutSection.title')}</h2>
@@ -177,6 +134,33 @@ export function Home() {
                   />
                 </div>
               </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Director Quote Section */}
+      <section className="py-16 sm:py-24 lg:py-32 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-6xl mx-auto">
+            {/* Фото на всю ширину */}
+            <div className="overflow-hidden rounded-2xl shadow-lg mb-10 sm:mb-12">
+              <img
+                src={imgGroup}
+                alt="Alpecon Group"
+                className="w-full h-[300px] sm:h-[400px] lg:h-[500px] object-cover"
+              />
+            </div>
+
+            {/* Текст на всю ширину */}
+            <div className="space-y-6">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-geologica font-bold text-gray-900 uppercase tracking-tight leading-[1.1]">
+                {t('home.director.title')}
+              </h2>
+              <p className="text-lg text-gray-700 font-geist leading-relaxed max-w-4xl">
+                {t('home.director.text1')}
+              </p>
             </div>
           </div>
         </div>

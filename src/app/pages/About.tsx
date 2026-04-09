@@ -1,6 +1,6 @@
 // import { Button } from '@/app/components/Button';
 import { useLanguage } from '@/app/contexts/LanguageContext';
-import { Users } from 'lucide-react';
+// import { Users } from 'lucide-react';
 import imgHeroAbout from '@/assets/about-hero.jpg';
 import imgMission from '@/assets/image 24.jpg';
 import iconExports from '@/assets/exports.png';
@@ -49,7 +49,7 @@ export function About() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center mb-20 sm:mb-24 lg:mb-32">
             <div className="text-center lg:text-left">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-geologica font-bold text-gray-900 uppercase tracking-tight leading-[1.1] mb-6 sm:mb-8">{t('about.mission.title')}</h2>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-geologica font-bold text-gray-900 uppercase tracking-tight leading-[1.1] mb-6 sm:mb-8">{t('home.aboutSection.title')}</h2>
               <div className="space-y-4 text-base sm:text-lg lg:text-lg text-gray-700 font-geist leading-relaxed text-center lg:text-left">
                 {t('home.aboutSection.text').split('\n\n').map((paragraph, index) => (
                   <p key={index}>{paragraph}</p>
@@ -123,7 +123,6 @@ export function About() {
                 </h2>
                 <div className="font-geist font-normal text-base sm:text-lg lg:text-lg text-white space-y-4">
                   <p>{t('about.mission.text1')}</p>
-                  <p>{t('about.mission.text2')}</p>
                 </div>
               </div>
             </div>
@@ -170,7 +169,7 @@ export function About() {
                     {t('about.values.export.description')}
                   </p>
                 </div>
-                
+
                 {/* Ecology Card */}
                 <div className="bg-[#123327] flex flex-col gap-6 items-center px-6 sm:px-8 py-8 sm:py-10 rounded-3xl w-full lg:w-[360px] transition-all duration-300 hover:shadow-2xl hover:scale-105 hover:bg-[#1a4a38]">
                   <div className="flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-full">
@@ -183,7 +182,7 @@ export function About() {
                     {t('about.values.ecology.description')}
                   </p>
                 </div>
-                
+
                 {/* People Card */}
                 <div className="bg-[#123327] flex flex-col gap-6 items-center px-6 sm:px-8 py-8 sm:py-10 rounded-3xl w-full lg:w-[360px] transition-all duration-300 hover:shadow-2xl hover:scale-105 hover:bg-[#1a4a38]">
                   <div className="flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-full">
@@ -194,6 +193,22 @@ export function About() {
                   </h3>
                   <p className="font-geist font-normal text-base sm:text-lg text-center text-white/90 leading-relaxed">
                     {t('about.values.people.description')}
+                  </p>
+                </div>
+
+                {/* Heritage Card */}
+                <div className="bg-[#123327] flex flex-col gap-6 items-center px-6 sm:px-8 py-8 sm:py-10 rounded-3xl w-full lg:w-[360px] transition-all duration-300 hover:shadow-2xl hover:scale-105 hover:bg-[#1a4a38]">
+                  <div className="flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-full">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#123327" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M17 14c0 3-2 5-5 6-3-1-5-3-5-6 0-4 2-7 5-10 3 3 5 6 5 10z"/>
+                      <line x1="12" y1="20" x2="12" y2="24"/>
+                    </svg>
+                  </div>
+                  <h3 className="font-geologica font-bold text-xl sm:text-2xl text-white uppercase text-center">
+                    {t('about.values.heritage.title')}
+                  </h3>
+                  <p className="font-geist font-normal text-base sm:text-lg text-center text-white/90 leading-relaxed">
+                    {t('about.values.heritage.description')}
                   </p>
                 </div>
               </div>
