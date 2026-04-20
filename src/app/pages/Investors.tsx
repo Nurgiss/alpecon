@@ -94,9 +94,9 @@ export function Investors() {
                     <div className="text-sm text-white/70 mb-1 uppercase tracking-wider font-bold">
                       {t('investors.contact.phone')}
                     </div>
-                    <div className="text-lg font-bold">
+                    <a href="tel:+77758284721" className="text-lg font-bold hover:opacity-80 transition-opacity block">
                       {t('header.phone')}
-                    </div>
+                    </a>
                     <div className="text-sm text-white/80">
                       Пн-Пт: 9:00 - 18:00
                     </div>

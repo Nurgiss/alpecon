@@ -31,9 +31,9 @@ export function Contacts() {
                     <div className="text-sm text-gray-600 mb-1 uppercase tracking-wider font-bold">
                       {t('contacts.section.phone')}
                     </div>
-                    <div className="text-lg font-bold">
+                    <a href="tel:+77758284721" className="text-lg font-bold hover:opacity-80 transition-opacity block">
                       {t('header.phone')}
-                    </div>
+                    </a>
                     <div className="text-sm text-gray-700 mb-3">
                       {t('contacts.section.workTime')}
                     </div>

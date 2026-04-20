@@ -23,7 +23,7 @@ export function Footer() {
           <div>
             <h3 className="font-bold text-[#0D0D0D] mb-4 sm:mb-6 uppercase tracking-wide text-sm sm:text-base">{t('footer.contacts')}</h3>
             <ul className="space-y-2 sm:space-y-3 text-sm sm:text-base text-[#0D0D0D]/60">
-              <li>{t('header.phone')}</li>
+              <li><a href="tel:+77758284721" className="hover:opacity-80 transition-opacity">{t('header.phone')}</a></li>
               <li className="break-all">{t('footer.email')}</li>
               <li>{t('footer.workTime')}</li>
             </ul>

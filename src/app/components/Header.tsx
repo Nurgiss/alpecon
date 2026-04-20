@@ -55,11 +55,11 @@ export function Header() {
             {/* Right - Social & Phone */}
             <div className="flex items-center gap-6">
               {/* Phone */}
-              <div className={`flex items-center gap-2 text-xs uppercase tracking-wider ${
+              <a href="tel:+77758284721" className={`flex items-center gap-2 text-xs uppercase tracking-wider ${
                 showScrolled ? 'text-gray-700' : 'text-white/70'
-              }`}>
+              } hover:opacity-80 transition-opacity`}>
                 <span>{t('header.phone')}</span>
-              </div>
+              </a>
             </div>
           </div>
         </div>
