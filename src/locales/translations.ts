@@ -11,7 +11,7 @@ export const translations = {
     },
     header: {
       location: "г. Алматы, Республика Казахстан",
-      phone: "+7 (727) 123-45-67"
+      phone: "+7 775 828 472"
     },
     footer: {
       about: "Ведущий производитель продуктов переработки овощей и фруктов с 1985 года",
@@ -413,7 +413,7 @@ export const translations = {
     },
     header: {
       location: "Алматы қ., Қазақстан Республикасы",
-      phone: "+7 (727) 123-45-67"
+      phone: "+7 775 828 472"
     },
     footer: {
       about: "1985 жылдан бері көкөніс пен жемістерді қайта өңдеу өнімдерінің жетекші өндірушісі",
@@ -815,7 +815,7 @@ export const translations = {
     },
     header: {
       location: "Almaty, Kazakhstan",
-      phone: "+7 (727) 123-45-67"
+      phone: "+7 775 828 472"
     },
     footer: {
       about: "Leading manufacturer of vegetable and fruit processing products since 1985",
