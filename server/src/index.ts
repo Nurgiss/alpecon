@@ -14,6 +14,8 @@ import { CreateNewsDTO, UpdateNewsDTO, NewsResponseDTO } from './dto/index.js';
 import { validateDTO } from './middleware/validation.middleware.js';
 import { requireAuth } from './middleware/auth.middleware.js';
 import { AUTH_CONFIG, generateToken, verifyPassword } from './config/auth.config.js';
+import contentRoutes from './routes/content.routes.js';
+import blocksRoutes from './routes/blocks.routes.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -145,6 +147,8 @@ app.post('/api/login', loginRateLimiter, async (req: Request, res: Response): Pr
 });
 
 // Routes
+app.use('/api/content', contentRoutes);
+app.use('/api/blocks', blocksRoutes);
 
 // Загрузка изображения
 app.post('/api/upload', requireAuth, upload.single('image'), (req: Request, res: Response): void => {

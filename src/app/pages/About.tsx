@@ -13,9 +13,13 @@ import imgDirector from '@/assets/IMG_0129.JPG';
 import img1 from '@/assets/1.jpg';
 import img2 from '@/assets/2.jpeg';
 import img3 from '@/assets/3.jpg';
+import { useContentBlocks, getBlockField } from '@/hooks/useContentBlocks';
+
+const TEAM_FALLBACK_IMAGES = [imgDirector, imgBau, imgEgor, imgErzhan];
 
 export function About() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const { blocks: teamMembers, loading: teamLoading } = useContentBlocks('team');
   
   return (
     <div>
@@ -224,55 +228,29 @@ export function About() {
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-geologica font-bold text-gray-900 uppercase tracking-tight leading-[1.1]">{t('about.team.title')}</h2>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-12">
-            {/* Генеральный директор */}
-            <div className="relative overflow-hidden rounded-2xl aspect-square bg-white shadow-lg hover:shadow-2xl transition-all">
-              <div className="absolute inset-0">
-                <img src={imgDirector} alt={t('about.team.director.name')} className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent" />
-              </div>
-              <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-8 text-white">
-                <h3 className="text-xl sm:text-2xl font-geologica font-bold uppercase tracking-tight leading-tight mb-2">{t('about.team.director.name')}</h3>
-                <p className="text-white/90 font-semibold uppercase text-xs sm:text-sm tracking-wide">{t('about.team.director.position')}</p>
-              </div>
+          {teamLoading ? (
+            <div className="text-center py-12 text-gray-500">{t('newsPage.loading')}</div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-12">
+              {teamMembers.map((member, index) => {
+                const name = getBlockField(member, language, 'name');
+                const position = getBlockField(member, language, 'position');
+                const image = member.image || TEAM_FALLBACK_IMAGES[index % TEAM_FALLBACK_IMAGES.length];
+                return (
+                  <div key={member.id} className="relative overflow-hidden rounded-2xl aspect-square bg-white shadow-lg hover:shadow-2xl transition-all">
+                    <div className="absolute inset-0">
+                      <img src={image} alt={name} className="w-full h-full object-cover" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent" />
+                    </div>
+                    <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-8 text-white">
+                      <h3 className="text-xl sm:text-2xl font-geologica font-bold uppercase tracking-tight leading-tight mb-2">{name}</h3>
+                      <p className="text-white/90 font-semibold uppercase text-xs sm:text-sm tracking-wide">{position}</p>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
-
-            {/* Коммерческий директор */}
-            <div className="relative overflow-hidden rounded-2xl aspect-square bg-white shadow-lg hover:shadow-2xl transition-all">
-              <div className="absolute inset-0">
-                <img src={imgBau} alt={t('about.team.commercial.name')} className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent" />
-              </div>
-              <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-8 text-white">
-                <h3 className="text-xl sm:text-2xl font-geologica font-bold uppercase tracking-tight leading-tight mb-2">{t('about.team.commercial.name')}</h3>
-                <p className="text-white/90 font-semibold uppercase text-xs sm:text-sm tracking-wide">{t('about.team.commercial.position')}</p>
-              </div>
-            </div>
-
-            {/* Технический директор */}
-            <div className="relative overflow-hidden rounded-2xl aspect-square bg-white shadow-lg hover:shadow-2xl transition-all">
-              <div className="absolute inset-0">
-                <img src={imgEgor} alt={t('about.team.technical.name')} className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent" />
-              </div>
-              <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-8 text-white">
-                <h3 className="text-xl sm:text-2xl font-geologica font-bold uppercase tracking-tight leading-tight mb-2">{t('about.team.technical.name')}</h3>
-                <p className="text-white/90 font-semibold uppercase text-xs sm:text-sm tracking-wide">{t('about.team.technical.position')}</p>
-              </div>
-            </div>
-
-            {/* Руководитель аппарата */}
-            <div className="relative overflow-hidden rounded-2xl aspect-square bg-white shadow-lg hover:shadow-2xl transition-all">
-              <div className="absolute inset-0">
-                <img src={imgErzhan} alt="Ибраимов Ержан Калиевич" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent" />
-              </div>
-              <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-8 text-white">
-                <h3 className="text-xl sm:text-2xl font-geologica font-bold uppercase tracking-tight leading-tight mb-2">{t('about.team.staff.name')}</h3>
-                <p className="text-white/90 font-semibold uppercase text-xs sm:text-sm tracking-wide">{t('about.team.staff.position')}</p>
-              </div>
-            </div>
-          </div>
+          )}
         </div>
       </section>
 

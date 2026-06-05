@@ -44,3 +44,33 @@ model News {
 
   @@map("news")
 }
+
+// Editable page content (CMS overrides per page)
+model PageContent {
+  id        String   @id @default(uuid())
+  pageKey   String   @unique @map("page_key")
+  contentRu String   @default("{}") @map("content_ru")
+  contentKz String   @default("{}") @map("content_kz")
+  contentEn String   @default("{}") @map("content_en")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("page_content")
+}
+
+// Structured content blocks (directions, team, projects)
+model ContentBlock {
+  id        String   @id @default(uuid())
+  type      String
+  sortOrder Int      @default(0) @map("sort_order")
+  image     String   @default("")
+  active    Boolean  @default(true)
+  fieldsRu  String   @default("{}") @map("fields_ru")
+  fieldsKz  String   @default("{}") @map("fields_kz")
+  fieldsEn  String   @default("{}") @map("fields_en")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([type, sortOrder])
+  @@map("content_blocks")
+}

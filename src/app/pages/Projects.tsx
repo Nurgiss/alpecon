@@ -4,6 +4,15 @@ import imgPektin from '@/assets/pektin.jpg';
 import imgFoodStorage from '@/assets/foodstorage.jpg';
 import imgStorage from '@/assets/dd7ee0f9f3ea990275005640e6558c573eccfaa0.png';
 import imgJuice from '@/assets/juice.jpeg';
+import { useContentBlocks, getBlockField } from '@/hooks/useContentBlocks';
+
+const PROJECT_FALLBACK_IMAGES = [
+  'https://images.unsplash.com/photo-1651525670054-279c154bc3b6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+  imgPektin,
+  imgJuice,
+  imgStorage,
+  'https://images.unsplash.com/photo-1744230673231-865d54a0aba4?w=800&auto=format&fit=crop',
+];
 
 interface ProjectCardProps {
   image: string;
@@ -54,45 +63,16 @@ function ProjectCard({ image, title, description, products, productsLabel }: Pro
 }
 
 export function Projects() {
-  const { t } = useLanguage();
-  
-  const projects = [
-    {
-      image: "https://images.unsplash.com/photo-1651525670054-279c154bc3b6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmcnVpdCUyMHByb2Nlc3NpbmclMjBmYWN0b3J5JTIwcHJvZHVjdGlvbnxlbnwxfHx8fDE3NzEzNTM1OTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      title: t('projects.items.qazaqGlobal.title'),
-      description: t('projects.items.qazaqGlobal.description'),
-      products: t('projects.items.qazaqGlobal.products'),
-      productsLabel: t('projects.items.qazaqGlobal.productsLabel')
-    },
-    {
-      image: imgPektin,
-      title: t('projects.items.qazaqAgro.title'),
-      description: t('projects.items.qazaqAgro.description'),
-      products: t('projects.items.qazaqAgro.products'),
-      productsLabel: t('projects.items.qazaqAgro.productsLabel')
-    },
-    {
-      image: imgJuice,
-      title: t('projects.items.runPlanet.title'),
-      description: t('projects.items.runPlanet.description'),
-      products: t('projects.items.runPlanet.products'),
-      productsLabel: t('projects.items.runPlanet.productsLabel')
-    },
-    {
-      image: imgStorage,
-      title: t('projects.items.network.title'),
-      description: t('projects.items.network.description'),
-      products: t('projects.items.network.products'),
-      productsLabel: t('projects.items.network.productsLabel')
-    },
-    {
-      image: "https://images.unsplash.com/photo-1744230673231-865d54a0aba4?w=800&auto=format&fit=crop",
-      title: t('projects.items.agros.title'),
-      description: t('projects.items.agros.description'),
-      products: t('projects.items.agros.products'),
-      productsLabel: t('projects.items.agros.productsLabel')
-    }
-  ];
+  const { t, language } = useLanguage();
+  const { blocks: projectBlocks, loading: projectsLoading } = useContentBlocks('project');
+
+  const projects = projectBlocks.map((block, index) => ({
+    image: block.image || PROJECT_FALLBACK_IMAGES[index % PROJECT_FALLBACK_IMAGES.length],
+    title: getBlockField(block, language, 'title'),
+    description: getBlockField(block, language, 'description'),
+    products: getBlockField(block, language, 'products'),
+    productsLabel: getBlockField(block, language, 'productsLabel'),
+  }));
 
   return (
     <div>
@@ -116,7 +96,7 @@ export function Projects() {
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-2xl mt-8 sm:mt-12 mx-auto">
               <div className="bg-white/10 backdrop-blur-md p-5 sm:p-6 rounded-md">
-                <div className="text-3xl sm:text-4xl font-bold text-white mb-2">5</div>
+                <div className="text-3xl sm:text-4xl font-bold text-white mb-2">{projects.length || '—'}</div>
                 <div className="text-xs text-white/80 uppercase tracking-wider font-bold">{t('projects.hero.stat1')}</div>
               </div>
               <div className="bg-white/10 backdrop-blur-md p-5 sm:p-6 rounded-md">
@@ -146,17 +126,24 @@ export function Projects() {
             </p>
           </div>
 
-          {/* Сетка проектов - 3 в первом ряду, 2 во втором */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {projects.slice(0, 3).map((project, index) => (
-              <ProjectCard key={index} {...project} />
-            ))}
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mt-6 sm:mt-8 max-w-5xl mx-auto">
-            {projects.slice(3).map((project, index) => (
-              <ProjectCard key={index + 3} {...project} />
-            ))}
-          </div>
+          {projectsLoading ? (
+            <div className="text-center py-12 text-gray-500">{t('newsPage.loading')}</div>
+          ) : (
+            <>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                {projects.slice(0, 3).map((project, index) => (
+                  <ProjectCard key={index} {...project} />
+                ))}
+              </div>
+              {projects.length > 3 && (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mt-6 sm:mt-8 max-w-5xl mx-auto">
+                  {projects.slice(3).map((project, index) => (
+                    <ProjectCard key={index + 3} {...project} />
+                  ))}
+                </div>
+              )}
+            </>
+          )}
         </div>
       </section>
 

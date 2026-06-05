@@ -13,9 +13,20 @@ import img1 from '@/assets/1.jpg';
 import img2 from '@/assets/2.jpeg';
 import img3 from '@/assets/3.jpg';
 import img4Storage from '@/assets/4 - storage.jpeg';
+import { useContentBlocks, getBlockField } from '@/hooks/useContentBlocks';
+
+const DIRECTION_FALLBACK_IMAGES = [
+  'https://images.unsplash.com/photo-1651525670099-f828fb5478a5?w=800&auto=format&fit=crop',
+  imgPektin,
+  'https://images.unsplash.com/photo-1689650552915-d547c24fe85e?w=800&auto=format&fit=crop',
+  imgFoodStorage,
+  img4Storage,
+  'https://images.unsplash.com/photo-1744230673231-865d54a0aba4?w=800&auto=format&fit=crop',
+];
 
 export function Home() {
   const { t, language } = useLanguage();
+  const { blocks: directions, loading: directionsLoading } = useContentBlocks('direction');
   const [news, setNews] = useState<NewsItem[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -227,60 +238,38 @@ export function Home() {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-geologica font-bold text-gray-900 uppercase tracking-tight leading-[1.1] mb-16 text-center">
             {t('home.directions.title')}
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              {
-                image: "https://images.unsplash.com/photo-1651525670099-f828fb5478a5?w=800&auto=format&fit=crop",
-                title: t('home.directions.item1.title'),
-                category: t('home.directions.item1.category'),
-              },
-              {
-                image: imgPektin,
-                title: t('home.directions.item2.title'),
-                category: t('home.directions.item2.category'),
-              },
-              {
-                image: "https://images.unsplash.com/photo-1689650552915-d547c24fe85e?w=800&auto=format&fit=crop",
-                title: t('home.directions.item3.title'),
-                category: t('home.directions.item3.category'),
-              },
-              {
-                image: imgFoodStorage,
-                title: t('home.directions.item4.title'),
-                category: t('home.directions.item4.category'),
-              },
-              {
-                image: img4Storage,
-                title: t('home.directions.item5.title'),
-                category: t('home.directions.item5.category'),
-              },
-              {
-                image: "https://images.unsplash.com/photo-1744230673231-865d54a0aba4?w=800&auto=format&fit=crop",
-                title: t('home.directions.item6.title'),
-                category: t('home.directions.item6.category'),
-              },
-            ].map((direction, index) => (
-              <div
-                key={index}
-                className="relative group overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 h-[280px]"
-              >
-                <img
-                  src={direction.image}
-                  alt={direction.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
-                  <div className="text-xs font-bold uppercase tracking-widest mb-3 text-white/70 font-['Geist']">
-                    {direction.category}
+          {directionsLoading ? (
+            <div className="text-center py-12 text-gray-500">{t('home.news.loading')}</div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {directions.map((direction, index) => {
+                const title = getBlockField(direction, language, 'title');
+                const category = getBlockField(direction, language, 'category');
+                const image = direction.image || DIRECTION_FALLBACK_IMAGES[index % DIRECTION_FALLBACK_IMAGES.length];
+                return (
+                  <div
+                    key={direction.id}
+                    className="relative group overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 h-[280px]"
+                  >
+                    <img
+                      src={image}
+                      alt={title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent"></div>
+                    <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
+                      <div className="text-xs font-bold uppercase tracking-widest mb-3 text-white/70 font-['Geist']">
+                        {category}
+                      </div>
+                      <h3 className="text-xl font-bold uppercase font-['Geologica']">
+                        {title}
+                      </h3>
+                    </div>
                   </div>
-                  <h3 className="text-xl font-bold uppercase font-['Geologica']">
-                    {direction.title}
-                  </h3>
-                </div>
-              </div>
-            ))}
-          </div>
+                );
+              })}
+            </div>
+          )}
         </div>
       </section>
 
