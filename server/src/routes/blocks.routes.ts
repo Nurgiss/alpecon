@@ -41,6 +41,21 @@ function formatBlock(block: {
   };
 }
 
+const BROKEN_IT_PLATFORM_IMAGE =
+  'https://images.unsplash.com/photo-1744230673231-865d54a0aba4?w=800&auto=format&fit=crop';
+const IT_PLATFORM_IMAGE = '/images/it-platform.jpg';
+
+async function repairBrokenImages(): Promise<void> {
+  const updated = await prisma.contentBlock.updateMany({
+    where: { image: BROKEN_IT_PLATFORM_IMAGE },
+    data: { image: IT_PLATFORM_IMAGE },
+  });
+
+  if (updated.count > 0) {
+    console.log(`✅ Repaired ${updated.count} block image(s) with broken IT platform URL`);
+  }
+}
+
 async function ensureSeeded(type?: BlockType): Promise<void> {
   const typesToSeed = type ? [type] : VALID_TYPES;
 
@@ -76,6 +91,7 @@ router.get('/', async (req: Request, res: Response): Promise<void> => {
     }
 
     await ensureSeeded(type as BlockType | undefined);
+    await repairBrokenImages();
 
     const blocks = await prisma.contentBlock.findMany({
       where: {
@@ -103,6 +119,7 @@ router.get('/all', requireAuth, async (req: Request, res: Response): Promise<voi
     }
 
     await ensureSeeded(type as BlockType | undefined);
+    await repairBrokenImages();
 
     const blocks = await prisma.contentBlock.findMany({
       where: type ? { type } : {},

@@ -21,7 +21,7 @@ const DIRECTION_FALLBACK_IMAGES = [
   'https://images.unsplash.com/photo-1689650552915-d547c24fe85e?w=800&auto=format&fit=crop',
   imgFoodStorage,
   img4Storage,
-  'https://images.unsplash.com/photo-1744230673231-865d54a0aba4?w=800&auto=format&fit=crop',
+  img3,
 ];
 
 export function Home() {

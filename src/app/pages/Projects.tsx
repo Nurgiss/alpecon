@@ -4,6 +4,7 @@ import imgPektin from '@/assets/pektin.jpg';
 import imgFoodStorage from '@/assets/foodstorage.jpg';
 import imgStorage from '@/assets/dd7ee0f9f3ea990275005640e6558c573eccfaa0.png';
 import imgJuice from '@/assets/juice.jpeg';
+import imgItPlatform from '@/assets/3.jpg';
 import { useContentBlocks, getBlockField } from '@/hooks/useContentBlocks';
 
 const PROJECT_FALLBACK_IMAGES = [
@@ -11,7 +12,7 @@ const PROJECT_FALLBACK_IMAGES = [
   imgPektin,
   imgJuice,
   imgStorage,
-  'https://images.unsplash.com/photo-1744230673231-865d54a0aba4?w=800&auto=format&fit=crop',
+  imgItPlatform,
 ];
 
 interface ProjectCardProps {

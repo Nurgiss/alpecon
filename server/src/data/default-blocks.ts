@@ -54,7 +54,7 @@ export const DEFAULT_BLOCKS: DefaultBlockSeed[] = [
   {
     type: 'direction',
     sortOrder: 5,
-    image: 'https://images.unsplash.com/photo-1744230673231-865d54a0aba4?w=800&auto=format&fit=crop',
+    image: '/images/it-platform.jpg',
     fieldsRu: { title: 'IT Платформа', category: 'ТЕХНОЛОГИИ' },
     fieldsKz: { title: 'IT Платформа', category: 'ТЕХНОЛОГИЯЛАР' },
     fieldsEn: { title: 'IT Platform', category: 'TECHNOLOGY' },
@@ -190,7 +190,7 @@ export const DEFAULT_BLOCKS: DefaultBlockSeed[] = [
   {
     type: 'project',
     sortOrder: 4,
-    image: 'https://images.unsplash.com/photo-1744230673231-865d54a0aba4?w=800&auto=format&fit=crop',
+    image: '/images/it-platform.jpg',
     fieldsRu: {
       title: 'Alpecon AgrOS',
       description: 'Цифровая экосистема для фермеров: от прогноза спроса до гарантированного сбыта урожая.',
