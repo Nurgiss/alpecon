@@ -1,4 +1,4 @@
-import { GripVertical } from 'lucide-react';
+import { GripVertical, ImageIcon } from 'lucide-react';
 import type { BlockType, ContentBlock } from '@/types/blocks';
 import { BLOCK_CONFIGS } from '@/types/blocks';
 import type { Language } from '@/app/contexts/LanguageContext';
@@ -17,6 +17,26 @@ interface BlockPreviewCardProps {
 
 function getField(block: ContentBlock, lang: Language, key: string): string {
   return block.fields[lang]?.[key] || block.fields.ru?.[key] || '';
+}
+
+function CardPhoto({
+  src,
+  alt,
+  emptyLabel,
+}: {
+  src: string | null;
+  alt: string;
+  emptyLabel: string;
+}) {
+  if (!src) {
+    return (
+      <div className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 flex flex-col items-center justify-center text-gray-400">
+        <ImageIcon size={32} />
+        <span className="text-xs mt-2 font-medium">{emptyLabel}</span>
+      </div>
+    );
+  }
+  return <img src={src} alt={alt} className="w-full h-full object-cover" />;
 }
 
 export function BlockPreviewCard({
@@ -53,8 +73,8 @@ export function BlockPreviewCard({
             Скрыт
           </div>
         )}
-        <img src={imageSrc} alt={title} className="w-full h-full object-cover" />
-        {!block.image && (
+        <CardPhoto src={imageSrc} alt={title} emptyLabel="Нет фото" />
+        {!block.image && imageSrc && (
           <div className="absolute top-3 right-3 z-20 bg-black/50 text-white text-[10px] font-bold uppercase px-2 py-1 rounded-lg">
             Фото по умолчанию
           </div>
@@ -93,8 +113,8 @@ export function BlockPreviewCard({
             {index + 1}
           </div>
         )}
-        <img src={imageSrc} alt={name} className="w-full h-full object-cover" />
-        {!block.image && (
+        <CardPhoto src={imageSrc} alt={name} emptyLabel="Добавьте фото" />
+        {!block.image && imageSrc && (
           <div className="absolute top-3 right-3 z-20 bg-black/50 text-white text-[10px] font-bold uppercase px-2 py-1 rounded-lg">
             Фото по умолчанию
           </div>
@@ -134,8 +154,8 @@ export function BlockPreviewCard({
           {index + 1}
         </div>
       )}
-      <img src={imageSrc} alt={title} className="w-full h-full object-cover" />
-      {!block.image && (
+      <CardPhoto src={imageSrc} alt={title} emptyLabel="Нет фото" />
+      {!block.image && imageSrc && (
         <div className="absolute top-3 right-3 z-20 bg-black/50 text-white text-[10px] font-bold uppercase px-2 py-1 rounded-lg">
           Фото по умолчанию
         </div>

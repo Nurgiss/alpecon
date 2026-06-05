@@ -64,13 +64,15 @@ export function resolveBlockImage(
   image: string,
   index: number,
   fields?: BlockFieldsLike
-): string {
+): string | null {
   if (image) return image;
 
   if (type === 'team' && fields) {
     const name = fields.ru?.name || fields.kz?.name || fields.en?.name || '';
     const byName = getTeamFallbackByName(name);
     if (byName) return byName;
+    // Новый член без фото — не подставляем чужое фото по индексу
+    return null;
   }
 
   return getBlockFallbackImage(type, index);

@@ -234,11 +234,15 @@ export function About() {
                   member.image ||
                   getTeamFallbackByName(getBlockField(member, 'ru', 'name')) ||
                   getTeamFallbackByName(name) ||
-                  '';
+                  null;
                 return (
                   <div key={member.id} className="relative overflow-hidden rounded-2xl aspect-square bg-white shadow-lg hover:shadow-2xl transition-all">
                     <div className="absolute inset-0">
-                      <img src={image} alt={name} className="w-full h-full object-cover" />
+                      {image ? (
+                        <img src={image} alt={name} className="w-full h-full object-cover" />
+                      ) : (
+                        <div className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300" />
+                      )}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent" />
                     </div>
                     <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-8 text-white">
