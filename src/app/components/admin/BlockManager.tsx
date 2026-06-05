@@ -47,6 +47,7 @@ export function BlockManager({ type }: BlockManagerProps) {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [uploading, setUploading] = useState(false);
+  const [isDragOver, setIsDragOver] = useState(false);
   const [dragIndex, setDragIndex] = useState<number | null>(null);
   const [reorderSaved, setReorderSaved] = useState(false);
   const [editing, setEditing] = useState<ContentBlock | 'new' | null>(null);
@@ -105,14 +106,25 @@ export function BlockManager({ type }: BlockManagerProps) {
   };
 
   const handleImageUpload = async (file: File) => {
+    if (!file.type.startsWith('image/')) {
+      alert(t('admin.blocks.uploadTypeError'));
+      return;
+    }
+
     try {
       setUploading(true);
       const data = await newsApi.uploadImage(file);
       setForm((prev) => ({ ...prev, image: getUploadUrl(data.url) }));
-    } catch {
-      alert(t('admin.blocks.uploadError'));
+    } catch (error) {
+      if ((error as Error).message === 'UNAUTHORIZED') {
+        navigate('/dashboard-cms-2025/login');
+        return;
+      }
+      const message = (error as Error).message || t('admin.blocks.uploadError');
+      alert(message);
     } finally {
       setUploading(false);
+      setIsDragOver(false);
     }
   };
 
@@ -120,6 +132,26 @@ export function BlockManager({ type }: BlockManagerProps) {
     const file = e.target.files?.[0];
     if (file) handleImageUpload(file);
     e.target.value = '';
+  };
+
+  const onDragOver = (e: React.DragEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsDragOver(true);
+  };
+
+  const onDragLeave = (e: React.DragEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsDragOver(false);
+  };
+
+  const onDrop = (e: React.DragEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const file = e.dataTransfer.files?.[0];
+    if (file) handleImageUpload(file);
+    else setIsDragOver(false);
   };
 
   const handleSave = async () => {
@@ -347,6 +379,11 @@ export function BlockManager({ type }: BlockManagerProps) {
                     image={form.image}
                     fields={form.fields[editLang]}
                     active={form.active}
+                    previewIndex={
+                      editing !== 'new' && typeof editing === 'object'
+                        ? blocks.findIndex((b) => b.id === editing.id)
+                        : blocks.length
+                    }
                   />
                   <label className="flex items-center gap-3 cursor-pointer mt-5">
                     <input
@@ -370,8 +407,15 @@ export function BlockManager({ type }: BlockManagerProps) {
                       📷 {t('admin.blocks.changePhoto')}
                     </label>
                     <div
-                      onClick={() => fileInputRef.current?.click()}
-                      className="relative rounded-xl overflow-hidden bg-gray-100 cursor-pointer group border-2 border-dashed border-gray-200 hover:border-[#006442] transition-colors"
+                      onClick={() => !uploading && fileInputRef.current?.click()}
+                      onDragOver={onDragOver}
+                      onDragLeave={onDragLeave}
+                      onDrop={onDrop}
+                      className={`relative rounded-xl overflow-hidden bg-gray-100 cursor-pointer group border-2 border-dashed transition-colors ${
+                        isDragOver
+                          ? 'border-[#006442] bg-[#006442]/10'
+                          : 'border-gray-200 hover:border-[#006442]'
+                      }`}
                       style={{ height: type === 'direction' ? 140 : 160 }}
                     >
                       {form.image ? (
@@ -385,9 +429,16 @@ export function BlockManager({ type }: BlockManagerProps) {
                           </div>
                         </>
                       ) : (
-                        <div className="w-full h-full flex flex-col items-center justify-center text-gray-400 gap-2">
-                          <Upload size={28} />
-                          <span className="text-sm font-semibold">{t('admin.blocks.upload')}</span>
+                        <div className="w-full h-full flex flex-col items-center justify-center text-gray-400 gap-2 px-4 text-center">
+                          <Upload size={28} className={isDragOver ? 'text-[#006442]' : ''} />
+                          <span className="text-sm font-semibold">
+                            {uploading
+                              ? t('admin.blocks.uploading')
+                              : isDragOver
+                                ? t('admin.blocks.dropHere')
+                                : t('admin.blocks.upload')}
+                          </span>
+                          <span className="text-[11px] text-gray-400">{t('admin.blocks.dragHint')}</span>
                         </div>
                       )}
                     </div>

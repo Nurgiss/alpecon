@@ -179,7 +179,15 @@ export const newsApi = {
     if (response.status === 401) {
       throw new Error('UNAUTHORIZED');
     }
-    if (!response.ok) throw new Error('Failed to upload image');
-    return response.json();
+
+    const data = await response.json().catch(() => ({}));
+
+    if (!response.ok) {
+      const message =
+        typeof data?.error === 'string' ? data.error : 'Failed to upload image';
+      throw new Error(message);
+    }
+
+    return data as { url: string };
   },
 };

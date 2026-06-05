@@ -6,16 +6,11 @@ import imgMission from '@/assets/image 24.jpg';
 import iconExports from '@/assets/exports.png';
 import iconEco from '@/assets/eco.png';
 import iconFarmer from '@/assets/farmer.png';
-import imgEgor from '@/assets/Egor.jpeg';
-import imgBau from '@/assets/Bau.jpeg';
-import imgErzhan from '@/assets/8 - Erzhan.jpeg';
-import imgDirector from '@/assets/IMG_0129.JPG';
 import img1 from '@/assets/1.jpg';
 import img2 from '@/assets/2.jpeg';
 import img3 from '@/assets/3.jpg';
 import { useContentBlocks, getBlockField } from '@/hooks/useContentBlocks';
-
-const TEAM_FALLBACK_IMAGES = [imgDirector, imgBau, imgEgor, imgErzhan];
+import { TEAM_FALLBACK_IMAGES } from '@/config/blockFallbackImages';
 
 export function About() {
   const { t, language } = useLanguage();

@@ -1,19 +1,7 @@
 import { useLanguage } from '@/app/contexts/LanguageContext';
 import imgHeroProjects from '@/assets/13.jpg';
-import imgPektin from '@/assets/pektin.jpg';
-import imgFoodStorage from '@/assets/foodstorage.jpg';
-import imgStorage from '@/assets/dd7ee0f9f3ea990275005640e6558c573eccfaa0.png';
-import imgJuice from '@/assets/juice.jpeg';
-import imgItPlatform from '@/assets/3.jpg';
 import { useContentBlocks, getBlockField } from '@/hooks/useContentBlocks';
-
-const PROJECT_FALLBACK_IMAGES = [
-  'https://images.unsplash.com/photo-1651525670054-279c154bc3b6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-  imgPektin,
-  imgJuice,
-  imgStorage,
-  imgItPlatform,
-];
+import { PROJECT_FALLBACK_IMAGES } from '@/config/blockFallbackImages';
 
 interface ProjectCardProps {
   image: string;

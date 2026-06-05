@@ -5,6 +5,7 @@ import cors from 'cors';
 import rateLimit from 'express-rate-limit';
 import bodyParser from 'body-parser';
 import fs from 'fs/promises';
+import { mkdirSync } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { randomUUID } from 'crypto';
@@ -38,18 +39,19 @@ const storage = multer.diskStorage({
 
 const upload = multer({
   storage,
-  limits: { fileSize: 5 * 1024 * 1024 }, // 5MB
+  limits: { fileSize: 10 * 1024 * 1024 }, // 10MB
   fileFilter: (_req, file, cb) => {
-    const allowedTypes = /jpeg|jpg|png|gif|webp/;
-    const extname = allowedTypes.test(path.extname(file.originalname).toLowerCase());
-    const mimetype = allowedTypes.test(file.mimetype);
-    if (extname && mimetype) {
+    const allowedExt = /\.(jpe?g|png|gif|webp)$/i;
+    const allowedMime = /^image\/(jpe?g|png|gif|webp)$/i;
+    if (allowedExt.test(file.originalname) && allowedMime.test(file.mimetype)) {
       cb(null, true);
     } else {
-      cb(new Error('Только изображения разрешены'));
+      cb(new Error('Только изображения (JPEG, PNG, GIF, WebP) разрешены'));
     }
   }
 });
+
+mkdirSync(UPLOADS_DIR, { recursive: true });
 
 // CORS configuration
 const corsOrigins = process.env.CORS_ORIGINS
@@ -93,6 +95,7 @@ app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/uploads', express.static(UPLOADS_DIR));
+app.use('/api/uploads', express.static(UPLOADS_DIR));
 
 // Эндпоинт для авторизации с JWT (rate limited)
 app.post('/api/login', loginRateLimiter, async (req: Request, res: Response): Promise<void> => {
@@ -151,17 +154,28 @@ app.use('/api/content', contentRoutes);
 app.use('/api/blocks', blocksRoutes);
 
 // Загрузка изображения
-app.post('/api/upload', requireAuth, upload.single('image'), (req: Request, res: Response): void => {
-  try {
-    if (!req.file) {
-      res.status(400).json({ error: 'Файл не загружен' });
+app.post('/api/upload', requireAuth, (req: Request, res: Response): void => {
+  upload.single('image')(req, res, (err: unknown) => {
+    if (err) {
+      const message =
+        err instanceof Error ? err.message : 'Ошибка при загрузке файла';
+      const status = message.includes('File too large') ? 413 : 400;
+      res.status(status).json({ error: message });
       return;
     }
-    const imageUrl = `/uploads/${req.file.filename}`;
-    res.json({ url: imageUrl });
-  } catch (error) {
-    res.status(500).json({ error: 'Ошибка при загрузке файла' });
-  }
+
+    try {
+      if (!req.file) {
+        res.status(400).json({ error: 'Файл не загружен' });
+        return;
+      }
+      const imageUrl = `/api/uploads/${req.file.filename}`;
+      res.json({ url: imageUrl });
+    } catch (error) {
+      console.error('Upload error:', error);
+      res.status(500).json({ error: 'Ошибка при загрузке файла' });
+    }
+  });
 });
 
 // Получить все новости (с пагинацией)

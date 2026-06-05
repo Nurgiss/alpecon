@@ -1,7 +1,8 @@
-import { ImageIcon, GripVertical } from 'lucide-react';
+import { GripVertical } from 'lucide-react';
 import type { BlockType, ContentBlock } from '@/types/blocks';
 import { BLOCK_CONFIGS } from '@/types/blocks';
 import type { Language } from '@/app/contexts/LanguageContext';
+import { resolveBlockImage } from '@/config/blockFallbackImages';
 
 interface BlockPreviewCardProps {
   block: ContentBlock;
@@ -28,8 +29,8 @@ export function BlockPreviewCard({
   onClick,
   showDragHandle = true,
 }: BlockPreviewCardProps) {
-  const config = BLOCK_CONFIGS[type];
   const fields = block.fields[lang] || block.fields.ru;
+  const imageSrc = resolveBlockImage(type, block.image, index);
 
   if (type === 'direction') {
     const title = getField(block, lang, 'title');
@@ -52,12 +53,10 @@ export function BlockPreviewCard({
             Скрыт
           </div>
         )}
-        {block.image ? (
-          <img src={block.image} alt={title} className="w-full h-full object-cover" />
-        ) : (
-          <div className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 flex flex-col items-center justify-center text-gray-400">
-            <ImageIcon size={32} />
-            <span className="text-xs mt-2 font-medium">Нет фото</span>
+        <img src={imageSrc} alt={title} className="w-full h-full object-cover" />
+        {!block.image && (
+          <div className="absolute top-3 right-3 z-20 bg-black/50 text-white text-[10px] font-bold uppercase px-2 py-1 rounded-lg">
+            Фото по умолчанию
           </div>
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent pointer-events-none" />
@@ -94,12 +93,10 @@ export function BlockPreviewCard({
             {index + 1}
           </div>
         )}
-        {block.image ? (
-          <img src={block.image} alt={name} className="w-full h-full object-cover" />
-        ) : (
-          <div className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 flex flex-col items-center justify-center text-gray-400">
-            <ImageIcon size={32} />
-            <span className="text-xs mt-2">Добавьте фото</span>
+        <img src={imageSrc} alt={name} className="w-full h-full object-cover" />
+        {!block.image && (
+          <div className="absolute top-3 right-3 z-20 bg-black/50 text-white text-[10px] font-bold uppercase px-2 py-1 rounded-lg">
+            Фото по умолчанию
           </div>
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent pointer-events-none" />
@@ -137,12 +134,10 @@ export function BlockPreviewCard({
           {index + 1}
         </div>
       )}
-      {block.image ? (
-        <img src={block.image} alt={title} className="w-full h-full object-cover" />
-      ) : (
-        <div className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 flex flex-col items-center justify-center text-gray-400">
-          <ImageIcon size={32} />
-          <span className="text-xs mt-2">Нет фото</span>
+      <img src={imageSrc} alt={title} className="w-full h-full object-cover" />
+      {!block.image && (
+        <div className="absolute top-3 right-3 z-20 bg-black/50 text-white text-[10px] font-bold uppercase px-2 py-1 rounded-lg">
+          Фото по умолчанию
         </div>
       )}
       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent pointer-events-none" />
@@ -172,17 +167,19 @@ export function BlockPreviewFromForm({
   image,
   fields,
   active,
+  previewIndex = 0,
 }: {
   type: BlockType;
   lang: Language;
   image: string;
   fields: Record<string, string>;
   active: boolean;
+  previewIndex?: number;
 }) {
   const fakeBlock: ContentBlock = {
     id: 'preview',
     type,
-    sortOrder: 0,
+    sortOrder: previewIndex,
     image,
     active,
     fields: { ru: fields, kz: fields, en: fields },
@@ -191,7 +188,13 @@ export function BlockPreviewFromForm({
   return (
     <div className="pointer-events-none">
       <p className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3">Превью на сайте</p>
-      <BlockPreviewCard block={fakeBlock} type={type} lang={lang} index={0} showDragHandle={false} />
+      <BlockPreviewCard
+        block={fakeBlock}
+        type={type}
+        lang={lang}
+        index={previewIndex}
+        showDragHandle={false}
+      />
     </div>
   );
 }

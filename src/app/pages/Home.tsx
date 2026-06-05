@@ -12,17 +12,8 @@ import imgFoodStorage from '@/assets/foodstorage.jpg';
 import img1 from '@/assets/1.jpg';
 import img2 from '@/assets/2.jpeg';
 import img3 from '@/assets/3.jpg';
-import img4Storage from '@/assets/4 - storage.jpeg';
 import { useContentBlocks, getBlockField } from '@/hooks/useContentBlocks';
-
-const DIRECTION_FALLBACK_IMAGES = [
-  'https://images.unsplash.com/photo-1651525670099-f828fb5478a5?w=800&auto=format&fit=crop',
-  imgPektin,
-  'https://images.unsplash.com/photo-1689650552915-d547c24fe85e?w=800&auto=format&fit=crop',
-  imgFoodStorage,
-  img4Storage,
-  img3,
-];
+import { DIRECTION_FALLBACK_IMAGES } from '@/config/blockFallbackImages';
 
 export function Home() {
   const { t, language } = useLanguage();
