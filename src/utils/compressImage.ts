@@ -9,12 +9,15 @@ export interface CompressImageOptions {
 }
 
 const DEFAULTS: Required<CompressImageOptions> = {
-  maxWidth: 1920,
-  maxHeight: 1920,
-  quality: 0.85,
-  skipBelowBytes: 250 * 1024,
-  maxOutputBytes: 1.5 * 1024 * 1024,
+  // 1600px = 2× retina для карточек ~800px на экране
+  maxWidth: 1600,
+  maxHeight: 1600,
+  quality: 0.88,
+  skipBelowBytes: 400 * 1024,
+  maxOutputBytes: 2 * 1024 * 1024,
 };
+
+const MIN_QUALITY = 0.72;
 
 function loadImage(src: string): Promise<HTMLImageElement> {
   return new Promise((resolve, reject) => {
@@ -92,13 +95,15 @@ export async function compressImage(
     const ctx = canvas.getContext('2d');
     if (!ctx) return file;
 
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = 'high';
     ctx.drawImage(img, 0, 0, width, height);
 
     let quality = opts.quality;
     let blob = await canvasToBlob(canvas, quality);
 
-    while (blob.size > opts.maxOutputBytes && quality > 0.45) {
-      quality -= 0.1;
+    while (blob.size > opts.maxOutputBytes && quality > MIN_QUALITY) {
+      quality -= 0.05;
       blob = await canvasToBlob(canvas, quality);
     }
 

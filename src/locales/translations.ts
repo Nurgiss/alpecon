@@ -409,7 +409,7 @@ export const translations = {
         uploadError: "Ошибка загрузки изображения",
         uploadTypeError: "Можно загружать только изображения",
         dragHint: "или перетащите файл сюда",
-        compressHint: "Большие фото сжимаются автоматически",
+        compressHint: "Большие фото сжимаются без потери видимого качества",
         dropHere: "Отпустите файл",
         saveError: "Ошибка сохранения",
         deleteConfirm: "Удалить эту карточку?",
