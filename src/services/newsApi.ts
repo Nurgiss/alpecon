@@ -180,11 +180,19 @@ export const newsApi = {
       throw new Error('UNAUTHORIZED');
     }
 
+    if (response.status === 413) {
+      throw new Error('Файл слишком большой (макс. 10 МБ)');
+    }
+
     const data = await response.json().catch(() => ({}));
 
     if (!response.ok) {
       const message =
-        typeof data?.error === 'string' ? data.error : 'Failed to upload image';
+        typeof data?.error === 'string'
+          ? data.error
+          : response.status === 413
+            ? 'Файл слишком большой (макс. 10 МБ)'
+            : `Ошибка загрузки (код ${response.status})`;
       throw new Error(message);
     }
 
