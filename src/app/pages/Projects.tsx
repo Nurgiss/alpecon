@@ -118,20 +118,16 @@ export function Projects() {
           {projectsLoading ? (
             <div className="text-center py-12 text-gray-500">{t('newsPage.loading')}</div>
           ) : (
-            <>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-                {projects.slice(0, 3).map((project, index) => (
-                  <ProjectCard key={index} {...project} />
-                ))}
-              </div>
-              {projects.length > 3 && (
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mt-6 sm:mt-8 max-w-5xl mx-auto">
-                  {projects.slice(3).map((project, index) => (
-                    <ProjectCard key={index + 3} {...project} />
-                  ))}
+            <div className="flex flex-wrap justify-center gap-6 sm:gap-8">
+              {projects.map((project, index) => (
+                <div
+                  key={projectBlocks[index]?.id ?? index}
+                  className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-22px)] max-w-md lg:max-w-none"
+                >
+                  <ProjectCard {...project} />
                 </div>
-              )}
-            </>
+              ))}
+            </div>
           )}
         </div>
       </section>
