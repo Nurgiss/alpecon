@@ -1,3 +1,5 @@
+import { compressImage } from '@/utils/compressImage';
+
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3002/api';
 
 // Base URL for uploads (extracted from API_URL)
@@ -164,10 +166,11 @@ export const newsApi = {
     if (!response.ok) throw new Error('Failed to delete news');
   },
 
-  // Загрузить изображение (требует авторизации)
+  // Загрузить изображение (требует авторизации, с автосжатием)
   async uploadImage(file: File): Promise<{ url: string }> {
+    const compressed = await compressImage(file);
     const formData = new FormData();
-    formData.append('image', file);
+    formData.append('image', compressed);
 
     const token = localStorage.getItem(TOKEN_KEY);
     const response = await fetch(`${API_URL}/upload`, {

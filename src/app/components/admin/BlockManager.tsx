@@ -438,7 +438,9 @@ export function BlockManager({ type }: BlockManagerProps) {
                                 ? t('admin.blocks.dropHere')
                                 : t('admin.blocks.upload')}
                           </span>
-                          <span className="text-[11px] text-gray-400">{t('admin.blocks.dragHint')}</span>
+                          <span className="text-[11px] text-gray-400">
+                            {t('admin.blocks.dragHint')} · {t('admin.blocks.compressHint')}
+                          </span>
                         </div>
                       )}
                     </div>
