@@ -21,6 +21,26 @@ export const DIRECTION_FALLBACK_IMAGES = [
 
 export const TEAM_FALLBACK_IMAGES = [imgDirector, imgBau, imgEgor, imgErzhan];
 
+/** Fallback photos keyed by surname — stable after reorder */
+const TEAM_FALLBACK_BY_SURNAME: Array<{ match: string; image: string }> = [
+  { match: 'Балабеков', image: imgDirector },
+  { match: 'Бейсенбин', image: imgBau },
+  { match: 'Хахулин', image: imgEgor },
+  { match: 'Ибраимов', image: imgErzhan },
+];
+
+export function getTeamFallbackByName(name: string): string | null {
+  if (!name) return null;
+  const entry = TEAM_FALLBACK_BY_SURNAME.find(({ match }) => name.includes(match));
+  return entry?.image ?? null;
+}
+
+type BlockFieldsLike = {
+  ru?: Record<string, string>;
+  kz?: Record<string, string>;
+  en?: Record<string, string>;
+};
+
 export const PROJECT_FALLBACK_IMAGES = [
   'https://images.unsplash.com/photo-1651525670054-279c154bc3b6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
   imgPektin,
@@ -39,6 +59,19 @@ export function getBlockFallbackImage(type: BlockType, index: number): string {
   return list[index % list.length];
 }
 
-export function resolveBlockImage(type: BlockType, image: string, index: number): string {
-  return image || getBlockFallbackImage(type, index);
+export function resolveBlockImage(
+  type: BlockType,
+  image: string,
+  index: number,
+  fields?: BlockFieldsLike
+): string {
+  if (image) return image;
+
+  if (type === 'team' && fields) {
+    const name = fields.ru?.name || fields.kz?.name || fields.en?.name || '';
+    const byName = getTeamFallbackByName(name);
+    if (byName) return byName;
+  }
+
+  return getBlockFallbackImage(type, index);
 }

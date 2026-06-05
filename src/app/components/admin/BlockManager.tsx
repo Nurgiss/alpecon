@@ -42,6 +42,8 @@ export function BlockManager({ type }: BlockManagerProps) {
   const { t, language } = useLanguage();
   const config = BLOCK_CONFIGS[type];
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const blocksRef = useRef<ContentBlock[]>([]);
+  const didDragRef = useRef(false);
 
   const [blocks, setBlocks] = useState<ContentBlock[]>([]);
   const [loading, setLoading] = useState(true);
@@ -76,6 +78,10 @@ export function BlockManager({ type }: BlockManagerProps) {
     loadBlocks();
   }, [loadBlocks]);
 
+  useEffect(() => {
+    blocksRef.current = blocks;
+  }, [blocks]);
+
   const openCreate = () => {
     setForm({ image: '', active: true, fields: emptyFields(config) });
     setEditLang('ru');
@@ -83,6 +89,10 @@ export function BlockManager({ type }: BlockManagerProps) {
   };
 
   const openEdit = (block: ContentBlock) => {
+    if (didDragRef.current) {
+      didDragRef.current = false;
+      return;
+    }
     setForm({
       image: block.image,
       active: block.active,
@@ -172,8 +182,11 @@ export function BlockManager({ type }: BlockManagerProps) {
     }
   };
 
-  const handleDelete = async (id: string) => {
-    if (!confirm(t('admin.blocks.deleteConfirm'))) return;
+  const handleDelete = async (id: string, displayName?: string) => {
+    const message = displayName
+      ? `${t('admin.blocks.deleteConfirm')}\n\n${displayName}`
+      : t('admin.blocks.deleteConfirm');
+    if (!confirm(message)) return;
     try {
       await blocksApi.delete(id);
       await loadBlocks();
@@ -198,28 +211,42 @@ export function BlockManager({ type }: BlockManagerProps) {
     setTimeout(() => setReorderSaved(false), 2000);
   };
 
-  const handleDragStart = (index: number) => setDragIndex(index);
+  const handleDragStart = (index: number) => {
+    didDragRef.current = false;
+    setDragIndex(index);
+  };
 
   const handleDragOver = (e: React.DragEvent, index: number) => {
     e.preventDefault();
     if (dragIndex === null || dragIndex === index) return;
-    const updated = [...blocks];
+    didDragRef.current = true;
+    const updated = [...blocksRef.current];
     const [moved] = updated.splice(dragIndex, 1);
     updated.splice(index, 0, moved);
+    blocksRef.current = updated;
     setBlocks(updated);
     setDragIndex(index);
   };
 
   const handleDragEnd = async () => {
     if (dragIndex === null) return;
+    const finalBlocks = blocksRef.current;
     setDragIndex(null);
+    if (!didDragRef.current) return;
     try {
-      const reordered = await blocksApi.reorder(type, blocks.map((b) => b.id));
+      const reordered = await blocksApi.reorder(
+        type,
+        finalBlocks.map((b) => b.id)
+      );
+      blocksRef.current = reordered;
       setBlocks(reordered);
       flashReorderSaved();
     } catch {
       await loadBlocks();
     }
+    setTimeout(() => {
+      didDragRef.current = false;
+    }, 0);
   };
 
   if (loading) {
@@ -505,7 +532,12 @@ export function BlockManager({ type }: BlockManagerProps) {
               {editing !== 'new' && (
                 <button
                   type="button"
-                  onClick={() => handleDelete(editing.id)}
+                  onClick={() =>
+                    handleDelete(
+                      editing.id,
+                      editing.fields.ru?.name || editing.fields.ru?.title
+                    )
+                  }
                   className="flex items-center gap-2 px-4 py-2.5 text-red-600 hover:bg-red-50 rounded-xl text-sm font-semibold"
                 >
                   <Trash2 size={16} />

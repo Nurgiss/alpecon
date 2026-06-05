@@ -10,7 +10,7 @@ import img1 from '@/assets/1.jpg';
 import img2 from '@/assets/2.jpeg';
 import img3 from '@/assets/3.jpg';
 import { useContentBlocks, getBlockField } from '@/hooks/useContentBlocks';
-import { TEAM_FALLBACK_IMAGES } from '@/config/blockFallbackImages';
+import { getTeamFallbackByName } from '@/config/blockFallbackImages';
 
 export function About() {
   const { t, language } = useLanguage();
@@ -230,7 +230,11 @@ export function About() {
               {teamMembers.map((member, index) => {
                 const name = getBlockField(member, language, 'name');
                 const position = getBlockField(member, language, 'position');
-                const image = member.image || TEAM_FALLBACK_IMAGES[index % TEAM_FALLBACK_IMAGES.length];
+                const image =
+                  member.image ||
+                  getTeamFallbackByName(getBlockField(member, 'ru', 'name')) ||
+                  getTeamFallbackByName(name) ||
+                  '';
                 return (
                   <div key={member.id} className="relative overflow-hidden rounded-2xl aspect-square bg-white shadow-lg hover:shadow-2xl transition-all">
                     <div className="absolute inset-0">

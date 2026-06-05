@@ -30,7 +30,7 @@ export function BlockPreviewCard({
   showDragHandle = true,
 }: BlockPreviewCardProps) {
   const fields = block.fields[lang] || block.fields.ru;
-  const imageSrc = resolveBlockImage(type, block.image, index);
+  const imageSrc = resolveBlockImage(type, block.image, index, block.fields);
 
   if (type === 'direction') {
     const title = getField(block, lang, 'title');
