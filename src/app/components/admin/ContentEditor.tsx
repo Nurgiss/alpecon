@@ -22,7 +22,6 @@ export function ContentEditor({ pageKey }: ContentEditorProps) {
   const navigate = useNavigate();
   const { t, refreshContent } = useLanguage();
   const page = getContentPage(pageKey)!;
-  const exclude = page.excludePrefixes || [];
 
   const [fields, setFields] = useState<Record<Lang, Record<string, string>>>({ ru: {}, kz: {}, en: {} });
   const [loading, setLoading] = useState(true);
@@ -31,17 +30,26 @@ export function ContentEditor({ pageKey }: ContentEditorProps) {
   const [expanded, setExpanded] = useState<Record<string, boolean>>({});
 
   useEffect(() => {
+    let cancelled = false;
+
     const load = async () => {
+      const currentPage = getContentPage(pageKey);
+      if (!currentPage) return;
+
+      const excludePrefixes = currentPage.excludePrefixes ?? [];
+
       try {
         setLoading(true);
-        const defaults = getDefaultPageContent(page);
+        const defaults = getDefaultPageContent(currentPage);
         const saved = await contentApi.getPage(pageKey);
+        if (cancelled) return;
+
         const merged = mergePageContent(defaults, saved);
 
         const flat = {
-          ru: flattenStrings(merged.ru, '', exclude),
-          kz: flattenStrings(merged.kz, '', exclude),
-          en: flattenStrings(merged.en, '', exclude),
+          ru: flattenStrings(merged.ru, '', excludePrefixes),
+          kz: flattenStrings(merged.kz, '', excludePrefixes),
+          en: flattenStrings(merged.en, '', excludePrefixes),
         };
         setFields(flat);
 
@@ -50,13 +58,17 @@ export function ContentEditor({ pageKey }: ContentEditorProps) {
         sections.forEach((s, i) => { exp[s] = i === 0; });
         setExpanded(exp);
       } catch {
-        alert(t('admin.content.loadError'));
+        if (!cancelled) alert(t('admin.content.loadError'));
       } finally {
-        setLoading(false);
+        if (!cancelled) setLoading(false);
       }
     };
+
     load();
-  }, [pageKey, page, t, exclude]);
+    return () => {
+      cancelled = true;
+    };
+  }, [pageKey]);
 
   const grouped = useMemo(() => groupFieldsBySection(fields.ru), [fields.ru]);
 
@@ -103,7 +115,7 @@ export function ContentEditor({ pageKey }: ContentEditorProps) {
         <div>
           <h2 className="text-2xl font-bold text-gray-900">{page.label}</h2>
           <p className="text-gray-500 text-sm mt-1">{t('admin.content.editHint')}</p>
-          {exclude.length > 0 && (
+          {(page.excludePrefixes?.length ?? 0) > 0 && (
             <p className="text-amber-600 text-xs mt-2 font-medium">{t('admin.content.blocksNote')}</p>
           )}
         </div>
