@@ -6,6 +6,7 @@ import { AdminDashboard } from '@/app/components/admin/AdminDashboard';
 import { NewsManager } from '@/app/components/admin/NewsManager';
 import { BlockManager } from '@/app/components/admin/BlockManager';
 import { HeroImageManager } from '@/app/components/admin/HeroImageManager';
+import { ContentEditor } from '@/app/components/admin/ContentEditor';
 import { CONTENT_PAGES, type ContentPageKey } from '@/config/contentPages';
 import type { BlockType } from '@/types/blocks';
 

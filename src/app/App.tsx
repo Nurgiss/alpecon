@@ -14,6 +14,7 @@ import { Projects } from '@/app/pages/Projects';
 // import { Investors } from '@/app/pages/Investors';
 import { Vacancies } from '@/app/pages/Vacancies';
 import { Analytics } from '@/app/components/Analytics';
+import { LanguageProvider } from '@/app/contexts/LanguageContext';
 import { useEffect } from 'react';
 
 function ScrollToTop() {
