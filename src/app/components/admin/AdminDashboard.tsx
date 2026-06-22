@@ -28,7 +28,7 @@ export function AdminDashboard({ onNavigate }: AdminDashboardProps) {
       return { ...link, label: t('admin.panel.heroes'), desc: t('admin.heroes.hint'), page: '/' };
     }
     if (link.section === 'sections') {
-      return { ...link, label: t('admin.panel.sections'), desc: t('admin.sections.hint'), page: '/about' };
+      return { ...link, label: t('admin.panel.sectionImages'), desc: t('admin.sectionImages.hint'), page: '/about' };
     }
     const config = BLOCK_CONFIGS[link.section as BlockType];
     return { ...link, label: config.label, desc: t('admin.blocks.hint'), page: config.page };

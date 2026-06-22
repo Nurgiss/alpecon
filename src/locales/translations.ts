@@ -370,7 +370,7 @@ export const translations = {
         texts: "Тексты страниц",
         news: "Новости",
         heroes: "Hero-изображения",
-        sections: "Изображения секций",
+        sectionImages: "Изображения секций",
         logout: "Выйти",
         logoutConfirm: "Вы уверены, что хотите выйти?"
       },
@@ -390,7 +390,7 @@ export const translations = {
         reset: "По умолчанию",
         savedSuccess: "Hero-изображения сохранены!"
       },
-      sections: {
+      sectionImages: {
         title: "Изображения секций",
         hint: "Фото в блоках «О холдинге», «Миссия», «Ценности» и др. Общие блоки синхронизируются между страницами.",
         reset: "По умолчанию",
@@ -844,7 +844,7 @@ export const translations = {
         texts: "Бет мәтіндері",
         news: "Жаңалықтар",
         heroes: "Hero-суреттер",
-        sections: "Бөлім суреттері",
+        sectionImages: "Бөлім суреттері",
         logout: "Шығу",
         logoutConfirm: "Шығуды растайсыз ба?"
       },
@@ -864,7 +864,7 @@ export const translations = {
         reset: "Әдепкі",
         savedSuccess: "Hero-суреттер сақталды!"
       },
-      sections: {
+      sectionImages: {
         title: "Бөлім суреттері",
         hint: "«Холдинг туралы», «Миссия», «Құндылықтар» блоктарындағы фото. Ортақ блоктар беттер арасында синхрондалады.",
         reset: "Әдепкі",
@@ -1318,7 +1318,7 @@ export const translations = {
         texts: "Page texts",
         news: "News",
         heroes: "Hero images",
-        sections: "Section images",
+        sectionImages: "Section images",
         logout: "Logout",
         logoutConfirm: "Are you sure you want to logout?"
       },
@@ -1338,7 +1338,7 @@ export const translations = {
         reset: "Reset default",
         savedSuccess: "Hero images saved!"
       },
-      sections: {
+      sectionImages: {
         title: "Section images",
         hint: "Photos in About holding, Mission, Values and other blocks. Shared blocks sync across pages.",
         reset: "Reset default",

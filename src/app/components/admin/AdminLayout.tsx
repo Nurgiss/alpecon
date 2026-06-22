@@ -108,7 +108,7 @@ export function AdminLayout({ activeSection, onSectionChange, children }: AdminL
           </button>
           <button type="button" onClick={() => onSectionChange('sections')} className={navClass('sections')}>
             <Images size={18} />
-            {t('admin.panel.sections')}
+            {t('admin.panel.sectionImages')}
           </button>
 
           <p className="px-4 py-2 mt-5 text-[10px] font-bold text-gray-400 uppercase tracking-widest">

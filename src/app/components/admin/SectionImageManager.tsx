@@ -105,7 +105,7 @@ export function SectionImageManager() {
       }
       await contentApi.savePage('section-images', { ru: payload, kz: payload, en: payload });
       await refreshSectionImages();
-      alert(t('admin.sections.savedSuccess'));
+      alert(t('admin.sectionImages.savedSuccess'));
     } catch (error) {
       if ((error as Error).message === 'UNAUTHORIZED') navigate('/dashboard-cms-2025/login');
       else alert(t('admin.content.saveError'));
@@ -128,8 +128,8 @@ export function SectionImageManager() {
     <div className="max-w-5xl">
       <div className="flex items-start justify-between gap-4 mb-6">
         <div>
-          <h2 className="text-2xl font-bold text-gray-900">{t('admin.sections.title')}</h2>
-          <p className="text-gray-500 text-sm mt-1">{t('admin.sections.hint')}</p>
+          <h2 className="text-2xl font-bold text-gray-900">{t('admin.sectionImages.title')}</h2>
+          <p className="text-gray-500 text-sm mt-1">{t('admin.sectionImages.hint')}</p>
         </div>
         <button
           type="button"
@@ -182,7 +182,7 @@ export function SectionImageManager() {
                           onClick={() => resetToDefault(img.key)}
                           className="px-2 py-1 text-[10px] font-semibold text-gray-500 hover:text-gray-800 border border-gray-200 rounded-md"
                         >
-                          {t('admin.sections.reset')}
+                          {t('admin.sectionImages.reset')}
                         </button>
                       )}
                     </div>
