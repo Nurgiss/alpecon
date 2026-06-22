@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { newsApi, NewsItem } from '@/services/newsApi';
 import { useLanguage } from '@/app/contexts/LanguageContext';
 import { useHeroImage } from '@/contexts/HeroImagesContext';
+import { getLocalizedNewsField } from '@/utils/newsHelpers';
 
 export function News() {
   const { language, t } = useLanguage();
@@ -12,10 +13,8 @@ export function News() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const getLocalizedField = (item: NewsItem, field: 'title' | 'content' | 'category') => {
-    const langField = `${field}_${language}` as keyof NewsItem;
-    return (item[langField] as string) || item[field];
-  };
+  const getLocalizedField = (item: NewsItem, field: 'title' | 'content' | 'category') =>
+    getLocalizedNewsField(item, language, field);
 
   useEffect(() => {
     loadNews();

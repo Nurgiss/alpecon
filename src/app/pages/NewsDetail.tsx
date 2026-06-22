@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { newsApi, type NewsItem } from '@/services/newsApi';
 import { useLanguage } from '@/app/contexts/LanguageContext';
+import { getLocalizedNewsField } from '@/utils/newsHelpers';
 
 export function NewsDetail() {
   const { id } = useParams<{ id: string }>();
@@ -35,27 +36,9 @@ export function NewsDetail() {
     fetchNews();
   }, [id]);
 
-  // Функция для получения локализованного значения
   const getLocalizedField = (item: NewsItem | null, field: 'title' | 'content' | 'category'): string => {
     if (!item) return '';
-    
-    const langField = `${field}_${language}` as keyof NewsItem;
-    const value = item[langField];
-    
-    if (value && typeof value === 'string') {
-      return value;
-    }
-    
-    // Fallback к русскому
-    const ruField = `${field}_ru` as keyof NewsItem;
-    const ruValue = item[ruField];
-    if (ruValue && typeof ruValue === 'string') {
-      return ruValue;
-    }
-    
-    // Fallback к базовому полю
-    const baseValue = item[field];
-    return (baseValue && typeof baseValue === 'string') ? baseValue : '';
+    return getLocalizedNewsField(item, language, field);
   };
 
   const formatDate = (dateString: string) => {

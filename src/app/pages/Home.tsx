@@ -9,6 +9,7 @@ import { useContentBlocks, getBlockField } from '@/hooks/useContentBlocks';
 import { useHeroImage } from '@/contexts/HeroImagesContext';
 import { useGroupSectionImage } from '@/contexts/SectionImagesContext';
 import { AboutSectionGallery } from '@/app/components/AboutSectionGallery';
+import { getLocalizedNewsField } from '@/utils/newsHelpers';
 import { DIRECTION_FALLBACK_IMAGES } from '@/config/blockFallbackImages';
 
 export function Home() {
@@ -34,18 +35,8 @@ export function Home() {
     fetchNews();
   }, []);
 
-  const getLocalizedField = (item: NewsItem, field: 'title' | 'content' | 'category'): string => {
-    const langField = `${field}_${language}` as keyof NewsItem;
-    const value = item[langField];
-    if (value && typeof value === 'string') return value;
-    
-    const ruField = `${field}_ru` as keyof NewsItem;
-    const ruValue = item[ruField];
-    if (ruValue && typeof ruValue === 'string') return ruValue;
-    
-    const baseValue = item[field];
-    return (baseValue && typeof baseValue === 'string') ? baseValue : '';
-  };
+  const getLocalizedField = (item: NewsItem, field: 'title' | 'content' | 'category') =>
+    getLocalizedNewsField(item, language, field);
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
