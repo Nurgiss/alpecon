@@ -3,9 +3,11 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { newsApi, NewsItem } from '@/services/newsApi';
 import { useLanguage } from '@/app/contexts/LanguageContext';
+import { useHeroImage } from '@/contexts/HeroImagesContext';
 
 export function News() {
   const { language, t } = useLanguage();
+  const heroImage = useHeroImage('news');
   const [news, setNews] = useState<NewsItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -55,7 +57,7 @@ export function News() {
       <section className="relative h-screen flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1683334086948-bd47e6fc45eb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxpbmR1c3RyaWFsJTIwZmFjdG9yeSUyMEthemFraHN0YW4lMjBuZXdzfGVufDF8fHx8MTc2ODU1NTAzN3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+            src={heroImage}
             alt="Background"
             className="w-full h-full object-cover"
           />

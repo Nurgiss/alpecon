@@ -5,7 +5,7 @@ import { AdminLayout, type AdminSection } from '@/app/components/admin/AdminLayo
 import { AdminDashboard } from '@/app/components/admin/AdminDashboard';
 import { NewsManager } from '@/app/components/admin/NewsManager';
 import { BlockManager } from '@/app/components/admin/BlockManager';
-import { ContentEditor } from '@/app/components/admin/ContentEditor';
+import { HeroImageManager } from '@/app/components/admin/HeroImageManager';
 import { CONTENT_PAGES, type ContentPageKey } from '@/config/contentPages';
 import type { BlockType } from '@/types/blocks';
 
@@ -35,6 +35,7 @@ export function Admin() {
       {activeSection === 'dashboard' && <AdminDashboard onNavigate={setActiveSection} />}
       {activeSection === 'news' && <NewsManager />}
       {isBlockType(activeSection) && <BlockManager type={activeSection} />}
+      {activeSection === 'heroes' && <HeroImageManager />}
       {isTextPage(activeSection) && <ContentEditor pageKey={activeSection} />}
     </AdminLayout>
   );

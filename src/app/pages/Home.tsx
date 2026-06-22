@@ -5,18 +5,19 @@ import { useLanguage } from '@/app/contexts/LanguageContext';
 import { useState, useEffect } from 'react';
 import { newsApi, type NewsItem } from '@/services/newsApi';
 import { Link } from 'react-router-dom';
-import imgHeroBackground from '@/assets/Hero.jpg';
+import { useContentBlocks, getBlockField } from '@/hooks/useContentBlocks';
+import { useHeroImage } from '@/contexts/HeroImagesContext';
 import imgGroup from '@/assets/group.jpg';
 import imgPektin from '@/assets/pektin.jpg';
 import imgFoodStorage from '@/assets/foodstorage.jpg';
 import img1 from '@/assets/1.jpg';
 import img2 from '@/assets/2.jpeg';
 import img3 from '@/assets/3.jpg';
-import { useContentBlocks, getBlockField } from '@/hooks/useContentBlocks';
 import { DIRECTION_FALLBACK_IMAGES } from '@/config/blockFallbackImages';
 
 export function Home() {
   const { t, language } = useLanguage();
+  const heroImage = useHeroImage('home');
   const { blocks: directions, loading: directionsLoading } = useContentBlocks('direction');
   const [news, setNews] = useState<NewsItem[]>([]);
   const [loading, setLoading] = useState(true);
@@ -59,7 +60,7 @@ export function Home() {
       <section className="relative h-screen flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src={imgHeroBackground}
+            src={heroImage}
             alt="Background"
             className="w-full h-full object-cover"
           />

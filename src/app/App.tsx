@@ -9,7 +9,7 @@ import { Contacts } from '@/app/pages/Contacts';
 import { Admin } from '@/app/pages/Admin';
 import { AdminLogin } from '@/app/pages/AdminLogin';
 import { NotFound } from '@/app/pages/NotFound';
-import { LanguageProvider } from '@/app/contexts/LanguageContext';
+import { HeroImagesProvider } from '@/contexts/HeroImagesContext';
 import { Projects } from '@/app/pages/Projects';
 // import { Investors } from '@/app/pages/Investors';
 import { Vacancies } from '@/app/pages/Vacancies';
@@ -29,6 +29,7 @@ function ScrollToTop() {
 export default function App() {
   return (
     <LanguageProvider>
+      <HeroImagesProvider>
       <BrowserRouter>
         <ScrollToTop />
         <Analytics />
@@ -59,6 +60,7 @@ export default function App() {
           } />
         </Routes>
       </BrowserRouter>
+      </HeroImagesProvider>
     </LanguageProvider>
   );
 }

@@ -369,6 +369,7 @@ export const translations = {
         cards: "Карточки",
         texts: "Тексты страниц",
         news: "Новости",
+        heroes: "Hero-изображения",
         logout: "Выйти",
         logoutConfirm: "Вы уверены, что хотите выйти?"
       },
@@ -381,6 +382,12 @@ export const translations = {
         savedSuccess: "Тексты сохранены!",
         saveError: "Ошибка сохранения",
         loadError: "Ошибка загрузки"
+      },
+      heroes: {
+        title: "Hero-изображения",
+        hint: "Фоновые фото в шапке каждой страницы. Кликните или перетащите файл для замены.",
+        reset: "По умолчанию",
+        savedSuccess: "Hero-изображения сохранены!"
       },
       blocks: {
         hint: "Перетащите карточки для изменения порядка. Нажмите карандаш для редактирования.",
@@ -829,6 +836,7 @@ export const translations = {
         cards: "Карточкалар",
         texts: "Бет мәтіндері",
         news: "Жаңалықтар",
+        heroes: "Hero-суреттер",
         logout: "Шығу",
         logoutConfirm: "Шығуды растайсыз ба?"
       },
@@ -841,6 +849,12 @@ export const translations = {
         savedSuccess: "Мәтіндер сақталды!",
         saveError: "Сақтау қатесі",
         loadError: "Жүктеу қатесі"
+      },
+      heroes: {
+        title: "Hero-суреттер",
+        hint: "Әр беттің шапкасындағы фон суреттері. Ауыстыру үшін басыңыз немесе сүйреңіз.",
+        reset: "Әдепкі",
+        savedSuccess: "Hero-суреттер сақталды!"
       },
       blocks: {
         hint: "Ретті өзгерту үшін карточкаларды сүйреңіз.",
@@ -1289,6 +1303,7 @@ export const translations = {
         cards: "Cards",
         texts: "Page texts",
         news: "News",
+        heroes: "Hero images",
         logout: "Logout",
         logoutConfirm: "Are you sure you want to logout?"
       },
@@ -1301,6 +1316,12 @@ export const translations = {
         savedSuccess: "Texts saved!",
         saveError: "Failed to save",
         loadError: "Failed to load"
+      },
+      heroes: {
+        title: "Hero images",
+        hint: "Background photos in each page header. Click or drag a file to replace.",
+        reset: "Reset default",
+        savedSuccess: "Hero images saved!"
       },
       blocks: {
         hint: "Drag cards to reorder.",

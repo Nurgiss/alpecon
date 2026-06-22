@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useLanguage } from '@/app/contexts/LanguageContext';
+import { useHeroImage } from '@/contexts/HeroImagesContext';
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3002/api';
 
 export function Vacancies() {
   const { t } = useLanguage();
+  const heroImage = useHeroImage('vacancies');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -83,7 +85,7 @@ export function Vacancies() {
       <section className="relative py-16 sm:py-24 lg:py-32 bg-gray-50 overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=2000"
+            src={heroImage}
             alt="Background"
             className="w-full h-full object-cover opacity-10"
           />

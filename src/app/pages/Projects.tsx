@@ -1,7 +1,7 @@
 import { useLanguage } from '@/app/contexts/LanguageContext';
-import imgHeroProjects from '@/assets/13.jpg';
 import { useContentBlocks, getBlockField } from '@/hooks/useContentBlocks';
 import { PROJECT_FALLBACK_IMAGES } from '@/config/blockFallbackImages';
+import { useHeroImage } from '@/contexts/HeroImagesContext';
 
 interface ProjectCardProps {
   image: string;
@@ -53,6 +53,7 @@ function ProjectCard({ image, title, description, products, productsLabel }: Pro
 
 export function Projects() {
   const { t, language } = useLanguage();
+  const heroImage = useHeroImage('projects');
   const { blocks: projectBlocks, loading: projectsLoading } = useContentBlocks('project');
 
   const projects = projectBlocks.map((block, index) => ({
@@ -69,7 +70,7 @@ export function Projects() {
       <section className="relative min-h-screen flex items-center">
         <div className="absolute inset-0">
           <img
-            src={imgHeroProjects}
+            src={heroImage}
             alt={t('projects.hero.title')}
             className="w-full h-full object-cover"
           />

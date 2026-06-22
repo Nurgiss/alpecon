@@ -7,6 +7,7 @@ export const VALID_PAGE_KEYS = [
   'contacts',
   'vacancies',
   'news',
+  'heroes',
 ] as const;
 
 export type PageKey = (typeof VALID_PAGE_KEYS)[number];
