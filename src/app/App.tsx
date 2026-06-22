@@ -10,6 +10,7 @@ import { Admin } from '@/app/pages/Admin';
 import { AdminLogin } from '@/app/pages/AdminLogin';
 import { NotFound } from '@/app/pages/NotFound';
 import { HeroImagesProvider } from '@/contexts/HeroImagesContext';
+import { SectionImagesProvider } from '@/contexts/SectionImagesContext';
 import { Projects } from '@/app/pages/Projects';
 // import { Investors } from '@/app/pages/Investors';
 import { Vacancies } from '@/app/pages/Vacancies';
@@ -31,6 +32,7 @@ export default function App() {
   return (
     <LanguageProvider>
       <HeroImagesProvider>
+      <SectionImagesProvider>
       <BrowserRouter>
         <ScrollToTop />
         <Analytics />
@@ -61,6 +63,7 @@ export default function App() {
           } />
         </Routes>
       </BrowserRouter>
+      </SectionImagesProvider>
       </HeroImagesProvider>
     </LanguageProvider>
   );

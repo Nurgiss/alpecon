@@ -7,17 +7,15 @@ import { newsApi, type NewsItem } from '@/services/newsApi';
 import { Link } from 'react-router-dom';
 import { useContentBlocks, getBlockField } from '@/hooks/useContentBlocks';
 import { useHeroImage } from '@/contexts/HeroImagesContext';
-import imgGroup from '@/assets/group.jpg';
-import imgPektin from '@/assets/pektin.jpg';
-import imgFoodStorage from '@/assets/foodstorage.jpg';
-import img1 from '@/assets/1.jpg';
-import img2 from '@/assets/2.jpeg';
-import img3 from '@/assets/3.jpg';
+import { useGroupSectionImage } from '@/contexts/SectionImagesContext';
+import { AboutSectionGallery } from '@/app/components/AboutSectionGallery';
 import { DIRECTION_FALLBACK_IMAGES } from '@/config/blockFallbackImages';
 
 export function Home() {
   const { t, language } = useLanguage();
   const heroImage = useHeroImage('home');
+  const directorPhoto = useGroupSectionImage('director', 'photo');
+  const statsBackground = useGroupSectionImage('stats', 'background');
   const { blocks: directions, loading: directionsLoading } = useContentBlocks('direction');
   const [news, setNews] = useState<NewsItem[]>([]);
   const [loading, setLoading] = useState(true);
@@ -104,40 +102,7 @@ export function Home() {
                 {t('home.about.learnMore')}
               </Link>
             </div>
-            <div className="grid grid-cols-2 gap-4 sm:gap-6">
-              <div className="space-y-4 sm:space-y-6">
-                <div className="overflow-hidden rounded-md shadow-lg">
-                  <img
-                    src="https://images.unsplash.com/photo-1651525670054-279c154bc3b6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmcnVpdCUyMHByb2Nlc3NpbmclMjBmYWN0b3J5JTIwcHJvZHVjdGlvbnxlbnwxfHx8fDE3NzEzNTM1OTd8MA&ixlib=rb-4.1.0&q=80&w=1080"
-                    alt="Apple Orchard"
-                    className="w-full h-64 sm:h-72 object-cover transition-all duration-500"
-                  />
-                </div>
-                <div className="overflow-hidden rounded-md shadow-lg">
-                  <img
-                    src={img2}
-                    alt="Fresh Fruits"
-                    className="w-full h-48 sm:h-56 object-cover transition-all duration-500"
-                  />
-                </div>
-              </div>
-              <div className="space-y-4 sm:space-y-6 pt-8 sm:pt-12">
-                <div className="overflow-hidden rounded-md shadow-lg">
-                  <img
-                    src={img1}
-                    alt="Solar Panels"
-                    className="w-full h-48 sm:h-56 object-cover"
-                  />
-                </div>
-                <div className="overflow-hidden rounded-md shadow-lg">
-                  <img
-                    src={img3}
-                    alt="Greenhouse"
-                    className="w-full h-64 sm:h-72 object-cover"
-                  />
-                </div>
-              </div>
-            </div>
+            <AboutSectionGallery />
           </div>
           </div>
         </div>
@@ -150,7 +115,7 @@ export function Home() {
             {/* Фото на всю ширину */}
             <div className="overflow-hidden rounded-2xl shadow-lg mb-10 sm:mb-12">
               <img
-                src={imgGroup}
+                src={directorPhoto}
                 alt="Alpecon Group"
                 className="w-full h-[300px] sm:h-[400px] lg:h-[500px] object-cover"
               />
@@ -173,7 +138,7 @@ export function Home() {
       <section className="relative py-32 overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1655176198204-e939d46fc584?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx2YXN0JTIwYWdyaWN1bHR1cmFsJTIwZmllbGQlMjBhZXJpYWwlMjB2aWV3JTIwZ29sZGVufGVufDF8fHx8MTc3MTM1NzUwMHww&ixlib=rb-4.1.0&q=80&w=1080"
+            src={statsBackground}
             alt="Background"
             className="w-full h-full object-cover"
           />

@@ -4,17 +4,17 @@ import { useLanguage } from '@/app/contexts/LanguageContext';
 import { useContentBlocks, getBlockField } from '@/hooks/useContentBlocks';
 import { getTeamFallbackByName } from '@/config/blockFallbackImages';
 import { useHeroImage } from '@/contexts/HeroImagesContext';
-import imgMission from '@/assets/image 24.jpg';
+import { useGroupSectionImage } from '@/contexts/SectionImagesContext';
+import { AboutSectionGallery } from '@/app/components/AboutSectionGallery';
 import iconExports from '@/assets/exports.png';
 import iconEco from '@/assets/eco.png';
 import iconFarmer from '@/assets/farmer.png';
-import img1 from '@/assets/1.jpg';
-import img2 from '@/assets/2.jpeg';
-import img3 from '@/assets/3.jpg';
 
 export function About() {
   const { t, language } = useLanguage();
   const heroImage = useHeroImage('about');
+  const missionBackground = useGroupSectionImage('mission', 'background');
+  const valuesBackground = useGroupSectionImage('values', 'background');
   const { blocks: teamMembers, loading: teamLoading } = useContentBlocks('team');
   
   return (
@@ -56,40 +56,7 @@ export function About() {
                 ))}
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-4 sm:gap-6">
-              <div className="space-y-4 sm:space-y-6">
-                <div className="overflow-hidden rounded-md shadow-lg">
-                  <img
-                    src="https://images.unsplash.com/photo-1651525670054-279c154bc3b6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmcnVpdCUyMHByb2Nlc3NpbmclMjBmYWN0b3J5JTIwcHJvZHVjdGlvbnxlbnwxfHx8fDE3NzEzNTM1OTd8MA&ixlib=rb-4.1.0&q=80&w=1080"
-                    alt="Apple Orchard"
-                    className="w-full h-64 sm:h-72 object-cover transition-all duration-500"
-                  />
-                </div>
-                <div className="overflow-hidden rounded-md shadow-lg">
-                  <img
-                    src={img2}
-                    alt="Fresh Fruits"
-                    className="w-full h-48 sm:h-56 object-cover transition-all duration-500"
-                  />
-                </div>
-              </div>
-              <div className="space-y-4 sm:space-y-6 pt-8 sm:pt-12">
-                <div className="overflow-hidden rounded-md shadow-lg">
-                  <img
-                    src={img1}
-                    alt="Solar Panels"
-                    className="w-full h-48 sm:h-56 object-cover"
-                  />
-                </div>
-                <div className="overflow-hidden rounded-md shadow-lg">
-                  <img
-                    src={img3}
-                    alt="Greenhouse"
-                    className="w-full h-64 sm:h-72 object-cover"
-                  />
-                </div>
-              </div>
-            </div>
+            <AboutSectionGallery />
           </div>
 
           {/* Key Achievements Grid */}
@@ -106,12 +73,12 @@ export function About() {
               <img 
                 alt="Apple orchard" 
                 className="absolute inset-0 w-full h-full object-cover" 
-                src={imgMission} 
+                src={missionBackground} 
               />
               <img 
                 alt="" 
                 className="absolute inset-0 w-full h-full object-cover brightness-110 contrast-105 saturate-110" 
-                src={imgMission} 
+                src={missionBackground} 
               />
             </div>
             
@@ -137,7 +104,7 @@ export function About() {
             <div className="relative min-h-[700px] rounded-3xl overflow-hidden">
               {/* Background image */}
               <img 
-                src="https://images.unsplash.com/photo-1730628257362-d3ddcf952a75?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxncmVlbiUyMGZpZWxkcyUyMGxhbmRzY2FwZSUyMG1vdW50YWluc3xlbnwxfHx8fDE3NzEzMzkzNzR8MA&ixlib=rb-4.1.0&q=80&w=1080"
+                src={valuesBackground}
                 alt="Landscape background"
                 className="absolute inset-0 w-full h-full object-cover"
               />

@@ -1,4 +1,4 @@
-import { Factory, Users, FolderKanban, Newspaper, ExternalLink, Type, Image } from 'lucide-react';
+import { Factory, Users, FolderKanban, Newspaper, ExternalLink, Type, Image, Images } from 'lucide-react';
 import { useLanguage } from '@/app/contexts/LanguageContext';
 import { BLOCK_CONFIGS, type BlockType } from '@/types/blocks';
 import { CONTENT_PAGES } from '@/config/contentPages';
@@ -11,6 +11,7 @@ interface AdminDashboardProps {
 const QUICK_LINKS: Array<{ section: AdminSection; icon: React.ReactNode; color: string }> = [
   { section: 'news', icon: <Newspaper size={24} />, color: 'bg-blue-500' },
   { section: 'heroes', icon: <Image size={24} />, color: 'bg-rose-500' },
+  { section: 'sections', icon: <Images size={24} />, color: 'bg-orange-500' },
   { section: 'direction', icon: <Factory size={24} />, color: 'bg-emerald-500' },
   { section: 'team', icon: <Users size={24} />, color: 'bg-violet-500' },
   { section: 'project', icon: <FolderKanban size={24} />, color: 'bg-amber-500' },
@@ -25,6 +26,9 @@ export function AdminDashboard({ onNavigate }: AdminDashboardProps) {
     }
     if (link.section === 'heroes') {
       return { ...link, label: t('admin.panel.heroes'), desc: t('admin.heroes.hint'), page: '/' };
+    }
+    if (link.section === 'sections') {
+      return { ...link, label: t('admin.panel.sections'), desc: t('admin.sections.hint'), page: '/about' };
     }
     const config = BLOCK_CONFIGS[link.section as BlockType];
     return { ...link, label: config.label, desc: t('admin.blocks.hint'), page: config.page };

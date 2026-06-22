@@ -16,13 +16,14 @@ import {
   UserPlus,
   FileText,
   Image,
+  Images,
 } from 'lucide-react';
 import { useLanguage } from '@/app/contexts/LanguageContext';
 import { newsApi } from '@/services/newsApi';
 import { CONTENT_PAGES, type ContentPageKey } from '@/config/contentPages';
 import type { BlockType } from '@/types/blocks';
 
-export type AdminSection = 'dashboard' | 'news' | 'heroes' | BlockType | ContentPageKey;
+export type AdminSection = 'dashboard' | 'news' | 'heroes' | 'sections' | BlockType | ContentPageKey;
 
 const BLOCK_NAV: Array<{ id: BlockType; icon: ReactNode }> = [
   { id: 'direction', icon: <Factory size={18} /> },
@@ -104,6 +105,10 @@ export function AdminLayout({ activeSection, onSectionChange, children }: AdminL
           <button type="button" onClick={() => onSectionChange('heroes')} className={navClass('heroes')}>
             <Image size={18} />
             {t('admin.panel.heroes')}
+          </button>
+          <button type="button" onClick={() => onSectionChange('sections')} className={navClass('sections')}>
+            <Images size={18} />
+            {t('admin.panel.sections')}
           </button>
 
           <p className="px-4 py-2 mt-5 text-[10px] font-bold text-gray-400 uppercase tracking-widest">

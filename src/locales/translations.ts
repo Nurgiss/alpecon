@@ -370,6 +370,7 @@ export const translations = {
         texts: "Тексты страниц",
         news: "Новости",
         heroes: "Hero-изображения",
+        sections: "Изображения секций",
         logout: "Выйти",
         logoutConfirm: "Вы уверены, что хотите выйти?"
       },
@@ -388,6 +389,12 @@ export const translations = {
         hint: "Фоновые фото в шапке каждой страницы. Кликните или перетащите файл для замены.",
         reset: "По умолчанию",
         savedSuccess: "Hero-изображения сохранены!"
+      },
+      sections: {
+        title: "Изображения секций",
+        hint: "Фото в блоках «О холдинге», «Миссия», «Ценности» и др. Общие блоки синхронизируются между страницами.",
+        reset: "По умолчанию",
+        savedSuccess: "Изображения секций сохранены!"
       },
       blocks: {
         hint: "Перетащите карточки для изменения порядка. Нажмите карандаш для редактирования.",
@@ -837,6 +844,7 @@ export const translations = {
         texts: "Бет мәтіндері",
         news: "Жаңалықтар",
         heroes: "Hero-суреттер",
+        sections: "Бөлім суреттері",
         logout: "Шығу",
         logoutConfirm: "Шығуды растайсыз ба?"
       },
@@ -855,6 +863,12 @@ export const translations = {
         hint: "Әр беттің шапкасындағы фон суреттері. Ауыстыру үшін басыңыз немесе сүйреңіз.",
         reset: "Әдепкі",
         savedSuccess: "Hero-суреттер сақталды!"
+      },
+      sections: {
+        title: "Бөлім суреттері",
+        hint: "«Холдинг туралы», «Миссия», «Құндылықтар» блоктарындағы фото. Ортақ блоктар беттер арасында синхрондалады.",
+        reset: "Әдепкі",
+        savedSuccess: "Бөлім суреттері сақталды!"
       },
       blocks: {
         hint: "Ретті өзгерту үшін карточкаларды сүйреңіз.",
@@ -1304,6 +1318,7 @@ export const translations = {
         texts: "Page texts",
         news: "News",
         heroes: "Hero images",
+        sections: "Section images",
         logout: "Logout",
         logoutConfirm: "Are you sure you want to logout?"
       },
@@ -1322,6 +1337,12 @@ export const translations = {
         hint: "Background photos in each page header. Click or drag a file to replace.",
         reset: "Reset default",
         savedSuccess: "Hero images saved!"
+      },
+      sections: {
+        title: "Section images",
+        hint: "Photos in About holding, Mission, Values and other blocks. Shared blocks sync across pages.",
+        reset: "Reset default",
+        savedSuccess: "Section images saved!"
       },
       blocks: {
         hint: "Drag cards to reorder.",
